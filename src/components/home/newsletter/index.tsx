@@ -4,7 +4,8 @@
 import { FormEvent, useState } from "react";
 
 export default function Newsletter() {
-  const HILIGHT = "#FF624D"; const HILIGHT_SOFT = "#FF6E5A";
+  const HILIGHT = "#FF624D";
+  const HILIGHT_SOFT = "#FF6E5A";
   const [email, setEmail] = useState("");
 
   function onSubmit(e: FormEvent) {
@@ -19,25 +20,56 @@ export default function Newsletter() {
       style={{ backgroundImage: "url(/newsletter/fundo.png)", backgroundColor: "rgb(13, 7, 17)" }}
     >
       <div className="mx-auto max-w-[760px] px-5 text-center">
-        <h2 className="font-serif leading-tight mb-4 text-[28px] min-[820px]:text-[36px]">
-          Canastra Newsletter
+        {/* Título: “Newsletter” com laranja no mobile e no desktop */}
+        <h2 className="font-serif leading-tight mb-4 text-[30px] min-[820px]:text-[40px]">
+          Canastra{" "}
+          <span style={{ color: HILIGHT }} className="italic font-semibold">
+            Newsletter
+          </span>
         </h2>
 
-        <p className="text-white/85 mb-6 text-[clamp(11px,3.6vw,15px)] leading-[1.35] min-[820px]:text-[16px] min-[820px]:leading-relaxed">
+        {/* MOBILE — mantém destaques laranja; novo texto com a mesma quebra */}
+        <p className="text-white/85 mb-6 text-[clamp(12px,3.6vw,16px)] leading-[1.4] min-[820px]:hidden">
           <span>
-            Conhecimento, <span style={{ color: HILIGHT }} className="italic font-semibold">insights e novidades</span> para founders
+            Conhecimento,{" "}
+            <span style={{ color: HILIGHT }} className="italic font-semibold">
+              insights e novidades
+            </span>{" "}
+            para founders
           </span>
           <br />
           <span>
-            que estão construindo <span style={{ color: HILIGHT }} className="italic font-semibold">stratups de IA</span> no Brasil.
+            que estão construindo{" "}
+            <span style={{ color: HILIGHT }} className="italic font-semibold">
+              startups de IA
+            </span>{" "}
+            no Brasil.
           </span>
           <br />
           <span>
-            Over <span style={{ color: HILIGHT }} className="italic font-semibold">4,000 subscribers</span>
+            Mais de{" "}
+            <span style={{ color: HILIGHT }} className="italic font-semibold">
+              5.000 assinantes
+            </span>
+            .
           </span>
         </p>
 
-        <form onSubmit={onSubmit} className="mx-auto max-w-[640px] min-[820px]:grid min-[820px]:grid-cols-[1fr_auto]">
+        {/* DESKTOP — parágrafo todo branco; só “5.000 assinantes” com peso maior */}
+        <p className="hidden min-[820px]:block text-white/85 mb-6 text-[18px] leading-relaxed">
+          <span>Conhecimento, insights e novidades para founders</span>
+          <br />
+          <span>que estão construindo startups de IA no Brasil.</span>
+          <br />
+          <span>
+            Mais de <span className="text-white font-semibold">5.000 assinantes</span>.
+          </span>
+        </p>
+
+        <form
+          onSubmit={onSubmit}
+          className="mx-auto max-w-[640px] min-[820px]:grid min-[820px]:grid-cols-[1fr_auto]"
+        >
           <input
             type="email"
             required
@@ -50,7 +82,7 @@ export default function Newsletter() {
             className="w-full h-12 px-4 text-white placeholder:text-gray-400 bg-transparent border border-gray-400 outline-none rounded-xl focus:outline-none focus:border-gray-400 min-[820px]:rounded-r-none"
           />
 
-          {/* cta mobile */}
+          {/* CTA mobile */}
           <button
             type="submit"
             className="mt-3 inline-flex items-center justify-center font-semibold h-12 px-6 rounded-md transition-colors duration-200 ease-out bg-[var(--cta-mobile)] text-white hover:brightness-110 min-[820px]:hidden"
@@ -59,7 +91,7 @@ export default function Newsletter() {
             INSCREVA-SE
           </button>
 
-          {/* cta desktop */}
+          {/* CTA desktop */}
           <button
             type="submit"
             className="hidden min-[820px]:inline-flex items-center justify-center font-semibold h-12 px-6 rounded-r-xl rounded-l-none border bg-gray-400 border-gray-400 text-white transition-colors duration-300 ease-out hover:bg-[var(--cta-hover)] hover:border-[var(--cta-hover)]"

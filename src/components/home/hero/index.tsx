@@ -106,7 +106,7 @@ export default function Hero() {
           </span>
         </h2>
 
-        <p ref={pRef} className="mt-3 text-white/85 min-[820px]:max-w-[440px]">Somos uma VC pre-seed com foco em IA.</p>
+        <p ref={pRef} className="mt-3 text-white/85 min-[820px]:max-w-[440px]">VC pre-seed especialista em IA</p>
 
         <div className="mt-7 flex items-center justify-center gap-2 min-[820px]:justify-start">
           <a
