@@ -22,7 +22,6 @@ export default function Sobre() {
           #sobre .spikes-desktop { top: 50%; }
         }
 
-        /* MacBook Air */
         @media (min-width: 1181px) and (max-width: 1439px) {
           #sobre { min-height: 108dvh; padding-bottom: 94dvh; }
           #sobre .wrap { top: 46%; margin-left: 26px; }             /* → mais à direita */
@@ -55,12 +54,24 @@ export default function Sobre() {
 
       <div className="wrap relative z-10 mx-auto max-w-[640px] px-5 text-center min-[820px]:text-left min-[820px]:max-w-[1100px] min-[820px]:px-8 min-[820px]:pl-20 lg:pl-20 xl:pl-12 2xl:pl-10 min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-[58%] lg:top-[59%] xl:top-[60%] 2xl:top-[60%] min-[820px]:-translate-y-1/2 min-[820px]:max-[1180px]:pl-8">
         <h2 className="font-serif text-[28px] leading-snug mb-4 lg:text-[32px] min-[820px]:max-[1180px]:text-[24px] min-[820px]:max-[1180px]:leading-[1.2]">
-          <span className="italic font-semibold">Nosso</span>{" "}
-          <span className="text-[#FF624D] italic font-semibold">Portfólio</span>
+          <span className="italic font-semibold">AI Entrepreneur in </span>
+          <span className="text-[#FF624D] italic font-semibold">Residence</span>
         </h2>
 
-        <p className="text-white/90 text-base leading-relaxed mx-auto max-w-[46ch] min-[820px]:mx-0 lg:text-[16px] min-[820px]:max-[1180px]:text-[14px] min-[820px]:max-[1180px]:leading-[1.6]">
-          Projetos, cases e teses que acompanhamos de perto. Em breve, mais detalhes públicos aqui.
+        {/* Parágrafo novo — exatamente 4 linhas */}
+        <p className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-[46ch] min-[820px]:mx-0 min-[820px]:text-[15px]">
+          <span className="block whitespace-nowrap">
+            Ao longo de 12 semanas, os residentes terão apoio hands-on
+          </span>
+          <span className="block whitespace-nowrap">
+            com <span className="text-[#FF624D] font-semibold">Fellow Partners</span>, orientação de mentores e conexões
+          </span>
+          <span className="block whitespace-nowrap">
+            estratégicas para validar a tese, criar o MVP e alcançar os
+          </span>
+          <span className="block whitespace-nowrap">
+            primeiros sinais de tração rumo ao <span className="text-[#FF624D] font-semibold">primeiro cheque</span>.
+          </span>
         </p>
 
         <div className="mt-6 min-[820px]:mt-7">

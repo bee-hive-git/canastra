@@ -1,5 +1,7 @@
-// Footer.tsx
+// src/components/global/footer/index.tsx
 "use client";
+
+import Link from "next/link";
 
 export default function Footer() {
   const ACCENT = "#FF624D";
@@ -10,7 +12,6 @@ export default function Footer() {
   return (
     <footer id="footer" className="text-white" style={{ backgroundColor: BG }}>
       <style jsx global>{`
-        /* ≥1440: tudo maior + mais altura */
         @media (min-width: 1440px) {
           #footer .col h3 { font-size: 17px; }
           #footer .col p, #footer .col a { font-size: 16px; line-height: 1.8; }
@@ -46,20 +47,16 @@ export default function Footer() {
             <h3 className="text-[15px] font-semibold" style={{ color: ACCENT }}>Links</h3>
             <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[14px] max-[360px]:text-[13px] min-[820px]:block">
               <li className="min-[820px]:mb-1">
-                <a href="#time" className={linkBase}>Time</a>
+                <Link href="/time" prefetch className={linkBase}>Time</Link>
               </li>
               <li className="min-[820px]:mb-1">
-                <a href="" onClick={(e) => e.preventDefault()} className={linkBase} role="link" aria-label="AI EiR">
-                  AI EiR
-                </a>
+                <Link href="/ai-eir" prefetch className={linkBase}>AI EiR</Link>
               </li>
               <li className="min-[820px]:mb-1">
-                <a href="#sobre" className={linkBase}>Portfólio</a>
+                <Link href="/portfolio" prefetch className={linkBase}>Portfólio</Link>
               </li>
               <li className="min-[820px]:mb-0">
-                <a href="" onClick={(e) => e.preventDefault()} className={linkBase} role="link" aria-label="Pitch us!">
-                  Pitch us!
-                </a>
+                <Link href="/pitch-us" prefetch className={linkBase}>Pitch us!</Link>
               </li>
             </ul>
             <div className="my-5 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10 min-[820px]:hidden" />

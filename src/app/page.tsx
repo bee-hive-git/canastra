@@ -1,9 +1,9 @@
-import Header from "@/components/header"
-import Hero from "@/components/hero"
-import Sobre from "@/components/sobre"
-import Time from "@/components/time"
-import Newsletter from "@/components/newsletter"
-import Footer from "@/components/footer"
+import Header from "@/components/global/header"
+import Hero from "@/components/home/hero"
+import Sobre from "@/components/home/sobre"
+import Time from "@/components/home/time"
+import Newsletter from "@/components/home/newsletter"
+import Footer from "@/components/global/footer"
 
 export default function Page(){
   return (

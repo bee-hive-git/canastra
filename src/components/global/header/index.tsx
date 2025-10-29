@@ -1,50 +1,58 @@
 // Header.tsx
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-type NavItem = { label: string; href: string; inert?: boolean };
+type NavItem = { label: string; href: string; exact?: boolean };
 
 const NAV: NavItem[] = [
-  { label: "Home", href: "#home" },
-  { label: "Time", href: "#time" },
-  { label: "AI EiR", href: "", inert: true },
-  { label: "Portfolio", href: "#sobre" },
-  { label: "Pitch us!", href: "", inert: true },
+  { label: "Home", href: "/", exact: true },
+  { label: "Time", href: "/time" },
+  { label: "AI EiR", href: "/ai-eir" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Pitch us!", href: "/pitch-us" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   const close = () => setOpen(false);
 
-  const Item = ({ label, href, inert }: NavItem) => {
-    const common = "hover:text-white transition-colors";
-    if (inert) {
-      return (
-        <a href="" onClick={(e) => e.preventDefault()} className={common + " text-white/80"} role="link" aria-label={label}>
-          {label}
-        </a>
-      );
-    }
+  const BG = "rgb(17, 4, 23)";
+
+  useEffect(() => { setOpen(false); }, [pathname]);
+
+  const isActive = (href: string, exact?: boolean) =>
+    exact ? pathname === href : (href !== "/" && pathname.startsWith(href));
+
+  const Item = ({ label, href, exact }: NavItem) => {
+    const active = isActive(href, exact);
+    const base =
+      "transition-colors text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-sm";
     return (
-      <Link href={href} className={common + " text-white/80"}>
+      <Link
+        href={href}
+        prefetch
+        aria-current={active ? "page" : undefined}
+        className={base + (active ? " text-white" : "")}
+      >
         {label}
       </Link>
     );
   };
 
   return (
-    <header id="site-header" className="fixed inset-x-0 top-0 z-50" style={{ backgroundColor: "rgb(13, 7, 17)" }}>
+    <header id="site-header" className="fixed inset-x-0 top-0 z-50" style={{ backgroundColor: BG }}>
       <style jsx global>{`
-        /* mantém a altura do header; aumenta só a logo */
         @media (min-width: 1181px) and (max-width: 1439px) {
           #site-header .deskbar { height: 78px; }
-          #site-header .logo { height: 42px; }   /* antes 36px */
+          #site-header .logo { height: 42px; }
         }
         @media (min-width: 1440px) {
           #site-header .deskbar { height: 92px; }
-          #site-header .logo { height: 48px; }   /* antes 40px */
+          #site-header .logo { height: 48px; }
         }
       `}</style>
 
@@ -64,7 +72,14 @@ export default function Header() {
 
       {/* desktop */}
       <div className="deskbar hidden min-[820px]:flex h-16 items-center justify-between px-8">
-        <img src="/header/logo.png" alt="Canastra Ventures" className="logo w-auto" />
+        <Link href="/" prefetch aria-label="Ir para a Home" className="inline-flex items-center">
+          <img
+            src="/header/logo.png"
+            alt="Canastra Ventures"
+            className="logo w-auto cursor-pointer"
+          />
+        </Link>
+
         <nav aria-label="Menu desktop">
           <ul className="flex items-center gap-8 text-sm">
             {NAV.map((item) => (
@@ -79,7 +94,11 @@ export default function Header() {
       {open && (
         <div className="fixed inset-0 z-50 min-[820px]:hidden">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={close} />
-          <nav aria-label="Menu" className="absolute right-0 top-0 h-full w-[78%] max-w-[360px] bg-[#120E14] border-l border-white/10 p-6 flex flex-col">
+          <nav
+            aria-label="Menu"
+            className="absolute right-0 top-0 h-full w-[78%] max-w-[360px] border-l border-white/10 p-6 flex flex-col"
+            style={{ backgroundColor: BG }}
+          >
             <div className="flex items-center justify-between mb-4">
               <span className="text-white/80 text-sm">Menu</span>
               <button aria-label="Fechar menu" onClick={close} className="text-white">
@@ -89,29 +108,24 @@ export default function Header() {
               </button>
             </div>
             <ul className="space-y-1">
-              {NAV.map((item) => (
-                <li key={`m-${item.label}`}>
-                  {item.inert ? (
-                    <a
-                      href=""
-                      onClick={(e) => { e.preventDefault(); close(); }}
-                      className="block rounded-lg px-3 py-3 text-base font-medium text-white/90 hover:text-white hover:bg-white/5"
-                      role="link"
-                      aria-label={item.label}
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
+              {NAV.map((item) => {
+                const active = isActive(item.href, item.exact);
+                return (
+                  <li key={`m-${item.label}`}>
                     <Link
                       href={item.href}
+                      prefetch
                       onClick={close}
-                      className="block rounded-lg px-3 py-3 text-base font-medium text-white/90 hover:text-white hover:bg-white/5"
+                      aria-current={active ? "page" : undefined}
+                      className={`block rounded-lg px-3 py-3 text-base font-medium hover:text-white hover:bg-white/5 ${
+                        active ? "text-white" : "text-white/90"
+                      }`}
                     >
                       {item.label}
                     </Link>
-                  )}
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
             <div className="mt-auto pt-6 text-xs text-white/50">
               © 2025 <span className="font-medium">Canastra Ventures</span>. Todos os direitos reservados.
