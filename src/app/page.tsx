@@ -8,12 +8,25 @@ import Footer from "@/components/global/footer"
 export default function Page(){
   return (
     <main>
-      <Header />
-      <Hero />
-      <Sobre />
-      <Time />
-      <Newsletter />
-      <Footer />
+      <Header /> {/* não marcar */}
+
+      <section data-edge-section>
+        <Hero />
+      </section>
+
+      <section data-edge-section>
+        <Sobre />
+      </section>
+
+      <section data-edge-section>
+        <Time />
+      </section>
+
+      <section data-edge-section>
+        <Newsletter />
+      </section>
+
+      <Footer /> {/* não marcar */}
     </main>
   )
 }

@@ -6,7 +6,7 @@ export default function Sobre() {
     <section
       id="sobre"
       className="relative overflow-hidden text-white pt-16 pb-36 min-[820px]:pt-24"
-      style={{ backgroundColor: "rgb(13, 7, 17)" }}
+      style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       <style jsx global>{`
         #sobre { min-height: 100dvh; }
@@ -24,17 +24,16 @@ export default function Sobre() {
 
         @media (min-width: 1181px) and (max-width: 1439px) {
           #sobre { min-height: 108dvh; padding-bottom: 94dvh; }
-          #sobre .wrap { top: 46%; margin-left: 26px; }             /* → mais à direita */
+          #sobre .wrap { top: 46%; margin-left: 26px; }
           #sobre .spikes-desktop { top: calc(50% - 24px); }
           #sobre .wrap h2 { font-size: 38px; line-height: 1.2; }
           #sobre .wrap p { font-size: 17px; line-height: 1.72; }
           #sobre .wrap .cta { height: 3.35rem; min-width: 192px; font-size: 15px; }
         }
 
-        /* Desktop ≥1440px */
         @media (min-width: 1440px) {
           #sobre { min-height: 110dvh; padding-bottom: 96dvh; }
-          #sobre .wrap { top: 45%; margin-left: 40px; }             /* → ainda mais à direita */
+          #sobre .wrap { top: 45%; margin-left: 40px; }
           #sobre .spikes-desktop { top: calc(50% - 24px); }
           #sobre .wrap h2 { font-size: 48px; line-height: 1.16; }
           #sobre .wrap p { font-size: 20px; line-height: 1.8; }
@@ -48,7 +47,7 @@ export default function Sobre() {
         style={{
           height: "55vh",
           background:
-            "linear-gradient(to bottom, rgba(17,7,23,0) 0%, rgba(17,4,23,0.35) 35%, rgba(17,4,23,0.65) 65%, #110417 100%)",
+            "linear-gradient(to bottom, rgba(17,4,23,0) 0%, rgba(17,4,23,0.35) 35%, rgba(17,4,23,0.65) 65%, rgb(17,4,23) 100%)",
         }}
       />
 
@@ -58,7 +57,6 @@ export default function Sobre() {
           <span className="text-[#FF624D] italic font-semibold">Residence</span>
         </h2>
 
-        {/* Parágrafo novo — exatamente 4 linhas */}
         <p className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-[46ch] min-[820px]:mx-0 min-[820px]:text-[15px]">
           <span className="block whitespace-nowrap">
             Ao longo de 12 semanas, os residentes terão apoio hands-on

@@ -1,4 +1,3 @@
-// Header.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -44,7 +43,13 @@ export default function Header() {
   };
 
   return (
-    <header id="site-header" className="fixed inset-x-0 top-0 z-50" style={{ backgroundColor: BG }}>
+    // 👇 Adiciona data-edge-section aqui
+    <header
+      id="site-header"
+      data-edge-section
+      className="fixed inset-x-0 top-0 z-50"
+      style={{ backgroundColor: BG }}
+    >
       <style jsx global>{`
         @media (min-width: 1181px) and (max-width: 1439px) {
           #site-header .deskbar { height: 78px; }
@@ -71,8 +76,15 @@ export default function Header() {
       </div>
 
       {/* desktop */}
-      <div className="deskbar hidden min-[820px]:flex h-16 items-center justify-between px-8">
-        <Link href="/" prefetch aria-label="Ir para a Home" className="inline-flex items-center">
+      <div className="deskbar hidden min-[820px]:flex h-16 items-center justify-between px-10"> 
+        {/* ↑ aumentei o padding de px-8 → px-10 para deslocar a logo ligeiramente à direita */}
+
+        <Link
+          href="/"
+          prefetch
+          aria-label="Ir para a Home"
+          className="inline-flex items-center"
+        >
           <img
             src="/header/logo.png"
             alt="Canastra Ventures"
@@ -93,7 +105,10 @@ export default function Header() {
 
       {open && (
         <div className="fixed inset-0 z-50 min-[820px]:hidden">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={close} />
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={close}
+          />
           <nav
             aria-label="Menu"
             className="absolute right-0 top-0 h-full w-[78%] max-w-[360px] border-l border-white/10 p-6 flex flex-col"
