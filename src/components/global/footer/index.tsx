@@ -1,4 +1,3 @@
-// src/components/global/footer/index.tsx
 "use client";
 
 import Link from "next/link";
@@ -47,6 +46,7 @@ export default function Footer() {
             <h3 className="text-[15px] font-semibold" style={{ color: ACCENT }}>Links</h3>
             <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[14px] max-[360px]:text-[13px] min-[820px]:block">
               <li className="min-[820px]:mb-1">
+                {/* ✅ Link para /time */}
                 <Link href="/time" prefetch className={linkBase}>Time</Link>
               </li>
               <li className="min-[820px]:mb-1">
