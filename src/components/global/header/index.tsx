@@ -8,7 +8,7 @@ type NavItem = { label: string; href: string; exact?: boolean };
 
 const NAV: NavItem[] = [
   { label: "Home", href: "/", exact: true },
-  { label: "Time", href: "/time" },
+  { label: "Time", href: "/time" },        // ✅ garante /time
   { label: "AI EiR", href: "/ai-eir" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Pitch us!", href: "/pitch-us" },
@@ -21,10 +21,14 @@ export default function Header() {
 
   const BG = "rgb(17, 4, 23)";
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  // Fecha o menu ao trocar de rota (inclui /time)
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
+  // Rota ativa
   const isActive = (href: string, exact?: boolean) =>
-    exact ? pathname === href : (href !== "/" && pathname.startsWith(href));
+    exact ? pathname === href : (href !== "/" && pathname?.startsWith(href));
 
   const Item = ({ label, href, exact }: NavItem) => {
     const active = isActive(href, exact);
@@ -43,7 +47,6 @@ export default function Header() {
   };
 
   return (
-    // 👇 Adiciona data-edge-section aqui
     <header
       id="site-header"
       data-edge-section
@@ -76,9 +79,7 @@ export default function Header() {
       </div>
 
       {/* desktop */}
-      <div className="deskbar hidden min-[820px]:flex h-16 items-center justify-between px-10"> 
-        {/* ↑ aumentei o padding de px-8 → px-10 para deslocar a logo ligeiramente à direita */}
-
+      <div className="deskbar hidden min-[820px]:flex h-16 items-center justify-between px-10">
         <Link
           href="/"
           prefetch
@@ -122,6 +123,7 @@ export default function Header() {
                 </svg>
               </button>
             </div>
+
             <ul className="space-y-1">
               {NAV.map((item) => {
                 const active = isActive(item.href, item.exact);
@@ -142,8 +144,9 @@ export default function Header() {
                 );
               })}
             </ul>
+
             <div className="mt-auto pt-6 text-xs text-white/50">
-              © 2025 <span className="font-medium">Canastra Ventures</span>. Todos os direitos reservados.
+              © {new Date().getFullYear()} <span className="font-medium">Canastra Ventures</span>. Todos os direitos reservados.
             </div>
           </nav>
         </div>
