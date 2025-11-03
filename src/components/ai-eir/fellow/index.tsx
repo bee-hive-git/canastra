@@ -64,8 +64,7 @@ export default function Fellow() {
     };
 
     const momentum = () => {
-      const friction = 0.92,
-        minVel = 0.06;
+      const friction = 0.92, minVel = 0.06;
       if (Math.abs(velocity.current) < minVel) {
         raf.current = null;
         return;
@@ -103,9 +102,7 @@ export default function Fellow() {
     const onUp = (e: PointerEvent) => {
       if (!dragging.current) return;
       dragging.current = false;
-      try {
-        el.releasePointerCapture?.(e.pointerId);
-      } catch {}
+      try { el.releasePointerCapture?.(e.pointerId); } catch {}
       (el.style as any).scrollSnapType = "x mandatory";
       if (raf.current == null) raf.current = requestAnimationFrame(momentum);
     };
@@ -128,44 +125,23 @@ export default function Fellow() {
   return (
     <section
       id="fellow"
-      className="relative overflow-hidden text-white pt-16 pb-24 min-[820px]:pt-24 min-[820px]:pb-32"
-      style={{ backgroundColor: "rgb(17, 4, 23)" }} // 🔥 Fundo igual aos outros
+      className="relative overflow-hidden text-white pt-16 pb-24 lg:pt-24 lg:pb-32"
+      style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       <style jsx global>{`
-        #fellow .title {
-          font-size: 30px;
-          line-height: 1.15;
-        }
-        #fellow .subtitle {
-          font-size: 38px;
-          line-height: 1.08;
-        }
-        #fellow p.lead {
-          font-size: 16px;
-          line-height: 1.9;
-        }
+        #fellow .title { font-size: 30px; line-height: 1.15; }
+        #fellow .subtitle { font-size: 38px; line-height: 1.08; }
+        #fellow p.lead { font-size: 16px; line-height: 1.9; }
 
         @media (min-width: 820px) and (max-width: 1279px) {
-          #fellow .title {
-            font-size: 34px;
-          }
-          #fellow .subtitle {
-            font-size: 48px;
-          }
-          #fellow p.lead {
-            font-size: 18px;
-          }
+          #fellow .title { font-size: 34px; }
+          #fellow .subtitle { font-size: 48px; }
+          #fellow p.lead { font-size: 18px; }
         }
         @media (min-width: 1280px) {
-          #fellow .title {
-            font-size: 36px;
-          }
-          #fellow .subtitle {
-            font-size: 56px;
-          }
-          #fellow p.lead {
-            font-size: 20px;
-          }
+          #fellow .title { font-size: 36px; }
+          #fellow .subtitle { font-size: 56px; }
+          #fellow p.lead { font-size: 20px; }
         }
       `}</style>
 
@@ -177,10 +153,8 @@ export default function Fellow() {
         </div>
         <p className="lead text-white/85 max-w-[70ch] mx-auto">
           Os residentes possuem acesso a{" "}
-          <span className="text-[inherit]">
-            <span style={{ color: HILIGHT }} className="italic font-semibold">
-              world-class founders
-            </span>
+          <span style={{ color: HILIGHT }} className="italic font-semibold">
+            world-class founders
           </span>
           , que trabalham lado a lado dos empreendedores na construção de{" "}
           <span style={{ color: HILIGHT }} className="italic font-semibold">
@@ -190,11 +164,11 @@ export default function Fellow() {
         </p>
       </div>
 
-      {/* ---------- Mobile: carrossel ---------- */}
-      <div className="mx-auto max-w-[1120px] px-5 min-[820px]:hidden">
+      {/* ---------- Mobile + Tablet (até 1024px): carrossel ---------- */}
+      <div className="mx-auto max-w-[1120px] px-5 max-[1024px]:block hidden">
         <div
           ref={railRef}
-          className="mt-8 -mx-1.5 px-1.5 flex gap-2 overflow-x-auto snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing"
+          className="mt-8 -mx-1.5 px-1.5 flex gap-3 overflow-x-auto snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing justify-start"
           style={{ touchAction: "pan-x" }}
           aria-label="Fellow Partners (carrossel)"
         >
@@ -203,18 +177,14 @@ export default function Fellow() {
               key={src}
               src={src}
               alt=""
-              className="snap-start shrink-0 rounded-2xl w-[92vw] max-w-[480px] aspect-[100/120] object-cover select-none pointer-events-none"
+              className="snap-start shrink-0 rounded-2xl w-[85vw] max-w-[440px] aspect-[100/120] object-cover select-none pointer-events-none"
               draggable={false}
             />
           ))}
         </div>
 
-        {/* barra de progresso */}
         <div className="mt-5 flex items-center justify-center">
-          <div
-            ref={trackRef}
-            className="relative h-[6px] w-28 rounded-full bg-white/15 overflow-hidden"
-          >
+          <div ref={trackRef} className="relative h-[6px] w-28 rounded-full bg-white/15 overflow-hidden">
             <div
               className="absolute top-0 left-0 h-full rounded-full bg-white will-change-transform"
               style={{
@@ -227,10 +197,10 @@ export default function Fellow() {
         </div>
       </div>
 
-      {/* ---------- Desktop: grade ---------- */}
-      <div className="hidden min-[820px]:block">
+      {/* ---------- Desktop (a partir de 1025px): grid ---------- */}
+      <div className="hidden min-[1025px]:block">
         <div className="mx-auto max-w-[1240px] px-6 mt-10">
-          <div className="grid grid-cols-2 gap-6 min-[1060px]:grid-cols-4">
+          <div className="grid grid-cols-4 gap-6">
             {PHOTOS.map((src) => (
               <img
                 key={`desk-${src}`}

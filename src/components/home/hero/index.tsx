@@ -73,21 +73,39 @@ export default function Hero() {
     });
   }, []);
 
+  const BG = "rgb(17, 4, 23)"; // mesma cor do Header
+
   return (
     <section
       id="home"
       className="relative text-white pt-16 min-h-[100dvh] bg-[url('/hero/fundo-mobile.png')] bg-cover bg-bottom bg-no-repeat min-[820px]:pt-24 min-[820px]:bg-[url('/hero/fundo.png')]"
-      style={{ backgroundColor: "rgb(18, 6, 23)" }}
+      style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
         @media (max-height: 700px) { #home { min-height: 118dvh; } }
         @media (max-height: 620px) { #home { min-height: 126dvh; } }
         @media (max-height: 560px) { #home { min-height: 134dvh; } }
-        @media (min-width: 1181px) and (max-width: 1439px) { #home .wrap { margin-left: 26px; } }
-        @media (min-width: 1440px) { #home .wrap { margin-left: 40px; } }
+
+        /* Desktop menor (ex.: MacBook Air) — mais respiro lateral */
+        @media (min-width: 1181px) and (max-width: 1439px) {
+          #home .wrap {
+            margin-left: 26px;
+            padding-left: 56px;  /* empurra à direita */
+            padding-right: 64px; /* espaço da borda direita */
+          }
+        }
+
+        /* Desktop ≥1440px — mais para a direita também */
+        @media (min-width: 1440px) {
+          #home .wrap {
+            margin-left: 40px;
+            padding-left: 84px;  /* AUMENTADO: empurra mais à direita */
+            padding-right: 72px; /* mantém respiro à direita */
+          }
+        }
       `}</style>
 
-      <div className="absolute inset-0 bg-[#0B0810]/70 pointer-events-none" />
+      {/* sem overlay — imagem visível sobre a cor */}
 
       <div
         ref={wrapRef}
