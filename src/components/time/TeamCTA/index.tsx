@@ -5,12 +5,23 @@ export default function TeamCta() {
   const BG = "rgb(17, 4, 23)";
 
   return (
-    // REMOVIDO: "hidden min-[820px]:block" → agora renderiza em todas as larguras
     <section id="team-cta" className="relative text-white" style={{ backgroundColor: BG }}>
       <style jsx global>{`
+        /* === Esconde barras de rolagem (Chrome/Safari/Firefox/Edge) === */
+        .no-scrollbar {
+          -ms-overflow-style: none;     /* IE/Edge */
+          scrollbar-width: none;        /* Firefox */
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
         #team-cta .session-line {
           height: 1px; width: 100%;
-          background: linear-gradient(90deg, rgba(255,98,77,0) 0%, rgba(255,98,77,0.35) 20%, rgba(255,98,77,0.85) 50%, rgba(255,98,77,0.35) 80%, rgba(255,98,77,0) 100%);
+          background: linear-gradient(90deg,
+            rgba(255,98,77,0) 0%,
+            rgba(255,98,77,0.35) 20%,
+            rgba(255,98,77,0.85) 50%,
+            rgba(255,98,77,0.35) 80%,
+            rgba(255,98,77,0) 100%);
         }
         #team-cta .card {
           position: relative; border-radius: 16px;
@@ -19,7 +30,12 @@ export default function TeamCta() {
         }
         #team-cta .card::before, #team-cta .card::after {
           content: ""; position: absolute; left: 0; right: 0; height: 1px;
-          background: linear-gradient(90deg, rgba(255,98,77,0) 0%, rgba(255,98,77,0.35) 20%, rgba(255,98,77,0.85) 50%, rgba(255,98,77,0.35) 80%, rgba(255,98,77,0) 100%);
+          background: linear-gradient(90deg,
+            rgba(255,98,77,0) 0%,
+            rgba(255,98,77,0.35) 20%,
+            rgba(255,98,77,0.85) 50%,
+            rgba(255,98,77,0.35) 80%,
+            rgba(255,98,77,0) 100%);
         }
         #team-cta .card::before { top: 0; }
         #team-cta .card::after { bottom: 0; }
@@ -50,6 +66,24 @@ export default function TeamCta() {
               Pitch Us!
             </a>
           </div>
+
+          {/*
+            Se a "barrinha de opções do time" estiver aqui, aplique:
+            - no-scrollbar para esconder a barra
+            - overflow-x-hidden (ou -auto se quiser gesto de arrastar) para controlar a rolagem
+            Exemplo de contêiner (substitua pelos seus cards reais):
+          */}
+          {/* <div className="mt-8 relative">
+            <div className="flex gap-4 overflow-x-hidden no-scrollbar">
+              {Array.from({ length: 12 }).map((_, i) => (
+                <div key={i} className="min-w-[220px] shrink-0 rounded-lg bg-white/5 border border-white/10 p-4">
+                  <div className="h-24 rounded-md bg-white/10" />
+                  <p className="mt-3 text-sm text-white/80">Nome da Pessoa {i + 1}</p>
+                  <p className="text-xs text-white/60">Cargo</p>
+                </div>
+              ))}
+            </div>
+          </div> */}
         </div>
       </div>
 

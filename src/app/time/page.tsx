@@ -1,9 +1,9 @@
 "use client";
 
 import Header from "@/components/global/header"
-import TeamHero from "@/components/Time/TeamHero";
-import TeamTabs from "@/components/Time/TeamTabs";
-import TeamCta from "@/components/Time/TeamCTA";
+import TeamHero from "@/components/time/TeamHero";
+import TeamTabs from "@/components/time/TeamTabs";
+import TeamCta from "@/components/time/TeamCTA";
 import Footer from "@/components/global/footer"
 
 export default function TimePage() {

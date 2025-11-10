@@ -22,22 +22,28 @@ export default function Sobre() {
           #sobre .spikes-desktop { top: 50%; }
         }
 
+        /* Desktop menor — mesmo offset do Hero */
         @media (min-width: 1181px) and (max-width: 1439px) {
           #sobre { min-height: 108dvh; padding-bottom: 94dvh; }
-          #sobre .wrap { top: 46%; margin-left: 26px; }
+          #sobre .wrap {
+            top: 46%;
+            margin-left: 26px;
+            padding-left: 56px;
+            padding-right: 64px;
+          }
           #sobre .spikes-desktop { top: calc(50% - 24px); }
-          #sobre .wrap h2 { font-size: 38px; line-height: 1.2; }
-          #sobre .wrap p { font-size: 17px; line-height: 1.72; }
-          #sobre .wrap .cta { height: 3.35rem; min-width: 192px; font-size: 15px; }
         }
 
+        /* Desktop ≥1440px — mesmo offset do Hero */
         @media (min-width: 1440px) {
           #sobre { min-height: 110dvh; padding-bottom: 96dvh; }
-          #sobre .wrap { top: 45%; margin-left: 40px; }
+          #sobre .wrap {
+            top: 45%;
+            margin-left: 40px;
+            padding-left: 84px;
+            padding-right: 72px;
+          }
           #sobre .spikes-desktop { top: calc(50% - 24px); }
-          #sobre .wrap h2 { font-size: 48px; line-height: 1.16; }
-          #sobre .wrap p { font-size: 20px; line-height: 1.8; }
-          #sobre .wrap .cta { height: 3.8rem; min-width: 220px; font-size: 17px; }
         }
       `}</style>
 
@@ -51,23 +57,34 @@ export default function Sobre() {
         }}
       />
 
-      <div className="wrap relative z-10 mx-auto max-w-[640px] px-5 text-center min-[820px]:text-left min-[820px]:max-w-[1100px] min-[820px]:px-8 min-[820px]:pl-20 lg:pl-20 xl:pl-12 2xl:pl-10 min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-[58%] lg:top-[59%] xl:top-[60%] 2xl:top-[60%] min-[820px]:-translate-y-1/2 min-[820px]:max-[1180px]:pl-8">
-        <h2 className="font-serif text-[28px] leading-snug mb-4 lg:text-[32px] min-[820px]:max-[1180px]:text-[24px] min-[820px]:max-[1180px]:leading-[1.2]">
-          <span className="italic font-semibold">AI Entrepreneur in </span>
-          <span className="text-[#FF624D] italic font-semibold">Residence</span>
+      <div className="wrap relative z-10 mx-auto max-w-[640px] px-5 text-center min-[820px]:text-left min-[820px]:max-w-[1100px] min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:-translate-y-1/2">
+        {/* H2 — desktop: 2 linhas fixas e MAIOR */}
+        <h2 className="font-serif text-[28px] leading-snug mb-4 lg:text-[32px] min-[820px]:text-[clamp(42px,3.4vw,56px)] min-[820px]:leading-[1.12]">
+          {/* DESKTOP (≥820px) — 2 linhas fixas (sem quebra interna) */}
+          <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
+            <span className="italic font-semibold">AI&nbsp;Entrepreneur&nbsp;in</span>
+          </span>
+          <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
+            <span className="text-[#FF624D] italic font-semibold">Residence</span>
+          </span>
+
+          {/* MOBILE (<820px) — natural */}
+          <span className="min-[820px]:hidden italic font-semibold">AI Entrepreneur in </span>
+          <span className="min-[820px]:hidden text-[#FF624D] italic font-semibold">Residence</span>
         </h2>
 
-        <p className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-[46ch] min-[820px]:mx-0 min-[820px]:text-[15px]">
-          <span className="block whitespace-nowrap">
+        {/* Parágrafo — desktop MAIOR também */}
+        <p className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-[46ch] min-[820px]:mx-0 min-[820px]:text-[clamp(18px,1.2vw,22px)] min-[820px]:leading-[1.72]">
+          <span className="block min-[820px]:whitespace-nowrap">
             Ao longo de 12 semanas, os residentes terão apoio hands-on
           </span>
-          <span className="block whitespace-nowrap">
+          <span className="block min-[820px]:whitespace-nowrap">
             com <span className="text-[#FF624D] font-semibold">Fellow Partners</span>, orientação de mentores e conexões
           </span>
-          <span className="block whitespace-nowrap">
+          <span className="block min-[820px]:whitespace-nowrap">
             estratégicas para validar a tese, criar o MVP e alcançar os
           </span>
-          <span className="block whitespace-nowrap">
+          <span className="block min-[820px]:whitespace-nowrap">
             primeiros sinais de tração rumo ao <span className="text-[#FF624D] font-semibold">primeiro cheque</span>.
           </span>
         </p>
@@ -88,6 +105,7 @@ export default function Sobre() {
         </div>
       </div>
 
+      {/* imagens decorativas */}
       <img
         src="/sobre/espinhos-mobile.png"
         alt=""
