@@ -6,26 +6,18 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 export default function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const h2Ref = useRef<HTMLHeadingElement>(null);
-  const l1Ref = useRef<HTMLSpanElement>(null);
-  const l2Ref = useRef<HTMLSpanElement>(null);
   const pRef  = useRef<HTMLParagraphElement>(null);
 
+  /** Auto-fit apenas no MOBILE (<820px). No desktop usamos classes fixas. */
   useLayoutEffect(() => {
-    const wrap = wrapRef.current, h2 = h2Ref.current, l1 = l1Ref.current, l2 = l2Ref.current;
-    if (!wrap || !h2 || !l1 || !l2) return;
+    if (typeof window === "undefined" || window.innerWidth >= 820) return;
+    const wrap = wrapRef.current, h2 = h2Ref.current;
+    if (!wrap || !h2) return;
 
     const PAD = 10;
-    let MIN = 18;
-    let MAX = 40;
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-
-    if (w >= 820) MAX = 24;
-    if (w <= 330 || h <= 600) { MAX = 20; MIN = 16; }
-
-    h2.style.whiteSpace = "normal";
-    l1.style.whiteSpace = "nowrap";
-    l2.style.whiteSpace = "nowrap";
+    let MIN = 18, MAX = 40;
+    const w = window.innerWidth, h = window.innerHeight;
+    if (w <= 330 || h <= 600) { MIN = 16; MAX = 20; }
 
     const fit = () => {
       const maxW = wrap.clientWidth - PAD;
@@ -33,7 +25,7 @@ export default function Hero() {
       h2.style.fontSize = `${size}px`;
       while (size < MAX) {
         h2.style.fontSize = `${size + 1}px`;
-        if (l1.scrollWidth > maxW || l2.scrollWidth > maxW) break;
+        if (h2.scrollWidth > maxW) break;
         size += 1;
       }
       h2.style.fontSize = `${size}px`;
@@ -46,10 +38,13 @@ export default function Hero() {
   }, []);
 
   useLayoutEffect(() => {
+    if (typeof window === "undefined" || window.innerWidth >= 820) return;
     const wrap = wrapRef.current, p = pRef.current;
     if (!wrap || !p) return;
-    const MIN = 12, MAX = 16, PAD = 10;
+
+    const PAD = 10, MIN = 12, MAX = 16;
     p.style.whiteSpace = "nowrap";
+
     const fit = () => {
       const maxW = wrap.clientWidth - PAD;
       let size = MIN;
@@ -73,7 +68,7 @@ export default function Hero() {
     });
   }, []);
 
-  const BG = "rgb(17, 4, 23)"; // mesma cor do Header
+  const BG = "rgb(17, 4, 23)";
 
   return (
     <section
@@ -85,46 +80,48 @@ export default function Hero() {
         @media (max-height: 700px) { #home { min-height: 118dvh; } }
         @media (max-height: 620px) { #home { min-height: 126dvh; } }
         @media (max-height: 560px) { #home { min-height: 134dvh; } }
-
-        /* Desktop menor (ex.: MacBook Air) — mais respiro lateral */
-        @media (min-width: 1181px) and (max-width: 1439px) {
-          #home .wrap {
-            margin-left: 26px;
-            padding-left: 56px;  /* empurra à direita */
-            padding-right: 64px; /* espaço da borda direita */
-          }
-        }
-
-        /* Desktop ≥1440px — mais para a direita também */
-        @media (min-width: 1440px) {
-          #home .wrap {
-            margin-left: 40px;
-            padding-left: 84px;  /* AUMENTADO: empurra mais à direita */
-            padding-right: 72px; /* mantém respiro à direita */
-          }
-        }
+        @media (min-width: 1181px) and (max-width: 1439px) { #home .wrap { margin-left: 26px; padding-left: 56px; padding-right: 64px; } }
+        @media (min-width: 1440px) { #home .wrap { margin-left: 40px; padding-left: 84px; padding-right: 72px; } }
       `}</style>
 
-      {/* sem overlay — imagem visível sobre a cor */}
-
+      {/* POSICIONAMENTO ORIGINAL preservado */}
       <div
         ref={wrapRef}
-        className="wrap relative z-10 mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1024px] min-[820px]:pr-6 min-[820px]:pl-10 lg:pl-8 xl:pl-6 2xl:pl-5"
+        className="wrap relative z-10 mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1080px] min-[820px]:pr-6 min-[820px]:pl-10 lg:pl-8 xl:pl-6 2xl:pl-5"
       >
         <img src="/hero/logo.png" alt="Logo Canastra" className="h-9 w-auto mb-6 min-[820px]:hidden" />
 
-        <h1 className="hidden min-[820px]:block font-serif text-[40px] leading-tight mb-3 ml-2">Canastra Ventures</h1>
+        {/* H1 maior e levemente mais à esquerda no desktop */}
+        <h1 className="hidden min-[820px]:block font-serif text-[40px] min-[820px]:text-[56px] leading-tight mb-3 ml-2 min-[820px]:-ml-[6px]">
+          Canastra Ventures
+        </h1>
 
-        <h2 ref={h2Ref} className="font-serif leading-tight min-[820px]:max-w-[500px]">
-          <span ref={l1Ref} className="block">
+        {/* H2 — DESKTOP exatamente 2 linhas com nowrap; MOBILE quebra natural */}
+        <h2
+          ref={h2Ref}
+          className="font-serif leading-tight min-[820px]:text-[clamp(36px,3vw,48px)] min-[820px]:max-w-[1040px]"
+        >
+          {/* DESKTOP (≥820px) — 2 linhas fixas */}
+          <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
+            Guiamos os <span className="text-[#FF624D] italic font-semibold">ousados</span> na trilha&nbsp;da
+          </span>
+          <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
+            construção de <span className="text-[#FF624D] italic font-semibold">startups&nbsp;inesquecíveis</span>
+          </span>
+
+          {/* MOBILE (<820px) — natural */}
+          <span className="min-[820px]:hidden block">
             Guiamos os <span className="text-[#FF624D] italic font-semibold">ousados</span> na trilha da
           </span>
-          <span ref={l2Ref} className="block">
+          <span className="min-[820px]:hidden block">
             construção de <span className="text-[#FF624D] italic font-semibold">startups inesquecíveis</span>
           </span>
         </h2>
 
-        <p ref={pRef} className="mt-3 text-white/85 min-[820px]:max-w-[440px]">VC pre-seed especialista em IA</p>
+        {/* Parágrafo — Desktop maior; Mobile auto-fit */}
+        <p className="mt-3 text-white/85 min-[820px]:text-[clamp(16px,1.05vw,19px)] min-[820px]:max-w-[520px]">
+          VC pre-seed especialista em IA
+        </p>
 
         <div className="mt-7 flex items-center justify-center gap-2 min-[820px]:justify-start">
           <a

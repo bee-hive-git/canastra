@@ -12,14 +12,13 @@ export default function Time() {
   const OVERSCAN_W = 135;
   const OVERSCAN_H = 122;
 
-  // refs
+  // refs/estado para o carrossel mobile
   const railRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [visibleRatio, setVisibleRatio] = useState(0);
   const [trackW, setTrackW] = useState(0);
 
-  // medição do carrossel
   useEffect(() => {
     const rail = railRef.current, track = trackRef.current;
     if (!rail) return;
@@ -42,7 +41,7 @@ export default function Time() {
     };
   }, []);
 
-  // arraste com inércia
+  // arraste com inércia (mobile)
   const dragging = useRef(false);
   const startX = useRef(0);
   const startScroll = useRef(0);
@@ -71,8 +70,8 @@ export default function Time() {
       lastX.current = e.clientX;
       lastT.current = e.timeStamp;
       velocity.current = 0;
-      stopMomentum();
       (el.style as any).scrollSnapType = "none";
+      stopMomentum();
       e.preventDefault();
     };
     const onMove = (e: PointerEvent) => {
@@ -111,7 +110,53 @@ export default function Time() {
       className="relative text-white pt-16 pb-24 min-[1181px]:pt-24 min-[1181px]:pb-32 bg-cover bg-center bg-no-repeat overflow-x-hidden"
       style={{ backgroundImage: "url(/time/fundo.png)", backgroundColor: "rgb(13,7,17)" }}
     >
-      {/* ---------- MOBILE + TABLET até 1180px ---------- */}
+      <style jsx global>{`
+        /* Desktop: só o bloco de textos; grid/fotos intocados */
+        @media (min-width: 1181px) {
+          #time .wrap { padding-left: 0 !important; padding-right: 0 !important; }
+          #time .text-wrap {
+            max-width: 620px;
+
+            /* espaço livre quando a wrap (max-w:1100px) está centralizada */
+            --center-gap: max(0px, (100vw - 1100px) / 2);
+
+            /* “linha” alvo (mesmo alinhamento da hero) */
+            --hero-inset: 40px;
+
+            /*
+              deslocamento desejado sem exagero:
+              1) tenta (center-gap - hero-inset)
+              2) nunca passa do center-gap - 16px (mantém 16px de folga à esquerda)
+              3) limitado entre 40px e 420px para evitar extremos
+            */
+            --raw-pull: calc(var(--center-gap) - var(--hero-inset));
+            --safe-pull: min(var(--raw-pull), calc(var(--center-gap) - 16px));
+            --clamped-pull: clamp(40px, var(--safe-pull), 420px);
+
+            /* fator fino por faixa (menos puxado no desktop menor) */
+            --tweak: 0.90; /* padrão */
+
+            /* Gutter mínimo adaptativo à esquerda */
+            padding-left: clamp(44px, calc(var(--center-gap) * 0.42), 84px);
+            padding-right: 72px;
+
+            /* Aplica o deslocamento adaptativo */
+            transform: translateX(calc(var(--clamped-pull) * -1 * var(--tweak)));
+          }
+        }
+
+        /* Desktop pequeno típico (ex.: 1280–1366) — puxa um pouco menos */
+        @media (min-width: 1181px) and (max-width: 1366px) {
+          #time .text-wrap { --tweak: 0.78; }
+        }
+
+        /* Monitores grandes (≥1440) — puxa tudo que for seguro */
+        @media (min-width: 1440px) {
+          #time .text-wrap { --tweak: 1; }
+        }
+      `}</style>
+
+      {/* ---------- MOBILE + TABLET até 1180px (inalterado) ---------- */}
       <div className="mx-auto max-w-[1120px] px-5 min-[1181px]:hidden">
         <div className="text-center max-w-[46ch] mx-auto">
           <h2 className="font-serif text-[28px] leading-tight mb-3">
@@ -168,20 +213,21 @@ export default function Time() {
         </div>
       </div>
 
-      {/* ---------- DESKTOP ≥1181px ---------- */}
+      {/* ---------- DESKTOP ≥1181px (só título e parágrafo alinhados) ---------- */}
       <div className="hidden min-[1181px]:block">
         <div className="wrap mx-auto max-w-[1100px] px-8">
-          <div className="max-w-[620px]">
-            <h2 className="font-serif leading-[1.15] mb-4 text-[48px]">
+          <div className="text-wrap">
+            <h2 className="font-serif leading-[1.15] mb-4 text-[48px] min-[1181px]:text-[clamp(44px,3.6vw,62px)]">
               Nosso <span className="italic text-[#FF624D]">Time</span>
             </h2>
-            <p className="text-white/85 leading-[1.9] text-[20px]">
+            <p className="text-white/85 leading-[1.9] text-[20px] min-[1181px]:text-[clamp(16px,1.05vw,19px)]">
               Contamos com investidores, <span className="text-[#FF624D] italic font-semibold">world-class founders</span> e especialistas em nossa equipe para apoiar fundadores em todos os seus desafios de construção de uma{" "}
               <span className="text-[#FF624D] italic font-semibold">startup de IA</span>.
             </p>
           </div>
         </div>
 
+        {/* grid de fotos — INALTERADO */}
         <div className="grid-outer w-full mx-auto mt-10 px-10">
           <div className="team-grid grid grid-cols-5 gap-8">
             {PHOTOS.map((src, i) => (

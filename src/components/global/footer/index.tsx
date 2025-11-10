@@ -21,7 +21,9 @@ export default function Footer() {
       `}</style>
 
       <div className="wrap mx-auto max-w-[1120px] px-5 py-10 min-[820px]:py-14">
+        {/* Grid base em ≥820px; em ≥1120px ajustamos os spans para alargar o último bloco */}
         <div className="min-[820px]:grid min-[820px]:grid-cols-12 min-[820px]:gap-10">
+          {/* 3 colunas até 1119px; mantém 3 colunas em ≥1120px */}
           <div className="col min-[820px]:col-span-3">
             <h3 className="text-[15px] font-semibold" style={{ color: ACCENT }}>Escritório</h3>
             <p className="mt-2 text-white/85 text-[14px] leading-relaxed max-[360px]:text-[13px]">
@@ -32,6 +34,7 @@ export default function Footer() {
             <div className="my-5 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10 min-[820px]:hidden" />
           </div>
 
+          {/* 3 colunas até 1119px; mantém 3 colunas em ≥1120px */}
           <div className="col min-[820px]:col-span-3">
             <h3 className="text-[15px] font-semibold" style={{ color: ACCENT }}>Contato</h3>
             <p className="mt-2 text-white/85 text-[14px] leading-relaxed max-[360px]:text-[13px]">
@@ -42,11 +45,11 @@ export default function Footer() {
             <div className="my-5 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10 min-[820px]:hidden" />
           </div>
 
-          <div className="col min-[820px]:col-span-3">
+          {/* 3 colunas até 1119px; em ≥1120px reduz para 2 colunas para “liberar” espaço ao cartão */}
+          <div className="col min-[820px]:col-span-3 min-[1120px]:col-span-2">
             <h3 className="text-[15px] font-semibold" style={{ color: ACCENT }}>Links</h3>
             <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[14px] max-[360px]:text-[13px] min-[820px]:block">
               <li className="min-[820px]:mb-1">
-                {/* ✅ Link para /time */}
                 <Link href="/time" prefetch className={linkBase}>Time</Link>
               </li>
               <li className="min-[820px]:mb-1">
@@ -62,10 +65,12 @@ export default function Footer() {
             <div className="my-5 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10 min-[820px]:hidden" />
           </div>
 
-          <div className="col min-[820px]:col-span-3">
-            <div className="hidden min-[820px]:block rounded-xl bg-white/6 border border-white/10 p-5">
+          {/* 3 colunas até 1119px; em ≥1120px passa a 4 colunas (⬅️ mais largo) */}
+          <div className="col min-[820px]:col-span-3 min-[1120px]:col-span-4">
+            {/* Desktop: cartão mais largo, com um pouco menos de padding/altura */}
+            <div className="hidden min-[820px]:block rounded-xl bg-white/6 border border-white/10 p-5 min-[1120px]:p-4">
               <h3 className="text-[15px] font-semibold" style={{ color: ACCENT }}>Conecte-se com a gente</h3>
-              <ul className="mt-2 space-y-1 text-[14px]">
+              <ul className="mt-2 space-y-1 text-[14px] min-[1120px]:space-y-[2px]">
                 <li>
                   <a
                     href="https://www.instagram.com/canastra.ventures/?hl=br"
@@ -88,12 +93,13 @@ export default function Footer() {
                 </li>
               </ul>
 
-              <div className="my-4 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
+              <div className="my-4 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10 min-[1120px]:my-3" />
 
               <h3 className="text-[15px] font-semibold" style={{ color: ACCENT }}>Inscreva-se na nossa newsletter</h3>
               <a href="#newsletter" className={`${linkBase} mt-2 inline-block`}>Canastra Newsletter</a>
             </div>
 
+            {/* Mobile/Tablet: mantém como estava */}
             <div className="min-[820px]:hidden">
               <h3 className="text-[15px] font-semibold" style={{ color: ACCENT }}>Conecte-se com a gente</h3>
               <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[14px] max-[360px]:text-[13px]">

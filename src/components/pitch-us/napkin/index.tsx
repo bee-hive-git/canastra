@@ -12,13 +12,31 @@ export default function Napkin() {
       className="text-white overflow-hidden py-14 min-[820px]:py-20"
       style={{ backgroundColor: BG }}
     >
+      <style jsx global>{`
+        /* Aumentos apenas no desktop "real" + respiro inferior reduzido */
+        @media (min-width: 1181px) and (max-width: 1439px) {
+          #napkin .desk-head h1 .t1 { font-size: clamp(40px, 3.0vw, 52px); }
+          #napkin .desk-head h1 .t2 { font-size: clamp(54px, 3.8vw, 68px); }
+          #napkin .desk-head p     { font-size: clamp(18px, 1.25vw, 20px); line-height: 1.75; }
+          /* menos fundo vazio que antes */
+          #napkin { padding-bottom: clamp(100px, 12vh, 200px); }
+        }
+        @media (min-width: 1440px) {
+          #napkin .desk-head h1 .t1 { font-size: clamp(44px, 3.2vw, 60px); }
+          #napkin .desk-head h1 .t2 { font-size: clamp(60px, 4.2vw, 80px); }
+          #napkin .desk-head p     { font-size: clamp(19px, 1.15vw, 22px); line-height: 1.78; }
+          /* menos fundo vazio que antes */
+          #napkin { padding-bottom: clamp(120px, 14vh, 240px); }
+        }
+      `}</style>
+
       {/* DESKTOP HEADER */}
       <div className="hidden min-[820px]:block">
-        <div className="max-w-[1120px] mx-auto px-5 text-center">
+        <div className="desk-head max-w-[1120px] mx-auto px-5 text-center">
           <h1 className="font-serif leading-tight">
-            <span className="block text-[32px] xl:text-[40px]">Conheça o nosso</span>
+            <span className="t1 block text-[32px] xl:text-[40px]">Conheça o nosso</span>
             <span
-              className="block italic font-semibold text-[40px] xl:text-[52px]"
+              className="t2 block italic font-semibold text-[40px] xl:text-[52px]"
               style={{ color: ACCENT }}
             >
               Napkin
@@ -110,7 +128,6 @@ export default function Napkin() {
           <div
             className="rounded-2xl"
             style={{
-              // mesmo tamanho máximo do desktop para evitar “achatamento”
               width: "1120px",
               height: "640px",
               backgroundImage: `url(${DESK_IMG})`,
@@ -141,6 +158,13 @@ export default function Napkin() {
           , com base em uma análise criteriosa e individual de cada caso.
         </p>
       </div>
+
+      {/* Espaçador extra só no desktop para "mais fundo vazio" (reduzido) */}
+      <div
+        aria-hidden
+        className="hidden min-[1181px]:block"
+        style={{ height: "clamp(80px, 10vh, 180px)" }}
+      />
     </section>
   );
 }

@@ -18,6 +18,13 @@ export default function PitchHero() {
         @media (min-width: 1440px) {
           #pitch .wrap { margin-left: 40px; }
         }
+
+        /* ---- tamanhos maiores só no desktop ---- */
+        @media (min-width: 1181px) {
+          #pitch .left h1 { font-size: clamp(48px, 3.9vw, 68px); line-height: 1.12; }
+          #pitch .left h2 { font-size: clamp(24px, 1.8vw, 32px); line-height: 1.18; }
+          #pitch .left p  { font-size: clamp(17px, 1.15vw, 20px); line-height: 1.75; }
+        }
       `}</style>
 
       {/* MOBILE */}
@@ -56,21 +63,21 @@ export default function PitchHero() {
       {/* DESKTOP */}
       <div className="wrap hidden min-[820px]:flex min-[820px]:items-center min-[820px]:justify-between min-[820px]:max-w-[1120px] min-[820px]:mx-auto min-[820px]:px-8 min-[820px]:min-h-[calc(100dvh-96px)]">
         {/* Esquerda */}
-        <div className="max-w-[540px]">
-          <h1 className="font-serif text-[40px] leading-tight mb-3">Pitch Us!</h1>
+        <div className="left max-w-[540px]">
+          <h1 className="font-serif leading-tight mb-3">Pitch Us!</h1>
 
-          {/* H2 exatamente em 2 linhas */}
-          <h2 className="font-serif text-[22px] leading-snug mb-3">
+          {/* H2 em 2 linhas (quebras controladas) */}
+          <h2 className="font-serif leading-snug mb-3">
             <span className="block whitespace-nowrap">
               Apoiamos <span style={{ color: HILIGHT }} className="italic font-semibold">Founders</span> com a ambição de
             </span>
             <span className="block whitespace-nowrap">
-              escalar <span style={{ color: HILIGHT }} className="italic font-semibold">startups de IA</span> no{" "}
+              escalar <span>startups de IA</span> no{" "}
               <span style={{ color: HILIGHT }} className="italic font-semibold">Brasil</span> e além
             </span>
           </h2>
 
-          <p className="text-white/85 text-[15px] leading-relaxed">VC pre-seed especialista em IA</p>
+          <p className="text-white/85">VC pre-seed especialista em IA</p>
 
           <div className="mt-7">
             <a

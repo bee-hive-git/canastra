@@ -29,6 +29,17 @@ export default function Overview() {
           #overview .wrap { margin-left: 40px; }
           #overview { --gutter-left: calc(40px + 32px); }
         }
+
+        /* Desktop: aumentar apenas título e parágrafo do bloco superior */
+        @media (min-width: 1181px) {
+          #overview .head h2 { font-size: clamp(44px, 3.6vw, 62px); line-height: 1.12; }
+          #overview .head h3 { font-size: clamp(18px, 1.35vw, 22px); line-height: 1.65; }
+
+          /* Linha temporal BEM mais abaixo dos textos (desktop only) */
+          #overview .timeline {
+            margin-top: clamp(96px, 14vh, 200px); /* bastante respiro, adaptativo */
+          }
+        }
       `}</style>
 
       {/* mobile/tablet (≤ iPad Air, inclusive) */}
@@ -40,7 +51,7 @@ export default function Overview() {
         </header>
 
         <h3 className="font-serif text-[18px] leading-snug mt-2 text-center">
-          Investimos <span className="italic font-semibold" style={{ color: HILIGHT }}>pre-seed</span> em{" "}
+          Investimos <span className="font-normal not-italic">pre-seed</span> em{" "}
           <span className="italic font-semibold" style={{ color: HILIGHT }}>startups</span> de inteligência artificial (AI-First).
         </h3>
         <p className="text-white/85 text-[14px] leading-relaxed max-w-[56ch] mx-auto mt-3 text-center">
@@ -77,16 +88,16 @@ export default function Overview() {
         </div>
       </div>
 
-      {/* desktop (≥ 1181px, MacBook Air e acima) */}
+      {/* desktop (≥ 1181px) */}
       <div className="hidden min-[1181px]:block">
         <div className="wrap min-[1181px]:max-w-[1120px] min-[1181px]:mx-auto min-[1181px]:px-8">
-          <div className="max-w-[720px]">
+          <div className="head max-w-[720px]">
             <h2 className="font-serif text-[40px] leading-tight mb-3">
               Overview da <span className="italic font-semibold" style={{ color: HILIGHT }}>tese</span>
             </h2>
             <h3 className="font-serif text-[22px] leading-snug">
               <span className="block">
-                Investimos <span className="italic font-semibold" style={{ color: HILIGHT }}>pre-seed</span> em{" "}
+                Investimos <span className="font-normal not-italic">pre-seed</span> em{" "}
                 <span className="italic font-semibold" style={{ color: HILIGHT }}>startups</span> de inteligência artificial (AI-First).
               </span>
               <span className="block mt-1">
@@ -97,8 +108,9 @@ export default function Overview() {
           </div>
         </div>
 
+        {/* Linha temporal — agora com margem-top grande no desktop via .timeline */}
         <div
-          className="relative left-[calc(50%-50vw)] right-[calc(50%-50vw)] w-screen mt-16"
+          className="timeline relative left-[calc(50%-50vw)] right-[calc(50%-50vw)] w-screen"
           style={
             {
               paddingLeft: "var(--gutter-left)",

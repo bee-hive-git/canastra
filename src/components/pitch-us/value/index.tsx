@@ -43,6 +43,18 @@ export default function Value() {
         @media (min-width: 820px) and (max-width: 1180px) {
           #value { --gutter-left: 32px; }
         }
+
+        /* ----- AUMENTO DE TAMANHO (somente desktop ≥1181px) ----- */
+        @media (min-width: 1181px) {
+          #value .head h2 {
+            font-size: clamp(48px, 4.1vw, 72px);
+            line-height: 1.12;
+          }
+          #value .head p {
+            font-size: clamp(20px, 1.28vw, 22px);
+            line-height: 1.78;
+          }
+        }
       `}</style>
 
       {/* mobile */}
@@ -92,7 +104,7 @@ export default function Value() {
       {/* desktop */}
       <div className="hidden min-[820px]:block">
         <div className="wrap min-[820px]:max-w-[1120px] min-[820px]:mx-auto min-[820px]:px-8">
-          <header className="max-w-none pr-8">
+          <header className="head max-w-none pr-8">
             <h2 className="font-serif text-[40px] leading-tight">
               Nosso <span className="italic font-semibold" style={{ color: HILIGHT }}>Value Add</span>
             </h2>
