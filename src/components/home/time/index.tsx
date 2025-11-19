@@ -4,9 +4,27 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function Time() {
-  const PHOTOS = ["/time/p1.png", "/time/p2.png", "/time/p5.png", "/time/p4.png", "/time/p3.png"];
-  const NAMES  = ["Pedro Dias", "Márcio Saito", "Larissa Bomfim", "Leonardo Sales", "Paulo Alencastro"];
-  const ROLES  = ["Managing Partner", "Venture Partner", "Managing Partner", "Fellow Partner", "Fellow Partner"];
+  const PHOTOS = [
+    "/time/p1.png",
+    "/time/p2.png",
+    "/time/p5.png",
+    "/time/p4.png",
+    "/time/p3.png",
+  ];
+  const NAMES = [
+    "Pedro Dias",
+    "Márcio Saito",
+    "Larissa Bomfim",
+    "Leonardo Sales",
+    "Paulo Alencastro",
+  ];
+  const ROLES = [
+    "Managing Partner",
+    "Venture Partner",
+    "Managing Partner",
+    "Fellow Partner",
+    "Fellow Partner",
+  ];
 
   const HILIGHT = "#FF624D";
   const OVERSCAN_W = 135;
@@ -20,20 +38,25 @@ export default function Time() {
   const [trackW, setTrackW] = useState(0);
 
   useEffect(() => {
-    const rail = railRef.current, track = trackRef.current;
+    const rail = railRef.current,
+      track = trackRef.current;
     if (!rail) return;
+
     const measure = () => {
       const max = Math.max(1, rail.scrollWidth - rail.clientWidth);
       setProgress(Math.min(1, Math.max(0, rail.scrollLeft / max)));
       setVisibleRatio(rail.clientWidth / Math.max(rail.scrollWidth, 1));
       setTrackW(track?.clientWidth ?? 0);
     };
+
     measure();
     rail.addEventListener("scroll", measure, { passive: true });
     window.addEventListener("resize", measure);
+
     const ro = new ResizeObserver(measure);
     ro.observe(rail);
     if (track) ro.observe(track);
+
     return () => {
       rail.removeEventListener("scroll", measure);
       window.removeEventListener("resize", measure);
@@ -51,17 +74,34 @@ export default function Time() {
   const raf = useRef<number | null>(null);
 
   useEffect(() => {
-    const el = railRef.current; if (!el) return;
-    const stopMomentum = () => { if (raf.current != null) { cancelAnimationFrame(raf.current); raf.current = null; } };
+    const el = railRef.current;
+    if (!el) return;
+
+    const stopMomentum = () => {
+      if (raf.current != null) {
+        cancelAnimationFrame(raf.current);
+        raf.current = null;
+      }
+    };
+
     const momentum = () => {
-      const friction = 0.92, minVel = 0.06;
-      if (Math.abs(velocity.current) < minVel) { raf.current = null; return; }
+      const friction = 0.92,
+        minVel = 0.06;
+      if (Math.abs(velocity.current) < minVel) {
+        raf.current = null;
+        return;
+      }
       el.scrollLeft -= velocity.current * 16;
       velocity.current *= friction;
+
       const maxScroll = el.scrollWidth - el.clientWidth;
-      if (el.scrollLeft <= 0 || el.scrollLeft >= maxScroll) velocity.current = 0;
+      if (el.scrollLeft <= 0 || el.scrollLeft >= maxScroll) {
+        velocity.current = 0;
+      }
+
       raf.current = requestAnimationFrame(momentum);
     };
+
     const onDown = (e: PointerEvent) => {
       dragging.current = true;
       el.setPointerCapture?.(e.pointerId);
@@ -74,25 +114,37 @@ export default function Time() {
       stopMomentum();
       e.preventDefault();
     };
+
     const onMove = (e: PointerEvent) => {
       if (!dragging.current) return;
       el.scrollLeft = startScroll.current - (e.clientX - startX.current) * 2.1;
+
       const dt = Math.max(1, e.timeStamp - lastT.current);
       velocity.current = (e.clientX - lastX.current) / dt;
+
       lastX.current = e.clientX;
       lastT.current = e.timeStamp;
+
       e.preventDefault();
     };
+
     const onUp = (e: PointerEvent) => {
       if (!dragging.current) return;
       dragging.current = false;
-      try { el.releasePointerCapture?.(e.pointerId); } catch {}
+      try {
+        el.releasePointerCapture?.(e.pointerId);
+      } catch {}
       (el.style as any).scrollSnapType = "x mandatory";
-      if (raf.current == null) raf.current = requestAnimationFrame(momentum);
+
+      if (raf.current == null) {
+        raf.current = requestAnimationFrame(momentum);
+      }
     };
+
     el.addEventListener("pointerdown", onDown);
     el.addEventListener("pointermove", onMove);
     window.addEventListener("pointerup", onUp);
+
     return () => {
       el.removeEventListener("pointerdown", onDown);
       el.removeEventListener("pointermove", onMove);
@@ -102,61 +154,77 @@ export default function Time() {
   }, []);
 
   const thumbRatio = Math.max(visibleRatio || 0, 0.15);
-  const translatePx = progress * Math.max(0, (trackW - trackW * thumbRatio));
+  const translatePx =
+    progress * Math.max(0, trackW - trackW * thumbRatio);
 
   return (
     <section
       id="time"
       className="relative text-white pt-16 pb-24 min-[1181px]:pt-24 min-[1181px]:pb-32 bg-cover bg-center bg-no-repeat overflow-x-hidden"
-      style={{ backgroundImage: "url(/time/fundo.png)", backgroundColor: "rgb(13,7,17)" }}
+      style={{
+        backgroundImage: "url(/time/fundo.png)",
+        backgroundColor: "rgb(13,7,17)",
+      }}
     >
       <style jsx global>{`
-        /* Desktop: só o bloco de textos; grid/fotos intocados */
+        /* Desktop: texto + cards alinhados com a hero */
         @media (min-width: 1181px) {
-          #time .wrap { padding-left: 0 !important; padding-right: 0 !important; }
-          #time .text-wrap {
-            max-width: 620px;
+          #time .wrap {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
 
-            /* espaço livre quando a wrap (max-w:1100px) está centralizada */
+          /* mesmas variáveis para texto e cards */
+          #time .text-wrap,
+          #time .cards-wrap {
             --center-gap: max(0px, (100vw - 1100px) / 2);
-
-            /* “linha” alvo (mesmo alinhamento da hero) */
             --hero-inset: 40px;
-
-            /*
-              deslocamento desejado sem exagero:
-              1) tenta (center-gap - hero-inset)
-              2) nunca passa do center-gap - 16px (mantém 16px de folga à esquerda)
-              3) limitado entre 40px e 420px para evitar extremos
-            */
             --raw-pull: calc(var(--center-gap) - var(--hero-inset));
-            --safe-pull: min(var(--raw-pull), calc(var(--center-gap) - 16px));
+            --safe-pull: min(
+              var(--raw-pull),
+              calc(var(--center-gap) - 16px)
+            );
             --clamped-pull: clamp(40px, var(--safe-pull), 420px);
+            --tweak: 0.9;
 
-            /* fator fino por faixa (menos puxado no desktop menor) */
-            --tweak: 0.90; /* padrão */
-
-            /* Gutter mínimo adaptativo à esquerda */
-            padding-left: clamp(44px, calc(var(--center-gap) * 0.42), 84px);
+            padding-left: clamp(
+              44px,
+              calc(var(--center-gap) * 0.42),
+              84px
+            );
             padding-right: 72px;
+            transform: translateX(
+              calc(var(--clamped-pull) * -1 * var(--tweak))
+            );
+          }
 
-            /* Aplica o deslocamento adaptativo */
-            transform: translateX(calc(var(--clamped-pull) * -1 * var(--tweak)));
+          /* texto um pouco mais largo → menos quebras de linha */
+          #time .text-wrap {
+            max-width: 680px;
+          }
+
+          /* cards com menos padding à direita, ficam mais “juntinhos” */
+          #time .cards-wrap {
+            padding-right: 32px;
           }
         }
 
-        /* Desktop pequeno típico (ex.: 1280–1366) — puxa um pouco menos */
         @media (min-width: 1181px) and (max-width: 1366px) {
-          #time .text-wrap { --tweak: 0.78; }
+          #time .text-wrap,
+          #time .cards-wrap {
+            --tweak: 0.78;
+          }
         }
 
-        /* Monitores grandes (≥1440) — puxa tudo que for seguro */
         @media (min-width: 1440px) {
-          #time .text-wrap { --tweak: 1; }
+          #time .text-wrap,
+          #time .cards-wrap {
+            --tweak: 1;
+          }
         }
       `}</style>
 
-      {/* ---------- MOBILE + TABLET até 1180px (inalterado) ---------- */}
+      {/* ---------- MOBILE + TABLET até 1180px ---------- */}
       <div className="mx-auto max-w-[1120px] px-5 min-[1181px]:hidden">
         <div className="text-center max-w-[46ch] mx-auto">
           <h2 className="font-serif text-[28px] leading-tight mb-3">
@@ -164,8 +232,15 @@ export default function Time() {
           </h2>
           <p className="text-white/85 text-[14px] leading-relaxed">
             Contamos com investidores,{" "}
-            <span className="text-[#FF624D] italic font-semibold">world-class founders</span> e especialistas em nossa equipe para apoiar fundadores em todos os seus desafios de construção de uma{" "}
-            <span className="text-[#FF624D] italic font-semibold">startup de IA</span>.
+            <span className="text-[#FF624D] italic font-semibold">
+              world-class founders
+            </span>{" "}
+            e especialistas em nossa equipe para apoiar fundadores em
+            todos os seus desafios de construção de uma{" "}
+            <span className="text-[#FF624D] italic font-semibold">
+              startup de IA
+            </span>
+            .
           </p>
         </div>
 
@@ -189,8 +264,13 @@ export default function Time() {
               }}
             >
               <div className="absolute left-[10px] bottom-[10px]">
-                <h3 className="text-white text-[14px] font-semibold leading-tight">{NAMES[i]}</h3>
-                <p className="text-[12px] font-medium leading-snug" style={{ color: HILIGHT }}>
+                <h3 className="text-white text-[14px] font-semibold leading-tight">
+                  {NAMES[i]}
+                </h3>
+                <p
+                  className="text-[12px] font-medium leading-snug"
+                  style={{ color: HILIGHT }}
+                >
                   {ROLES[i]}
                 </p>
               </div>
@@ -200,56 +280,116 @@ export default function Time() {
 
         {/* scrollbar */}
         <div className="mt-4 flex items-center justify-center">
-          <div ref={trackRef} className="relative h-[6px] w-24 rounded-full bg-white/15 overflow-hidden">
+          <div
+            ref={trackRef}
+            className="relative h-[6px] w-24 rounded-full bg-white/15 overflow-hidden"
+          >
             <div
               className="absolute top-0 left-0 h-full rounded-full bg-white will-change-transform"
               style={{
                 width: `${trackW * thumbRatio}px`,
                 transform: `translateX(${translatePx}px)`,
-                transition: "transform 120ms linear, width 120ms ease",
+                transition:
+                  "transform 120ms linear, width 120ms ease",
               }}
             />
           </div>
         </div>
       </div>
 
-      {/* ---------- DESKTOP ≥1181px (só título e parágrafo alinhados) ---------- */}
+      {/* ---------- DESKTOP ≥1181px ---------- */}
       <div className="hidden min-[1181px]:block">
         <div className="wrap mx-auto max-w-[1100px] px-8">
+          {/* TEXTO + BOTÃO */}
           <div className="text-wrap">
             <h2 className="font-serif leading-[1.15] mb-4 text-[48px] min-[1181px]:text-[clamp(44px,3.6vw,62px)]">
-              Nosso <span className="italic text-[#FF624D]">Time</span>
+              Nosso{" "}
+              <span className="italic text-[#FF624D]">Time</span>
             </h2>
             <p className="text-white/85 leading-[1.9] text-[20px] min-[1181px]:text-[clamp(16px,1.05vw,19px)]">
-              Contamos com investidores, <span className="text-[#FF624D] italic font-semibold">world-class founders</span> e especialistas em nossa equipe para apoiar fundadores em todos os seus desafios de construção de uma{" "}
-              <span className="text-[#FF624D] italic font-semibold">startup de IA</span>.
+              Contamos com investidores,{" "}
+              <span className="text-[#FF624D] italic font-semibold">
+                world-class founders
+              </span>{" "}
+              e especialistas em nossa equipe para apoiar fundadores em
+              todos os seus desafios de construção de uma{" "}
+              <span className="text-[#FF624D] italic font-semibold">
+                startup de IA
+              </span>
+              .
             </p>
-          </div>
-        </div>
 
-        {/* grid de fotos — INALTERADO */}
-        <div className="grid-outer w-full mx-auto mt-10 px-10">
-          <div className="team-grid grid grid-cols-5 gap-8">
-            {PHOTOS.map((src, i) => (
-              <div
-                key={`desk-${src}`}
-                className="team-card relative rounded-2xl overflow-hidden shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
-                style={{
-                  aspectRatio: "100 / 135",
-                  backgroundImage: `url(${src})`,
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: `${OVERSCAN_W}% ${OVERSCAN_H}%`,
-                }}
+            {/* BOTÃO (copiado do Sobre) */}
+            <div className="mt-6 min-[1181px]:mt-8">
+              <button
+                type="button"
+                aria-disabled
+                className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 min-[820px]:min-w-[220px] min-[820px]:h-[50px] min-[820px]:px-7 min-[820px]:text-[15px] min-[820px]:border min-[820px]:border-gray-300 min-[820px]:bg-transparent min-[820px]:text-white min-[820px]:hover:brightness-110"
               >
-                <div className="absolute left-[12px] bottom-[12px]">
-                  <h3 className="text-white font-semibold leading-tight">{NAMES[i]}</h3>
-                  <p className="font-medium leading-snug" style={{ color: HILIGHT }}>
-                    {ROLES[i]}
-                  </p>
+                <svg
+                  width="26"
+                  height="22"
+                  viewBox="0 0 26 22"
+                  aria-hidden="true"
+                  className="-ml-1 text-[#FF624D] min-[820px]:text-gray-300"
+                >
+                  <path
+                    d="M2 11h6"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    fill="none"
+                  />
+                  <path
+                    d="M9 11h7"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    fill="none"
+                  />
+                  <path
+                    d="M16 7l6 4-6 4"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                </svg>
+                Conheça o Time
+              </button>
+            </div>
+          </div>
+
+          {/* GRID DE FOTOS — menores, mais juntinhas e alinhadas com o texto */}
+          <div className="cards-wrap mt-12">
+            <div className="team-grid grid grid-cols-5 gap-6">
+              {PHOTOS.map((src, i) => (
+                <div
+                  key={`desk-${src}`}
+                  className="team-card relative rounded-2xl overflow-hidden shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+                  style={{
+                    aspectRatio: "100 / 135",
+                    backgroundImage: `url(${src})`,
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: `${OVERSCAN_W}% ${OVERSCAN_H}%`,
+                  }}
+                >
+                  <div className="absolute left-[12px] bottom-[12px]">
+                    <h3 className="text-white font-semibold leading-tight">
+                      {NAMES[i]}
+                    </h3>
+                    <p
+                      className="font-medium leading-snug"
+                      style={{ color: HILIGHT }}
+                    >
+                      {ROLES[i]}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

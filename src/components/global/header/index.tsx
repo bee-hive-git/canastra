@@ -8,10 +8,10 @@ type NavItem = { label: string; href: string; exact?: boolean };
 
 const NAV: NavItem[] = [
   { label: "Home", href: "/", exact: true },
-  { label: "Time", href: "/time" },        // ✅ garante /time
+  { label: "Time", href: "/time" },
   { label: "AI EiR", href: "/ai-eir" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Pitch us!", href: "/pitch-us" },
+  { label: "Pitch us!", href: "/pitch-us" },          // penúltimo
+  { label: "Recursos", href: "#nascers" },            // último, placeholder
 ];
 
 export default function Header() {
@@ -21,23 +21,25 @@ export default function Header() {
 
   const BG = "rgb(17, 4, 23)";
 
-  // Fecha o menu ao trocar de rota (inclui /time)
+  // Fecha o menu ao trocar de rota
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
   // Rota ativa
   const isActive = (href: string, exact?: boolean) =>
-    exact ? pathname === href : (href !== "/" && pathname?.startsWith(href));
+    exact ? pathname === href : href !== "/" && pathname?.startsWith(href);
 
   const Item = ({ label, href, exact }: NavItem) => {
     const active = isActive(href, exact);
     const base =
       "transition-colors text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-sm";
+    const isAnchor = href.startsWith("#");
+
     return (
       <Link
         href={href}
-        prefetch
+        prefetch={!isAnchor}
         aria-current={active ? "page" : undefined}
         className={base + (active ? " text-white" : "")}
       >
@@ -55,12 +57,20 @@ export default function Header() {
     >
       <style jsx global>{`
         @media (min-width: 1181px) and (max-width: 1439px) {
-          #site-header .deskbar { height: 78px; }
-          #site-header .logo { height: 42px; }
+          #site-header .deskbar {
+            height: 78px;
+          }
+          #site-header .logo {
+            height: 42px;
+          }
         }
         @media (min-width: 1440px) {
-          #site-header .deskbar { height: 92px; }
-          #site-header .logo { height: 48px; }
+          #site-header .deskbar {
+            height: 92px;
+          }
+          #site-header .logo {
+            height: 48px;
+          }
         }
       `}</style>
 
@@ -73,7 +83,13 @@ export default function Header() {
           style={{ top: "1.9rem" }}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 5h18M3 9h18M3 13h18M3 17h18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" fill="none" />
+            <path
+              d="M3 5h18M3 9h18M3 13h18M3 17h18"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              fill="none"
+            />
           </svg>
         </button>
       </div>
@@ -117,9 +133,19 @@ export default function Header() {
           >
             <div className="flex items-center justify-between mb-4">
               <span className="text-white/80 text-sm">Menu</span>
-              <button aria-label="Fechar menu" onClick={close} className="text-white">
+              <button
+                aria-label="Fechar menu"
+                onClick={close}
+                className="text-white"
+              >
                 <svg width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+                  <path
+                    d="M6 6l12 12M18 6L6 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    fill="none"
+                  />
                 </svg>
               </button>
             </div>
@@ -127,11 +153,12 @@ export default function Header() {
             <ul className="space-y-1">
               {NAV.map((item) => {
                 const active = isActive(item.href, item.exact);
+                const isAnchor = item.href.startsWith("#");
                 return (
                   <li key={`m-${item.label}`}>
                     <Link
                       href={item.href}
-                      prefetch
+                      prefetch={!isAnchor}
                       onClick={close}
                       aria-current={active ? "page" : undefined}
                       className={`block rounded-lg px-3 py-3 text-base font-medium hover:text-white hover:bg-white/5 ${
@@ -146,7 +173,9 @@ export default function Header() {
             </ul>
 
             <div className="mt-auto pt-6 text-xs text-white/50">
-              © {new Date().getFullYear()} <span className="font-medium">Canastra Ventures</span>. Todos os direitos reservados.
+              © {new Date().getFullYear()}{" "}
+              <span className="font-medium">Canastra Ventures</span>. Todos os
+              direitos reservados.
             </div>
           </nav>
         </div>

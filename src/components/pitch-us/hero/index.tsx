@@ -13,17 +13,30 @@ export default function PitchHero() {
     >
       <style jsx global>{`
         @media (min-width: 1181px) and (max-width: 1439px) {
-          #pitch .wrap { margin-left: 26px; }
+          #pitch .wrap {
+            margin-left: 26px;
+          }
         }
         @media (min-width: 1440px) {
-          #pitch .wrap { margin-left: 40px; }
+          #pitch .wrap {
+            margin-left: 40px;
+          }
         }
 
         /* ---- tamanhos maiores só no desktop ---- */
         @media (min-width: 1181px) {
-          #pitch .left h1 { font-size: clamp(48px, 3.9vw, 68px); line-height: 1.12; }
-          #pitch .left h2 { font-size: clamp(24px, 1.8vw, 32px); line-height: 1.18; }
-          #pitch .left p  { font-size: clamp(17px, 1.15vw, 20px); line-height: 1.75; }
+          #pitch .left h1 {
+            font-size: clamp(52px, 4.2vw, 76px);
+            line-height: 1.12;
+          }
+          #pitch .left h2 {
+            font-size: clamp(26px, 2.1vw, 34px);
+            line-height: 1.18;
+          }
+          #pitch .left p {
+            font-size: clamp(18px, 1.3vw, 22px);
+            line-height: 1.75;
+          }
         }
       `}</style>
 
@@ -39,22 +52,53 @@ export default function PitchHero() {
         />
         <h1 className="font-serif text-[28px] leading-tight mb-2">Pitch Us!</h1>
         <h2 className="font-serif text-[18px] leading-snug mb-3">
-          Somos um VC <span style={{ color: HILIGHT }} className="italic font-semibold">Pre-seed</span> com foco em{" "}
-          <span style={{ color: HILIGHT }} className="italic font-semibold">IA</span>
+          Somos um VC{" "}
+          <span style={{ color: HILIGHT }} className="italic font-semibold">
+            Pre-seed
+          </span>{" "}
+          com foco em{" "}
+          <span style={{ color: HILIGHT }} className="italic font-semibold">
+            IA
+          </span>
         </h2>
         <p className="text-white/85 text-[14px] leading-relaxed max-w-[46ch] mx-auto mb-6">
-          Apoiamos fundadores com expertise em inteligência artificial desde o início,
-          investindo nas primeiras rodadas de startups AI-First com ambição de escalar
-          no Brasil e além.
+          Apoiamos fundadores com expertise em inteligência artificial desde o
+          início, investindo nas primeiras rodadas de startups AI-First com
+          ambição de escalar no Brasil e além.
         </p>
         <a
           href="#form-pitch"
           className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
         >
-          <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true" className="-ml-1 text-[#FF624D]">
-            <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-            <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-            <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <svg
+            width="26"
+            height="22"
+            viewBox="0 0 26 22"
+            aria-hidden="true"
+            className="-ml-1 text-[#FF624D]"
+          >
+            <path
+              d="M2 11h6"
+              stroke="currentColor"
+              strokeWidth="2.6"
+              strokeLinecap="round"
+              fill="none"
+            />
+            <path
+              d="M9 11h7"
+              stroke="currentColor"
+              strokeWidth="2.6"
+              strokeLinecap="round"
+              fill="none"
+            />
+            <path
+              d="M16 7l6 4-6 4"
+              stroke="currentColor"
+              strokeWidth="2.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+            />
           </svg>
           Pitch Us!
         </a>
@@ -63,17 +107,29 @@ export default function PitchHero() {
       {/* DESKTOP */}
       <div className="wrap hidden min-[820px]:flex min-[820px]:items-center min-[820px]:justify-between min-[820px]:max-w-[1120px] min-[820px]:mx-auto min-[820px]:px-8 min-[820px]:min-h-[calc(100dvh-96px)]">
         {/* Esquerda */}
-        <div className="left max-w-[540px]">
+        <div className="left max-w-[620px]">
           <h1 className="font-serif leading-tight mb-3">Pitch Us!</h1>
 
-          {/* H2 em 2 linhas (quebras controladas) */}
           <h2 className="font-serif leading-snug mb-3">
             <span className="block whitespace-nowrap">
-              Apoiamos <span style={{ color: HILIGHT }} className="italic font-semibold">Founders</span> com a ambição de
+              Apoiamos{" "}
+              <span
+                style={{ color: HILIGHT }}
+                className="italic font-semibold"
+              >
+                Founders
+              </span>{" "}
+              com a ambição de
             </span>
             <span className="block whitespace-nowrap">
               escalar <span>startups de IA</span> no{" "}
-              <span style={{ color: HILIGHT }} className="italic font-semibold">Brasil</span> e além
+              <span
+                style={{ color: HILIGHT }}
+                className="italic font-semibold"
+              >
+                Brasil
+              </span>{" "}
+              e além
             </span>
           </h2>
 
@@ -84,20 +140,45 @@ export default function PitchHero() {
               href="#form-pitch"
               className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-6 min-w-[200px] text-[14px] border border-gray-400 text-white bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/40 active:translate-y-0"
             >
-              <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true" className="-ml-1 text-gray-400">
-                <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-                <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-                <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <svg
+                width="26"
+                height="22"
+                viewBox="0 0 26 22"
+                aria-hidden="true"
+                className="-ml-1 text-gray-400"
+              >
+                <path
+                  d="M2 11h6"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M9 11h7"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M16 7l6 4-6 4"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
               </svg>
               Pitch Us!
             </a>
           </div>
         </div>
 
-        {/* Direita */}
-        <div className="select-none pointer-events-none pr-2 lg:pr-6 xl:pr-10 2xl:pr-14">
+        {/* Direita – empurrada para a borda direita com margem negativa */}
+        <div className="globe-wrap select-none pointer-events-none -mr-10 lg:-mr-20 xl:-mr-30 2xl:-mr-40">
           <img
-            src="/pitch-us/hero/atomo.png"
+            src="/pitch-us/hero/globo.png"
             alt=""
             className="w-[440px] lg:w-[520px] xl:w-[600px] 2xl:w-[660px] h-auto object-contain"
             loading="eager"

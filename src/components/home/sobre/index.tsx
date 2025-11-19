@@ -9,44 +9,68 @@ export default function Sobre() {
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       <style jsx global>{`
-        #sobre { min-height: 100dvh; }
+        #sobre {
+          min-height: 100dvh;
+        }
 
         @media (max-width: 330px), (max-height: 568px) {
-          #sobre { min-height: 150dvh; }
-          #sobre .spikes-mobile { bottom: 12px !important; }
+          #sobre {
+            min-height: 150dvh;
+          }
+          #sobre .spikes-mobile {
+            bottom: 12px !important;
+          }
         }
 
         @media (min-width: 820px) and (max-width: 1180px) {
-          #sobre { min-height: 110dvh; padding-bottom: 120dvh; }
-          #sobre .wrap { top: 58%; }
-          #sobre .spikes-desktop { top: 50%; }
+          #sobre {
+            min-height: 110dvh;
+            padding-bottom: 120dvh;
+          }
+          #sobre .wrap {
+            top: 58%;
+          }
+          #sobre .spikes-desktop {
+            top: 50%;
+          }
         }
 
         /* Desktop menor — mesmo offset do Hero */
         @media (min-width: 1181px) and (max-width: 1439px) {
-          #sobre { min-height: 108dvh; padding-bottom: 94dvh; }
+          #sobre {
+            min-height: 108dvh;
+            padding-bottom: 94dvh;
+          }
           #sobre .wrap {
             top: 46%;
             margin-left: 26px;
             padding-left: 56px;
             padding-right: 64px;
           }
-          #sobre .spikes-desktop { top: calc(50% - 24px); }
+          #sobre .spikes-desktop {
+            top: calc(50% - 24px);
+          }
         }
 
         /* Desktop ≥1440px — mesmo offset do Hero */
         @media (min-width: 1440px) {
-          #sobre { min-height: 110dvh; padding-bottom: 96dvh; }
+          #sobre {
+            min-height: 110dvh;
+            padding-bottom: 96dvh;
+          }
           #sobre .wrap {
             top: 45%;
             margin-left: 40px;
             padding-left: 84px;
             padding-right: 72px;
           }
-          #sobre .spikes-desktop { top: calc(50% - 24px); }
+          #sobre .spikes-desktop {
+            top: calc(50% - 24px);
+          }
         }
       `}</style>
 
+      {/* gradiente de fundo na base */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0"
@@ -57,48 +81,88 @@ export default function Sobre() {
         }}
       />
 
-      <div className="wrap relative z-10 mx-auto max-w-[640px] px-5 text-center min-[820px]:text-left min-[820px]:max-w-[1100px] min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:-translate-y-1/2">
-        {/* H2 — desktop: 2 linhas fixas e MAIOR */}
-        <h2 className="font-serif text-[28px] leading-snug mb-4 lg:text-[32px] min-[820px]:text-[clamp(42px,3.4vw,56px)] min-[820px]:leading-[1.12]">
-          {/* DESKTOP (≥820px) — 2 linhas fixas (sem quebra interna) */}
-          <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
-            <span className="italic font-semibold">AI&nbsp;Entrepreneur&nbsp;in</span>
-          </span>
-          <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
-            <span className="text-[#FF624D] italic font-semibold">Residence</span>
+      <div className="wrap relative z-10 mx-auto max-w-[640px] px-5 text-center min-[820px]:text-left min-[820px]:max-w-[1200px] min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:-translate-y-1/2">
+        {/* H2 — um pouco menor, ainda com presença */}
+        <h2 className="font-serif text-[28px] leading-snug mb-4 min-[820px]:mb-6 min-[820px]:text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px] min-[820px]:leading-[1.08]">
+          {/* DESKTOP (≥820px) — 1 linha, sem quebra */}
+          <span className="hidden min-[820px]:inline-block min-[820px]:whitespace-nowrap">
+            <span className="italic font-semibold">
+              AI&nbsp;Entrepreneur&nbsp;in&nbsp;
+            </span>
+            <span className="text-[#FF624D] italic font-semibold">
+              Residence
+            </span>
           </span>
 
           {/* MOBILE (<820px) — natural */}
-          <span className="min-[820px]:hidden italic font-semibold">AI Entrepreneur in </span>
-          <span className="min-[820px]:hidden text-[#FF624D] italic font-semibold">Residence</span>
+          <span className="min-[820px]:hidden italic font-semibold">
+            AI Entrepreneur in{" "}
+          </span>
+          <span className="min-[820px]:hidden text-[#FF624D] italic font-semibold">
+            Residence
+          </span>
         </h2>
 
-        {/* Parágrafo — desktop MAIOR também */}
-        <p className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-[46ch] min-[820px]:mx-0 min-[820px]:text-[clamp(18px,1.2vw,22px)] min-[820px]:leading-[1.72]">
-          <span className="block min-[820px]:whitespace-nowrap">
+        {/* Parágrafo — mantido */}
+        <p className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-[46ch] min-[820px]:mx-0 min-[820px]:text-[clamp(21px,1.6vw,28px)] min-[820px]:leading-[1.7]">
+          <span className="min-[820px]:block min-[820px]:whitespace-nowrap">
             Ao longo de 12 semanas, os residentes terão apoio hands-on
-          </span>
-          <span className="block min-[820px]:whitespace-nowrap">
-            com <span className="text-[#FF624D] font-semibold">Fellow Partners</span>, orientação de mentores e conexões
-          </span>
-          <span className="block min-[820px]:whitespace-nowrap">
+          </span>{" "}
+          <span className="min-[820px]:block min-[820px]:whitespace-nowrap">
+            com{" "}
+            <span className="text-[#FF624D] font-semibold">
+              Fellow Partners
+            </span>
+            , orientação de mentores e conexões
+          </span>{" "}
+          <span className="min-[820px]:block min-[820px]:whitespace-nowrap">
             estratégicas para validar a tese, criar o MVP e alcançar os
-          </span>
-          <span className="block min-[820px]:whitespace-nowrap">
-            primeiros sinais de tração rumo ao <span className="text-[#FF624D] font-semibold">primeiro cheque</span>.
+          </span>{" "}
+          <span className="min-[820px]:block min-[820px]:whitespace-nowrap">
+            primeiros sinais de tração rumo ao{" "}
+            <span className="text-[#FF624D] font-semibold">
+              primeiro cheque
+            </span>
+            .
           </span>
         </p>
 
-        <div className="mt-6 min-[820px]:mt-7">
+        {/* Botão — mantido */}
+        <div className="mt-6 min-[820px]:mt-8">
           <button
             type="button"
             aria-disabled
-            className="cta inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent min-[820px]:text-white min-[820px]:hover:brightness-110"
+            className="cta inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 min-[820px]:min-w-[260px] min-[820px]:h-[52px] min-[820px]:px-8 min-[820px]:text-[16px] min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent min-[820px]:text-white min-[820px]:hover:brightness-110"
           >
-            <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true" className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400">
-              <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-              <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-              <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <svg
+              width="26"
+              height="22"
+              viewBox="0 0 26 22"
+              aria-hidden="true"
+              className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
+            >
+              <path
+                d="M2 11h6"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M9 11h7"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M16 7l6 4-6 4"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
             </svg>
             Join AI EiR!
           </button>

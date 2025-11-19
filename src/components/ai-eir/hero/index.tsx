@@ -83,6 +83,23 @@ export default function AIHero() {
         #ai-eir-hero .carousel:active {
           cursor: grabbing;
         }
+
+        /* ===== DESKTOP: aumentar textos para ficar como o layout ===== */
+        @media (min-width: 1280px) {
+          #ai-eir-hero .desk-h1 {
+            font-size: clamp(52px, 4.4vw, 65px);
+            line-height: 1.08;
+          }
+          #ai-eir-hero .desk-h2 {
+            font-size: clamp(32px, 2.5vw, 44px);
+            line-height: 1.2;
+          }
+          #ai-eir-hero .desk-body {
+            font-size: clamp(18px, 1.3vw, 21px);
+            line-height: 1.7;
+            max-width: 66ch; /* ocupa mais pra direita */
+          }
+        }
       `}</style>
 
       {/* gradiente rodapé */}
@@ -99,7 +116,7 @@ export default function AIHero() {
       {/* texto */}
       <div className="relative z-20 px-5 text-center mx-auto max-w-[640px] min-[1280px]:text-left min-[1280px]:px-0 min-[1280px]:mx-0 min-[1280px]:ml-[6vw]">
         {/* H1 desktop */}
-        <h1 className="hidden min-[1280px]:block font-serif font-semibold mb-3 text-[48px] lg:text-[56px] leading-[1.15]">
+        <h1 className="desk-h1 hidden min-[1280px]:block font-serif font-semibold mb-3 text-[48px] lg:text-[56px] leading-[1.15]">
           AI <span className="italic">Entrepreneur</span> in{" "}
           <span className="text-[#ff624d] italic">Residence</span>
         </h1>
@@ -110,7 +127,7 @@ export default function AIHero() {
         </h1>
 
         {/* H2 desktop */}
-        <h2 className="hidden min-[1280px]:block font-serif text-[32px] lg:text-[40px] leading-tight mb-4">
+        <h2 className="desk-h2 hidden min-[1280px]:block font-serif text-[32px] lg:text-[40px] leading-tight mb-4">
           <span className="italic">
             Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
             fundraising em <span className="text-[#ff624d]">12 semanas</span>
@@ -126,7 +143,7 @@ export default function AIHero() {
         </h2>
 
         {/* p desktop */}
-        <p className="hidden min-[1280px]:block text-white/90 max-w-[60ch]">
+        <p className="desk-body hidden min-[1280px]:block text-white/90 max-w-[60ch]">
           Crie, valide e lance sua startup de IA
         </p>
 
