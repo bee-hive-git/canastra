@@ -10,7 +10,7 @@ export default function Page(){
     <main>
       <Header /> {/* não marcar */}
 
-      <section data-edge-section>
+      <section>
         <Hero />
       </section>
 
