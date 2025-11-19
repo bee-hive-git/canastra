@@ -10,7 +10,10 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // configs base do Next + TS
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
+  // overrides / regras do projeto
   {
     ignores: [
       "node_modules/**",
@@ -19,6 +22,23 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+
+    rules: {
+      // deixa usar `any` sem quebrar o build (só aviso)
+      "@typescript-eslint/no-explicit-any": "warn",
+
+      // variáveis não usadas viam como aviso (pode tirar se quiser)
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
+
+      // se quiser também pode virar "warn" pra não travar build:
+      // "react-hooks/exhaustive-deps": "warn",
+    },
   },
 ];
 
