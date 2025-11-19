@@ -10,8 +10,8 @@ const NAV: NavItem[] = [
   { label: "Home", href: "/", exact: true },
   { label: "Time", href: "/time" },
   { label: "AI EiR", href: "/ai-eir" },
-  { label: "Pitch us!", href: "/pitch-us" },          // penúltimo
-  { label: "Recursos", href: "#nascers" },            // último, placeholder
+  { label: "Pitch Us!", href: "/pitch-us" },      // penúltimo
+  { label: "Recursos", href: "#nascers" },        // placeholder
 ];
 
 export default function Header() {
@@ -20,6 +20,7 @@ export default function Header() {
   const close = () => setOpen(false);
 
   const BG = "rgb(17, 4, 23)";
+  const ORANGE = "#FF624D";
 
   // Fecha o menu ao trocar de rota
   useEffect(() => {
@@ -74,7 +75,7 @@ export default function Header() {
         }
       `}</style>
 
-      {/* mobile */}
+      {/* MOBILE TOP BAR */}
       <div className="relative h-16 min-[820px]:hidden">
         <button
           aria-label="Abrir menu"
@@ -94,7 +95,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* desktop */}
+      {/* DESKTOP */}
       <div className="deskbar hidden min-[820px]:flex h-16 items-center justify-between px-10">
         <Link
           href="/"
@@ -120,19 +121,23 @@ export default function Header() {
         </nav>
       </div>
 
+      {/* MOBILE: OVERLAY + LATERAL (mesma largura de antes) */}
       {open && (
         <div className="fixed inset-0 z-50 min-[820px]:hidden">
+          {/* backdrop escuro */}
           <div
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             onClick={close}
           />
+
+          {/* painel laranja à direita */}
           <nav
             aria-label="Menu"
             className="absolute right-0 top-0 h-full w-[78%] max-w-[360px] border-l border-white/10 p-6 flex flex-col"
-            style={{ backgroundColor: BG }}
+            style={{ backgroundColor: ORANGE }}
           >
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-white/80 text-sm">Menu</span>
+            {/* topo: x */}
+            <div className="flex items-center justify-end mb-6">
               <button
                 aria-label="Fechar menu"
                 onClick={close}
@@ -150,7 +155,8 @@ export default function Header() {
               </button>
             </div>
 
-            <ul className="space-y-1">
+            {/* links grandes */}
+            <ul className="space-y-3 flex-1">
               {NAV.map((item) => {
                 const active = isActive(item.href, item.exact);
                 const isAnchor = item.href.startsWith("#");
@@ -161,9 +167,13 @@ export default function Header() {
                       prefetch={!isAnchor}
                       onClick={close}
                       aria-current={active ? "page" : undefined}
-                      className={`block rounded-lg px-3 py-3 text-base font-medium hover:text-white hover:bg-white/5 ${
-                        active ? "text-white" : "text-white/90"
-                      }`}
+                      className={`
+                        block 
+                        text-white 
+                        font-serif 
+                        text-[26px]
+                        leading-[1.8]
+                      `}
                     >
                       {item.label}
                     </Link>
@@ -172,10 +182,85 @@ export default function Header() {
               })}
             </ul>
 
-            <div className="mt-auto pt-6 text-xs text-white/50">
-              © {new Date().getFullYear()}{" "}
-              <span className="font-medium">Canastra Ventures</span>. Todos os
-              direitos reservados.
+            {/* rodapé: redes + texto newsletter */}
+            <div className="mt-6 pt-4 border-t border-white/40 flex flex-col gap-3">
+              <div className="flex items-center gap-4">
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/canastra.ventures/?hl=br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram Canastra Ventures"
+                  className="text-white"
+                >
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="3"
+                      y="3"
+                      width="18"
+                      height="18"
+                      rx="5"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      fill="none"
+                    />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="4"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      fill="none"
+                    />
+                    <circle cx="17.2" cy="6.8" r="1" fill="currentColor" />
+                  </svg>
+                </a>
+
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/school/canastra-ventures/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Canastra Ventures"
+                  className="text-white"
+                >
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="3"
+                      y="3"
+                      width="18"
+                      height="18"
+                      rx="2"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      fill="none"
+                    />
+                    <rect x="7" y="10" width="2" height="7" fill="currentColor" />
+                    <circle cx="8" cy="7" r="1.2" fill="currentColor" />
+                    <path
+                      d="M12 17v-4.1c0-1 0.7-1.9 1.9-1.9 1.3 0 2.1.9 2.1 2.3V17"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      fill="none"
+                    />
+                  </svg>
+                </a>
+              </div>
+
+              <span className="text-[11px] tracking-[0.18em] uppercase text-white/90">
+                CANASTRA NEWSLETTER
+              </span>
             </div>
           </nav>
         </div>
