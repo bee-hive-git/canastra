@@ -38,8 +38,8 @@ export default function Time() {
   const [trackW, setTrackW] = useState(0);
 
   useEffect(() => {
-    const rail = railRef.current,
-      track = trackRef.current;
+    const rail = railRef.current;
+    const track = trackRef.current;
     if (!rail) return;
 
     const measure = () => {
@@ -85,8 +85,8 @@ export default function Time() {
     };
 
     const momentum = () => {
-      const friction = 0.92,
-        minVel = 0.06;
+      const friction = 0.92;
+      const minVel = 0.06;
       if (Math.abs(velocity.current) < minVel) {
         raf.current = null;
         return;
@@ -117,7 +117,8 @@ export default function Time() {
 
     const onMove = (e: PointerEvent) => {
       if (!dragging.current) return;
-      el.scrollLeft = startScroll.current - (e.clientX - startX.current) * 2.1;
+      el.scrollLeft =
+        startScroll.current - (e.clientX - startX.current) * 2.1;
 
       const dt = Math.max(1, e.timeStamp - lastT.current);
       velocity.current = (e.clientX - lastX.current) / dt;
@@ -166,64 +167,6 @@ export default function Time() {
         backgroundColor: "rgb(13,7,17)",
       }}
     >
-      <style jsx global>{`
-        /* Desktop: texto + cards alinhados com a hero */
-        @media (min-width: 1181px) {
-          #time .wrap {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-          }
-
-          /* mesmas variáveis para texto e cards */
-          #time .text-wrap,
-          #time .cards-wrap {
-            --center-gap: max(0px, (100vw - 1100px) / 2);
-            --hero-inset: 40px;
-            --raw-pull: calc(var(--center-gap) - var(--hero-inset));
-            --safe-pull: min(
-              var(--raw-pull),
-              calc(var(--center-gap) - 16px)
-            );
-            --clamped-pull: clamp(40px, var(--safe-pull), 420px);
-            --tweak: 0.9;
-
-            padding-left: clamp(
-              44px,
-              calc(var(--center-gap) * 0.42),
-              84px
-            );
-            padding-right: 72px;
-            transform: translateX(
-              calc(var(--clamped-pull) * -1 * var(--tweak))
-            );
-          }
-
-          /* texto um pouco mais largo → menos quebras de linha */
-          #time .text-wrap {
-            max-width: 680px;
-          }
-
-          /* cards com menos padding à direita, ficam mais “juntinhos” */
-          #time .cards-wrap {
-            padding-right: 32px;
-          }
-        }
-
-        @media (min-width: 1181px) and (max-width: 1366px) {
-          #time .text-wrap,
-          #time .cards-wrap {
-            --tweak: 0.78;
-          }
-        }
-
-        @media (min-width: 1440px) {
-          #time .text-wrap,
-          #time .cards-wrap {
-            --tweak: 1;
-          }
-        }
-      `}</style>
-
       {/* ---------- MOBILE + TABLET até 1180px ---------- */}
       <div className="mx-auto max-w-[1120px] px-5 min-[1181px]:hidden">
         <div className="text-center max-w-[46ch] mx-auto">
@@ -299,9 +242,9 @@ export default function Time() {
 
       {/* ---------- DESKTOP ≥1181px ---------- */}
       <div className="hidden min-[1181px]:block">
-        <div className="wrap mx-auto max-w-[1100px] px-8">
+        <div className="wrap mx-auto max-w-[1120px] px-10">
           {/* TEXTO + BOTÃO */}
-          <div className="text-wrap">
+          <div className="max-w-[640px]">
             <h2 className="font-serif leading-[1.15] mb-4 text-[48px] min-[1181px]:text-[clamp(44px,3.6vw,62px)]">
               Nosso{" "}
               <span className="italic text-[#FF624D]">Time</span>
@@ -319,7 +262,6 @@ export default function Time() {
               .
             </p>
 
-            {/* BOTÃO (copiado do Sobre) */}
             <div className="mt-6 min-[1181px]:mt-8">
               <button
                 type="button"
@@ -361,13 +303,13 @@ export default function Time() {
             </div>
           </div>
 
-          {/* GRID DE FOTOS — menores, mais juntinhas e alinhadas com o texto */}
-          <div className="cards-wrap mt-12">
-            <div className="team-grid grid grid-cols-5 gap-6">
+          {/* GRID DE FOTOS — agora ocupando toda a largura do wrap */}
+          <div className="mt-12">
+            <div className="grid grid-cols-5 gap-6">
               {PHOTOS.map((src, i) => (
                 <div
                   key={`desk-${src}`}
-                  className="team-card relative rounded-2xl overflow-hidden shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+                  className="relative rounded-2xl overflow-hidden shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
                   style={{
                     aspectRatio: "100 / 135",
                     backgroundImage: `url(${src})`,
