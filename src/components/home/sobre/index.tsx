@@ -5,6 +5,7 @@ export default function Sobre() {
   return (
     <section
       id="sobre"
+      data-edge-section
       className="relative overflow-hidden text-white pt-16 pb-36 min-[820px]:pt-24"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >

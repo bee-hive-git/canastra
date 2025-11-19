@@ -166,6 +166,28 @@ export default function Time() {
         backgroundColor: "rgb(13,7,17)",
       }}
     >
+      {/* linha divisória superior */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0))",
+          opacity: 0.4,
+        }}
+      />
+
+      {/* linha divisória inferior */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0))",
+          opacity: 0.4,
+        }}
+      />
+
       {/* MOBILE + TABLET */}
       <div className="mx-auto max-w-[1120px] px-5 min-[1181px]:hidden">
         <div className="text-center max-w-[46ch] mx-auto">
@@ -300,7 +322,7 @@ export default function Time() {
             </div>
           </div>
 
-          {/* grid de fotos, agora mais largo e ocupando bem a seção */}
+          {/* grid de fotos */}
           <div className="mt-12">
             <div className="grid grid-cols-5 gap-6">
               {PHOTOS.map((src, i) => (
