@@ -77,11 +77,8 @@ export default function EdgeLinesSmart({
 
       const rect = anchor.getBoundingClientRect();
 
-      // 🔑 REGRA DE VISIBILIDADE:
-      // Só mostra a linha quando o topo da seção âncora
-      // já encostou no topo da viewport (rect.top <= 0).
-      // Antes disso (enquanto a âncora está abaixo da hero),
-      // a linha NÃO é renderizada.
+      // 🔑 Só mostra a linha quando o topo da seção âncora
+      // encosta (ou passa) o topo da viewport.
       if (rect.top > 0) {
         setHasAnchorVisible(false);
         setMaskBottomPx(0);
@@ -89,7 +86,7 @@ export default function EdgeLinesSmart({
       }
 
       setHasAnchorVisible(true);
-      setTop(Math.max(rect.top, 0)); // depois que passa, travamos em 0
+      setTop(0); // linhas sempre coladas no topo da viewport
 
       footer = footer ?? getFooter();
       if (footer) {
