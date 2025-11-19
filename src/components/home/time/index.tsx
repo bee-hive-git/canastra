@@ -30,7 +30,6 @@ export default function Time() {
   const OVERSCAN_W = 135;
   const OVERSCAN_H = 122;
 
-  // refs/estado para o carrossel mobile
   const railRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
@@ -64,7 +63,7 @@ export default function Time() {
     };
   }, []);
 
-  // arraste com inércia (mobile)
+  // drag com inércia (mobile)
   const dragging = useRef(false);
   const startX = useRef(0);
   const startScroll = useRef(0);
@@ -161,13 +160,13 @@ export default function Time() {
   return (
     <section
       id="time"
-      className="relative text-white pt-16 pb-24 min-[1181px]:pt-24 min-[1181px]:pb-32 bg-cover bg-center bg-no-repeat overflow-x-hidden"
+      className="relative text-white pt-16 pb-20 min-[1181px]:pt-24 min-[1181px]:pb-28 bg-cover bg-center bg-no-repeat overflow-x-hidden"
       style={{
         backgroundImage: "url(/time/fundo.png)",
         backgroundColor: "rgb(13,7,17)",
       }}
     >
-      {/* ---------- MOBILE + TABLET até 1180px ---------- */}
+      {/* MOBILE + TABLET */}
       <div className="mx-auto max-w-[1120px] px-5 min-[1181px]:hidden">
         <div className="text-center max-w-[46ch] mx-auto">
           <h2 className="font-serif text-[28px] leading-tight mb-3">
@@ -187,7 +186,6 @@ export default function Time() {
           </p>
         </div>
 
-        {/* carrossel */}
         <div
           ref={railRef}
           className="mt-8 no-scrollbar -mx-1.5 px-1.5 flex gap-3 overflow-x-auto snap-x snap-mandatory cursor-grab active:cursor-grabbing"
@@ -221,7 +219,6 @@ export default function Time() {
           ))}
         </div>
 
-        {/* scrollbar */}
         <div className="mt-4 flex items-center justify-center">
           <div
             ref={trackRef}
@@ -240,11 +237,11 @@ export default function Time() {
         </div>
       </div>
 
-      {/* ---------- DESKTOP ≥1181px ---------- */}
+      {/* DESKTOP */}
       <div className="hidden min-[1181px]:block">
-        <div className="wrap mx-auto max-w-[1120px] px-10">
-          {/* TEXTO + BOTÃO */}
-          <div className="max-w-[640px]">
+        <div className="wrap mx-auto max-w-[1240px] min-[1440px]:max-w-[1320px] px-8 lg:px-14">
+          {/* texto + botão */}
+          <div className="max-w-[680px]">
             <h2 className="font-serif leading-[1.15] mb-4 text-[48px] min-[1181px]:text-[clamp(44px,3.6vw,62px)]">
               Nosso{" "}
               <span className="italic text-[#FF624D]">Time</span>
@@ -303,7 +300,7 @@ export default function Time() {
             </div>
           </div>
 
-          {/* GRID DE FOTOS — agora ocupando toda a largura do wrap */}
+          {/* grid de fotos, agora mais largo e ocupando bem a seção */}
           <div className="mt-12">
             <div className="grid grid-cols-5 gap-6">
               {PHOTOS.map((src, i) => (
