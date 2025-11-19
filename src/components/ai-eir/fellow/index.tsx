@@ -20,7 +20,8 @@ export default function Fellow() {
   const [trackW, setTrackW] = useState(0);
 
   useEffect(() => {
-    const rail = railRef.current, track = trackRef.current;
+    const rail = railRef.current;
+    const track = trackRef.current;
     if (!rail) return;
 
     const measure = () => {
@@ -64,7 +65,8 @@ export default function Fellow() {
     };
 
     const momentum = () => {
-      const friction = 0.92, minVel = 0.06;
+      const friction = 0.92;
+      const minVel = 0.06;
       if (Math.abs(velocity.current) < minVel) {
         raf.current = null;
         return;
@@ -102,7 +104,9 @@ export default function Fellow() {
     const onUp = (e: PointerEvent) => {
       if (!dragging.current) return;
       dragging.current = false;
-      try { el.releasePointerCapture?.(e.pointerId); } catch {}
+      try {
+        el.releasePointerCapture?.(e.pointerId);
+      } catch {}
       (el.style as any).scrollSnapType = "x mandatory";
       if (raf.current == null) raf.current = requestAnimationFrame(momentum);
     };
@@ -129,19 +133,49 @@ export default function Fellow() {
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       <style jsx global>{`
-        #fellow .title { font-size: 30px; line-height: 1.15; }
-        #fellow .subtitle { font-size: 38px; line-height: 1.08; }
-        #fellow p.lead { font-size: 16px; line-height: 1.9; }
+        #fellow .title {
+          font-size: 30px;
+          line-height: 1.15;
+        }
+        #fellow .subtitle {
+          font-size: 38px;
+          line-height: 1.08;
+        }
+        #fellow p.lead {
+          font-size: 16px;
+          line-height: 1.9;
+        }
 
         @media (min-width: 820px) and (max-width: 1279px) {
-          #fellow .title { font-size: 34px; }
-          #fellow .subtitle { font-size: 48px; }
-          #fellow p.lead { font-size: 18px; }
+          #fellow .title {
+            font-size: 34px;
+          }
+          #fellow .subtitle {
+            font-size: 48px;
+          }
+          #fellow p.lead {
+            font-size: 18px;
+          }
         }
         @media (min-width: 1280px) {
-          #fellow .title { font-size: 36px; }
-          #fellow .subtitle { font-size: 56px; }
-          #fellow p.lead { font-size: 20px; }
+          #fellow .title {
+            font-size: 36px;
+          }
+          #fellow .subtitle {
+            font-size: 56px;
+          }
+          #fellow p.lead {
+            font-size: 20px;
+          }
+        }
+
+        /* ---- esconder scrollbar nativa apenas aqui ---- */
+        #fellow .no-scrollbar {
+          -ms-overflow-style: none; /* IE/Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+        #fellow .no-scrollbar::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, Edge (WebKit/Blink) */
         }
       `}</style>
 
@@ -183,8 +217,12 @@ export default function Fellow() {
           ))}
         </div>
 
-        <div className="mt-5 flex items-center justify-center">
-          <div ref={trackRef} className="relative h-[6px] w-28 rounded-full bg-white/15 overflow-hidden">
+        {/* barra custom de progresso */}
+        <div className="mt-5 flex itemscenter justify-center">
+          <div
+            ref={trackRef}
+            className="relative h-[6px] w-28 rounded-full bg-white/15 overflow-hidden"
+          >
             <div
               className="absolute top-0 left-0 h-full rounded-full bg-white will-change-transform"
               style={{
