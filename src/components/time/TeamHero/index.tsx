@@ -7,6 +7,7 @@ export default function TeamHero() {
   return (
     <section
       id="team-hero"
+      data-edge-section
       className="relative text-white min-h-[100dvh] pt-16 min-[820px]:pt-24"
       style={{ backgroundColor: BG }}
     >
@@ -88,15 +89,13 @@ export default function TeamHero() {
       </div>
 
       {/* ---------- DESKTOP (≥ 820px) ---------- */}
-      <div className="wrap hidden min-[820px]:flex min-[820px]:items-center min-[820px]:justify-between min-[820px]:max-w-[1120px] min-[820px]:mx-auto min-[820px]:px-8 min-[820px]:min-h-[calc(100dvh-96px)]">
+      <div className="wrap hidden min-[820px]:flex min-[820px]:items-center min-[820px]:justify-between min-[820px]:gap-10 min-[820px]:max-w-[1200px] min-[820px]:mx-auto min-[820px]:px-8 min-[820px]:min-h-[calc(100dvh-96px)]">
         {/* ESQUERDA: textos */}
-        <div className="max-w-[700px]">
-          {/* H1 maior, todo branco */}
+        <div className="flex-[0_0_55%] max-w-[700px]">
           <h1 className="font-serif leading-tight mb-4 text-[52px] min-[1181px]:text-[clamp(64px,5vw,80px)]">
             Nosso Time
           </h1>
 
-          {/* H2: duas linhas fixas, bem grande */}
           <h2 className="font-serif text-[26px] min-[1181px]:text-[clamp(30px,2.6vw,38px)] leading-snug mb-5">
             <span className="block whitespace-nowrap">
               Um time que investe nos{" "}
@@ -120,7 +119,6 @@ export default function TeamHero() {
             </span>
           </h2>
 
-          {/* Parágrafo: duas linhas fixas, maior também */}
           <p className="mt-1 text-white/85 text-[18px] min-[1181px]:text-[clamp(20px,1.7vw,22px)] leading-relaxed">
             <span className="block whitespace-nowrap">
               Somos <em>investidores</em> e também{" "}
@@ -133,12 +131,12 @@ export default function TeamHero() {
           </p>
         </div>
 
-        {/* DIREITA: ilustração ocupando a faixa vertical */}
-        <div className="select-none pointer-events-none flex items-center justify-end pr-2 lg:pr-6 xl:pr-10 2xl:pr-14">
+        {/* DIREITA: imagem centralizada verticalmente e bem à direita */}
+        <div className="flex-1 flex items-center justify-end pr-0 lg:pr-4 xl:pr-6 2xl:pr-8 mr-0 lg:mr-[-32px] xl:mr-[-64px] 2xl:mr-[-96px]">
           <img
-            src="/time/hero/illustration.png"
-            alt=""
-            className="h-[78vh] max-h-[680px] w-auto object-contain"
+            src="/time/hero/time.png"
+            alt="Ilustração do time da Canastra"
+            className="h-[64vh] max-h-[620px] w-auto object-contain"
             loading="eager"
             decoding="async"
             draggable={false}
