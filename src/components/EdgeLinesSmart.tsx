@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 
 type Props = {
@@ -13,7 +14,7 @@ type Props = {
 };
 
 export default function EdgeLinesSmart({
-  startIndex = 1,
+  startIndex,
   startSelector,
   offsetPx = 30,
   widthPx = 1,
@@ -22,11 +23,16 @@ export default function EdgeLinesSmart({
   footerFadeRatio = 0.5,
   hideBelowWidth = 1024, // iPad Air e abaixo somem
 }: Props) {
+  // Sempre começa no primeiro [data-edge-section] (index 0),
+  // a não ser que você passe startIndex manualmente.
+  const effectiveStartIndex = startIndex ?? 0;
+
   const [top, setTop] = useState(0);
-  const [hasAnchor, setHasAnchor] = useState(false);
+  const [hasAnchorVisible, setHasAnchorVisible] = useState(false);
   const [maskBottomPx, setMaskBottomPx] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
+  // Esconde em telas menores que hideBelowWidth
   useEffect(() => {
     const handleResize = () => {
       setIsVisible(window.innerWidth > hideBelowWidth);
@@ -40,9 +46,13 @@ export default function EdgeLinesSmart({
     if (!isVisible) return;
 
     const getAnchor = (): HTMLElement | null => {
-      if (startSelector) return document.querySelector<HTMLElement>(startSelector);
-      const list = Array.from(document.querySelectorAll<HTMLElement>("[data-edge-section]"));
-      return list[startIndex] ?? list[0] ?? null;
+      if (startSelector)
+        return document.querySelector<HTMLElement>(startSelector);
+
+      const list = Array.from(
+        document.querySelectorAll<HTMLElement>("[data-edge-section]")
+      );
+      return list[effectiveStartIndex] ?? list[0] ?? null;
     };
 
     const getFooter = (): HTMLElement | null =>
@@ -53,16 +63,33 @@ export default function EdgeLinesSmart({
 
     let anchor = getAnchor();
     let footer = getFooter();
-    setHasAnchor(!!anchor);
 
     const update = () => {
       if (!isVisible) return;
 
       anchor = anchor ?? getAnchor();
-      if (anchor) {
-        const t = anchor.getBoundingClientRect().top;
-        setTop(Math.max(t, 0));
+
+      if (!anchor) {
+        setHasAnchorVisible(false);
+        setMaskBottomPx(0);
+        return;
       }
+
+      const rect = anchor.getBoundingClientRect();
+
+      // 🔑 REGRA DE VISIBILIDADE:
+      // Só mostra a linha quando o topo da seção âncora
+      // já encostou no topo da viewport (rect.top <= 0).
+      // Antes disso (enquanto a âncora está abaixo da hero),
+      // a linha NÃO é renderizada.
+      if (rect.top > 0) {
+        setHasAnchorVisible(false);
+        setMaskBottomPx(0);
+        return;
+      }
+
+      setHasAnchorVisible(true);
+      setTop(Math.max(rect.top, 0)); // depois que passa, travamos em 0
 
       footer = footer ?? getFooter();
       if (footer) {
@@ -83,9 +110,9 @@ export default function EdgeLinesSmart({
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [startIndex, startSelector, footerSelector, footerFadeRatio, isVisible]);
+  }, [effectiveStartIndex, startSelector, footerSelector, footerFadeRatio, isVisible]);
 
-  if (!hasAnchor || !isVisible) return null;
+  if (!hasAnchorVisible || !isVisible) return null;
 
   const styleVars: React.CSSProperties = {
     ["--edge-line-offset" as any]: `${offsetPx}px`,
@@ -111,7 +138,8 @@ export default function EdgeLinesSmart({
         style={{
           left: "var(--edge-line-offset)",
           width: "var(--edge-line-width)",
-          backgroundImage: "linear-gradient(to bottom, var(--edge-line-color-top), var(--edge-line-color-bot))",
+          backgroundImage:
+            "linear-gradient(to bottom, var(--edge-line-color-top), var(--edge-line-color-bot))",
           ...maskStyle,
         }}
       />
@@ -120,7 +148,8 @@ export default function EdgeLinesSmart({
         style={{
           right: "var(--edge-line-offset)",
           width: "var(--edge-line-width)",
-          backgroundImage: "linear-gradient(to bottom, var(--edge-line-color-top), var(--edge-line-color-bot))",
+          backgroundImage:
+            "linear-gradient(to bottom, var(--edge-line-color-top), var(--edge-line-color-bot))",
           ...maskStyle,
         }}
       />
