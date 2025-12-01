@@ -1,10 +1,105 @@
 // src/components/pitch-us/napkin/index.tsx
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 export default function Napkin() {
   const ACCENT = "#FF624D";
   const BG = "rgb(17, 4, 23)";
   const DESK_IMG = "/pitch-us/napkin/div.png";
+
+  const railRef = useRef<HTMLDivElement | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const [trackW, setTrackW] = useState(160);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const el = railRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const max = el.scrollWidth - el.clientWidth;
+      const p = max > 0 ? el.scrollLeft / max : 0;
+      setProgress(Math.min(1, Math.max(0, p)));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const el = railRef.current;
+    if (!el) return;
+    let isDown = false;
+    let startX = 0;
+    let startScroll = 0;
+    let lastX = 0;
+    let lastT = 0;
+    let vel = 0;
+    let raf: number | null = null;
+    const stop = () => { if (raf != null) { cancelAnimationFrame(raf); raf = null; } };
+    const momentum = () => {
+      const friction = 0.92;
+      const minVel = 0.06;
+      if (Math.abs(vel) < minVel) { raf = null; return; }
+      el.scrollLeft -= vel * 16;
+      vel *= friction;
+      const max = el.scrollWidth - el.clientWidth;
+      if (el.scrollLeft <= 0 || el.scrollLeft >= max) vel = 0;
+      raf = requestAnimationFrame(momentum);
+    };
+    const onDown = (e: PointerEvent) => {
+      isDown = true;
+      el.setPointerCapture?.(e.pointerId);
+      startX = e.clientX;
+      startScroll = el.scrollLeft;
+      lastX = e.clientX;
+      lastT = e.timeStamp;
+      vel = 0;
+      el.classList.add("grabbing");
+      stop();
+      e.preventDefault();
+    };
+    const onMove = (e: PointerEvent) => {
+      if (!isDown) return;
+      el.scrollLeft = startScroll - (e.clientX - startX) * 2.1;
+      const dt = Math.max(1, e.timeStamp - lastT);
+      vel = (e.clientX - lastX) / dt;
+      lastX = e.clientX;
+      lastT = e.timeStamp;
+      e.preventDefault();
+    };
+    const end = (e: PointerEvent) => {
+      if (!isDown) return;
+      isDown = false;
+      try { el.releasePointerCapture?.(e.pointerId); } catch {}
+      el.classList.remove("grabbing");
+      if (raf == null) raf = requestAnimationFrame(momentum);
+    };
+    el.addEventListener("pointerdown", onDown);
+    el.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", end);
+    el.addEventListener("pointercancel", end);
+    el.addEventListener("pointerleave", end);
+    return () => {
+      stop();
+      el.removeEventListener("pointerdown", onDown);
+      el.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", end);
+      el.removeEventListener("pointercancel", end);
+      el.removeEventListener("pointerleave", end);
+    };
+  }, []);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const measure = () => setTrackW(el.clientWidth);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    window.addEventListener("resize", measure);
+    return () => { ro.disconnect(); window.removeEventListener("resize", measure); };
+  }, []);
 
   return (
     <section
@@ -28,6 +123,11 @@ export default function Napkin() {
           /* menos fundo vazio que antes */
           #napkin { padding-bottom: clamp(120px, 14vh, 240px); }
         }
+        /* mobile rail */
+        #napkin .rail { touch-action: pan-x; -webkit-user-select: none; user-select: none; cursor: grab; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+        #napkin .rail.grabbing { cursor: grabbing; }
+        #napkin .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        #napkin .hide-scroll::-webkit-scrollbar { width: 0; height: 0; display: none; }
       `}</style>
 
       {/* DESKTOP HEADER */}
@@ -124,7 +224,7 @@ export default function Napkin() {
       {/* MOBILE IMG (mesmo tamanho do desktop) + DISCLAIMER */}
       <div className="min-[820px]:hidden mt-8 px-5">
         {/* scroll horizontal só dentro deste contêiner */}
-        <div className="relative overflow-x-auto">
+        <div ref={railRef} className="rail relative overflow-x-auto hide-scroll" style={{ touchAction: "pan-x" }}>
           <div
             className="rounded-2xl"
             style={{
@@ -138,9 +238,9 @@ export default function Napkin() {
           />
         </div>
 
-        {/* indicador simples */}
-        <div className="mt-3 mx-auto w-40 h-[6px] rounded-full bg-white/18 overflow-hidden">
-          <div className="h-full w-1/3 rounded-full bg-white/70" />
+        {/* indicador (progresso) */}
+        <div ref={trackRef} className="relative mt-3 mx-auto w-40 h-[6px] rounded-full bg-white/18 overflow-hidden">
+          <div className="absolute top-0 left-0 h-[6px] rounded-full bg-white/70" style={{ width: `${trackW * 0.33}px`, transform: `translateX(${progress * (trackW - trackW * 0.33)}px)` }} />
         </div>
 
         <p
