@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* começa na 2ª seção marcada (Hero é index 0, sem linhas) */}
-        <EdgeLinesSmart startIndex={1} />
+        <EdgeLinesSmart startIndex={1} hideBelowWidth={1279} />
         {children}
       </body>
     </html>

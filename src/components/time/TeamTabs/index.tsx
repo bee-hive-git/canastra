@@ -22,10 +22,13 @@ export default function TeamTabs() {
   const ARROW_EXTRA_SHIFT = 12; // “puxa” para dentro
   const ARROW_LEFT_X = ARROW_INSET_BASE + ARROW_EXTRA_SHIFT;
   const ARROW_RIGHT_X = ARROW_INSET_BASE + ARROW_EXTRA_SHIFT;
-  const RAIL_SIDE_PADDING = ARROW_INSET_BASE + ARROW_EXTRA_SHIFT + ARROW_SIZE + 8;
+  const RAIL_SIDE_PADDING =
+    ARROW_INSET_BASE + ARROW_EXTRA_SHIFT + ARROW_SIZE + 8;
 
   // viewport
-  const [vw, setVw] = useState<number>(typeof window !== "undefined" ? window.innerWidth : 1440);
+  const [vw, setVw] = useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 1440
+  );
   useEffect(() => {
     const onR = () => setVw(window.innerWidth);
     window.addEventListener("resize", onR);
@@ -36,7 +39,7 @@ export default function TeamTabs() {
   const BTN_W = useMemo(() => {
     if (vw >= 1440) return 440;
     if (vw >= 1181) return 400;
-    if (vw >= 820)  return 320;
+    if (vw >= 820) return 320;
     return 240;
   }, [vw]);
 
@@ -47,39 +50,47 @@ export default function TeamTabs() {
 
   // mobile/tablet cards (carrossel)
   const CARD = useMemo(() => {
-    if (vw >= 1181) return { w: FIGMA_W, h: FIGMA_H };               // não usado aqui (desktop tem bloco próprio)
-    if (vw >= 820)  return { w: FIGMA_W * 0.86, h: FIGMA_H * 0.86 }; // tablet
-    return { w: FIGMA_W * 0.72, h: FIGMA_H * 0.72 };                  // mobile
+    if (vw >= 1181) return { w: FIGMA_W, h: FIGMA_H }; // desktop não usa esse caminho
+    if (vw >= 820) return { w: FIGMA_W * 0.86, h: FIGMA_H * 0.86 }; // tablet
+    return { w: FIGMA_W * 0.72, h: FIGMA_H * 0.72 }; // mobile
   }, [vw]);
 
   // tabs
   const TABS: { key: TabKey; label: string; count: number }[] = [
-    { key: "team",             label: "Team",             count: 4 },
+    { key: "team", label: "Team", count: 4 },
     { key: "venture-partners", label: "Venture Partners", count: 3 },
-    { key: "fellow-partners",  label: "Fellow Partners",  count: 4 },
-    { key: "advisors",         label: "Advisors",         count: 1 },
-    { key: "mentors",          label: "Mentors",          count: 17 },
+    { key: "fellow-partners", label: "Fellow Partners", count: 4 },
+    { key: "advisors", label: "Advisors", count: 1 },
+    { key: "mentors", label: "Mentors", count: 17 },
   ];
+
   const [active, setActive] = useState<TabKey>("team");
   const photos = useMemo(
-    () => Array.from({ length: TABS.find(t => t.key === active)!.count }, (_, i) => `/time/${active}/${i + 1}.png`),
+    () =>
+      Array.from(
+        { length: TABS.find((t) => t.key === active)!.count },
+        (_, i) => `/time/${active}/${i + 1}.png`
+      ),
     [active]
   );
 
   // barra de abas
   const railTabsRef = useRef<HTMLDivElement>(null);
   const recalcArrows = () => {
-    const el = railTabsRef.current; if (!el) return;
+    const el = railTabsRef.current;
+    if (!el) return;
     const max = el.scrollWidth - el.clientWidth - 1;
     setCanLeft(el.scrollLeft > 0);
     setCanRight(el.scrollLeft < max);
   };
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(false);
-  const scrollTabsBy = (delta: number) => railTabsRef.current?.scrollBy({ left: delta, behavior: "smooth" });
+  const scrollTabsBy = (delta: number) =>
+    railTabsRef.current?.scrollBy({ left: delta, behavior: "smooth" });
 
   useEffect(() => {
-    const el = railTabsRef.current; if (!el) return;
+    const el = railTabsRef.current;
+    if (!el) return;
     recalcArrows();
     const onScroll = () => recalcArrows();
     const onResize = () => recalcArrows();
@@ -87,7 +98,7 @@ export default function TeamTabs() {
     window.addEventListener("resize", onResize);
 
     // centraliza a etiqueta ativa
-    const idx = TABS.findIndex(t => t.key === active);
+    const idx = TABS.findIndex((t) => t.key === active);
     if (idx >= 0) {
       const targetX = idx * (BTN_W + 1) - el.clientWidth / 2 + BTN_W / 2;
       el.scrollTo({ left: Math.max(0, targetX), behavior: "smooth" });
@@ -106,7 +117,8 @@ export default function TeamTabs() {
   const [trackW, setTrackW] = useState(0);
 
   useEffect(() => {
-    const rail = railRef.current, track = trackRef.current;
+    const rail = railRef.current,
+      track = trackRef.current;
     if (!rail) return;
     const measure = () => {
       const max = Math.max(1, rail.scrollWidth - rail.clientWidth);
@@ -137,11 +149,21 @@ export default function TeamTabs() {
   const raf = useRef<number | null>(null);
 
   useEffect(() => {
-    const el = railRef.current; if (!el) return;
-    const stop = () => { if (raf.current != null) { cancelAnimationFrame(raf.current); raf.current = null; } };
+    const el = railRef.current;
+    if (!el) return;
+    const stop = () => {
+      if (raf.current != null) {
+        cancelAnimationFrame(raf.current);
+        raf.current = null;
+      }
+    };
     const momentum = () => {
-      const friction = 0.92, minVel = 0.06;
-      if (Math.abs(velocity.current) < minVel) { raf.current = null; return; }
+      const friction = 0.92,
+        minVel = 0.06;
+      if (Math.abs(velocity.current) < minVel) {
+        raf.current = null;
+        return;
+      }
       el.scrollLeft -= velocity.current * 16;
       velocity.current *= friction;
       const maxScroll = el.scrollWidth - el.clientWidth;
@@ -162,7 +184,8 @@ export default function TeamTabs() {
     };
     const onMove = (e: PointerEvent) => {
       if (!dragging.current) return;
-      el.scrollLeft = startScroll.current - (e.clientX - startX.current) * 2.1;
+      el.scrollLeft =
+        startScroll.current - (e.clientX - startX.current) * 2.1;
       const dt = Math.max(1, e.timeStamp - lastT.current);
       velocity.current = (e.clientX - lastX.current) / dt;
       lastX.current = e.clientX;
@@ -187,21 +210,17 @@ export default function TeamTabs() {
   }, [active]);
 
   const thumbRatio = Math.max(visibleRatio || 0, 0.15);
-  const translatePx = progress * Math.max(0, (trackW - trackW * thumbRatio));
+  const translatePx = progress * Math.max(0, trackW - trackW * thumbRatio);
 
-  // ===== Desktop menor: cards que nunca cortam e sempre centralizados =====
-  // margem de segurança lateral (para respirar e evitar encostar)
-  const SAFE_PAD = 48; // px em cada lado
-  // largura ideal por coluna é o mínimo entre Figma e (viewport útil / 4)
+  // Desktop menor: cards que nunca cortam e sempre centralizados
+  const SAFE_PAD = 48; // margem lateral
   const DESK_COL_W = useMemo(() => {
-    if (vw < 1181) return FIGMA_W; // não usado abaixo do desktop
+    if (vw < 1181) return FIGMA_W;
     const usable = Math.max(320, vw - SAFE_PAD * 2);
     return Math.min(FIGMA_W, Math.floor(usable / 4));
   }, [vw]);
 
   const DESK_COL_H = useMemo(() => DESK_COL_W * AR, [DESK_COL_W]);
-
-  // em desktops bem largos, mantenho o Figma “na risca”
   const USE_FIGMA_SIZE = vw >= 1600;
   const COL_W = USE_FIGMA_SIZE ? FIGMA_W : DESK_COL_W;
   const COL_H = USE_FIGMA_SIZE ? FIGMA_H : DESK_COL_H;
@@ -220,7 +239,7 @@ export default function TeamTabs() {
           style={{
             background: COLOR_BG,
             height: STRIP_H,
-            boxShadow: `inset 0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`
+            boxShadow: `inset 0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`,
           }}
         >
           {/* setas */}
@@ -232,19 +251,43 @@ export default function TeamTabs() {
               left: ARROW_LEFT_X,
               background: COLOR_BG,
               boxShadow: `0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`,
-              transition: "background 160ms ease, box-shadow 160ms ease"
+              transition: "background 160ms ease, box-shadow 160ms ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = mix(COLOR_BG, COLOR_ACCENT, 0.08);
-              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(COLOR_ACCENT, 0.36)}`;
+              e.currentTarget.style.background = mix(
+                COLOR_BG,
+                COLOR_ACCENT,
+                0.08
+              );
+              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(
+                COLOR_ACCENT,
+                0.36
+              )}`;
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = COLOR_BG;
-              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`;
+              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(
+                COLOR_ACCENT,
+                0.22
+              )}`;
             }}
+            disabled={!canLeft}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" className="mx-auto" aria-hidden="true">
-              <path d="M15 6l-6 6 6 6" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              className="mx-auto"
+              aria-hidden="true"
+            >
+              <path
+                d="M15 6l-6 6 6 6"
+                fill="none"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
 
@@ -256,19 +299,43 @@ export default function TeamTabs() {
               right: ARROW_RIGHT_X,
               background: COLOR_BG,
               boxShadow: `0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`,
-              transition: "background 160ms ease, box-shadow 160ms ease"
+              transition: "background 160ms ease, box-shadow 160ms ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = mix(COLOR_BG, COLOR_ACCENT, 0.08);
-              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(COLOR_ACCENT, 0.36)}`;
+              e.currentTarget.style.background = mix(
+                COLOR_BG,
+                COLOR_ACCENT,
+                0.08
+              );
+              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(
+                COLOR_ACCENT,
+                0.36
+              )}`;
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = COLOR_BG;
-              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`;
+              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(
+                COLOR_ACCENT,
+                0.22
+              )}`;
             }}
+            disabled={!canRight}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" className="mx-auto" aria-hidden="true">
-              <path d="M9 6l6 6-6 6" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              className="mx-auto"
+              aria-hidden="true"
+            >
+              <path
+                d="M9 6l6 6-6 6"
+                fill="none"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
 
@@ -282,7 +349,7 @@ export default function TeamTabs() {
               paddingLeft: RAIL_SIDE_PADDING,
               paddingRight: RAIL_SIDE_PADDING,
               scrollSnapType: "x mandatory",
-              gap: "1px"
+              gap: "1px",
             }}
             onScroll={recalcArrows}
           >
@@ -292,7 +359,7 @@ export default function TeamTabs() {
                 <button
                   key={t.key}
                   onClick={() => setActive(t.key)}
-                  className="flex-none flex items-center justify-center text-[15px] font-semibold select-none outline-none"
+                  className="flex-none flex items-center justify-center select-none outline-none"
                   style={{
                     width: BTN_W,
                     height: BTN_H,
@@ -302,18 +369,35 @@ export default function TeamTabs() {
                     boxShadow: is
                       ? `inset 0 0 0 1px ${hexA(COLOR_ACCENT, 0.36)}`
                       : `inset 0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`,
-                    transition: "background 140ms ease, box-shadow 140ms ease, color 140ms ease"
+                    transition:
+                      "background 140ms ease, box-shadow 140ms ease, color 140ms ease",
+                    fontFamily: `"Crimson Text", serif`,
+                    fontWeight: 400,
+                    fontSize: "clamp(16px, 2.4vw, 33.2px)",
+                    lineHeight: "1.3",
+                    textAlign: "center",
+                    paddingInline: 8,
                   }}
                   onMouseEnter={(e) => {
                     if (!is) {
-                      e.currentTarget.style.background = mix(COLOR_BG, COLOR_ACCENT, 0.06);
-                      e.currentTarget.style.boxShadow = `inset 0 0 0 1px ${hexA(COLOR_ACCENT, 0.36)}`;
+                      e.currentTarget.style.background = mix(
+                        COLOR_BG,
+                        COLOR_ACCENT,
+                        0.06
+                      );
+                      e.currentTarget.style.boxShadow = `inset 0 0 0 1px ${hexA(
+                        COLOR_ACCENT,
+                        0.36
+                      )}`;
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!is) {
                       e.currentTarget.style.background = COLOR_BG;
-                      e.currentTarget.style.boxShadow = `inset 0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`;
+                      e.currentTarget.style.boxShadow = `inset 0 0 0 1px ${hexA(
+                        COLOR_ACCENT,
+                        0.22
+                      )}`;
                     }
                   }}
                 >
@@ -343,7 +427,7 @@ export default function TeamTabs() {
                 backgroundImage: `url(${src})`,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "contain"
+                backgroundSize: "contain",
               }}
             />
           ))}
@@ -351,11 +435,14 @@ export default function TeamTabs() {
 
         {/* barra de progresso */}
         <div className="mt-4 flex items-center justify-center">
-          <div ref={trackRef} className="relative h-[6px] w-24 rounded-full bg-white/15 overflow-hidden">
+          <div
+            ref={trackRef}
+            className="relative h-[6px] w-24 rounded-full bg-white/15 overflow-hidden"
+          >
             <div
               className="absolute top-0 left-0 h-full rounded-full bg-white will-change-transform"
               style={{
-                width: `${trackW * Math.max(visibleRatio || 0, 0.15)}px`,
+                width: `${trackW * thumbRatio}px`,
                 transform: `translateX(${translatePx}px)`,
                 transition: "transform 120ms linear, width 120ms ease",
               }}
@@ -364,7 +451,7 @@ export default function TeamTabs() {
         </div>
       </div>
 
-      {/* desktop – grid 4 colunas centralizado e dimensionado pela viewport */}
+      {/* desktop – grid 4 colunas */}
       <div className="hidden min-[1181px]:block">
         <div className="w-full mx-auto mt-10 px-4">
           <div className="flex justify-center w-full overflow-x-hidden">
@@ -373,7 +460,7 @@ export default function TeamTabs() {
                 display: "grid",
                 gridTemplateColumns: `repeat(4, ${COL_W}px)`,
                 gap: 0,
-                width: `${GRID_W}px`, // nunca maior que a viewport útil nas telas menores
+                width: `${GRID_W}px`,
               }}
             >
               {photos.map((src) => (
@@ -386,7 +473,7 @@ export default function TeamTabs() {
                     backgroundImage: `url(${src})`,
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
-                    backgroundSize: "contain"
+                    backgroundSize: "contain",
                   }}
                 />
               ))}
@@ -400,15 +487,20 @@ export default function TeamTabs() {
 
 /* utils */
 function hexA(hex: string, a: number) {
-  const clamp = (x: number, min: number, max: number) => Math.max(min, Math.min(max, x));
+  const clamp = (x: number, min: number, max: number) =>
+    Math.max(min, Math.min(max, x));
   const alpha = clamp(Math.round(a * 255), 0, 255);
   return hex + alpha.toString(16).padStart(2, "0");
 }
 function mix(hex1: string, hex2: string, t = 0.5) {
   const c1 = parseInt(hex1.slice(1), 16);
   const c2 = parseInt(hex2.slice(1), 16);
-  const r = Math.round(((c1 >> 16) * (1 - t)) + ((c2 >> 16) * t));
-  const g = Math.round((((c1 >> 8) & 0xff) * (1 - t)) + (((c2 >> 8) & 0xff) * t));
-  const b = Math.round(((c1 & 0xff) * (1 - t)) + ((c2 & 0xff) * t));
-  return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+  const r = Math.round((c1 >> 16) * (1 - t) + (c2 >> 16) * t);
+  const g = Math.round(
+    ((c1 >> 8) & 0xff) * (1 - t) + ((c2 >> 8) & 0xff) * t
+  );
+  const b = Math.round((c1 & 0xff) * (1 - t) + (c2 & 0xff) * t);
+  return `#${((1 << 24) + (r << 16) + (g << 8) + b)
+    .toString(16)
+    .slice(1)}`;
 }

@@ -218,10 +218,20 @@ export default function Time() {
       {/* MOBILE + TABLET */}
       <div className="mx-auto max-w-[1120px] px-5 min-[1181px]:hidden">
         <div className="text-center max-w-[46ch] mx-auto">
-          <h2 className="font-serif text-[28px] leading-tight mb-3">
-            Nosso <span className="italic text-[#FF624D]">Time</span>
+          <h2
+            className="font-bold text-[28px] leading-tight mb-3"
+            style={{ fontFamily: '"Crimson Text", serif' }}
+          >
+            Nosso{" "}
+            <span className="text-[#FF624D] font-bold">Time</span>
           </h2>
-          <p className="text-white/85 text-[14px] leading-relaxed">
+          <p
+            className="text-white/85 text-[15px] leading-relaxed font-normal"
+            style={{
+              fontFamily:
+                '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+            }}
+          >
             Contamos com investidores,{" "}
             <span className="text-[#FF624D] italic font-semibold">
               world-class founders
@@ -291,11 +301,20 @@ export default function Time() {
         <div className="wrap mx-auto max-w-[1840px] px-5 min-[1181px]:pr-6 min-[1181px]:pl-10 lg:pl-8 xl:pl-6 2xl:pl-5">
           {/* texto + botão */}
           <div className="max-w-[680px]">
-            <h2 className="font-serif leading-[1.15] mb-4 text-[48px] min-[1181px]:text-[clamp(44px,3.6vw,62px)]">
+            <h2
+              className="font-bold leading-[1.15] mb-4 text-[48px] min-[1181px]:text-[clamp(44px,3.6vw,62px)]"
+              style={{ fontFamily: '"Crimson Text", serif' }}
+            >
               Nosso{" "}
-              <span className="italic text-[#FF624D]">Time</span>
+              <span className="text-[#FF624D] font-bold">Time</span>
             </h2>
-            <p className="text-white/85 leading-[1.9] text-[20px] min-[1181px]:text-[clamp(16px,1.05vw,19px)]">
+            <p
+              className="text-white/85 leading-[1.9] text-[20px] min-[1181px]:text-[clamp(21px,1.6vw,28px)] font-normal"
+              style={{
+                fontFamily:
+                  '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+              }}
+            >
               Contamos com investidores,{" "}
               <span className="text-[#FF624D] italic font-semibold">
                 world-class founders
@@ -312,14 +331,14 @@ export default function Time() {
               <button
                 type="button"
                 aria-disabled
-                className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 min-[820px]:min-w-[220px] min-[820px]:h-[50px] min-[820px]:px-7 min-[820px]:text-[15px] min-[820px]:border min-[820px]:border-gray-300 min-[820px]:bg-transparent min-[820px]:text-white min-[820px]:hover:brightness-110"
+                className="cta inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 min-[820px]:min-w-[260px] min-[820px]:h-[52px] min-[820px]:px-8 min-[820px]:text-[16px] min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent min-[820px]:text-white min-[820px]:hover:brightness-110"
               >
                 <svg
                   width="26"
                   height="22"
                   viewBox="0 0 26 22"
                   aria-hidden="true"
-                  className="-ml-1 text-[#FF624D] min-[820px]:text-gray-300"
+                  className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
                 >
                   <path
                     d="M2 11h6"

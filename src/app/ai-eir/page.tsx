@@ -17,7 +17,7 @@ export default function AiEir() {
   return (
     <main>
       {/* 👇 Faz o traço começar já no header */}
-      <EdgeLinesSmart startIndex={0} />
+      <EdgeLinesSmart startIndex={0} hideBelowWidth={1024} />
 
       {/* agora o header entra na contagem */}
       <section data-edge-section>

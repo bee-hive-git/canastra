@@ -21,9 +21,9 @@ export default function Newsletter() {
     >
       <div className="mx-auto max-w-[760px] px-5 text-center">
         {/* Título: “Newsletter” com laranja no mobile e no desktop */}
-        <h2 className="font-serif leading-tight mb-4 text-[30px] min-[820px]:text-[40px]">
+        <h2 className="font-serif font-semibold leading-tight mb-4 text-[30px] min-[820px]:text-[40px]">
           Canastra{" "}
-          <span style={{ color: HILIGHT }} className="italic font-semibold">
+          <span style={{ color: HILIGHT }} className="font-normal">
             Newsletter
           </span>
         </h2>

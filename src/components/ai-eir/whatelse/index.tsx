@@ -11,12 +11,24 @@ export default function WhatElse() {
       <div className="mx-auto w-full max-w-[1200px] px-5 py-14 sm:py-16 lg:py-20">
         {/* Título */}
         <header className="text-center mb-10 sm:mb-12 lg:mb-14">
-          <h2 className="font-serif font-semibold leading-tight">
-            <span className="block text-[28px] sm:text-[32px] lg:text-[40px]">
-              O que mais você terá <span className="text-[#FF624D] italic">acesso</span>
+          <h2
+            className="
+              font-bold font-serif leading-[0.94]
+              text-[clamp(34px,6vw,65px)]
+            "
+            style={{
+              fontFamily: '"Crimson Text", serif',
+              letterSpacing: "-1.63px",
+            }}
+          >
+            <span className="block">
+              O que mais você terá{" "}
+              <span className="italic text-[#FF624D]">acesso</span>
             </span>
-            <span className="block text-[26px] sm:text-[30px] lg:text-[38px] italic">
-              durante o <span className="text-[#FF624D]">programa</span>
+
+            <span className="block italic">
+              durante o{" "}
+              <span className="text-[#FF624D] not-italic">programa</span>
             </span>
           </h2>
         </header>
@@ -50,7 +62,7 @@ export default function WhatElse() {
         </div>
       </div>
 
-      {/* ---- divisória na BASE ---- */}
+      {/* divisória inferior */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-px"

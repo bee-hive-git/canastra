@@ -56,22 +56,42 @@ const PitchHero: FC = () => {
         </div>
 
         <div className="w-full flex flex-col items-center mt-auto mb-3">
-          <h1 className="font-serif text-[28px] leading-tight mb-2">
+          <h1
+            className="text-[28px] leading-tight mb-2"
+            style={{
+              fontFamily: '"Crimson Text", serif',
+              fontWeight: 700,
+            }}
+          >
             Pitch Us!
           </h1>
 
-          <h2 className="font-serif text-[18px] leading-snug mb-3">
+          <h2
+            className="text-[18px] leading-snug mb-3"
+            style={{
+              fontFamily: '"Crimson Text", serif',
+              fontWeight: 700,
+              fontStyle: "italic",
+            }}
+          >
             Somos um VC{" "}
-            <span style={{ color: HILIGHT }} className="italic font-semibold">
+            <span style={{ color: HILIGHT }} className="font-semibold">
               Pre-seed
             </span>{" "}
             com foco em{" "}
-            <span style={{ color: HILIGHT }} className="italic font-semibold">
+            <span style={{ color: HILIGHT }} className="font-semibold">
               IA
             </span>
           </h2>
 
-          <p className="text-white/85 text-[14px] leading-relaxed max-w-[46ch] mx-auto mb-6">
+          <p
+            className="text-white/85 text-[14px] leading-relaxed max-w-[46ch] mx-auto mb-6"
+            style={{
+              fontFamily:
+                '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+              fontWeight: 300,
+            }}
+          >
             Apoiamos fundadores com expertise em inteligência artificial desde o
             início, investindo nas primeiras rodadas de startups AI-First com
             ambição de escalar no Brasil e além.
@@ -117,9 +137,24 @@ const PitchHero: FC = () => {
       <div className="wrap hidden min-[1181px]:flex min-[1181px]:items-center min-[1181px]:justify-start min-[1181px]:max-w-[1240px] min-[1181px]:mx-auto min-[1181px]:px-8 min-[1181px]:min-h-[calc(100dvh-96px)]">
         {/* ESQUERDA (texto) */}
         <div className="left max-w-[680px] relative z-10">
-          <h1 className="font-serif leading-tight mb-3">Pitch Us!</h1>
+          <h1
+            className="leading-tight mb-3"
+            style={{
+              fontFamily: '"Crimson Text", serif',
+              fontWeight: 700,
+            }}
+          >
+            Pitch Us!
+          </h1>
 
-          <h2 className="font-serif leading-snug mb-3">
+          <h2
+            className="leading-snug mb-3"
+            style={{
+              fontFamily: '"Crimson Text", serif',
+              fontWeight: 700,
+              fontStyle: "italic",
+            }}
+          >
             <span className="block whitespace-nowrap">
               Apoiamos{" "}
               <span
@@ -142,7 +177,16 @@ const PitchHero: FC = () => {
             </span>
           </h2>
 
-          <p className="text-white/85">VC pre-seed especialista em IA</p>
+          <p
+            className="text-white/85"
+            style={{
+              fontFamily:
+                '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+              fontWeight: 300,
+            }}
+          >
+            VC pre-seed especialista em IA
+          </p>
 
           <div className="mt-7">
             <a

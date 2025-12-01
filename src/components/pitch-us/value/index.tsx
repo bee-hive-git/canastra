@@ -76,12 +76,12 @@ export default function Value() {
         /* ----- TIPOGRAFIA DESKTOP (≥1181px) ----- */
         @media (min-width: 1181px) {
           #value .head h2 {
-            font-size: clamp(48px, 4.1vw, 72px);
-            line-height: 1.12;
+            font-size: clamp(40px, 4.7vw, 75.52px); /* Crimson 75.52 */
+            line-height: 1.3;
           }
           #value .head p {
-            font-size: clamp(20px, 1.4vw, 24px);
-            line-height: 1.7;
+            font-size: clamp(18px, 2.2vw, 31.5px); /* Hanken 31.5 */
+            line-height: 1.3;
           }
         }
       `}</style>
@@ -100,16 +100,30 @@ export default function Value() {
       {/* mobile */}
       <div className="mx-auto max-w-[560px] px-5 min-[820px]:hidden">
         <header className="text-center">
-          <h2 className="font-serif text-[28px] leading-tight">
+          <h2
+            className="text-[28px] leading-tight"
+            style={{
+              fontFamily: '"Crimson Text", serif',
+              fontWeight: 700,
+            }}
+          >
             Nosso{" "}
             <span
-              className="italic font-semibold"
-              style={{ color: HILIGHT }}
+              className="italic"
+              style={{ color: HILIGHT, fontWeight: 700 }}
             >
               Value Add
             </span>
           </h2>
-          <div className="mt-3 mx-auto text-[14px] leading-relaxed text-white/85 text-left">
+
+          <div
+            className="mt-3 mx-auto text-[14px] leading-relaxed text-white/85 text-left"
+            style={{
+              fontFamily:
+                '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+              fontWeight: 400,
+            }}
+          >
             Após o investimento, colaboramos com os founders na criação de um
             plano de 100 dias, com reuniões semanais para acompanhar o
             progresso. Atuamos{" "}
@@ -158,10 +172,28 @@ export default function Value() {
                 justifyContent: "flex-start",
               }}
             >
-              <h3 className="font-serif font-semibold text-[16px] leading-tight mb-2">
+              <h3
+                className="mb-2 leading-tight"
+                style={{
+                  fontFamily:
+                    '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                  fontWeight: 600,
+                  fontSize: "18px",
+                  letterSpacing: "0.28px",
+                }}
+              >
                 {c.title}
               </h3>
-              <p className="text-[14px] leading-relaxed text-white/85">
+              <p
+                className="text-white/85 leading-relaxed"
+                style={{
+                  fontFamily:
+                    '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                  fontWeight: 400,
+                  fontSize: "15px",
+                  letterSpacing: "0.4px",
+                }}
+              >
                 {c.body}
               </p>
             </div>
@@ -174,16 +206,30 @@ export default function Value() {
         {/* wrap SEM max-width: começa no mesmo lugar à esquerda e estica mais pra direita */}
         <div className="wrap min-[820px]:mx-auto min-[820px]:px-8">
           <header className="head max-w-none">
-            <h2 className="font-serif text-[40px] leading-tight">
+            <h2
+              className="text-[40px] leading-tight"
+              style={{
+                fontFamily: '"Crimson Text", serif',
+                fontWeight: 700,
+              }}
+            >
               Nosso{" "}
               <span
-                className="italic font-semibold"
-                style={{ color: HILIGHT }}
+                className="italic"
+                style={{ color: HILIGHT, fontWeight: 700 }}
               >
                 Value Add
               </span>
             </h2>
-            <p className="mt-3 text-white/85 leading-relaxed">
+
+            <p
+              className="mt-3 text-white/85 leading-relaxed"
+              style={{
+                fontFamily:
+                  '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                fontWeight: 400,
+              }}
+            >
               Após o investimento, colaboramos com os founders na criação de um
               plano de 100 dias, com reuniões semanais para acompanhar o
               progresso. Atuamos{" "}
@@ -217,10 +263,11 @@ export default function Value() {
               paddingRight: "24px",
               ["--gapX" as any]: "clamp(44px, 5vw, 96px)",
               ["--gapY" as any]: "36px",
+              // tipografia cards desktop
               ["--cardPadX" as any]: "24px",
               ["--cardPadY" as any]: "24px",
-              ["--title" as any]: "18px",
-              ["--body" as any]: "17px",
+              ["--title" as any]: "clamp(18px, 2.2vw, 31.37px)",
+              ["--body" as any]: "clamp(15px, 1.5vw, 21.42px)",
               ["--minH" as any]: "178px",
               ["--cardNarrow" as any]: "88%",
             } as any
@@ -247,14 +294,28 @@ export default function Value() {
                 }}
               >
                 <h3
-                  className="font-serif font-semibold leading-tight mb-2"
-                  style={{ fontSize: "var(--title)" }}
+                  className="leading-tight mb-2"
+                  style={{
+                    fontFamily:
+                      '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                    fontWeight: 600,
+                    fontSize: "var(--title)",
+                    lineHeight: "1.09",
+                    letterSpacing: "0.28px",
+                  }}
                 >
                   {c.title}
                 </h3>
                 <p
                   className="text-white/85 leading-relaxed"
-                  style={{ fontSize: "var(--body)" }}
+                  style={{
+                    fontFamily:
+                      '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                    fontWeight: 400,
+                    fontSize: "var(--body)",
+                    lineHeight: "1.16",
+                    letterSpacing: "0.58px",
+                  }}
                 >
                   {c.body}
                 </p>

@@ -97,7 +97,13 @@ export default function Overview() {
       {/* mobile/tablet (≤ iPad Air, inclusive) */}
       <div className="mx-auto max-w-[560px] px-5 min-[1181px]:hidden">
         <header className="text-center">
-          <h2 className="font-serif text-[28px] leading-tight">
+          <h2
+            className="text-[28px] leading-tight"
+            style={{
+              fontFamily: '"Crimson Text", serif',
+              fontWeight: 700,
+            }}
+          >
             Overview da{" "}
             <span
               className="italic font-semibold"
@@ -108,7 +114,14 @@ export default function Overview() {
           </h2>
         </header>
 
-        <h3 className="font-serif text-[18px] leading-snug mt-2 text-center">
+        <h3
+          className="text-[18px] leading-snug mt-2 text-center"
+          style={{
+            fontFamily:
+              '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+            fontWeight: 400,
+          }}
+        >
           Investimos <span className="font-normal not-italic">pre-seed</span>{" "}
           em{" "}
           <span
@@ -208,7 +221,13 @@ export default function Overview() {
         <div className="wrap min-[1181px]:max-w-[1120px] min-[1181px]:mx-auto min-[1181px]:px-8">
           {/* max-width maior para empurrar mais para a direita */}
           <div className="head max-w-[900px]">
-            <h2 className="font-serif text-[40px] leading-tight mb-3">
+            <h2
+              className="text-[40px] leading-tight mb-3"
+              style={{
+                fontFamily: '"Crimson Text", serif',
+                fontWeight: 700,
+              }}
+            >
               Overview da{" "}
               <span
                 className="italic font-semibold"
@@ -219,7 +238,14 @@ export default function Overview() {
             </h2>
 
             {/* PARÁGRAFO EM 3 LINHAS FIXAS + MAIOR */}
-            <h3 className="font-serif text-[22px] leading-snug">
+            <h3
+              className="text-[22px] leading-snug"
+              style={{
+                fontFamily:
+                  '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                fontWeight: 400,
+              }}
+            >
               <span className="block">
                 Investimos{" "}
                 <span className="font-normal not-italic">pre-seed</span>{" "}
