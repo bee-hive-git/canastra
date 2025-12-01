@@ -1,7 +1,11 @@
 // src/components/pitch-us/hero/index.tsx
 "use client";
 
-export default function PitchHero() {
+import type { FC } from "react";
+import Lottie from "lottie-react";
+import pitchHeroAnimation from "@/../public/lotties/pitch-us/data.json";
+
+const PitchHero: FC = () => {
   const HILIGHT = "#FF624D";
   const BG = "rgb(17, 4, 23)";
 
@@ -12,7 +16,7 @@ export default function PitchHero() {
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
-        @media (min-width: 1181px) && (max-width: 1439px) {
+        @media (min-width: 1181px) and (max-width: 1439px) {
           #pitch .wrap {
             margin-left: 26px;
           }
@@ -41,77 +45,97 @@ export default function PitchHero() {
       `}</style>
 
       {/* ------------- MOBILE / TABLET (até 1180px) ------------- */}
-      <div className="mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[1181px]:hidden">
-        <img
-          src="/pitch-us/hero/atomo.png"
-          alt=""
-          className="w-[72%] max-w-[360px] h-auto mb-8 select-none"
-          loading="eager"
-          decoding="async"
-          draggable={false}
-        />
+      <div className="mx-auto max-w-[560px] px-5 text-center flex flex-col items-center justify-start min-h-[100dvh] min-[1181px]:hidden">
+        <div className="w-full flex justify-center pt-8">
+          <Lottie
+            animationData={pitchHeroAnimation}
+            loop
+            autoplay
+            className="w-[72%] max-w-[380px] h-auto"
+          />
+        </div>
 
-        <h1 className="font-serif text-[28px] leading-tight mb-2">Pitch Us!</h1>
+        <div className="w-full flex flex-col items-center mt-auto mb-3">
+          <h1 className="font-serif text-[28px] leading-tight mb-2">
+            Pitch Us!
+          </h1>
 
-        <h2 className="font-serif text-[18px] leading-snug mb-3">
-          Somos um VC{" "}
-          <span style={{ color: HILIGHT }} className="italic font-semibold">
-            Pre-seed
-          </span>{" "}
-          com foco em{" "}
-          <span style={{ color: HILIGHT }} className="italic font-semibold">
-            IA
-          </span>
-        </h2>
+          <h2 className="font-serif text-[18px] leading-snug mb-3">
+            Somos um VC{" "}
+            <span style={{ color: HILIGHT }} className="italic font-semibold">
+              Pre-seed
+            </span>{" "}
+            com foco em{" "}
+            <span style={{ color: HILIGHT }} className="italic font-semibold">
+              IA
+            </span>
+          </h2>
 
-        <p className="text-white/85 text-[14px] leading-relaxed max-w-[46ch] mx-auto mb-6">
-          Apoiamos fundadores com expertise em inteligência artificial desde o
-          início, investindo nas primeiras rodadas de startups AI-First com
-          ambição de escalar no Brasil e além.
-        </p>
+          <p className="text-white/85 text-[14px] leading-relaxed max-w-[46ch] mx-auto mb-6">
+            Apoiamos fundadores com expertise em inteligência artificial desde o
+            início, investindo nas primeiras rodadas de startups AI-First com
+            ambição de escalar no Brasil e além.
+          </p>
 
-        <a
-          href="#form-pitch"
-          className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
-        >
-          <svg
-            width="26"
-            height="22"
-            viewBox="0 0 26 22"
-            aria-hidden="true"
-            className="-ml-1 text-[#FF624D]"
+          <a
+            href="#form-pitch"
+            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
           >
-            <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-            <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-            <path
-              d="M16 7l6 4-6 4"
-              stroke="currentColor"
-              strokeWidth="2.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          Pitch Us!
-        </a>
+            <svg
+              width="26"
+              height="22"
+              viewBox="0 0 26 22"
+              aria-hidden="true"
+              className="-ml-1 text-[#FF624D]"
+            >
+              <path
+                d="M2 11h6"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+              />
+              <path
+                d="M9 11h7"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+              />
+              <path
+                d="M16 7l6 4-6 4"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            Pitch Us!
+          </a>
+        </div>
       </div>
 
       {/* ------------------ DESKTOP (≥1181px) ------------------ */}
-      <div className="wrap hidden min-[1181px]:flex min-[1181px]:items-center min-[1181px]:justify-between min-[1181px]:max-w-[1240px] min-[1181px]:mx-auto min-[1181px]:px-8 min-[1181px]:min-h-[calc(100dvh-96px)]">
-        {/* ESQUERDA */}
-        <div className="left max-w-[680px]">
+      <div className="wrap hidden min-[1181px]:flex min-[1181px]:items-center min-[1181px]:justify-start min-[1181px]:max-w-[1240px] min-[1181px]:mx-auto min-[1181px]:px-8 min-[1181px]:min-h-[calc(100dvh-96px)]">
+        {/* ESQUERDA (texto) */}
+        <div className="left max-w-[680px] relative z-10">
           <h1 className="font-serif leading-tight mb-3">Pitch Us!</h1>
 
           <h2 className="font-serif leading-snug mb-3">
             <span className="block whitespace-nowrap">
               Apoiamos{" "}
-              <span style={{ color: HILIGHT }} className="italic font-semibold">
+              <span
+                style={{ color: HILIGHT }}
+                className="italic font-semibold"
+              >
                 Founders
               </span>{" "}
               com a ambição de
             </span>
             <span className="block whitespace-nowrap">
               escalar startups de IA no{" "}
-              <span style={{ color: HILIGHT }} className="italic font-semibold">
+              <span
+                style={{ color: HILIGHT }}
+                className="italic font-semibold"
+              >
                 Brasil
               </span>{" "}
               e além
@@ -132,8 +156,18 @@ export default function PitchHero() {
                 aria-hidden="true"
                 className="-ml-1 text-gray-400"
               >
-                <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-                <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+                <path
+                  d="M2 11h6"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M9 11h7"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                />
                 <path
                   d="M16 7l6 4-6 4"
                   stroke="currentColor"
@@ -146,19 +180,22 @@ export default function PitchHero() {
             </a>
           </div>
         </div>
+      </div>
 
-        {/* DIREITA – globo grande só no desktop */}
-        <div className="globe-wrap select-none pointer-events-none -mr-6 lg:-mr-12 xl:-mr-16 2xl:-mr-24">
-          <img
-            src="/pitch-us/hero/globo.png"
-            alt=""
-            className="w-[460px] lg:w-[540px] xl:w-[620px] 2xl:w-[680px] h-auto object-contain"
-            loading="eager"
-            decoding="async"
-            draggable={false}
-          />
-        </div>
+      {/* ---------- LOTTIE COMO “GLOBO” À DIREITA (desktop only) ---------- */}
+      <div
+        aria-hidden
+        className="hidden min-[1181px]:flex pointer-events-none absolute inset-y-0 right-[120px] items-center justify-center"
+      >
+        <Lottie
+          animationData={pitchHeroAnimation}
+          loop
+          autoplay
+          className="w-[400px] lg:w-[460px] xl:w-[520px] 2xl:w-[560px] h-auto translate-y-[0px]"
+        />
       </div>
     </section>
   );
-}
+};
+
+export default PitchHero;
