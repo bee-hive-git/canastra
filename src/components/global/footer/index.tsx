@@ -11,6 +11,23 @@ export default function Footer() {
   return (
     <footer id="footer" className="text-white" style={{ backgroundColor: BG }}>
       <style jsx global>{`
+        /* alinhar início/fim do conteúdo com Hero e Time no DESKTOP */
+        @media (min-width: 1181px) and (max-width: 1439px) {
+          #footer .wrap {
+            margin-left: 26px;
+            padding-left: 56px;
+            padding-right: 64px;
+          }
+        }
+        @media (min-width: 1440px) {
+          #footer .wrap {
+            margin-left: 40px;
+            padding-left: 84px;
+            padding-right: 72px;
+          }
+        }
+
+        /* ajustes de tipografia e respiro para telas grandes (seu código original) */
         @media (min-width: 1440px) {
           #footer .col h3 {
             font-size: 18px;
@@ -33,7 +50,8 @@ export default function Footer() {
         }
       `}</style>
 
-      <div className="wrap mx-auto max-w-[1120px] px-5 py-12 min-[820px]:py-16">
+      {/* wrap agora ocupa a mesma “largura útil” do Time/Hero no desktop */}
+      <div className="wrap mx-auto max-w-[1840px] px-5 py-12 min-[820px]:py-16">
         {/* Grid base em ≥820px */}
         <div className="min-[820px]:grid min-[820px]:grid-cols-12 min-[820px]:gap-10">
           {/* Escritório */}
@@ -46,7 +64,7 @@ export default function Footer() {
             </h3>
             <p className="mt-2 text-white/85 text-[15px] leading-relaxed max-[360px]:text-[14px]">
               Rua Dr. Renato Paes de Barros, 33 – 14º andar |
-              <br className="max-[820px]:block hidden" />
+              <br />
               Itaim Bibi | São Paulo/SP | CEP 01239-030
             </p>
             <div className="my-5 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10 min-[820px]:hidden" />
@@ -220,7 +238,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Linha final e respiro (sem texto longo) */}
+        {/* Linha final */}
         <div className="mt-8 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
       </div>
     </footer>
