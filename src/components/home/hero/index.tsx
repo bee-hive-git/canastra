@@ -15,9 +15,13 @@ export default function Hero() {
     if (!wrap || !h2) return;
 
     const PAD = 10;
-    let MIN = 18, MAX = 40;
+    // H2 MOBILE – um pouco maior
+    let MIN = 22, MAX = 48;
     const w = window.innerWidth, h = window.innerHeight;
-    if (w <= 330 || h <= 600) { MIN = 16; MAX = 20; }
+    if (w <= 330 || h <= 600) {
+      MIN = 20;
+      MAX = 28;
+    }
 
     const fit = () => {
       const maxW = wrap.clientWidth - PAD;
@@ -42,7 +46,9 @@ export default function Hero() {
     const wrap = wrapRef.current, p = pRef.current;
     if (!wrap || !p) return;
 
-    const PAD = 10, MIN = 12, MAX = 16;
+    const PAD = 10;
+    // Parágrafo MOBILE – um pouco maior
+    const MIN = 14, MAX = 20;
     p.style.whiteSpace = "nowrap";
 
     const fit = () => {
@@ -80,75 +86,164 @@ export default function Hero() {
         @media (max-height: 700px) { #home { min-height: 118dvh; } }
         @media (max-height: 620px) { #home { min-height: 126dvh; } }
         @media (max-height: 560px) { #home { min-height: 134dvh; } }
-        @media (min-width: 1181px) and (max-width: 1439px) { #home .wrap { margin-left: 26px; padding-left: 56px; padding-right: 64px; } }
-        @media (min-width: 1440px) { #home .wrap { margin-left: 40px; padding-left: 84px; padding-right: 72px; } }
+        @media (min-width: 1181px) and (max-width: 1439px) {
+          #home .wrap {
+            margin-left: 26px;
+            padding-left: 56px;
+            padding-right: 64px;
+          }
+        }
+        @media (min-width: 1440px) {
+          #home .wrap {
+            margin-left: 40px;
+            padding-left: 84px;
+            padding-right: 72px;
+          }
+        }
       `}</style>
 
-      {/* POSICIONAMENTO ORIGINAL preservado */}
       <div
         ref={wrapRef}
         className="wrap relative z-10 mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1080px] min-[820px]:pr-6 min-[820px]:pl-10 lg:pl-8 xl:pl-6 2xl:pl-5"
       >
-        <img src="/hero/logo.png" alt="Logo Canastra" className="h-9 w-auto mb-6 min-[820px]:hidden" />
+        <img
+          src="/hero/logo.png"
+          alt="Logo Canastra"
+          className="h-9 w-auto mb-6 min-[820px]:hidden"
+        />
 
-        {/* H1 maior e levemente mais à esquerda no desktop */}
-        <h1 className="hidden min-[820px]:block font-serif text-[40px] min-[820px]:text-[56px] leading-tight mb-3 ml-2 min-[820px]:-ml-[6px]">
+        {/* H1 maior, pesado e levemente mais à direita */}
+        <h1 className="hidden min-[820px]:block font-serif font-semibold text-[44px] min-[820px]:text-[64px] leading-tight mb-4 min-[820px]:ml-[1px]">
           Canastra Ventures
         </h1>
 
-        {/* H2 — DESKTOP exatamente 2 linhas com nowrap; MOBILE quebra natural */}
+        {/* H2 menor no desktop para não passar tanto à direita */}
         <h2
           ref={h2Ref}
-          className="font-serif leading-tight min-[820px]:text-[clamp(36px,3vw,48px)] min-[820px]:max-w-[1040px]"
+          className="font-serif font-semibold leading-tight min-[820px]:text-[clamp(32px,2.5vw,38px)] min-[820px]:max-w-[1040px]"
         >
           {/* DESKTOP (≥820px) — 2 linhas fixas */}
           <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
-            Guiamos os <span className="text-[#FF624D] italic font-semibold">ousados</span> na trilha&nbsp;da
+            Guiamos os{" "}
+            <span className="text-[#FF624D] italic font-semibold">ousados</span>{" "}
+            na trilha&nbsp;da
           </span>
           <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
-            construção de <span className="text-[#FF624D] italic font-semibold">startups&nbsp;inesquecíveis</span>
+            construção de{" "}
+            <span className="text-[#FF624D] italic font-semibold">
+              startups&nbsp;inesquecíveis
+            </span>
           </span>
 
-          {/* MOBILE (<820px) — natural */}
+          {/* MOBILE (<820px) — natural, com auto-fit maior agora */}
           <span className="min-[820px]:hidden block">
-            Guiamos os <span className="text-[#FF624D] italic font-semibold">ousados</span> na trilha da
+            Guiamos os{" "}
+            <span className="text-[#FF624D] italic font-semibold">ousados</span>{" "}
+            na trilha da
           </span>
           <span className="min-[820px]:hidden block">
-            construção de <span className="text-[#FF624D] italic font-semibold">startups inesquecíveis</span>
+            construção de{" "}
+            <span className="text-[#FF624D] italic font-semibold">
+              startups inesquecíveis
+            </span>
           </span>
         </h2>
 
-        {/* Parágrafo — Desktop maior; Mobile auto-fit */}
-        <p className="mt-3 text-white/85 min-[820px]:text-[clamp(16px,1.05vw,19px)] min-[820px]:max-w-[520px]">
+        {/* Parágrafo — tamanho já ajustado, mais contido à esquerda */}
+        <p
+          ref={pRef}
+          className="mt-3 text-white/85 min-[820px]:text-[clamp(15px,1vw,18px)] min-[820px]:max-w-[480px]"
+        >
           VC pre-seed especialista em IA
         </p>
 
         <div className="mt-7 flex items-center justify-center gap-2 min-[820px]:justify-start">
           <a
             href="#ai-eir"
-            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent min-[820px]:text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[108px] max-[330px]:px-3"
+            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[50px] px-5 min-w-[160px] text-[15px] border-2 border-[#FF624D] bg-white text-black min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent min-[820px]:text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[108px] max-[330px]:px-3"
           >
-            <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true" className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400">
-              <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-              <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-              <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <svg
+              width="26"
+              height="22"
+              viewBox="0 0 26 22"
+              aria-hidden="true"
+              className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
+            >
+              <path
+                d="M2 11h6"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M9 11h7"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M16 7l6 4-6 4"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
             </svg>
             Join AI EIR!
           </a>
 
           <a
             href="#pitch"
-            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[108px] max-[330px]:px-3"
+            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[50px] px-5 min-w-[160px] text-[15px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[108px] max-[330px]:px-3"
           >
-            <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true" className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400">
-              <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-              <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-              <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <svg
+              width="26"
+              height="22"
+              viewBox="0 0 26 22"
+              aria-hidden="true"
+              className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
+            >
+              <path
+                d="M2 11h6"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M9 11h7"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M16 7l6 4-6 4"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
             </svg>
             Pitch Us!
           </a>
         </div>
       </div>
+
+      {/* divisória inferior da seção (igual Time/Footer, só na base) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0))",
+          opacity: 0.4,
+        }}
+      />
     </section>
   );
 }

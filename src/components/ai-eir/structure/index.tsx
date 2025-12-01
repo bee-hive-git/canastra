@@ -8,6 +8,28 @@ export default function Structure() {
       className="relative overflow-hidden text-white pt-14 pb-24 min-[821px]:pt-20 min-[821px]:pb-28"
       style={{ backgroundColor: "rgb(17, 4, 23)" }} // mesmo BG do Header
     >
+      {/* divisória superior */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0))",
+          opacity: 0.4,
+        }}
+      />
+
+      {/* divisória inferior */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0))",
+          opacity: 0.4,
+        }}
+      />
+
       {/* Título (duas linhas) */}
       <div className="mx-auto max-w-[860px] px-5 text-center">
         <h2 className="font-serif font-semibold leading-tight text-[30px] sm:text-[34px] min-[821px]:text-[48px]">
@@ -38,9 +60,28 @@ export default function Structure() {
               aria-hidden="true"
               className="-ml-0.5 text-[#FF624D] min-[821px]:text-white"
             >
-              <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-              <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-              <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path
+                d="M2 11h6"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M9 11h7"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M16 7l6 4-6 4"
+                stroke="currentColor"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
             </svg>
             <span>Cronograma Completo</span>
           </button>

@@ -63,7 +63,7 @@ export default function Time() {
     };
   }, []);
 
-  // drag com inércia (mobile)
+  // drag com inércia (MOBILE)
   const dragging = useRef(false);
   const startX = useRef(0);
   const startScroll = useRef(0);
@@ -166,7 +166,36 @@ export default function Time() {
         backgroundColor: "rgb(13,7,17)",
       }}
     >
-      {/* linha divisória superior */}
+      <style jsx global>{`
+        /* Esconder apenas a barrinha de scroll, sem desativar o scroll */
+        #time .hide-scroll {
+          -ms-overflow-style: none; /* IE/Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+        #time .hide-scroll::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+          display: none; /* Chrome / Safari */
+        }
+
+        /* alinhar com a Hero no desktop */
+        @media (min-width: 1181px) and (max-width: 1439px) {
+          #time .wrap {
+            margin-left: 26px;
+            padding-left: 56px;
+            padding-right: 64px;
+          }
+        }
+        @media (min-width: 1440px) {
+          #time .wrap {
+            margin-left: 40px;
+            padding-left: 84px;
+            padding-right: 72px;
+          }
+        }
+      `}</style>
+
+      {/* linhas divisórias */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px"
@@ -176,8 +205,6 @@ export default function Time() {
           opacity: 0.4,
         }}
       />
-
-      {/* linha divisória inferior */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
@@ -210,7 +237,7 @@ export default function Time() {
 
         <div
           ref={railRef}
-          className="mt-8 no-scrollbar -mx-1.5 px-1.5 flex gap-3 overflow-x-auto snap-x snap-mandatory cursor-grab active:cursor-grabbing"
+          className="mt-8 -mx-1.5 px-1.5 flex gap-3 overflow-x-auto snap-x snap-mandatory cursor-grab active:cursor-grabbing hide-scroll"
           style={{ touchAction: "pan-x" }}
           aria-label="Time (carrossel)"
         >
@@ -261,7 +288,7 @@ export default function Time() {
 
       {/* DESKTOP */}
       <div className="hidden min-[1181px]:block">
-        <div className="wrap mx-auto max-w-[1240px] min-[1440px]:max-w-[1320px] px-8 lg:px-14">
+        <div className="wrap mx-auto max-w-[1840px] px-5 min-[1181px]:pr-6 min-[1181px]:pl-10 lg:pl-8 xl:pl-6 2xl:pl-5">
           {/* texto + botão */}
           <div className="max-w-[680px]">
             <h2 className="font-serif leading-[1.15] mb-4 text-[48px] min-[1181px]:text-[clamp(44px,3.6vw,62px)]">
@@ -322,9 +349,9 @@ export default function Time() {
             </div>
           </div>
 
-          {/* grid de fotos */}
+          {/* GRID DESKTOP (já no layout que você aprovou) */}
           <div className="mt-12">
-            <div className="grid grid-cols-5 gap-6">
+            <div className="grid grid-cols-5 gap-x-10 gap-y-10">
               {PHOTOS.map((src, i) => (
                 <div
                   key={`desk-${src}`}
@@ -352,6 +379,7 @@ export default function Time() {
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -50,8 +50,8 @@ export default function Value() {
           }
         }
 
-        /* gutters */
-        @media (min-width: 1181px) && (max-width: 1439px) {
+        /* gutters (alinhamento à esquerda com Hero/Time) */
+        @media (min-width: 1181px) and (max-width: 1439px) {
           #value .wrap {
             margin-left: 26px;
           }
@@ -73,18 +73,29 @@ export default function Value() {
           }
         }
 
-        /* ----- AUMENTO DE TAMANHO (somente desktop ≥1181px) ----- */
+        /* ----- TIPOGRAFIA DESKTOP (≥1181px) ----- */
         @media (min-width: 1181px) {
           #value .head h2 {
             font-size: clamp(48px, 4.1vw, 72px);
             line-height: 1.12;
           }
           #value .head p {
-            font-size: clamp(22px, 1.6vw, 26px);
-            line-height: 1.78;
+            font-size: clamp(20px, 1.4vw, 24px);
+            line-height: 1.7;
           }
         }
       `}</style>
+
+      {/* divisória superior da sessão (apenas TOPO) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0))",
+          opacity: 0.4,
+        }}
+      />
 
       {/* mobile */}
       <div className="mx-auto max-w-[560px] px-5 min-[820px]:hidden">
@@ -129,7 +140,7 @@ export default function Value() {
             {
               ["--mCardW" as any]: "86%",
               ["--mCardH" as any]: "240px",
-            } as React.CSSProperties
+            } as any
           }
         >
           {cards.map((c) => (
@@ -160,8 +171,9 @@ export default function Value() {
 
       {/* desktop */}
       <div className="hidden min-[820px]:block">
-        <div className="wrap min-[820px]:max-w-[1120px] min-[820px]:mx-auto min-[820px]:px-8">
-          <header className="head max-w-none pr-8">
+        {/* wrap SEM max-width: começa no mesmo lugar à esquerda e estica mais pra direita */}
+        <div className="wrap min-[820px]:mx-auto min-[820px]:px-8">
+          <header className="head max-w-none">
             <h2 className="font-serif text-[40px] leading-tight">
               Nosso{" "}
               <span
@@ -171,10 +183,7 @@ export default function Value() {
                 Value Add
               </span>
             </h2>
-            <p
-              className="mt-3 text-white/85 leading-relaxed"
-              style={{ maxWidth: 1360 }}
-            >
+            <p className="mt-3 text-white/85 leading-relaxed">
               Após o investimento, colaboramos com os founders na criação de um
               plano de 100 dias, com reuniões semanais para acompanhar o
               progresso. Atuamos{" "}
@@ -214,7 +223,7 @@ export default function Value() {
               ["--body" as any]: "17px",
               ["--minH" as any]: "178px",
               ["--cardNarrow" as any]: "88%",
-            } as React.CSSProperties
+            } as any
           }
         >
           <div

@@ -179,7 +179,7 @@ export default function Fellow() {
         }
       `}</style>
 
-      {/* ---------- Cabeçalho ---------- */}
+      {/* cabeçalho */}
       <div className="mx-auto max-w-[1120px] px-5 text-center">
         <h2 className="font-serif title mb-2">Conheça os</h2>
         <div className="font-serif subtitle italic text-[#FF624D] mb-4">
@@ -198,7 +198,7 @@ export default function Fellow() {
         </p>
       </div>
 
-      {/* ---------- Mobile + Tablet (até 1024px): carrossel ---------- */}
+      {/* Mobile + Tablet (até 1024px): carrossel */}
       <div className="mx-auto max-w-[1120px] px-5 max-[1024px]:block hidden">
         <div
           ref={railRef}
@@ -235,7 +235,7 @@ export default function Fellow() {
         </div>
       </div>
 
-      {/* ---------- Desktop (a partir de 1025px): grid ---------- */}
+      {/* Desktop (a partir de 1025px): grid */}
       <div className="hidden min-[1025px]:block">
         <div className="mx-auto max-w-[1240px] px-6 mt-10">
           <div className="grid grid-cols-4 gap-6">
@@ -251,6 +251,17 @@ export default function Fellow() {
           </div>
         </div>
       </div>
+
+      {/* divisória inferior da seção */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0))",
+          opacity: 0.4,
+        }}
+      />
     </section>
   );
 }

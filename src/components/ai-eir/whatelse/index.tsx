@@ -21,7 +21,7 @@ export default function WhatElse() {
           </h2>
         </header>
 
-        {/* Grade (mobile: 1 col, desktop: 3 col) */}
+        {/* Grade */}
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           <Card
             title="Acesso a Capital"
@@ -49,19 +49,29 @@ export default function WhatElse() {
           />
         </div>
       </div>
+
+      {/* ---- divisória na BASE ---- */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0))",
+          opacity: 0.36,
+        }}
+      />
     </section>
   );
 }
 
-/* Card com dimensões de “desktop” aplicadas também no mobile */
+/* Card */
 function Card({ title, text }: { title: string; text: string }) {
   return (
     <div
       className="
-        /* — largura/altura de card de desktop também no mobile — */
-        w-[92vw] max-w-[380px] mx-auto            /* mobile: fica do tamanho do card desktop, centralizado */
-        lg:w-auto lg:max-w-none lg:mx-0           /* desktop: ocupa a célula da grade */
-        min-h-[220px]                              /* mesma altura mínima do desktop */
+        w-[92vw] max-w-[380px] mx-auto
+        lg:w-auto lg:max-w-none lg:mx-0
+        min-h-[220px]
         rounded-xl border border-[#FF624D]/70 bg-transparent
         p-6 shadow-[0_0_0_1px_rgba(255,98,77,0.06)]
         transition hover:border-[#FF624D] hover:shadow-[0_0_0_1px_rgba(255,98,77,0.22)]

@@ -4,10 +4,11 @@ export default function ForWho() {
   return (
     <section
       id="for-who"
-      className="relative overflow-hidden text-white"
+      className="relative overflow-hidden text-white pb-24"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       <div className="relative mx-auto w-full max-w-[1600px] px-6 py-10 min-[1280px]:py-0 min-[1280px]:min-h-[86dvh]">
+        
         {/* texto */}
         <div
           className="
@@ -48,11 +49,12 @@ export default function ForWho() {
         </div>
       </div>
 
-      {/* imagem desktop */}
+      {/* imagem desktop — NÃO acompanha mais a altura da seção */}
       <div
         className="
           hidden min-[1280px]:block
-          absolute top-0 right-0 h-full w-[50vw]
+          absolute top-0 right-0
+          w-[50vw]
           pointer-events-none
         "
         aria-hidden
@@ -62,7 +64,9 @@ export default function ForWho() {
           alt=""
           className="
             absolute top-0 right-0
-            h-full w-auto
+            max-h-[86vh]   /* ← altura máxima definida */
+            h-auto         /* ← NÃO cresce junto com o section */
+            w-auto
             object-contain object-right
             select-none
             origin-right scale-x-[1.14]
