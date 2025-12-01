@@ -9,7 +9,9 @@ type FaqGroup = { heading: string; items: FaqItem[] };
 const HILIGHT = "#FF624D";
 const BG = "rgb(17, 4, 23)";
 
-// === CONTEÚDO REAL DO FAQ (pelas suas prints) ===
+/* =============================
+   CONTEÚDO DO FAQ
+============================= */
 const GROUPS: FaqGroup[] = [
   {
     heading: "Elegibilidade e Perfil dos Founders",
@@ -32,7 +34,7 @@ const GROUPS: FaqGroup[] = [
       },
       {
         q: "Que tipo de startups a Canastra Ventures busca nesta edição?",
-        a: "Buscamos startups de IA com potencial para escala acelerada, especialmente em setores como fintech, saúde, salestech, martech, legaltech, edtech, deeptech, regtech e soluções SaaS B2B. Startups de outros setores com forte componente de IA também são bem-vindas. Também investimos no que chamamos de AI Tech Stack, que são APIs, modelos, dados, segurança e demais ferramentas para construção de aplicações de IA.",
+        a: "Buscamos startups de IA com potencial para escala acelerada, especialmente em setores como fintech, saúde, salestech, martech, legaltech, edtech, deeptech, regtech e soluções SaaS B2B. Startups de outros setores com forte componente de IA também são bem-vindas.",
       },
     ],
   },
@@ -41,19 +43,19 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Como funcionam as Office Hours?",
-        a: "As sessões semanais (individuais e em grupo) são práticas, hands-on, lideradas por Fellow Partners da Canastra Ventures e world-class founders, com o objetivo de acelerar decisões, refinar estratégias e desbloquear desafios de negócio.",
+        a: "As sessões semanais (individuais e em grupo) são práticas, hands-on, lideradas por Fellow Partners da Canastra Ventures e world-class founders.",
       },
       {
         q: "O programa é presencial ou remoto?",
-        a: "O programa é remoto, com encontros presenciais opcionais e estratégicos — como o Demo Day no Canastra Summit (28/11, em SP), que encerra a residência conectando founders a investidores e à comunidade Canastra.",
+        a: "O programa é remoto, com encontros presenciais opcionais — como o Demo Day no Canastra Summit, que conecta founders a investidores.",
       },
       {
         q: "Quais são os principais entregáveis esperados no fim do programa?",
-        a: "Os principais entregáveis são: MVP validado e em produção, clientes iniciais pagantes ou usuários ativos e um pitch deck validado e pronto para captação no Demo Day.",
+        a: "MVP validado e em produção, clientes iniciais pagantes ou usuários ativos e pitch deck pronto para captação.",
       },
       {
         q: "Qual é a carga horária esperada para participantes?",
-        a: "Esperamos dedicação integral (full-time) durante as 12 semanas, devido à intensidade e profundidade do programa. Os encontros síncronos do programa demandarão entre 3 a 4 horas semanais.",
+        a: "Dedicação integral (full-time) durante as 12 semanas, com cerca de 3 a 4 horas semanais de encontros síncronos.",
       },
     ],
   },
@@ -62,15 +64,15 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Quanto custa participar do AI EiR?",
-        a: "O programa não possui nenhum custo inicial. Para as startups que avançarem para a segunda etapa do AI EiR, a Canastra Ventures entra como parceira no modelo equity: recebemos 1,5% de participação societária (equity) apenas se você captar investimento nos 24 meses seguintes ao programa. Além disso, temos a opção adicional de co-investir até R$ 800 mil, com um desconto de 20% sobre o valuation da 1ª rodada.",
+        a: "O programa não possui custo inicial. Após a primeira etapa, caso haja alinhamento, a Canastra recebe 1,5% de equity somente se você captar nos 24 meses seguintes.",
       },
       {
         q: "Sou obrigado a ceder equity logo no início?",
-        a: "Não. O programa é dividido em duas etapas. A primeira parte serve para que tanto você quanto a Canastra Ventures avaliem se há alinhamento de visão, ritmo e construção conjunta. Somente ao final dessa etapa, se ambas as partes concordarem em seguir, o modelo de equity entra em vigor.",
+        a: "Não. O modelo de equity só entra em vigor após a primeira etapa se ambas as partes quiserem seguir juntas.",
       },
       {
         q: "Preciso ter CNPJ para me inscrever?",
-        a: "Não é obrigatório ter uma empresa formalizada no momento da inscrição, mas é recomendável que você esteja pronto para formalizá-la até o fim da 1ª etapa do programa.",
+        a: "Não é obrigatório no início, mas é recomendável que esteja pronto para formalizar até o fim da primeira etapa.",
       },
     ],
   },
@@ -79,15 +81,15 @@ const GROUPS: FaqGroup[] = [
     items: [
       {
         q: "Que benefícios extras terei como participante do programa?",
-        a: "Os benefícios extras incluem: créditos exclusivos (cloud, ferramentas de IA, plataformas legais e contratação), rede de recrutamento estratégico (advisors e primeiros colaboradores-chave), conexão com investidores anjos estratégicos e fundos parceiros — para startups que demonstrarem tração e estejam preparadas para captar — e suporte técnico especializado sob demanda (Build Clinic).",
+        a: "Créditos exclusivos, rede de recrutamento estratégico, apoio técnico, advisors e conexões com investidores.",
       },
       {
         q: "Como funcionam as Quartas de Conteúdo?",
-        a: "Toda quarta-feira promovemos workshops, webinars, mesas redondas e talks com referências nacionais e internacionais em IA, empreendedorismo, investimento e produto, geralmente abertos à comunidade da Canastra Ventures. São momentos fundamentais de inspiração, aprendizado prático e networking qualificado.",
+        a: "Workshops, webinars e mesas redondas com referências nacionais e internacionais em IA, produto e investimento.",
       },
       {
-        q: "O que é o C-Launch (lançamento das startups)?",
-        a: "O C-Launch é o momento em que lançamos oficialmente as startups ao mercado através de nossos canais oficiais.",
+        q: "O que é o C-Launch?",
+        a: "O lançamento oficial das startups ao mercado pelos canais da Canastra.",
       },
     ],
   },
@@ -95,39 +97,50 @@ const GROUPS: FaqGroup[] = [
     heading: "Após o Programa",
     items: [
       {
-        q: "Que tipo de suporte a Canastra Ventures oferece após o fim do AI EiR?",
-        a: "Para startups formadas e que seguirem para o Demoday, apoiaremos com o fundraising. Além disso, todas as startups do programa seguem com acesso vitalício à comunidade de founders, mentorias pontuais, conexões estratégicas com investidores e parceiros, além de possibilidade de co-investimento de até R$ 800 mil da Canastra Ventures na primeira rodada.",
+        q: "Que tipo de suporte existe após o fim do programa?",
+        a: "Apoio ao fundraising, acesso vitalício à comunidade de founders, mentorias pontuais e conexões estratégicas.",
       },
       {
-        q: "Vocês fazem intros para outros fundos e investidores após o programa?",
-        a: "Sim. Ajudamos as startups formadas ativamente na conexão com investidores-anjo, fundos nacionais e internacionais parceiros, buscando aumentar suas chances de captação e acelerar o crescimento pós-programa (para startups aprovadas no Demoday).",
+        q: "Vocês fazem intros para outros investidores?",
+        a: "Sim. Conectamos startups com anjos, fundos nacionais e internacionais parceiros.",
       },
       {
-        q: "Posso citar publicamente que participei do AI EiR da Canastra Ventures?",
-        a: "Sim. Incentivamos fortemente que você utilize a chancela Canastra Ventures como sinal de credibilidade para investidores, clientes e parceiros. É uma vantagem adicional importante após o programa.",
+        q: "Posso divulgar que participei do AI EiR?",
+        a: "Sim. Recomendamos fortemente que use a chancela Canastra como sinal de credibilidade.",
       },
     ],
   },
 ];
+
+/* =============================
+   COMPONENTE FAQ
+============================= */
 
 export default function FAQ() {
   const [open, setOpen] = useState<Record<string, boolean>>({});
 
   return (
     <section id="faq" className="text-white" style={{ backgroundColor: BG }}>
-      <div className="mx-auto max-w-[1100px] px-5 py-14">
-        {/* Título */}
-        <header className="mb-10">
-          <h1 className="font-serif text-[30px] leading-tight min-[820px]:text-[40px]">
-            FAQ
+      <div className="mx-auto max-w-[1100px] px-5 pt-20 pb-14">
+        {/* ===== H1 ===== */}
+        <header className="mb-16 text-center">
+          <h1
+            className="font-bold leading-[0.75] text-[clamp(40px,6vw,84.45px)]"
+            style={{ fontFamily: '"Crimson Text", serif' }}
+          >
+            <span>Frequently Asked </span>
+            <span className="italic" style={{ color: HILIGHT }}>
+              Questions
+            </span>
           </h1>
         </header>
 
-        {/* Grupos */}
+        {/* ===== GRUPOS ===== */}
         <div className="space-y-12">
           {GROUPS.map((g, gIdx) => (
             <section key={g.heading}>
-              <h2 className="text-white/90 text-[18px] min-[820px]:text-[20px] font-semibold mb-5">
+              {/* Título do Grupo */}
+              <h2 className="text-white/60 text-[18px] min-[820px]:text-[20px] font-semibold mb-5 text-center">
                 {g.heading}
               </h2>
 
@@ -139,7 +152,7 @@ export default function FAQ() {
 
                   return (
                     <li key={key}>
-                      <div className="rounded-[10px] bg-[#262626] px-4 sm:px-5 py-4 sm:py-5 border border-white/15">
+                      <div className="rounded-[10px] bg-[#1A1A1A] px-4 sm:px-5 py-4 sm:py-5 border border-white/10">
                         <button
                           type="button"
                           onClick={() =>
@@ -148,17 +161,38 @@ export default function FAQ() {
                           className="w-full flex items-center gap-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
                           aria-expanded={isOpen}
                         >
-                          <span className="font-serif text-[22px] sm:text-[24px] leading-none select-none text-white/70">
+                          {/* Número */}
+                          <span
+                            className="select-none text-white"
+                            style={{
+                              fontFamily: '"Crimson Text", serif',
+                              fontWeight: 600,
+                              fontSize: "clamp(26px, 2.8vw, 63.46px)",
+                              lineHeight: "0.93",
+                              letterSpacing: "-1.46px",
+                            }}
+                          >
                             {n}
                           </span>
 
-                          <span className="flex-1 text-[15px] sm:text-[17px]">
+                          {/* Pergunta */}
+                          <span
+                            className="flex-1 text-white"
+                            style={{
+                              fontFamily: '"Hanken Grotesk", sans-serif',
+                              fontWeight: 600,
+                              fontSize: "clamp(15px, 1.4vw, 20px)",
+                              lineHeight: "1.05",
+                              letterSpacing: "-0.7px",
+                            }}
+                          >
                             {item.q}
                           </span>
 
+                          {/* Ícone */}
                           <span
                             aria-hidden
-                            className="grid place-items-center h-9 w-9 rounded-full border border-white/30 text-white/90 hover:bg-white/10 transition"
+                            className="grid place-items-center h-9 w-9 rounded-full border border-white/50 text-white hover:bg-white/10 transition"
                           >
                             <svg
                               width="18"
@@ -179,7 +213,7 @@ export default function FAQ() {
                           </span>
                         </button>
 
-                        {/* resposta */}
+                        {/* Resposta */}
                         <div
                           className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out ${
                             isOpen
@@ -188,7 +222,7 @@ export default function FAQ() {
                           }`}
                         >
                           <div className="overflow-hidden">
-                            <p className="pt-3 text-white/80 text-[14px] sm:text-[15px] leading-relaxed">
+                            <p className="pt-3 text-white text-[14px] sm:text-[15px] leading-relaxed">
                               {item.a}
                             </p>
                           </div>

@@ -6,7 +6,7 @@ export default function Structure() {
     <section
       id="structure"
       className="relative overflow-hidden text-white pt-14 pb-24 min-[821px]:pt-20 min-[821px]:pb-28"
-      style={{ backgroundColor: "rgb(17, 4, 23)" }} // mesmo BG do Header
+      style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       {/* divisória superior */}
       <div
@@ -30,35 +30,41 @@ export default function Structure() {
         }}
       />
 
-      {/* Título (duas linhas) */}
+      {/* Título */}
       <div className="mx-auto max-w-[860px] px-5 text-center">
         <h2 className="font-serif font-semibold leading-tight text-[30px] sm:text-[34px] min-[821px]:text-[48px]">
           <span className="block text-[#FF624D]">Conheça a estrutura</span>
           <span className="block italic text-white">do programa</span>
         </h2>
 
-        {/* Botão — mobile (filled) / desktop (outline) */}
+        {/* BOTÃO — idêntico ao botão da última Hero */}
         <div className="mt-6 flex justify-center">
           <button
             type="button"
             className="
-              inline-flex items-center gap-2 rounded-md font-semibold
-              h-11 px-5 text-[15px] border-2 transition-all duration-200 ease-out
-              min-[821px]:h-11 min-[821px]:px-5
-              /* mobile filled */
-              border-[#FF624D] bg-white text-black
-              /* desktop outline */
-              min-[821px]:border-white min-[821px]:bg-transparent min-[821px]:text-white
-              hover:-translate-y-0.5 hover:brightness-110
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40
+              inline-flex items-center justify-center gap-2 rounded-md font-semibold
+              h-12 px-5 min-w-[170px] text-[15px] border-2 transition-all duration-200 ease-out
+              bg-white text-black border-[#FF624D]
+              hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20
+              active:translate-y-0
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
+
+              /* DESKTOP — igual ao Hero */
+              min-[821px]:min-w-[220px]
+              min-[821px]:h-[50px]
+              min-[821px]:px-7
+              min-[821px]:text-[15px]
+              min-[821px]:border min-[821px]:border-gray-400
+              min-[821px]:bg-transparent min-[821px]:text-white
+              min-[821px]:hover:brightness-110
             "
           >
             <svg
-              width="24"
-              height="20"
+              width="26"
+              height="22"
               viewBox="0 0 26 22"
               aria-hidden="true"
-              className="-ml-0.5 text-[#FF624D] min-[821px]:text-white"
+              className="-ml-1 text-[#FF624D] min-[821px]:text-gray-300"
             >
               <path
                 d="M2 11h6"
@@ -88,8 +94,7 @@ export default function Structure() {
         </div>
       </div>
 
-      {/* CONTEÚDO COMO IMAGEM */}
-      {/* Mobile (até iPad Air) – imagem mais abaixo, responsiva e sem esticar */}
+      {/* IMAGENS */}
       <div className="mt-14 px-4 min-[821px]:hidden">
         <img
           src="/ai-eir/structure/mobile.png"
@@ -99,7 +104,6 @@ export default function Structure() {
         />
       </div>
 
-      {/* Desktop (iPad Air pra cima) – imagem abaixo com respiro maior */}
       <div className="hidden min-[821px]:block mt-16">
         <img
           src="/ai-eir/structure/desktop.png"

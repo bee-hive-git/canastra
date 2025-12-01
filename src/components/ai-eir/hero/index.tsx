@@ -1,6 +1,9 @@
+// src/components/ai-eir/hero/index.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Lottie from "lottie-react";
+import aiEirHeroAnimation from "@/../public/lotties/ai-eir/data.json";
 
 export default function AIHero() {
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -22,15 +25,18 @@ export default function AIHero() {
       startScrollLeft = el.scrollLeft;
       el.setPointerCapture?.(e.pointerId);
     };
+
     const onPointerMove = (e: PointerEvent) => {
       if (!isDown) return;
       const dx = e.clientX - startX;
       el.scrollLeft = startScrollLeft - dx;
     };
+
     const endDrag = () => {
       isDown = false;
       el.classList.remove("grabbing");
     };
+
     const onScroll = () => {
       const max = el.scrollWidth - el.clientWidth;
       const p = max > 0 ? el.scrollLeft / max : 0;
@@ -73,6 +79,7 @@ export default function AIHero() {
             bottom: 12px !important;
           }
         }
+
         #ai-eir-hero .carousel {
           cursor: grab;
           touch-action: pan-x;
@@ -84,7 +91,7 @@ export default function AIHero() {
           cursor: grabbing;
         }
 
-        /* ===== DESKTOP: aumentar textos para ficar como o layout ===== */
+        /* ===== DESKTOP: aumentar textos ===== */
         @media (min-width: 1280px) {
           #ai-eir-hero .desk-h1 {
             font-size: clamp(52px, 4.4vw, 65px);
@@ -97,15 +104,15 @@ export default function AIHero() {
           #ai-eir-hero .desk-body {
             font-size: clamp(18px, 1.3vw, 21px);
             line-height: 1.7;
-            max-width: 66ch; /* ocupa mais pra direita */
+            max-width: 66ch;
           }
         }
       `}</style>
 
-      {/* gradiente rodapé */}
+      {/* gradiente */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10"
         style={{
           height: "45vh",
           background:
@@ -113,42 +120,63 @@ export default function AIHero() {
         }}
       />
 
-      {/* texto */}
+      {/* texto + CTA */}
       <div className="relative z-20 px-5 text-center mx-auto max-w-[640px] min-[1280px]:text-left min-[1280px]:px-0 min-[1280px]:mx-0 min-[1280px]:ml-[6vw]">
-        {/* H1 desktop */}
-        <h1 className="desk-h1 hidden min-[1280px]:block font-serif font-semibold mb-3 text-[48px] lg:text-[56px] leading-[1.15]">
+
+        {/* H1 desktop — corrigido (Residence branco) */}
+        <h1
+          className="desk-h1 hidden min-[1280px]:block font-bold mb-3 text-[48px] lg:text-[56px] leading-[1.15]"
+          style={{ fontFamily: '"Crimson Text", serif' }}
+        >
           AI <span className="italic">Entrepreneur</span> in{" "}
-          <span className="text-[#ff624d] italic">Residence</span>
+          <span className="italic">Residence</span>
         </h1>
 
-        {/* H1 mobile */}
-        <h1 className="min-[1280px]:hidden font-serif font-semibold mb-3 text-[30px] leading-[1.15]">
+        {/* H1 mobile — não tinha cor antes, mantido certo */}
+        <h1
+          className="min-[1280px]:hidden font-bold mb-3 text-[30px] leading-[1.15]"
+          style={{ fontFamily: '"Crimson Text", serif' }}
+        >
           AI <span className="italic">EiR</span>
         </h1>
 
         {/* H2 desktop */}
-        <h2 className="desk-h2 hidden min-[1280px]:block font-serif text-[32px] lg:text-[40px] leading-tight mb-4">
-          <span className="italic">
-            Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
-            fundraising em <span className="text-[#ff624d]">12 semanas</span>
-          </span>
+        <h2
+          className="desk-h2 hidden min-[1280px]:block font-bold italic text-[32px] lg:text-[40px] leading-tight mb-4"
+          style={{ fontFamily: '"Crimson Text", serif' }}
+        >
+          Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
+          fundraising em <span className="text-[#ff624d]">12 semanas</span>
         </h2>
 
         {/* H2 mobile */}
-        <h2 className="min-[1280px]:hidden font-serif text-[26px] leading-tight mb-4">
-          <span className="italic">
-            Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
-            fundraising em <span className="text-[#ff624d]">12 semanas</span>
-          </span>
+        <h2
+          className="min-[1280px]:hidden font-bold italic text-[26px] leading-tight mb-4"
+          style={{ fontFamily: '"Crimson Text", serif' }}
+        >
+          Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
+          fundraising em <span className="text-[#ff624d]">12 semanas</span>
         </h2>
 
         {/* p desktop */}
-        <p className="desk-body hidden min-[1280px]:block text-white/90 max-w-[60ch]">
+        <p
+          className="desk-body hidden min-[1280px]:block text-white/90 max-w-[60ch] font-normal"
+          style={{
+            fontFamily:
+              '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+          }}
+        >
           Crie, valide e lance sua startup de IA
         </p>
 
         {/* p mobile */}
-        <p className="min-[1280px]:hidden text-white/90 text-[16px] leading-relaxed mx-auto max-w-[46ch]">
+        <p
+          className="min-[1280px]:hidden text-white/90 text-[16px] leading-relaxed mx-auto max-w-[46ch] font-normal"
+          style={{
+            fontFamily:
+              '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+          }}
+        >
           Transforme sua ideia em uma{" "}
           <span className="text-[#ff624d] font-semibold italic">
             startup de IA
@@ -203,7 +231,7 @@ export default function AIHero() {
           </button>
         </div>
 
-        {/* mobile: carrossel */}
+        {/* mobile cards */}
         <div className="mt-8 min-[1280px]:hidden">
           <div
             ref={trackRef}
@@ -227,12 +255,12 @@ export default function AIHero() {
         </div>
       </div>
 
-      {/* desktop: 3 colunas */}
-      <div className="hidden min-[1280px]:grid grid-cols-3 items-center justify-items-stretch gap-[4vw] xl:gap-[3vw] 2xl:gap-[3.5vw] px-[4vw] min-[1280px]:mt-28 mx-auto max-w-[1400px] z-10">
+      {/* desktop cards */}
+      <div className="hidden min-[1280px]:grid grid-cols-3 items-center justify-items-stretch gap-[4vw] xl:gap-[3vw] 2xl:gap-[3.5vw] px-[4vw] min-[1280px]:mt-28 mx-auto max-w-[1400px] z-20">
         <img
           src="/ai-eir/hero/box1.png"
           alt=""
-          className="justify-self-start w-[24vw] max-w-[440px] xl:w-[20vw] xl:max-w-[420px] 2xl:w-[18vw] 2xl:max-w-[460px] h-auto object-contain translate-x-[2vw] xl:translate-x-[1vw] 2xl:translate-x-[0]"
+          className="justify-self-start w-[24vw] max-w-[440px] xl:w-[20vw] xl:max-w-[420px] 2xl:w-[18vw] 2xl:max-w-[460px] h-auto object-contain translate-x-[2vw] xl:translate-x-[1vw] 2xl:translate-x-0"
           draggable={false}
         />
         <img
@@ -244,27 +272,35 @@ export default function AIHero() {
         <img
           src="/ai-eir/hero/box3.png"
           alt=""
-          className="justify-self-end w-[24vw] max-w-[440px] xl:w-[20vw] xl:max-w-[420px] 2xl:w-[18vw] 2xl:max-w-[460px] h-auto object-contain -translate-x-[2vw] xl:-translate-x-[1vw] 2xl:-translate-x-[0]"
+          className="justify-self-end w-[24vw] max-w-[440px] xl:w-[20vw] xl:max-w-[420px] 2xl:w-[18vw] 2xl:max-w-[460px] h-auto object-contain -translate-x-[2vw] xl:-translate-x-[1vw] 2xl:-translate-x-0"
           draggable={false}
         />
       </div>
 
-      {/* espinhos */}
-      <img
-        src="/ai-eir/hero/espinhos.png"
-        alt=""
-        className="spikes-mobile pointer-events-none select-none absolute right-0 bottom-20 w-auto h-auto block min-[1280px]:hidden object-contain object-[right_center] z-0"
-        draggable={false}
-      />
-      <div className="spikes-desktop hidden min-[1280px]:block absolute top-1/2 -translate-y-1/2 min-[1280px]:right-[-16px] lg:right-[-64px] xl:right-[-96px] 2xl:right-[-128px] z-0">
-        <div className="min-[1280px]:w-[420px] lg:w-[560px] xl:w-[680px] 2xl:w-[800px] max-h-[70vh] xl:max-h-[62vh] 2xl:max-h-[56vh]">
-          <img
-            src="/ai-eir/hero/espinhos.png"
-            alt=""
-            className="pointer-events-none select-none w-full h-full object-contain object-[right_center]"
-            draggable={false}
-          />
-        </div>
+      {/* LOTTIE mobile */}
+      <div
+        aria-hidden
+        className="spikes-mobile pointer-events-none select-none absolute left-1/2 -translate-x-1/2 bottom-16 min-[1280px]:hidden z-0"
+      >
+        <Lottie
+          animationData={aiEirHeroAnimation}
+          loop
+          autoplay
+          className="w-[130vw] max-w-[520px] h-auto"
+        />
+      </div>
+
+      {/* LOTTIE desktop */}
+      <div
+        aria-hidden
+        className="spikes-desktop pointer-events-none select-none hidden min-[1280px]:block absolute top-1/2 -translate-y-1/2 right-[-120px] lg:right-[-160px] xl:right-[-200px] 2xl:right-[-240px] z-0"
+      >
+        <Lottie
+          animationData={aiEirHeroAnimation}
+          loop
+          autoplay
+          className="min-[1280px]:w-[420px] lg:w-[560px] xl:w-[680px] 2xl:w-[800px] h-auto max-h-[70vh] xl:max-h-[62vh] 2xl:max-h-[56vh]"
+        />
       </div>
     </section>
   );

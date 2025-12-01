@@ -7,56 +7,107 @@ export default function TeamCta() {
   return (
     <section id="team-cta" className="relative text-white" style={{ backgroundColor: BG }}>
       <style jsx global>{`
-        /* === Esconde barras de rolagem (Chrome/Safari/Firefox/Edge) === */
+        /* scrollbar */
         .no-scrollbar {
-          -ms-overflow-style: none;     /* IE/Edge */
-          scrollbar-width: none;        /* Firefox */
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
-        .no-scrollbar::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
 
         #team-cta .session-line {
-          height: 1px; width: 100%;
-          background: linear-gradient(90deg,
-            rgba(255,98,77,0) 0%,
-            rgba(255,98,77,0.35) 20%,
-            rgba(255,98,77,0.85) 50%,
-            rgba(255,98,77,0.35) 80%,
-            rgba(255,98,77,0) 100%);
+          height: 1px;
+          width: 100%;
+          background: linear-gradient(
+            90deg,
+            rgba(255, 98, 77, 0) 0%,
+            rgba(255, 98, 77, 0.35) 20%,
+            rgba(255, 98, 77, 0.85) 50%,
+            rgba(255, 98, 77, 0.35) 80%,
+            rgba(255, 98, 77, 0) 100%
+          );
         }
+
         #team-cta .card {
-          position: relative; border-radius: 16px;
-          background: rgba(0,0,0,0.08);
-          box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+          position: relative;
+          border-radius: 16px;
+          background: rgba(0, 0, 0, 0.08);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
         }
-        #team-cta .card::before, #team-cta .card::after {
-          content: ""; position: absolute; left: 0; right: 0; height: 1px;
-          background: linear-gradient(90deg,
-            rgba(255,98,77,0) 0%,
-            rgba(255,98,77,0.35) 20%,
-            rgba(255,98,77,0.85) 50%,
-            rgba(255,98,77,0.35) 80%,
-            rgba(255,98,77,0) 100%);
+
+        #team-cta .card::before,
+        #team-cta .card::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background: linear-gradient(
+            90deg,
+            rgba(255, 98, 77, 0) 0%,
+            rgba(255, 98, 77, 0.35) 20%,
+            rgba(255, 98, 77, 0.85) 50%,
+            rgba(255, 98, 77, 0.35) 80%,
+            rgba(255, 98, 77, 0) 100%
+          );
         }
-        #team-cta .card::before { top: 0; }
-        #team-cta .card::after { bottom: 0; }
+
+        #team-cta .card::before {
+          top: 0;
+        }
+        #team-cta .card::after {
+          bottom: 0;
+        }
+
+        /* Tipografia base */
+        #team-cta .title {
+          font-family: "Crimson Text", serif;
+          font-weight: 700;
+          text-align: center;
+          line-height: 1.18;
+        }
+
+        #team-cta .subtitle {
+          font-family: "Hanken Grotesk", sans-serif;
+          font-weight: 300;
+          text-align: center;
+          line-height: 1.3;
+        }
+
+        /* DESKTOP — versão moderada, SEM QUEBRAS */
+        @media (min-width: 820px) {
+          #team-cta .title {
+            font-size: clamp(28px, 2.4vw, 42px);
+          }
+
+          #team-cta .subtitle {
+            font-size: clamp(16px, 1.6vw, 28px);
+          }
+        }
       `}</style>
 
       <div aria-hidden className="session-line" />
 
-      {/* MOBILE + DESKTOP */}
       <div className="py-8 min-[820px]:py-10">
         <div className="mx-auto px-5 min-[820px]:px-8 max-w-[920px]">
           <div className="card px-6 py-6 min-[820px]:px-10 min-[820px]:py-8 text-center">
-            <h1 className="font-serif text-[22px] leading-tight min-[820px]:text-[32px]">
-              Em busca do seu <span className="italic font-semibold" style={{ color: HILIGHT }}>primeiro cheque?</span>
+            {/* TÍTULO */}
+            <h1 className="title text-[22px] min-[820px]:text-[28px]">
+              Em busca do seu{" "}
+              <span className="italic font-semibold" style={{ color: HILIGHT }}>
+                primeiro cheque?
+              </span>
             </h1>
-            <p className="mt-2 text-[14px] min-[820px]:text-[17px] text-white/90">
+
+            {/* SUBTÍTULO */}
+            <p className="subtitle mt-2 text-[14px] min-[820px]:text-[16px] text-white/90">
               Envie seu pitch e fale com nosso time de investimento!
             </p>
 
             <a
               href="/pitch-us#form-pitch"
-              className="mt-5 inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-6 min-w-[200px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
+              className="mt-5 inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-6 min-w-[200px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all"
             >
               <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true" className="-ml-1 text-[#FF624D]">
                 <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
@@ -66,24 +117,6 @@ export default function TeamCta() {
               Pitch Us!
             </a>
           </div>
-
-          {/*
-            Se a "barrinha de opções do time" estiver aqui, aplique:
-            - no-scrollbar para esconder a barra
-            - overflow-x-hidden (ou -auto se quiser gesto de arrastar) para controlar a rolagem
-            Exemplo de contêiner (substitua pelos seus cards reais):
-          */}
-          {/* <div className="mt-8 relative">
-            <div className="flex gap-4 overflow-x-hidden no-scrollbar">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <div key={i} className="min-w-[220px] shrink-0 rounded-lg bg-white/5 border border-white/10 p-4">
-                  <div className="h-24 rounded-md bg-white/10" />
-                  <p className="mt-3 text-sm text-white/80">Nome da Pessoa {i + 1}</p>
-                  <p className="text-xs text-white/60">Cargo</p>
-                </div>
-              ))}
-            </div>
-          </div> */}
         </div>
       </div>
 

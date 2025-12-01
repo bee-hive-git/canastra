@@ -36,17 +36,28 @@ export default function Napkin() {
     let lastT = 0;
     let vel = 0;
     let raf: number | null = null;
-    const stop = () => { if (raf != null) { cancelAnimationFrame(raf); raf = null; } };
+
+    const stop = () => {
+      if (raf != null) {
+        cancelAnimationFrame(raf);
+        raf = null;
+      }
+    };
+
     const momentum = () => {
       const friction = 0.92;
       const minVel = 0.06;
-      if (Math.abs(vel) < minVel) { raf = null; return; }
+      if (Math.abs(vel) < minVel) {
+        raf = null;
+        return;
+      }
       el.scrollLeft -= vel * 16;
       vel *= friction;
       const max = el.scrollWidth - el.clientWidth;
       if (el.scrollLeft <= 0 || el.scrollLeft >= max) vel = 0;
       raf = requestAnimationFrame(momentum);
     };
+
     const onDown = (e: PointerEvent) => {
       isDown = true;
       el.setPointerCapture?.(e.pointerId);
@@ -59,6 +70,7 @@ export default function Napkin() {
       stop();
       e.preventDefault();
     };
+
     const onMove = (e: PointerEvent) => {
       if (!isDown) return;
       el.scrollLeft = startScroll - (e.clientX - startX) * 2.1;
@@ -68,18 +80,23 @@ export default function Napkin() {
       lastT = e.timeStamp;
       e.preventDefault();
     };
+
     const end = (e: PointerEvent) => {
       if (!isDown) return;
       isDown = false;
-      try { el.releasePointerCapture?.(e.pointerId); } catch {}
+      try {
+        el.releasePointerCapture?.(e.pointerId);
+      } catch {}
       el.classList.remove("grabbing");
       if (raf == null) raf = requestAnimationFrame(momentum);
     };
+
     el.addEventListener("pointerdown", onDown);
     el.addEventListener("pointermove", onMove);
     window.addEventListener("pointerup", end);
     el.addEventListener("pointercancel", end);
     el.addEventListener("pointerleave", end);
+
     return () => {
       stop();
       el.removeEventListener("pointerdown", onDown);
@@ -98,7 +115,10 @@ export default function Napkin() {
     const ro = new ResizeObserver(measure);
     ro.observe(el);
     window.addEventListener("resize", measure);
-    return () => { ro.disconnect(); window.removeEventListener("resize", measure); };
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
   return (
@@ -110,40 +130,100 @@ export default function Napkin() {
       <style jsx global>{`
         /* Aumentos apenas no desktop "real" + respiro inferior reduzido */
         @media (min-width: 1181px) and (max-width: 1439px) {
-          #napkin .desk-head h1 .t1 { font-size: clamp(40px, 3.0vw, 52px); }
-          #napkin .desk-head h1 .t2 { font-size: clamp(54px, 3.8vw, 68px); }
-          #napkin .desk-head p     { font-size: clamp(18px, 1.25vw, 20px); line-height: 1.75; }
-          /* menos fundo vazio que antes */
-          #napkin { padding-bottom: clamp(100px, 12vh, 200px); }
+          #napkin .desk-head h1 .t1 {
+            font-size: clamp(40px, 3vw, 55px);
+          }
+          #napkin .desk-head h1 .t2 {
+            font-size: clamp(60px, 4.2vw, 100px);
+          }
+          #napkin .desk-head p {
+            font-size: clamp(20px, 2vw, 34.62px);
+            line-height: 1.3;
+          }
+          #napkin {
+            padding-bottom: clamp(100px, 12vh, 200px);
+          }
         }
         @media (min-width: 1440px) {
-          #napkin .desk-head h1 .t1 { font-size: clamp(44px, 3.2vw, 60px); }
-          #napkin .desk-head h1 .t2 { font-size: clamp(60px, 4.2vw, 80px); }
-          #napkin .desk-head p     { font-size: clamp(19px, 1.15vw, 22px); line-height: 1.78; }
-          /* menos fundo vazio que antes */
-          #napkin { padding-bottom: clamp(120px, 14vh, 240px); }
+          #napkin .desk-head h1 .t1 {
+            font-size: clamp(44px, 3.1vw, 55px);
+          }
+          #napkin .desk-head h1 .t2 {
+            font-size: clamp(64px, 4.4vw, 100px);
+          }
+          #napkin .desk-head p {
+            font-size: clamp(22px, 2.1vw, 34.62px);
+            line-height: 1.3;
+          }
+          #napkin {
+            padding-bottom: clamp(120px, 14vh, 240px);
+          }
         }
+
         /* mobile rail */
-        #napkin .rail { touch-action: pan-x; -webkit-user-select: none; user-select: none; cursor: grab; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
-        #napkin .rail.grabbing { cursor: grabbing; }
-        #napkin .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
-        #napkin .hide-scroll::-webkit-scrollbar { width: 0; height: 0; display: none; }
+        #napkin .rail {
+          touch-action: pan-x;
+          -webkit-user-select: none;
+          user-select: none;
+          cursor: grab;
+          -webkit-overflow-scrolling: touch;
+          overscroll-behavior-x: contain;
+        }
+        #napkin .rail.grabbing {
+          cursor: grabbing;
+        }
+        #napkin .hide-scroll {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        #napkin .hide-scroll::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+          display: none;
+        }
       `}</style>
 
       {/* DESKTOP HEADER */}
       <div className="hidden min-[820px]:block">
         <div className="desk-head max-w-[1120px] mx-auto px-5 text-center">
-          <h1 className="font-serif leading-tight">
-            <span className="t1 block text-[32px] xl:text-[40px]">Conheça o nosso</span>
+          <h1
+            className="font-serif leading-tight"
+            style={{
+              fontFamily: '"Crimson Text", serif',
+              fontWeight: 700,
+            }}
+          >
+            <span
+              className="t1 block text-[32px] xl:text-[40px]"
+              style={{
+                fontStyle: "normal",
+                lineHeight: "0.75",
+              }}
+            >
+              Conheça o nosso
+            </span>
             <span
               className="t2 block italic font-semibold text-[40px] xl:text-[52px]"
-              style={{ color: ACCENT }}
+              style={{
+                color: ACCENT,
+                fontWeight: 700,
+                fontStyle: "italic",
+                lineHeight: "1.3",
+              }}
             >
               Napkin
             </span>
           </h1>
 
-          <p className="mt-3 text-white/90 leading-relaxed text-[16px] xl:text-[18px] max-w-[900px] mx-auto">
+          <p
+            className="mt-3 text-white/90 leading-relaxed text-[16px] xl:text-[18px] max-w-[900px] mx-auto"
+            style={{
+              fontFamily:
+                '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+              fontWeight: 400,
+              lineHeight: 1.3,
+            }}
+          >
             Dê uma olhada no nosso Napkin, onde descrevemos o que buscamos em{" "}
             <span className="italic font-semibold" style={{ color: ACCENT }}>
               startups AI-First
@@ -223,8 +303,11 @@ export default function Napkin() {
 
       {/* MOBILE IMG (mesmo tamanho do desktop) + DISCLAIMER */}
       <div className="min-[820px]:hidden mt-8 px-5">
-        {/* scroll horizontal só dentro deste contêiner */}
-        <div ref={railRef} className="rail relative overflow-x-auto hide-scroll" style={{ touchAction: "pan-x" }}>
+        <div
+          ref={railRef}
+          className="rail relative overflow-x-auto hide-scroll"
+          style={{ touchAction: "pan-x" }}
+        >
           <div
             className="rounded-2xl"
             style={{
@@ -238,14 +321,27 @@ export default function Napkin() {
           />
         </div>
 
-        {/* indicador (progresso) */}
-        <div ref={trackRef} className="relative mt-3 mx-auto w-40 h-[6px] rounded-full bg-white/18 overflow-hidden">
-          <div className="absolute top-0 left-0 h-[6px] rounded-full bg-white/70" style={{ width: `${trackW * 0.33}px`, transform: `translateX(${progress * (trackW - trackW * 0.33)}px)` }} />
+        <div
+          ref={trackRef}
+          className="relative mt-3 mx-auto w-40 h-[6px] rounded-full bg-white/18 overflow-hidden"
+        >
+          <div
+            className="absolute top-0 left-0 h-[6px] rounded-full bg-white/70"
+            style={{
+              width: `${trackW * 0.33}px`,
+              transform: `translateX(${
+                progress * (trackW - trackW * 0.33)
+              }px)`,
+            }}
+          />
         </div>
 
         <p
           className="mt-6 rounded-xl px-4 py-3 text-[13px] leading-relaxed text-white/85"
-          style={{ border: `1px solid ${ACCENT}`, backgroundColor: "rgba(255,255,255,0.04)" }}
+          style={{
+            border: `1px solid ${ACCENT}`,
+            backgroundColor: "rgba(255,255,255,0.04)",
+          }}
         >
           <span className="italic font-semibold" style={{ color: ACCENT }}>
             Disclaimer:

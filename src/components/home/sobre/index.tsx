@@ -83,29 +83,38 @@ export default function Sobre() {
       />
 
       <div className="wrap relative z-10 mx-auto max-w-[640px] px-5 text-center min-[820px]:text-left min-[820px]:max-w-[1200px] min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:-translate-y-1/2">
-        {/* H2 — um pouco menor, ainda com presença */}
-        <h2 className="font-serif text-[28px] leading-snug mb-4 min-[820px]:mb-6 min-[820px]:text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px] min-[820px]:leading-[1.08]">
+        {/* H2 — Crimson Text, 700 Bold */}
+        <h2
+          className="font-bold text-[28px] leading-snug mb-4 min-[820px]:mb-6 min-[820px]:text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px] min-[820px]:leading-[1.08]"
+          style={{ fontFamily: '"Crimson Text", serif' }}
+        >
           {/* DESKTOP (≥820px) — 1 linha, sem quebra */}
           <span className="hidden min-[820px]:inline-block min-[820px]:whitespace-nowrap">
-            <span className="italic font-semibold">
+            <span className="font-bold">
               AI&nbsp;Entrepreneur&nbsp;in&nbsp;
             </span>
-            <span className="text-[#FF624D] italic font-semibold">
+            <span className="text-[#FF624D] font-bold">
               Residence
             </span>
           </span>
 
           {/* MOBILE (<820px) — natural */}
-          <span className="min-[820px]:hidden italic font-semibold">
+          <span className="min-[820px]:hidden font-bold">
             AI Entrepreneur in{" "}
           </span>
-          <span className="min-[820px]:hidden text-[#FF624D] italic font-semibold">
+          <span className="min-[820px]:hidden text-[#FF624D] font-bold">
             Residence
           </span>
         </h2>
 
-        {/* Parágrafo — mantido */}
-        <p className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-[46ch] min-[820px]:mx-0 min-[820px]:text-[clamp(21px,1.6vw,28px)] min-[820px]:leading-[1.7]">
+        {/* Parágrafo — Hanken Grotesk, 400 Regular */}
+        <p
+          className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-[46ch] min-[820px]:mx-0 min-[820px]:text-[clamp(21px,1.6vw,28px)] min-[820px]:leading-[1.7] font-normal"
+          style={{
+            fontFamily:
+              '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+          }}
+        >
           <span className="min-[820px]:block min-[820px]:whitespace-nowrap">
             Ao longo de 12 semanas, os residentes terão apoio hands-on
           </span>{" "}
