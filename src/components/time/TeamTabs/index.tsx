@@ -266,7 +266,7 @@ export default function TeamTabs() {
               key={src}
               onClick={() => handleCardClick(i)}
               className={`snap-start flex-none relative rounded-2xl overflow-hidden ${
-                (active === "venture-partners" || active === "team") ? "cursor-pointer active:scale-95 transition-transform" : ""
+                (active === "venture-partners" || active === "team" || active === "fellow-partners") ? "cursor-pointer active:scale-95 transition-transform" : ""
               }`}
               style={{
                 width: `${CARD.w}px`,
