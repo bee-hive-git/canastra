@@ -22,6 +22,14 @@ const FIGMA_W = 360.35;
 const FIGMA_H = 520.4;
 const AR = FIGMA_H / FIGMA_W;
 
+const TABS: { key: TabKey; label: string; count: number }[] = [
+  { key: "team", label: "Team", count: 4 },
+  { key: "venture-partners", label: "Venture Partners", count: 3 },
+  { key: "fellow-partners", label: "Fellow Partners", count: 3 },
+  { key: "advisors", label: "Advisors", count: 1 },
+  { key: "mentors", label: "Mentors", count: 17 },
+];
+
 // tabs
 export default function TeamTabs() {
   // viewport
