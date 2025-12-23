@@ -281,14 +281,20 @@ export default function Fellow() {
             variants={containerVariants}
           >
             {PHOTOS.map((src) => (
-              <motion.img
+              <motion.div
                 key={`desk-${src}`}
-                src={src}
-                alt=""
-                className="rounded-2xl w-full h-auto aspect-[100/115] object-cover select-none pointer-events-none"
-                draggable={false}
+                className="relative rounded-2xl w-full aspect-[100/115] select-none pointer-events-none"
                 variants={itemVariants}
-              />
+              >
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  className="rounded-2xl object-cover"
+                  draggable={false}
+                  sizes="(min-width: 1025px) 33vw"
+                />
+              </motion.div>
             ))}
           </motion.div>
         </div>

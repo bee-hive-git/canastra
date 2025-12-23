@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, Variants } from "framer-motion";
+import Image from "next/image";
 
 export default function ForWho() {
   const shouldReduceMotion = useReducedMotion();
@@ -88,14 +89,16 @@ export default function ForWho() {
 
           {/* imagem mobile */}
           <motion.div 
-            className="mt-8 min-[1280px]:hidden overflow-hidden flex justify-center"
+            className="mt-8 min-[1280px]:hidden overflow-hidden flex justify-center relative w-[88vw] max-w-[420px] aspect-[420/400]"
             variants={imageVariants}
           >
-            <img
+            <Image
               src="/ai-eir/forwho/mobile.png"
               alt=""
-              className="block w-[88vw] max-w-[420px] h-auto object-contain select-none"
+              fill
+              className="object-contain select-none"
               draggable={false}
+              sizes="(max-width: 1280px) 88vw, 420px"
             />
           </motion.div>
         </motion.div>
@@ -107,6 +110,7 @@ export default function ForWho() {
           hidden min-[1280px]:block
           absolute top-0 right-0
           w-[50vw]
+          h-[86vh]
           pointer-events-none
         "
         aria-hidden
@@ -115,19 +119,17 @@ export default function ForWho() {
         transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
         viewport={{ once: true, amount: 0.2 }}
       >
-        <img
+        <Image
           src="/ai-eir/forwho/desktop.png"
           alt=""
+          fill
           className="
-            absolute top-0 right-0
-            max-h-[86vh]   /* ← altura máxima definida */
-            h-auto         /* ← NÃO cresce junto com o section */
-            w-auto
             object-contain object-right
             select-none
             origin-right scale-x-[1.14]
           "
           draggable={false}
+          sizes="50vw"
         />
       </motion.div>
     </section>

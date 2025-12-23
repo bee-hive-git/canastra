@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 
 export default function Structure() {
   const containerVariants: Variants = {
@@ -180,13 +181,15 @@ export default function Structure() {
 
         {/* === ETAPA 3 === */}
         <motion.div 
-          className="relative z-10 w-full max-w-[420px] min-[821px]:max-w-[650px] min-[821px]:mr-auto min-[821px]:mt-10" 
+          className="relative z-10 w-full max-w-[420px] min-[821px]:max-w-[650px] min-[821px]:mr-auto min-[821px]:mt-10 aspect-[420/280]" 
           variants={cardVariants}
         >
-          <img 
+          <Image 
             src="/ai-eir/structure/BOX-3.svg" 
             alt="Pós Programa: Fundraising" 
-            className="w-full h-auto drop-shadow-2xl"
+            fill
+            className="object-contain drop-shadow-2xl"
+            sizes="(max-width: 820px) 90vw, 650px"
           />
         </motion.div>
       </motion.div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function AIHero() {
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -292,13 +293,15 @@ export default function AIHero() {
             ].map((box, i) => (
               <div
                 key={i}
-                className="shrink-0 snap-start min-w-[85%] max-w-[85%] sm:min-w-[70%] sm:max-w-[70%]"
+                className="shrink-0 snap-start min-w-[85%] max-w-[85%] sm:min-w-[70%] sm:max-w-[70%] relative aspect-[300/200]"
               >
-                <img
+                <Image
                   src={box.src}
                   alt={box.alt}
-                  className="w-full h-auto object-contain"
+                  fill
+                  className="object-contain"
                   draggable={false}
+                  sizes="(max-width: 640px) 85vw, 70vw"
                 />
               </div>
             ))}
@@ -368,21 +371,27 @@ export default function AIHero() {
       </div>
 
       {/* IMAGEM mobile (substitui Lottie) */}
-      <img
-        src="/hero/montanha-3.svg"
-        alt=""
-        className="mountain-mobile pointer-events-none select-none absolute right-0 bottom-0 w-[110%] h-auto block min-[1280px]:hidden object-contain object-right-bottom img-reveal"
-        draggable={false}
-      />
+      <div className="mountain-mobile pointer-events-none select-none absolute right-0 bottom-0 w-[110%] h-[40vh] block min-[1280px]:hidden img-reveal">
+        <Image
+          src="/hero/montanha-3.svg"
+          alt=""
+          fill
+          className="object-contain object-right-bottom"
+          draggable={false}
+          sizes="100vw"
+        />
+      </div>
 
       {/* IMAGEM desktop (substitui Lottie) */}
       <div className="mountain-desktop pointer-events-none hidden min-[1280px]:block absolute top-10 right-16 z-0 h-full flex items-center justify-end">
-        <div className="w-[50vw] max-w-[800px] h-full max-h-[85vh] flex items-center">
-          <img
+        <div className="w-[50vw] max-w-[800px] h-full max-h-[85vh] flex items-center relative">
+          <Image
             src="/ai-eir/hero/montanha-5.svg"
             alt=""
-            className="pointer-events-none select-none w-full h-full object-contain object-right img-reveal"
+            fill
+            className="object-contain object-right img-reveal"
             draggable={false}
+            sizes="50vw"
           />
         </div>
       </div>

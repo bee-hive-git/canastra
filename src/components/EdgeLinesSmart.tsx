@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import styles from "./EdgeLinesSmart.module.css";
+// import styles from "./EdgeLinesSmart.module.css";
 
 type Props = {
   startIndex?: number;
@@ -113,10 +113,10 @@ export default function EdgeLinesSmart({
   if (!hasAnchorVisible || !isVisible) return null;
 
   const styleVars: React.CSSProperties = {
-    ["--edge-line-offset" as string]: `${offsetPx}px`,
-    ["--edge-line-width" as string]: `${widthPx}px`,
-    ["--edge-mask-bottom" as string]: `${maskBottomPx}px`,
-  };
+    "--edge-line-offset": `${offsetPx}px`,
+    "--edge-line-width": `${widthPx}px`,
+    "--edge-mask-bottom": `${maskBottomPx}px`,
+  } as React.CSSProperties;
 
   const maskStyle: React.CSSProperties = {
     WebkitMaskImage:
