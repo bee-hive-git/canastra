@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { VENTURE_PARTNERS_DATA, TEAM_DATA, FELLOW_PARTNERS_DATA, MemberData } from "./data";
 import TeamMemberModal from "./TeamMemberModal";
 
@@ -271,12 +272,18 @@ export default function TeamTabs() {
               style={{
                 width: `${CARD.w}px`,
                 height: `${CARD.h}px`,
-                backgroundImage: `url(${src})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
               }}
-            />
+            >
+              <Image
+                src={src}
+                alt={`${active} member ${i + 1}`}
+                fill
+                className="object-contain"
+                sizes="(max-width: 820px) 260px, 360px"
+                draggable={false}
+                priority={i < 2}
+              />
+            </div>
           ))}
         </div>
 
@@ -322,12 +329,18 @@ export default function TeamTabs() {
                   style={{
                     width: `${COL_W}px`,
                     height: `${COL_H}px`,
-                    backgroundImage: `url(${src})`,
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "contain",
                   }}
-                />
+                >
+                  <Image
+                    src={src}
+                    alt={`${active} member ${i + 1}`}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1600px) 25vw, 360px"
+                    draggable={false}
+                    priority={i < 4}
+                  />
+                </div>
               ))}
             </div>
           </div>
