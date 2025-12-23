@@ -1,4 +1,3 @@
-// src/components/pitch-us/value/index.tsx
 "use client";
 
 export default function Value() {
@@ -51,38 +50,31 @@ export default function Value() {
         }
 
         /* gutters (alinhamento à esquerda com Hero/Time) */
-        @media (min-width: 1181px) and (max-width: 1439px) {
+        @media (min-width: 820px) {
           #value .wrap {
-            margin-left: 26px;
+            margin-left: 0;
+            padding-left: var(--site-padding-left);
+            padding-right: var(--site-padding-right);
           }
           #value {
-            --gutter-left: calc(26px + 32px);
-          }
-        }
-        @media (min-width: 1440px) {
-          #value .wrap {
-            margin-left: 40px;
-          }
-          #value {
-            --gutter-left: calc(40px + 32px);
-          }
-        }
-        @media (min-width: 820px) and (max-width: 1180px) {
-          #value {
-            --gutter-left: 32px;
+            --gutter-left: var(--site-padding-left);
+            --gutter-right: var(--site-padding-right);
           }
         }
 
-        /* ----- TIPOGRAFIA DESKTOP (≥1181px) ----- */
-        @media (min-width: 1181px) {
-          #value .head h2 {
-            font-size: clamp(40px, 4.7vw, 75.52px); /* Crimson 75.52 */
-            line-height: 1.3;
-          }
-          #value .head p {
-            font-size: clamp(18px, 2.2vw, 31.5px); /* Hanken 31.5 */
-            line-height: 1.3;
-          }
+        /* Card Hover Animation */
+        .value-card {
+          transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                      border-color 0.3s ease, 
+                      box-shadow 0.3s ease, 
+                      background-color 0.3s ease;
+          will-change: transform;
+        }
+        .value-card:hover {
+          transform: translateY(-8px);
+          border-color: #FF624D !important;
+          box-shadow: 0 16px 32px -12px rgba(255, 98, 77, 0.25) !important;
+          background-color: rgba(255, 98, 77, 0.03) !important;
         }
       `}</style>
 
@@ -101,10 +93,9 @@ export default function Value() {
       <div className="mx-auto max-w-[560px] px-5 min-[820px]:hidden">
         <header className="text-center">
           <h2
-            className="text-[28px] leading-tight"
+            className="font-bold text-[28px] leading-snug mb-4 fade-up"
             style={{
               fontFamily: '"Crimson Text", serif',
-              fontWeight: 700,
             }}
           >
             Nosso{" "}
@@ -117,11 +108,10 @@ export default function Value() {
           </h2>
 
           <div
-            className="mt-3 mx-auto text-[14px] leading-relaxed text-white/85 text-left"
+            className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-none font-normal text-left fade-up-delay"
             style={{
               fontFamily:
                 '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-              fontWeight: 400,
             }}
           >
             Após o investimento, colaboramos com os founders na criação de um
@@ -160,7 +150,7 @@ export default function Value() {
           {cards.map((c) => (
             <div
               key={c.title}
-              className="rounded-2xl border px-5 py-5 mx-auto"
+              className="rounded-2xl border px-5 py-5 mx-auto value-card"
               style={{
                 width: "var(--mCardW)",
                 minHeight: "var(--mCardH)",
@@ -190,7 +180,7 @@ export default function Value() {
                   fontFamily:
                     '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                   fontWeight: 400,
-                  fontSize: "15px",
+                  fontSize: "12.5px",
                   letterSpacing: "0.4px",
                 }}
               >
@@ -200,17 +190,15 @@ export default function Value() {
           ))}
         </div>
       </div>
-
       {/* desktop */}
       <div className="hidden min-[820px]:block">
         {/* wrap SEM max-width: começa no mesmo lugar à esquerda e estica mais pra direita */}
-        <div className="wrap min-[820px]:mx-auto min-[820px]:px-8">
+        <div className="wrap min-[820px]:mx-auto min-[820px]:px-0 max-w-none">
           <header className="head max-w-none">
             <h2
-              className="text-[40px] leading-tight"
+              className="font-bold text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px] min-[820px]:leading-[1.08] fade-up mb-6"
               style={{
                 fontFamily: '"Crimson Text", serif',
-                fontWeight: 700,
               }}
             >
               Nosso{" "}
@@ -223,11 +211,10 @@ export default function Value() {
             </h2>
 
             <p
-              className="mt-3 text-white/85 leading-relaxed"
+              className="text-white/90 text-[20px] lg:text-[22px] xl:text-[24px] min-[1820px]:text-[clamp(24px,1.6vw,48px)] min-[820px]:leading-[1.6] font-normal fade-up-delay max-w-none"
               style={{
                 fontFamily:
                   '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-                fontWeight: 400,
               }}
             >
               Após o investimento, colaboramos com os founders na criação de um
@@ -256,20 +243,20 @@ export default function Value() {
         </div>
 
         <div
-          className="relative left-[calc(50%-50vw)] right-[calc(50%-50vw)] w-screen mt-14"
+          className="relative w-full mt-14"
           style={
             {
               paddingLeft: "var(--gutter-left)",
-              paddingRight: "24px",
+              paddingRight: "var(--gutter-right)",
               ["--gapX" as any]: "clamp(44px, 5vw, 96px)",
               ["--gapY" as any]: "36px",
               // tipografia cards desktop
               ["--cardPadX" as any]: "24px",
               ["--cardPadY" as any]: "24px",
               ["--title" as any]: "clamp(18px, 2.2vw, 31.37px)",
-              ["--body" as any]: "clamp(15px, 1.5vw, 21.42px)",
+              ["--body" as any]: "clamp(12.5px, 1.35vw, 18.3px)",
               ["--minH" as any]: "178px",
-              ["--cardNarrow" as any]: "88%",
+              ["--cardNarrow" as any]: "100%",
             } as any
           }
         >
@@ -283,7 +270,7 @@ export default function Value() {
             {cards.map((c) => (
               <div
                 key={c.title}
-                className="rounded-2xl border mx-auto"
+                className="rounded-2xl border mx-auto value-card"
                 style={{
                   width: "var(--cardNarrow)",
                   borderColor: BORDER,

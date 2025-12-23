@@ -6,7 +6,7 @@ export default function Ask() {
   const BG = "rgb(17, 4, 23)";
 
   return (
-    <section id="ask" className="relative text-white" style={{ backgroundColor: BG }}>
+    <section id="ask" className="relative text-white overflow-x-hidden" style={{ backgroundColor: BG }}>
       <style jsx global>{`
         #ask .session-line {
           height: 1px;

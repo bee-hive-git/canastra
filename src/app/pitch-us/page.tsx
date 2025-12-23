@@ -11,7 +11,12 @@ import EdgeLinesSmart from "@/components/EdgeLinesSmart";
 export default function PitchUs() {
   return (
     <main>
-      <EdgeLinesSmart startIndex={0} />
+      <EdgeLinesSmart
+        startIndex={0}
+        footerSelector="#pitch-value-section"
+        footerFadeRatio={10}
+        offsetPx={20}
+      />
 
       {/* header entra na contagem */}
       <section data-edge-section>
@@ -30,7 +35,7 @@ export default function PitchUs() {
         <PitchNapkin />
       </section>
 
-      <section data-edge-section>
+      <section data-edge-section id="pitch-value-section">
         <PitchValue />
       </section>
 

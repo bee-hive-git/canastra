@@ -1,52 +1,39 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { VENTURE_PARTNERS_DATA, TEAM_DATA, FELLOW_PARTNERS_DATA, MemberData } from "./data";
+import TeamMemberModal from "./TeamMemberModal";
 
 type TabKey = "team" | "venture-partners" | "fellow-partners" | "advisors" | "mentors";
 
+// cores
+const PAGE_BG = "rgb(17, 4, 23)";
+const COLOR_BG = "#191919";
+const COLOR_ACCENT = "#F05941";
+
+// faixa/abas
+const BTN_H = 56;
+const STRIP_EXTRA_TOP = 7;
+const STRIP_EXTRA_BOTTOM = 7;
+const STRIP_H = BTN_H + STRIP_EXTRA_TOP + STRIP_EXTRA_BOTTOM;
+
+// FIGMA base
+const FIGMA_W = 360.35;
+const FIGMA_H = 520.4;
+const AR = FIGMA_H / FIGMA_W;
+
+// tabs
 export default function TeamTabs() {
-  // cores
-  const PAGE_BG = "rgb(17, 4, 23)";
-  const COLOR_BG = "#191919";
-  const COLOR_ACCENT = "#F05941";
-
-  // faixa/abas
-  const BTN_H = 56;
-  const STRIP_EXTRA_TOP = 7;
-  const STRIP_EXTRA_BOTTOM = 7;
-  const STRIP_H = BTN_H + STRIP_EXTRA_TOP + STRIP_EXTRA_BOTTOM;
-
-  // setas
-  const ARROW_SIZE = 32;
-  const ARROW_INSET_BASE = 24;
-  const ARROW_EXTRA_SHIFT = 12; // “puxa” para dentro
-  const ARROW_LEFT_X = ARROW_INSET_BASE + ARROW_EXTRA_SHIFT;
-  const ARROW_RIGHT_X = ARROW_INSET_BASE + ARROW_EXTRA_SHIFT;
-  const RAIL_SIDE_PADDING =
-    ARROW_INSET_BASE + ARROW_EXTRA_SHIFT + ARROW_SIZE + 8;
-
   // viewport
-  const [vw, setVw] = useState<number>(
-    typeof window !== "undefined" ? window.innerWidth : 1440
-  );
+  const [vw, setVw] = useState<number>(1440);
   useEffect(() => {
+    // Atualiza apenas no cliente após montagem para evitar hydration mismatch
+    setVw(window.innerWidth);
+    
     const onR = () => setVw(window.innerWidth);
     window.addEventListener("resize", onR);
     return () => window.removeEventListener("resize", onR);
   }, []);
-
-  // largura dos botões das abas (overflow garantido)
-  const BTN_W = useMemo(() => {
-    if (vw >= 1440) return 440;
-    if (vw >= 1181) return 400;
-    if (vw >= 820) return 320;
-    return 240;
-  }, [vw]);
-
-  // FIGMA base
-  const FIGMA_W = 360.35;
-  const FIGMA_H = 520.4;
-  const AR = FIGMA_H / FIGMA_W;
 
   // mobile/tablet cards (carrossel)
   const CARD = useMemo(() => {
@@ -55,16 +42,26 @@ export default function TeamTabs() {
     return { w: FIGMA_W * 0.72, h: FIGMA_H * 0.72 }; // mobile
   }, [vw]);
 
-  // tabs
-  const TABS: { key: TabKey; label: string; count: number }[] = [
-    { key: "team", label: "Team", count: 4 },
-    { key: "venture-partners", label: "Venture Partners", count: 3 },
-    { key: "fellow-partners", label: "Fellow Partners", count: 4 },
-    { key: "advisors", label: "Advisors", count: 1 },
-    { key: "mentors", label: "Mentors", count: 17 },
-  ];
 
   const [active, setActive] = useState<TabKey>("team");
+  const [selectedMember, setSelectedMember] = useState<MemberData | null>(null);
+
+  const handleCardClick = (index: number) => {
+    let member: MemberData | undefined;
+
+    if (active === "venture-partners") {
+      member = VENTURE_PARTNERS_DATA[index];
+    } else if (active === "team") {
+      member = TEAM_DATA[index];
+    } else if (active === "fellow-partners") {
+      member = FELLOW_PARTNERS_DATA[index];
+    }
+
+    if (member) {
+      setSelectedMember(member);
+    }
+  };
+
   const photos = useMemo(
     () =>
       Array.from(
@@ -73,41 +70,6 @@ export default function TeamTabs() {
       ),
     [active]
   );
-
-  // barra de abas
-  const railTabsRef = useRef<HTMLDivElement>(null);
-  const recalcArrows = () => {
-    const el = railTabsRef.current;
-    if (!el) return;
-    const max = el.scrollWidth - el.clientWidth - 1;
-    setCanLeft(el.scrollLeft > 0);
-    setCanRight(el.scrollLeft < max);
-  };
-  const [canLeft, setCanLeft] = useState(false);
-  const [canRight, setCanRight] = useState(false);
-  const scrollTabsBy = (delta: number) =>
-    railTabsRef.current?.scrollBy({ left: delta, behavior: "smooth" });
-
-  useEffect(() => {
-    const el = railTabsRef.current;
-    if (!el) return;
-    recalcArrows();
-    const onScroll = () => recalcArrows();
-    const onResize = () => recalcArrows();
-    el.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
-
-    // centraliza a etiqueta ativa
-    const idx = TABS.findIndex((t) => t.key === active);
-    if (idx >= 0) {
-      const targetX = idx * (BTN_W + 1) - el.clientWidth / 2 + BTN_W / 2;
-      el.scrollTo({ left: Math.max(0, targetX), behavior: "smooth" });
-    }
-    return () => {
-      el.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-    };
-  }, [active, BTN_W]);
 
   // carrossel mobile
   const railRef = useRef<HTMLDivElement>(null);
@@ -179,7 +141,7 @@ export default function TeamTabs() {
       lastT.current = e.timeStamp;
       velocity.current = 0;
       stop();
-      (el.style as any).scrollSnapType = "none";
+      el.style.setProperty("scroll-snap-type", "none");
       e.preventDefault();
     };
     const onMove = (e: PointerEvent) => {
@@ -195,7 +157,7 @@ export default function TeamTabs() {
     const onUp = () => {
       if (!dragging.current) return;
       dragging.current = false;
-      (el.style as any).scrollSnapType = "x mandatory";
+      el.style.setProperty("scroll-snap-type", "x mandatory");
       if (raf.current == null) raf.current = requestAnimationFrame(momentum);
     };
     el.addEventListener("pointerdown", onDown);
@@ -229,129 +191,27 @@ export default function TeamTabs() {
   return (
     <section
       id="team-tabs"
-      className="relative text-white pt-8 pb-24 min-[1181px]:pt-10 min-[1181px]:pb-28"
+      className="relative text-white pt-0 pb-24 min-[1181px]:pt-0 min-[1181px]:pb-28 overflow-x-hidden"
       style={{ backgroundColor: PAGE_BG }}
     >
       {/* faixa de abas */}
       <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen px-0">
         <div
-          className="relative w-full overflow-hidden rounded-md"
+          className="relative w-full overflow-hidden rounded-md flex justify-center"
           style={{
             background: COLOR_BG,
             height: STRIP_H,
             boxShadow: `inset 0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`,
           }}
         >
-          {/* setas */}
-          <button
-            aria-label="Anterior"
-            onClick={() => scrollTabsBy(-BTN_W * 1.5)}
-            className="absolute z-10 top-1/2 -translate-y-1/2 h-8 w-8 rounded-md"
-            style={{
-              left: ARROW_LEFT_X,
-              background: COLOR_BG,
-              boxShadow: `0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`,
-              transition: "background 160ms ease, box-shadow 160ms ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = mix(
-                COLOR_BG,
-                COLOR_ACCENT,
-                0.08
-              );
-              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(
-                COLOR_ACCENT,
-                0.36
-              )}`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = COLOR_BG;
-              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(
-                COLOR_ACCENT,
-                0.22
-              )}`;
-            }}
-            disabled={!canLeft}
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              className="mx-auto"
-              aria-hidden="true"
-            >
-              <path
-                d="M15 6l-6 6 6 6"
-                fill="none"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-
-          <button
-            aria-label="Próximo"
-            onClick={() => scrollTabsBy(BTN_W * 1.5)}
-            className="absolute z-10 top-1/2 -translate-y-1/2 h-8 w-8 rounded-md"
-            style={{
-              right: ARROW_RIGHT_X,
-              background: COLOR_BG,
-              boxShadow: `0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`,
-              transition: "background 160ms ease, box-shadow 160ms ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = mix(
-                COLOR_BG,
-                COLOR_ACCENT,
-                0.08
-              );
-              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(
-                COLOR_ACCENT,
-                0.36
-              )}`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = COLOR_BG;
-              e.currentTarget.style.boxShadow = `0 0 0 1px ${hexA(
-                COLOR_ACCENT,
-                0.22
-              )}`;
-            }}
-            disabled={!canRight}
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              className="mx-auto"
-              aria-hidden="true"
-            >
-              <path
-                d="M9 6l6 6-6 6"
-                fill="none"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-
           {/* trilho das abas */}
           <div
-            ref={railTabsRef}
-            className="absolute inset-0 flex items-stretch overflow-x-auto no-scrollbar"
+            className="flex w-full max-w-[1440px] items-stretch justify-between px-2 sm:px-4"
             style={{
-              top: STRIP_EXTRA_TOP,
+              marginTop: STRIP_EXTRA_TOP,
               height: BTN_H,
-              paddingLeft: RAIL_SIDE_PADDING,
-              paddingRight: RAIL_SIDE_PADDING,
-              scrollSnapType: "x mandatory",
-              gap: "1px",
+              gap: "2px",
             }}
-            onScroll={recalcArrows}
           >
             {TABS.map((t) => {
               const is = t.key === active;
@@ -359,46 +219,22 @@ export default function TeamTabs() {
                 <button
                   key={t.key}
                   onClick={() => setActive(t.key)}
-                  className="flex-none flex items-center justify-center select-none outline-none"
+                  className={`flex-1 flex items-center justify-center select-none outline-none border rounded-md transition-all duration-150 ${
+                    is
+                      ? "border-[#F05941] text-white"
+                      : "bg-transparent border-transparent text-white/60 hover:bg-[#F05941]/5 hover:text-white/90"
+                  }`}
                   style={{
-                    width: BTN_W,
+                    background: is
+                      ? "linear-gradient(180deg, rgba(240, 89, 65, 0.24) 0%, rgba(240, 89, 65, 0) 100%)"
+                      : undefined,
                     height: BTN_H,
-                    scrollSnapAlign: "start",
-                    background: COLOR_BG,
-                    color: is ? "#fff" : "rgba(255,255,255,0.85)",
-                    boxShadow: is
-                      ? `inset 0 0 0 1px ${hexA(COLOR_ACCENT, 0.36)}`
-                      : `inset 0 0 0 1px ${hexA(COLOR_ACCENT, 0.22)}`,
-                    transition:
-                      "background 140ms ease, box-shadow 140ms ease, color 140ms ease",
                     fontFamily: `"Crimson Text", serif`,
                     fontWeight: 400,
-                    fontSize: "clamp(16px, 2.4vw, 33.2px)",
-                    lineHeight: "1.3",
+                    fontSize: "clamp(10px, 1.4vw, 22px)",
+                    lineHeight: "1.1",
                     textAlign: "center",
-                    paddingInline: 8,
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!is) {
-                      e.currentTarget.style.background = mix(
-                        COLOR_BG,
-                        COLOR_ACCENT,
-                        0.06
-                      );
-                      e.currentTarget.style.boxShadow = `inset 0 0 0 1px ${hexA(
-                        COLOR_ACCENT,
-                        0.36
-                      )}`;
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!is) {
-                      e.currentTarget.style.background = COLOR_BG;
-                      e.currentTarget.style.boxShadow = `inset 0 0 0 1px ${hexA(
-                        COLOR_ACCENT,
-                        0.22
-                      )}`;
-                    }
+                    paddingInline: 4,
                   }}
                 >
                   {t.label}
@@ -417,10 +253,13 @@ export default function TeamTabs() {
           style={{ touchAction: "pan-x", gap: 0 }}
           aria-label={`${active} (carrossel)`}
         >
-          {photos.map((src) => (
+          {photos.map((src, i) => (
             <div
               key={src}
-              className="snap-start flex-none relative rounded-2xl overflow-hidden"
+              onClick={() => handleCardClick(i)}
+              className={`snap-start flex-none relative rounded-2xl overflow-hidden ${
+                (active === "venture-partners" || active === "team") ? "cursor-pointer active:scale-95 transition-transform" : ""
+              }`}
               style={{
                 width: `${CARD.w}px`,
                 height: `${CARD.h}px`,
@@ -454,7 +293,7 @@ export default function TeamTabs() {
       {/* desktop – grid 4 colunas */}
       <div className="hidden min-[1181px]:block">
         <div className="w-full mx-auto mt-10 px-4">
-          <div className="flex justify-center w-full overflow-x-hidden">
+          <div className="flex justify-center w-full py-4">
             <div
               style={{
                 display: "grid",
@@ -463,10 +302,15 @@ export default function TeamTabs() {
                 width: `${GRID_W}px`,
               }}
             >
-              {photos.map((src) => (
+              {photos.map((src, i) => (
                 <div
                   key={`desk-${src}`}
-                  className="relative rounded-2xl overflow-hidden"
+                  onClick={() => handleCardClick(i)}
+                  className={`relative rounded-2xl overflow-hidden ${
+                    (active === "venture-partners" || active === "team" || active === "fellow-partners")
+                      ? "cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+                      : ""
+                  }`}
                   style={{
                     width: `${COL_W}px`,
                     height: `${COL_H}px`,
@@ -481,6 +325,12 @@ export default function TeamTabs() {
           </div>
         </div>
       </div>
+
+      <TeamMemberModal
+        member={selectedMember}
+        isOpen={!!selectedMember}
+        onClose={() => setSelectedMember(null)}
+      />
     </section>
   );
 }
@@ -491,16 +341,4 @@ function hexA(hex: string, a: number) {
     Math.max(min, Math.min(max, x));
   const alpha = clamp(Math.round(a * 255), 0, 255);
   return hex + alpha.toString(16).padStart(2, "0");
-}
-function mix(hex1: string, hex2: string, t = 0.5) {
-  const c1 = parseInt(hex1.slice(1), 16);
-  const c2 = parseInt(hex2.slice(1), 16);
-  const r = Math.round((c1 >> 16) * (1 - t) + (c2 >> 16) * t);
-  const g = Math.round(
-    ((c1 >> 8) & 0xff) * (1 - t) + ((c2 >> 8) & 0xff) * t
-  );
-  const b = Math.round((c1 & 0xff) * (1 - t) + (c2 & 0xff) * t);
-  return `#${((1 << 24) + (r << 16) + (g << 8) + b)
-    .toString(16)
-    .slice(1)}`;
 }

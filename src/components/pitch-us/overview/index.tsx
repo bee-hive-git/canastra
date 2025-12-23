@@ -1,6 +1,8 @@
 // src/components/pitch-us/overview/index.tsx
 "use client";
 
+import { motion, Variants } from "framer-motion";
+
 type Item = { num: number; title: string; body: string };
 
 export default function Overview() {
@@ -30,27 +32,67 @@ export default function Overview() {
     },
   ];
 
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.25,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const lineVariants: Variants = {
+    hidden: { scaleX: 0, originX: 0, opacity: 0 },
+    visible: {
+      scaleX: 1,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut", delay: 0.2 },
+    },
+  };
+
+  const verticalLineVariants: Variants = {
+    hidden: { scaleY: 0, originY: 0, opacity: 0 },
+    visible: {
+      scaleY: 1,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut", delay: 0.2 },
+    },
+  };
+
   return (
     <section
       id="overview"
-      className="relative text-white pt-12 pb-20 min-[1181px]:pt-20"
+      className="relative text-white pt-12 pb-20 min-[1181px]:pt-20 overflow-x-hidden"
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
         @media (min-width: 1181px) and (max-width: 1439px) {
           #overview .wrap {
-            margin-left: 26px;
+            margin-left: 0;
+            padding-left: var(--site-padding-left);
+            padding-right: var(--site-padding-right);
           }
           #overview {
-            --gutter-left: calc(26px + 32px);
+            --gutter-left: var(--site-padding-left);
           }
         }
         @media (min-width: 1440px) {
           #overview .wrap {
-            margin-left: 40px;
+            margin-left: 0;
+            padding-left: var(--site-padding-left);
+            padding-right: var(--site-padding-right);
           }
           #overview {
-            --gutter-left: calc(40px + 32px);
+            --gutter-left: var(--site-padding-left);
           }
         }
 
@@ -184,10 +226,17 @@ export default function Overview() {
           </a>
         </div>
 
-        <div className="mt-10">
+        <motion.div
+          className="mt-10"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {items.map((it, idx) => (
-            <div
+            <motion.div
               key={it.num}
+              variants={itemVariants}
               className="relative flex flex-col items-center text-center py-8"
             >
               <div
@@ -205,20 +254,21 @@ export default function Overview() {
                 {it.body}
               </p>
               {idx < items.length - 1 && (
-                <div
+                <motion.div
                   aria-hidden
                   className="w-px mt-8"
+                  variants={verticalLineVariants}
                   style={{ height: 84, backgroundColor: HILIGHT }}
                 />
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* desktop (≥ 1181px) */}
       <div className="hidden min-[1181px]:block">
-        <div className="wrap min-[1181px]:max-w-[1120px] min-[1181px]:mx-auto min-[1181px]:px-8">
+        <div className="wrap min-[1181px]:max-w-[1120px]">
           {/* max-width maior para empurrar mais para a direita */}
           <div className="head max-w-[900px]">
             <h2
@@ -277,35 +327,41 @@ export default function Overview() {
 
         {/* Linha temporal — margem-top grande controlada por .timeline */}
         <div
-          className="timeline relative left-[calc(50%-50vw)] right-[calc(50%-50vw)] w-screen"
+          className="timeline relative w-full"
           style={
             {
               paddingLeft: "var(--gutter-left)",
-              paddingRight: "24px",
-              ["--dot" as any]: "56px",
-              ["--num" as any]: "17px",
-              ["--h4" as any]: "19px",
-              ["--p" as any]: "16px",
-              ["--stroke" as any]: "2px",
-              ["--gapL" as any]: "32px",
-              ["--gapR" as any]: "12px",
-              ["--col-gap" as any]: "clamp(140px, 12vw, 360px)",
+              paddingRight: "var(--gutter-left)",
+              "--dot": "56px",
+              "--num": "17px",
+              "--h4": "19px",
+              "--p": "16px",
+              "--stroke": "2px",
+              "--gapL": "32px",
+              "--gapR": "12px",
+              "--col-gap": "clamp(140px, 12vw, 360px)",
             } as React.CSSProperties
           }
         >
-          <div
+          <motion.div
             className="grid grid-cols-4"
             style={{ gap: "var(--col-gap)" }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
           >
             {items.map((it, idx) => (
-              <div
+              <motion.div
                 key={it.num}
                 className="relative text-center px-2"
+                variants={itemVariants}
               >
                 {idx < items.length - 1 && (
-                  <span
+                  <motion.span
                     aria-hidden
                     className="absolute"
+                    variants={lineVariants}
                     style={{
                       top: "calc((var(--dot) / 2) - (var(--stroke) / 2))",
                       left: "calc(50% + (var(--dot) / 2) + var(--gapL))",
@@ -342,9 +398,9 @@ export default function Overview() {
                 >
                   {it.body}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

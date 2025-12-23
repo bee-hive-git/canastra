@@ -4,14 +4,17 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Linhas laterais */
-  --edge-line-offset: 56px;
-  --edge-line-width: 1px;
-  --edge-line-color-top: rgba(255,255,255,0.10);
-  --edge-line-color-bot: rgba(255,255,255,0.32);
+  /* Global Padding Controller */
+  --site-padding-left: 20px;
+  --site-padding-right: 20px;
+
+  /* Edge Line Variables - Restored */
+  --edge-line-color-top: rgba(255, 255, 255, 0.10);
+  --edge-line-color-bot: rgba(255, 255, 255, 0.32);
   --edge-line-z: 40;
-  --edge-line-color-top-light: rgba(0,0,0,0.08);
-  --edge-line-color-bot-light: rgba(0,0,0,0.24);
+  
+  --edge-line-color-top-light: rgba(0, 0, 0, 0.08);
+  --edge-line-color-bot-light: rgba(0, 0, 0, 0.24);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,6 +36,26 @@ html { scroll-behavior: smooth; }
 /* Ajuste de offset por breakpoint */
 @media (max-width: 1024px){ :root{ --edge-line-offset: 40px; } }
 @media (max-width: 640px){  :root{ --edge-line-offset: 28px; } }
+
+/* Global Padding Breakpoints */
+@media (min-width: 820px) {
+  :root {
+    --site-padding-left: 40px;
+    --site-padding-right: 40px;
+  }
+}
+@media (min-width: 1181px) {
+  :root {
+    --site-padding-left: 84px;
+    --site-padding-right: 84px;
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+    --site-padding-left: 124px;
+    --site-padding-right: 124px;
+  }
+}
 
 /* Alterna cores conforme tema claro */
 @media (prefers-color-scheme: light) {

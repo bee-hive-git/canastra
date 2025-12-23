@@ -8,6 +8,7 @@ import WhatElse from "@/components/ai-eir/whatelse";
 import Fellow from "@/components/ai-eir/fellow";
 import DataSection from "@/components/ai-eir/data";
 import FounderSection from "@/components/ai-eir/founder";
+import Startups from "@/components/ai-eir/startups";
 import Inscreva from "@/components/ai-eir/inscreva";
 import Faq from "@/components/ai-eir/faq";
 
@@ -54,6 +55,10 @@ export default function AiEir() {
 
       <section data-edge-section>
         <FounderSection />
+      </section>
+
+      <section data-edge-section>
+        <Startups />
       </section>
 
       <section data-edge-section>

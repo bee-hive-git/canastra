@@ -1,13 +1,30 @@
-// src/components/ai-eir/hero/index.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Lottie from "lottie-react";
-import aiEirHeroAnimation from "@/../public/lotties/ai-eir/data.json";
+import { motion } from "framer-motion";
 
 export default function AIHero() {
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const [progress, setProgress] = useState(0);
+
+  // IntersectionObserver para animação de entrada (igual ao Sobre.tsx)
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const e = entries[0];
+        if (e.isIntersecting) {
+          el.classList.add("in-view");
+          obs.unobserve(el);
+        }
+      },
+      { threshold: 0.01, rootMargin: "0px 0px -20% 0px" } // Ajuste leve no rootMargin se necessário
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   // drag-to-scroll mobile
   useEffect(() => {
@@ -63,6 +80,7 @@ export default function AIHero() {
 
   return (
     <section
+      ref={sectionRef}
       id="ai-eir-hero"
       className="relative overflow-hidden text-white pt-24 pb-16 min-[1280px]:pt-28 min-[1280px]:pb-32"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
@@ -74,9 +92,6 @@ export default function AIHero() {
         @media (max-width: 330px), (max-height: 568px) {
           #ai-eir-hero {
             min-height: 135dvh;
-          }
-          #ai-eir-hero .spikes-mobile {
-            bottom: 12px !important;
           }
         }
 
@@ -106,6 +121,38 @@ export default function AIHero() {
             line-height: 1.7;
             max-width: 66ch;
           }
+
+          /* Animação da imagem (padrão Sobre.tsx) */
+          #ai-eir-hero .img-reveal {
+            -webkit-mask-image: linear-gradient(to bottom, black 0%, black 100%);
+            mask-image: linear-gradient(to bottom, black 0%, black 100%);
+            -webkit-mask-size: 100% 0%;
+            mask-size: 100% 0%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            will-change: mask-size, opacity;
+            opacity: 0;
+          }
+          #ai-eir-hero.in-view .img-reveal {
+            animation: heroReveal 1.6s ease-out 0.2s forwards;
+          }
+          @keyframes heroReveal {
+            to {
+              -webkit-mask-size: 100% 100%;
+              mask-size: 100% 100%;
+              opacity: 1;
+            }
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          #ai-eir-hero .img-reveal,
+          #ai-eir-hero.in-view .img-reveal {
+            animation: none;
+            opacity: 1;
+            -webkit-mask-image: none;
+            mask-image: none;
+          }
         }
       `}</style>
 
@@ -121,15 +168,15 @@ export default function AIHero() {
       />
 
       {/* texto + CTA */}
-      <div className="relative z-20 px-5 text-center mx-auto max-w-[640px] min-[1280px]:text-left min-[1280px]:px-0 min-[1280px]:mx-0 min-[1280px]:ml-[6vw]">
+      <div className="relative z-20 px-5 text-center mx-auto max-w-[640px] min-[1280px]:text-left min-[1280px]:px-0 min-[1280px]:mx-0 min-[1280px]:ml-[6vw] flex flex-col justify-center min-h-[60vh]">
 
         {/* H1 desktop — corrigido (Residence branco) */}
         <h1
           className="desk-h1 hidden min-[1280px]:block font-bold mb-3 text-[48px] lg:text-[56px] leading-[1.15]"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
-          AI <span className="italic">Entrepreneur</span> in{" "}
-          <span className="italic">Residence</span>
+          AI <span className="italic">Entrepreneur</span><br />
+          in <span className="italic">Residence</span>
         </h1>
 
         {/* H1 mobile — não tinha cor antes, mantido certo */}
@@ -142,7 +189,7 @@ export default function AIHero() {
 
         {/* H2 desktop */}
         <h2
-          className="desk-h2 hidden min-[1280px]:block font-bold italic text-[32px] lg:text-[40px] leading-tight mb-4"
+          className="desk-h2 hidden min-[1280px]:block font-bold italic text-[32px] lg:text-[40px] leading-tight mb-4 max-w-[550px]"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
@@ -235,14 +282,28 @@ export default function AIHero() {
         <div className="mt-8 min-[1280px]:hidden">
           <div
             ref={trackRef}
-            className="carousel flex gap-4 overflow-x-auto snap-x snap-mandatory px-1 scroll-smooth"
+            className="carousel flex gap-4 overflow-x-auto snap-x snap-mandatory px-5 pb-12 scroll-smooth"
             style={{ scrollbarWidth: "none" }}
           >
-            <SlideImage src="/ai-eir/hero/box1.png" alt="" />
-            <SlideImage src="/ai-eir/hero/box2.png" alt="" />
-            <SlideImage src="/ai-eir/hero/box3.png" alt="" />
+            {[
+              { src: "/ai-eir/hero/BOX1.svg", alt: "Elite AI Community" },
+              { src: "/ai-eir/hero/BOX2.svg", alt: "Build with Best Founders" },
+              { src: "/ai-eir/hero/BOX3.svg", alt: "Go all in and Move Fast" },
+            ].map((box, i) => (
+              <div
+                key={i}
+                className="shrink-0 snap-start min-w-[85%] max-w-[85%] sm:min-w-[70%] sm:max-w-[70%]"
+              >
+                <img
+                  src={box.src}
+                  alt={box.alt}
+                  className="w-full h-auto object-contain"
+                  draggable={false}
+                />
+              </div>
+            ))}
           </div>
-          <div className="mt-4 mx-auto max-w-[360px]">
+          <div className="mt-[-20px] mx-auto max-w-[360px] px-5">
             <div className="h-1 rounded-full bg-white/15">
               <div
                 className="h-1 rounded-full bg-white transition-[width] duration-150"
@@ -256,65 +317,75 @@ export default function AIHero() {
       </div>
 
       {/* desktop cards */}
-      <div className="hidden min-[1280px]:grid grid-cols-3 items-center justify-items-stretch gap-[4vw] xl:gap-[3vw] 2xl:gap-[3.5vw] px-[4vw] min-[1280px]:mt-28 mx-auto max-w-[1400px] z-20">
-        <img
-          src="/ai-eir/hero/box1.png"
-          alt=""
-          className="justify-self-start w-[24vw] max-w-[440px] xl:w-[20vw] xl:max-w-[420px] 2xl:w-[18vw] 2xl:max-w-[460px] h-auto object-contain translate-x-[2vw] xl:translate-x-[1vw] 2xl:translate-x-0"
-          draggable={false}
+      <div className="hidden min-[1280px]:grid grid-cols-3 items-stretch justify-items-stretch gap-6 px-[4vw] min-[1280px]:mt-28 mx-auto max-w-[1400px] relative z-20">
+        <motion.img
+          src="/ai-eir/hero/BOX1.svg"
+          alt="Elite AI Community"
+          className="w-full h-auto object-contain cursor-pointer"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          whileHover={{ 
+            scale: 1.05, 
+            y: -10,
+            filter: "brightness(1.1)",
+            transition: { type: "spring", stiffness: 300, damping: 20 }
+          }}
         />
-        <img
-          src="/ai-eir/hero/box2.png"
-          alt=""
-          className="justify-self-center w-[24vw] max-w-[440px] xl:w-[20vw] xl:max-w-[420px] 2xl:w-[18vw] 2xl:max-w-[460px] h-auto object-contain"
-          draggable={false}
+
+        <motion.img
+          src="/ai-eir/hero/BOX2.svg"
+          alt="Build with Best Founders"
+          className="w-full h-auto object-contain cursor-pointer"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          whileHover={{ 
+            scale: 1.05, 
+            y: -10,
+            filter: "brightness(1.1)",
+            transition: { type: "spring", stiffness: 300, damping: 20 }
+          }}
         />
-        <img
-          src="/ai-eir/hero/box3.png"
-          alt=""
-          className="justify-self-end w-[24vw] max-w-[440px] xl:w-[20vw] xl:max-w-[420px] 2xl:w-[18vw] 2xl:max-w-[460px] h-auto object-contain -translate-x-[2vw] xl:-translate-x-[1vw] 2xl:-translate-x-0"
-          draggable={false}
+
+        <motion.img
+          src="/ai-eir/hero/BOX3.svg"
+          alt="Go all in and Move Fast"
+          className="w-full h-auto object-contain cursor-pointer"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          whileHover={{ 
+            scale: 1.05, 
+            y: -10,
+            filter: "brightness(1.1)",
+            transition: { type: "spring", stiffness: 300, damping: 20 }
+          }}
         />
       </div>
 
-      {/* LOTTIE mobile */}
-      <div
-        aria-hidden
-        className="spikes-mobile pointer-events-none select-none absolute left-1/2 -translate-x-1/2 bottom-16 min-[1280px]:hidden z-0"
-      >
-        <Lottie
-          animationData={aiEirHeroAnimation}
-          loop
-          autoplay
-          className="w-[130vw] max-w-[520px] h-auto"
-        />
-      </div>
-
-      {/* LOTTIE desktop */}
-      <div
-        aria-hidden
-        className="spikes-desktop pointer-events-none select-none hidden min-[1280px]:block absolute top-1/2 -translate-y-1/2 right-[-120px] lg:right-[-160px] xl:right-[-200px] 2xl:right-[-240px] z-0"
-      >
-        <Lottie
-          animationData={aiEirHeroAnimation}
-          loop
-          autoplay
-          className="min-[1280px]:w-[420px] lg:w-[560px] xl:w-[680px] 2xl:w-[800px] h-auto max-h-[70vh] xl:max-h-[62vh] 2xl:max-h-[56vh]"
-        />
-      </div>
-    </section>
-  );
-}
-
-function SlideImage({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="shrink-0 snap-start min-w-[82%] max-w-[82%] sm:min-w-[70%] sm:max-w-[70%] rounded-2xl overflow-hidden">
+      {/* IMAGEM mobile (substitui Lottie) */}
       <img
-        src={src}
-        alt={alt}
-        className="w-full h-auto object-contain pointer-events-none select-none"
+        src="/hero/montanha-3.svg"
+        alt=""
+        className="mountain-mobile pointer-events-none select-none absolute right-0 bottom-0 w-[110%] h-auto block min-[1280px]:hidden object-contain object-right-bottom img-reveal"
         draggable={false}
       />
-    </div>
+
+      {/* IMAGEM desktop (substitui Lottie) */}
+      <div className="mountain-desktop pointer-events-none hidden min-[1280px]:block absolute top-10 right-16 z-0 h-full flex items-center justify-end">
+        <div className="w-[50vw] max-w-[800px] h-full max-h-[85vh] flex items-center">
+          <img
+            src="/ai-eir/hero/montanha-5.svg"
+            alt=""
+            className="pointer-events-none select-none w-full h-full object-contain object-right img-reveal"
+            draggable={false}
+          />
+        </div>
+      </div>
+    </section>
   );
 }

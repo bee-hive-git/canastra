@@ -2,13 +2,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion, Variants } from "framer-motion";
 
 export default function Fellow() {
   const PHOTOS = [
     "/ai-eir/fellow/1.png",
     "/ai-eir/fellow/2.png",
     "/ai-eir/fellow/3.png",
-    "/ai-eir/fellow/4.png",
   ];
 
   const HILIGHT = "#FF624D";
@@ -18,6 +18,8 @@ export default function Fellow() {
   const [progress, setProgress] = useState(0);
   const [visibleRatio, setVisibleRatio] = useState(0);
   const [trackW, setTrackW] = useState(0);
+
+  // ... (keep existing carousel logic)
 
   useEffect(() => {
     const rail = railRef.current;
@@ -126,6 +128,26 @@ export default function Fellow() {
   const thumbRatio = Math.max(visibleRatio || 0, 0.18);
   const translatePx = progress * Math.max(0, trackW - trackW * thumbRatio);
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <section
       id="fellow"
@@ -180,7 +202,13 @@ export default function Fellow() {
       `}</style>
 
       {/* cabeçalho */}
-      <div className="mx-auto max-w-[1120px] px-5 text-center">
+      <motion.div 
+        className="mx-auto max-w-[1120px] px-5 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         <h2 className="font-serif title mb-2">Conheça os</h2>
         <div className="font-serif subtitle italic text-[#FF624D] mb-4">
           Fellow Partners
@@ -196,10 +224,16 @@ export default function Fellow() {
           </span>{" "}
           inesquecíveis.
         </p>
-      </div>
+      </motion.div>
 
       {/* Mobile + Tablet (até 1024px): carrossel */}
-      <div className="mx-auto max-w-[1120px] px-5 max-[1024px]:block hidden">
+      <motion.div 
+        className="mx-auto max-w-[1120px] px-5 max-[1024px]:block hidden"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         <div
           ref={railRef}
           className="mt-8 -mx-1.5 px-1.5 flex gap-3 overflow-x-auto snap-x snap-mandatory no-scrollbar cursor-grab active:cursor-grabbing justify-start"
@@ -233,22 +267,29 @@ export default function Fellow() {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Desktop (a partir de 1025px): grid */}
       <div className="hidden min-[1025px]:block">
         <div className="mx-auto max-w-[1240px] px-6 mt-10">
-          <div className="grid grid-cols-4 gap-6">
+          <motion.div 
+            className="grid grid-cols-3 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+          >
             {PHOTOS.map((src) => (
-              <img
+              <motion.img
                 key={`desk-${src}`}
                 src={src}
                 alt=""
                 className="rounded-2xl w-full h-auto aspect-[100/115] object-cover select-none pointer-events-none"
                 draggable={false}
+                variants={itemVariants}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 

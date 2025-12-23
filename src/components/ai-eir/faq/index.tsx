@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, Variants } from "framer-motion";
 
 type FaqItem = { q: string; a: string };
 type FaqGroup = { heading: string; items: FaqItem[] };
@@ -9,9 +10,7 @@ type FaqGroup = { heading: string; items: FaqItem[] };
 const HILIGHT = "#FF624D";
 const BG = "rgb(17, 4, 23)";
 
-/* =============================
-   CONTEÚDO DO FAQ
-============================= */
+/* ... (keep GROUPS constant) ... */
 const GROUPS: FaqGroup[] = [
   {
     heading: "Elegibilidade e Perfil dos Founders",
@@ -119,11 +118,36 @@ const GROUPS: FaqGroup[] = [
 export default function FAQ() {
   const [open, setOpen] = useState<Record<string, boolean>>({});
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
     <section id="faq" className="text-white" style={{ backgroundColor: BG }}>
       <div className="mx-auto max-w-[1100px] px-5 pt-20 pb-14">
         {/* ===== H1 ===== */}
-        <header className="mb-16 text-center">
+        <motion.header 
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h1
             className="font-bold leading-[0.75] text-[clamp(40px,6vw,84.45px)]"
             style={{ fontFamily: '"Crimson Text", serif' }}
@@ -133,16 +157,25 @@ export default function FAQ() {
               Questions
             </span>
           </h1>
-        </header>
+        </motion.header>
 
         {/* ===== GRUPOS ===== */}
         <div className="space-y-12">
           {GROUPS.map((g, gIdx) => (
-            <section key={g.heading}>
+            <motion.section 
+              key={g.heading}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={containerVariants}
+            >
               {/* Título do Grupo */}
-              <h2 className="text-white/60 text-[18px] min-[820px]:text-[20px] font-semibold mb-5 text-center">
+              <motion.h2 
+                className="text-white/60 text-[18px] min-[820px]:text-[20px] font-semibold mb-5 text-center"
+                variants={itemVariants}
+              >
                 {g.heading}
-              </h2>
+              </motion.h2>
 
               <ul className="space-y-4">
                 {g.items.map((item, iIdx) => {
@@ -151,7 +184,7 @@ export default function FAQ() {
                   const isOpen = !!open[key];
 
                   return (
-                    <li key={key}>
+                    <motion.li key={key} variants={itemVariants}>
                       <div className="rounded-[10px] bg-[#1A1A1A] px-4 sm:px-5 py-4 sm:py-5 border border-white/10">
                         <button
                           type="button"
@@ -228,11 +261,11 @@ export default function FAQ() {
                           </div>
                         </div>
                       </div>
-                    </li>
+                    </motion.li>
                   );
                 })}
               </ul>
-            </section>
+            </motion.section>
           ))}
         </div>
       </div>

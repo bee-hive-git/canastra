@@ -1,7 +1,35 @@
-// src/components/ai-eir/structure/index.tsx
 "use client";
 
+import { motion, Variants } from "framer-motion";
+
 export default function Structure() {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.4, // Tempo entre cada elemento (Card -> Linha -> Card)
+      },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  const lineVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeInOut" },
+    },
+  };
+
   return (
     <section
       id="structure"
@@ -31,13 +59,13 @@ export default function Structure() {
       />
 
       {/* Título */}
-      <div className="mx-auto max-w-[860px] px-5 text-center">
+      <div className="mx-auto max-w-[860px] px-5 text-center mb-16 min-[821px]:mb-24">
         <h2 className="font-serif font-semibold leading-tight text-[30px] sm:text-[34px] min-[821px]:text-[48px]">
           <span className="block text-[#FF624D]">Conheça a estrutura</span>
           <span className="block italic text-white">do programa</span>
         </h2>
 
-        {/* BOTÃO — idêntico ao botão da última Hero */}
+        {/* BOTÃO */}
         <div className="mt-6 flex justify-center">
           <button
             type="button"
@@ -94,24 +122,74 @@ export default function Structure() {
         </div>
       </div>
 
-      {/* IMAGENS */}
-      <div className="mt-14 px-4 min-[821px]:hidden">
-        <img
-          src="/ai-eir/structure/mobile.png"
-          alt=""
-          className="block mx-auto w-[92%] max-w-[640px] h-auto object-contain select-none pointer-events-none"
-          draggable={false}
-        />
-      </div>
+      {/* ESTRUTURA ANIMADA */}
+      <motion.div
+        className="relative mx-auto max-w-[1000px] px-5 flex flex-col gap-0 items-center min-[821px]:block"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
+        {/* === ETAPA 1 === */}
+        <motion.div 
+          className="relative z-10 w-full max-w-[420px] min-[821px]:ml-0" 
+          variants={cardVariants}
+        >
+          <img 
+            src="/ai-eir/structure/BOX-1.svg" 
+            alt="1º Etapa: Validação da Tese" 
+            className="w-full h-auto drop-shadow-2xl"
+          />
+        </motion.div>
 
-      <div className="hidden min-[821px]:block mt-16">
-        <img
-          src="/ai-eir/structure/desktop.png"
+        {/* Linha 1 (Desktop) */}
+        <motion.img
+          src="/ai-eir/structure/linha-1.svg"
           alt=""
-          className="block mx-auto w-[68vw] max-w-[1140px] h-auto object-contain select-none pointer-events-none"
-          draggable={false}
+          className="hidden min-[821px]:block absolute left-[360px] top-[210px] w-[265px] h-[93px] pointer-events-none z-0"
+          variants={lineVariants}
         />
-      </div>
+
+        {/* Linha 1 (Mobile) - Vertical */}
+        <div className="min-[821px]:hidden h-12 border-l-[3px] border-dashed border-white/50 my-2"></div>
+
+
+        {/* === ETAPA 2 === */}
+        <motion.div 
+          className="relative z-10 w-full max-w-[420px] min-[821px]:ml-auto min-[821px]:mt-10" 
+          variants={cardVariants}
+        >
+          <img 
+            src="/ai-eir/structure/BOX-2.svg" 
+            alt="2º Etapa: Criação e Lançamento" 
+            className="w-full h-auto drop-shadow-2xl"
+          />
+        </motion.div>
+
+        {/* Linha 2 (Desktop) */}
+        <motion.img
+          src="/ai-eir/structure/linha-2.svg"
+          alt=""
+          className="hidden min-[821px]:block absolute right-[280px] top-[560px] w-[127px] h-[206px] pointer-events-none z-0"
+          variants={lineVariants}
+        />
+
+        {/* Linha 2 (Mobile) - Vertical */}
+        <div className="min-[821px]:hidden h-12 border-l-[3px] border-dashed border-white/50 my-2"></div>
+
+
+        {/* === ETAPA 3 === */}
+        <motion.div 
+          className="relative z-10 w-full max-w-[420px] min-[821px]:max-w-[650px] min-[821px]:mr-auto min-[821px]:mt-10" 
+          variants={cardVariants}
+        >
+          <img 
+            src="/ai-eir/structure/BOX-3.svg" 
+            alt="Pós Programa: Fundraising" 
+            className="w-full h-auto drop-shadow-2xl"
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

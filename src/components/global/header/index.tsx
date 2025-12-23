@@ -57,6 +57,14 @@ export default function Header() {
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
+        /* Universal Padding */
+        @media (min-width: 820px) {
+           #site-header .deskbar {
+             padding-left: var(--site-padding-left);
+             padding-right: var(--site-padding-right);
+           }
+        }
+
         @media (min-width: 1181px) and (max-width: 1439px) {
           #site-header .deskbar {
             height: 78px;

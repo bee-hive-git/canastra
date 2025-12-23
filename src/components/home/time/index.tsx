@@ -181,16 +181,16 @@ export default function Time() {
         /* alinhar com a Hero no desktop */
         @media (min-width: 1181px) and (max-width: 1439px) {
           #time .wrap {
-            margin-left: 26px;
-            padding-left: 56px;
-            padding-right: 64px;
+            margin-left: 0;
+            padding-left: var(--site-padding-left);
+            padding-right: var(--site-padding-right);
           }
         }
         @media (min-width: 1440px) {
           #time .wrap {
-            margin-left: 40px;
-            padding-left: 84px;
-            padding-right: 72px;
+            margin-left: 0;
+            padding-left: var(--site-padding-left);
+            padding-right: var(--site-padding-right);
           }
         }
       `}</style>
@@ -298,7 +298,7 @@ export default function Time() {
 
       {/* DESKTOP */}
       <div className="hidden min-[1181px]:block">
-        <div className="wrap mx-auto max-w-[1840px] px-5 min-[1181px]:pr-6 min-[1181px]:pl-10 lg:pl-8 xl:pl-6 2xl:pl-5">
+        <div className="wrap max-w-[1840px]">
           {/* texto + botão */}
           <div className="max-w-[680px]">
             <h2

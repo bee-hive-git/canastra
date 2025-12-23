@@ -4,10 +4,12 @@ import Sobre from "@/components/home/sobre"
 import Time from "@/components/home/time"
 import Newsletter from "@/components/home/newsletter"
 import Footer from "@/components/global/footer"
+import EdgeLinesSmart from "@/components/EdgeLinesSmart"
 
 export default function Page(){
   return (
     <main>
+      <EdgeLinesSmart startIndex={1} hideBelowWidth={1279} />
       <Header /> {/* não marcar */}
 
       <section>
