@@ -113,9 +113,9 @@ export default function EdgeLinesSmart({
   if (!hasAnchorVisible || !isVisible) return null;
 
   const styleVars: React.CSSProperties = {
-    ["--edge-line-offset" as any]: `${offsetPx}px`,
-    ["--edge-line-width" as any]: `${widthPx}px`,
-    ["--edge-mask-bottom" as any]: `${maskBottomPx}px`,
+    ["--edge-line-offset" as string]: `${offsetPx}px`,
+    ["--edge-line-width" as string]: `${widthPx}px`,
+    ["--edge-mask-bottom" as string]: `${maskBottomPx}px`,
   };
 
   const maskStyle: React.CSSProperties = {

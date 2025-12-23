@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 
 export default function Fellow() {
   const PHOTOS = [
@@ -89,7 +90,7 @@ export default function Fellow() {
       lastT.current = e.timeStamp;
       velocity.current = 0;
       stopMomentum();
-      (el.style as any).scrollSnapType = "none";
+      el.style.setProperty("scroll-snap-type", "none");
       e.preventDefault();
     };
 
@@ -109,7 +110,7 @@ export default function Fellow() {
       try {
         el.releasePointerCapture?.(e.pointerId);
       } catch {}
-      (el.style as any).scrollSnapType = "x mandatory";
+      el.style.setProperty("scroll-snap-type", "x mandatory");
       if (raf.current == null) raf.current = requestAnimationFrame(momentum);
     };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Definição dos cards
@@ -119,7 +120,7 @@ export default function FounderSection() {
             {CARDS.map((card, index) => {
               // Lógica de posição relativa
               // 0 = Active, 1 = Next, 2 = Next+1
-              let offset = (index - activeIndex + CARDS.length) % CARDS.length;
+              const offset = (index - activeIndex + CARDS.length) % CARDS.length;
               
               if (offset > 2) return null; 
 
@@ -158,9 +159,12 @@ export default function FounderSection() {
                 >
                   <div className="relative w-full">
                      {/* Imagem do Card */}
-                    <img
+                    <Image
                       src={card.preview}
                       alt={card.alt}
+                      width={0}
+                      height={0}
+                      sizes="100vw"
                       className="w-full h-auto object-contain drop-shadow-xl"
                       draggable={false}
                     />
@@ -244,9 +248,12 @@ export default function FounderSection() {
               onClick={(e) => e.stopPropagation()} // Evita fechar ao clicar no card
             >
               {/* Imagem Expandida */}
-              <img
+              <Image
                 src={activeCard.expanded}
                 alt={`${activeCard.alt} Expandido`}
+                width={0}
+                height={0}
+                sizes="100vw"
                 className="w-full h-auto object-contain"
               />
 
