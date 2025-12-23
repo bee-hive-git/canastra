@@ -2,12 +2,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    (document as any).fonts?.ready?.then(() => {
+    const doc = document as Document & { fonts?: { ready: Promise<void> } };
+    doc.fonts?.ready?.then(() => {
       window.dispatchEvent(new Event("resize"));
     });
   }, []);
@@ -150,18 +152,22 @@ export default function Hero() {
         }
       `}</style>
 
-      <img
+      <Image
         aria-hidden
         src="/hero/monatnha-1-mobile.svg"
         alt=""
+        width={800}
+        height={400}
         className="min-[800px]:hidden mountain-mobile-img mobile-light-reveal select-none pointer-events-none absolute left-0 bottom-0 z-0 w-[100%] max-w-none h-auto"
         draggable={false}
       />
 
-      <img
+      <Image
         aria-hidden
-        src="time/hero/montanha-4.svg"
+        src="/time/hero/montanha-4.svg"
         alt=""
+        width={1200}
+        height={800}
         className="hidden min-[820px]:block mountain mountain-img select-none pointer-events-none absolute right-0 top-20 z-0 w-[63vw] max-w-[480px] min-[820px]:w-[52.5vw] min-[820px]:max-w-[700px] min-[1181px]:right-[40px] lg:right-[80px] xl:right-[120px] 2xl:right-[20px] h-auto"
         draggable={false}
       />
@@ -170,9 +176,11 @@ export default function Hero() {
         ref={wrapRef}
         className="wrap relative z-10 w-full max-w-[560px] px-5 py-0 text-left flex flex-col items-start min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-[25%] min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1080px] min-[820px]:pr-6 min-[820px]:pl-10"
       >
-        <img
+        <Image
           src="/hero/logo.png"
           alt="Logo Canastra"
+          width={140}
+          height={36}
           className="h-9 w-auto mb-6 min-[820px]:hidden mobile-fade-up"
         />
         {/* H1 – Crimson Text, peso 700 (bold) */}
@@ -231,4 +239,3 @@ export default function Hero() {
     </section>
   );
 }
- 

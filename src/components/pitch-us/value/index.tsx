@@ -1,5 +1,7 @@
 "use client";
 
+import { CSSProperties } from "react";
+
 export default function Value() {
   const HILIGHT = "#FF624D";
   const BORDER = "rgba(255, 98, 77, 0.35)";
@@ -142,9 +144,9 @@ export default function Value() {
           className="mt-10 space-y-10"
           style={
             {
-              ["--mCardW" as any]: "86%",
-              ["--mCardH" as any]: "240px",
-            } as any
+              "--mCardW": "86%",
+              "--mCardH": "240px",
+            } as React.CSSProperties
           }
         >
           {cards.map((c) => (
@@ -248,16 +250,16 @@ export default function Value() {
             {
               paddingLeft: "var(--gutter-left)",
               paddingRight: "var(--gutter-right)",
-              ["--gapX" as any]: "clamp(44px, 5vw, 96px)",
-              ["--gapY" as any]: "36px",
+              "--gapX": "clamp(44px, 5vw, 96px)",
+              "--gapY": "36px",
               // tipografia cards desktop
-              ["--cardPadX" as any]: "24px",
-              ["--cardPadY" as any]: "24px",
-              ["--title" as any]: "clamp(18px, 2.2vw, 31.37px)",
-              ["--body" as any]: "clamp(12.5px, 1.35vw, 18.3px)",
-              ["--minH" as any]: "178px",
-              ["--cardNarrow" as any]: "100%",
-            } as any
+              "--cardPadX": "24px",
+              "--cardPadY": "24px",
+              "--title": "clamp(18px, 2.2vw, 31.37px)",
+              "--body": "clamp(12.5px, 1.35vw, 18.3px)",
+              "--minH": "178px",
+              "--cardNarrow": "100%",
+            } as CSSProperties
           }
         >
           <div
