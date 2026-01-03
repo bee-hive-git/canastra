@@ -208,7 +208,7 @@ export default function Hero() {
 
         {/* H2 – Crimson Text, peso 700, itálico */}
         <h2
-          className="hero-heading font-bold italic leading-tight text-[clamp(18px,5.5vw,26px)] min-[820px]:text-[clamp(35.8px,2.8vw,42.6px)] min-[820px]:max-w-[832px] mobile-fade-up delay-100"
+          className="hero-heading font-bold italic leading-tight text-[clamp(18px,5.5vw,26px)] min-[820px]:text-[32px] min-[820px]:max-w-[832px] mobile-fade-up delay-100"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           {/* DESKTOP (≥820px) — 2 linhas fixas */}
@@ -233,7 +233,7 @@ export default function Hero() {
 
         {/* Parágrafo – Hanken Grotesk, peso 300 (light) */}
         <p
-          className="mt-4 text-white/85 font-light text-[14px] leading-relaxed max-w-[320px] mx-auto min-[820px]:mx-0 min-[820px]:whitespace-normal min-[820px]:text-[clamp(15.6px,1.04vw,18.7px)] min-[820px]:max-w-[499px] mobile-fade-up delay-200"
+          className="mt-4 text-white/85 font-light text-[14px] leading-relaxed max-w-[320px] mx-auto min-[820px]:mx-0 min-[820px]:max-w-[499px] mobile-fade-up delay-200"
           style={{
             fontFamily:
               '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

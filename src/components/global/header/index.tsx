@@ -275,8 +275,7 @@ export default function Header() {
                     </div>
 
                     <span className="text-[8px] tracking-[0.15em] uppercase text-white/90 whitespace-nowrap">
-                      {/* // CANASTRA NEWSLETTER */}
-                      CANASTRA NEWSLETTER
+                      // CANASTRA NEWSLETTER
                     </span>
                   </div>
                 </div>
