@@ -1,7 +1,7 @@
 // Time.tsx
 "use client";
 
-import { useRef } from "react";
+
 
 export default function Time() {
   const PHOTOS = [
