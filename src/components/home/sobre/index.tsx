@@ -1,5 +1,6 @@
 // Sobre.tsx
 "use client";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 export default function Sobre() {
@@ -16,7 +17,7 @@ export default function Sobre() {
           obs.unobserve(el);
         }
       },
-      { threshold: 0.01, rootMargin: "0px 0px -80% 0px" }
+      { threshold: 0.01, rootMargin: "0px 0px -35% 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -26,72 +27,20 @@ export default function Sobre() {
       ref={sectionRef}
       id="sobre"
       data-edge-section
-      className="relative overflow-hidden text-white pt-16 pb-36 min-[820px]:pt-24"
+      className="relative overflow-hidden text-white pt-16 pb-36 md:pt-0 md:pb-0 md:h-screen md:min-h-screen md:flex md:items-center"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       <style jsx global>{`
-        #sobre {
-          min-height: 100dvh;
+        /* Mobile (< 768px) */
+        @media (max-width: 767px) {
+           #sobre {
+             min-height: auto;
+             padding-bottom: 40px;
+           }
         }
 
-        @media (max-width: 330px), (max-height: 568px) {
-          #sobre {
-            min-height: 150dvh;
-          }
-          #sobre .mountain-mobile {
-            bottom: 12px !important;
-          }
-        }
-
-        @media (min-width: 820px) and (max-width: 1180px) {
-          #sobre {
-            min-height: 110dvh;
-            padding-bottom: 120dvh;
-          }
-          #sobre .wrap {
-            top: 58%;
-          }
-          #sobre .mountain-desktop {
-            top: 50%;
-          }
-        }
-
-        /* Desktop menor — mesmo offset do Hero */
-        @media (min-width: 1181px) and (max-width: 1439px) {
-          #sobre {
-            min-height: 108dvh;
-            padding-bottom: 94dvh;
-          }
-          #sobre .wrap {
-            top: 46%;
-            margin-left: 26px;
-            padding-left: 56px;
-            padding-right: 64px;
-          }
-          #sobre .mountain-desktop {
-            top: calc(50% - 24px);
-          }
-        }
-
-        /* Desktop ≥1440px — mesmo offset do Hero */
-        @media (min-width: 1440px) {
-          #sobre {
-            min-height: 110dvh;
-            padding-bottom: 96dvh;
-          }
-          #sobre .wrap {
-            top: 45%;
-            margin-left: 40px;
-            padding-left: 84px;
-            padding-right: 72px;
-          }
-          #sobre .mountain-desktop {
-            top: calc(50% - 24px);
-          }
-        }
-
-        /* Animação da imagem (apenas Desktop) */
-        @media (min-width: 820px) {
+        /* Animação da imagem (Tablet/Desktop) */
+        @media (min-width: 768px) {
           #sobre .img-reveal {
             -webkit-mask-image: linear-gradient(to bottom, black 0%, black 100%);
             mask-image: linear-gradient(to bottom, black 0%, black 100%);
@@ -113,8 +62,8 @@ export default function Sobre() {
             }
           }
         }
-        /* Animações de texto (apenas Desktop) */
-        @media (min-width: 820px) {
+        /* Animações de texto (Tablet/Desktop) */
+        @media (min-width: 768px) {
           #sobre .fade-up {
             opacity: 0;
             transform: translateY(10px);
@@ -128,13 +77,13 @@ export default function Sobre() {
             transform: translateY(10px);
           }
           #sobre.in-view .fade-up {
-            animation: sobreFadeUp 0.6s ease-out 0.25s forwards;
+            animation: sobreFadeUp 0.6s ease-out 0.1s forwards;
           }
           #sobre.in-view .fade-up-delay {
-            animation: sobreFadeUp 0.6s ease-out 0.45s forwards;
+            animation: sobreFadeUp 0.6s ease-out 0.2s forwards;
           }
           #sobre.in-view .fade-up-delay2 {
-            animation: sobreFadeUp 0.6s ease-out 0.65s forwards;
+            animation: sobreFadeUp 0.6s ease-out 0.3s forwards;
           }
         }
         @keyframes sobreFadeUp {
@@ -172,15 +121,16 @@ export default function Sobre() {
         }}
       />
 
-      <div className="wrap relative z-10 mx-auto max-w-[640px] px-5 text-center min-[820px]:text-left min-[820px]:max-w-[1200px] min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:-translate-y-1/2">
+      <div className="wrap relative z-10 w-full px-5 md:pr-0 md:pl-[var(--site-padding-left)] grid grid-cols-1 md:grid-cols-2 items-center">
+        <div className="text-center md:text-left pt-12 md:pt-20">
         {/* H2 — Crimson Text, 700 Bold */}
         <h2
           data-anim="h2"
-          className="font-bold text-[28px] leading-snug mb-4 min-[820px]:mb-6 min-[820px]:text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px] min-[820px]:leading-[1.08] fade-up"
+          className="font-bold text-[28px] leading-snug mb-4 md:mb-6 md:text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px] md:leading-[1.08] fade-up"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
-          {/* DESKTOP (≥820px) — Quebra forçada conforme imagem */}
-          <span className="hidden min-[820px]:block">
+          {/* TABLET/DESKTOP (≥768px) */}
+          <span className="hidden md:block">
             <span className="block font-bold">
               AI Entrepreneur
             </span>
@@ -192,8 +142,8 @@ export default function Sobre() {
             </span>
           </span>
 
-          {/* MOBILE (<820px) — Quebra natural ou forçada se necessário */}
-          <span className="min-[820px]:hidden block">
+          {/* MOBILE (<768px) */}
+          <span className="md:hidden block">
             <span className="font-bold">AI Entrepreneur</span> <br />
             <span className="font-bold">
               in <span className="text-[#FF624D]">Residence</span>
@@ -203,34 +153,23 @@ export default function Sobre() {
 
         {/* Parágrafo — Hanken Grotesk, 400 Regular */}
         <p
-          className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-[46ch] min-[820px]:mx-0 min-[820px]:text-[clamp(21px,1.6vw,28px)] min-[820px]:leading-[1.7] font-normal fade-up-delay"
+          className="text-white/90 text-[clamp(15px,3vw,16px)] leading-relaxed mx-auto max-w-[46ch] md:mx-0 md:max-w-[50ch] lg:max-w-[55ch] md:text-[clamp(18px,1.5vw,24px)] md:leading-[1.6] font-normal fade-up-delay"
           style={{
             fontFamily:
               '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
           }}
         >
-          {/* DESKTOP: Quebras de linha manuais para replicar exatamente a imagem */}
-          <span className="min-[820px]:block min-[820px]:whitespace-nowrap">
-            Ao longo de 12 semanas, os residentes terão
-          </span>
-          <span className="min-[820px]:block min-[820px]:whitespace-nowrap">
-            apoio hands-on com{" "}
+          {/* TABLET/DESKTOP */}
+          <span className="hidden md:block">
+            Ao longo de 12 semanas, os residentes terão apoio hands-on com{" "}
             <span className="text-[#FF624D] font-semibold">Fellow Partners</span>,
-            orientação
-          </span>
-          <span className="min-[820px]:block min-[820px]:whitespace-nowrap">
-            de mentores e conexões estratégicas para validar
-          </span>
-          <span className="min-[820px]:block min-[820px]:whitespace-nowrap">
-            a tese, criar o MVP e alcançar os primeiros sinais de
-          </span>
-          <span className="min-[820px]:block min-[820px]:whitespace-nowrap">
-            tração rumo ao{" "}
+            orientação de mentores e conexões estratégicas para validar a tese,
+            criar o MVP e alcançar os primeiros sinais de tração rumo ao{" "}
             <span className="text-[#FF624D] font-semibold">primeiro cheque</span>.
           </span>
 
-          {/* MOBILE: Texto corrido (ou quebras mais suaves) */}
-          <span className="min-[820px]:hidden">
+          {/* MOBILE */}
+          <span className="md:hidden">
             Ao longo de 12 semanas, os residentes terão apoio hands-on com{" "}
             <span className="text-[#FF624D] font-semibold">Fellow Partners</span>,
             orientação de mentores e conexões estratégicas para validar a tese,
@@ -239,19 +178,19 @@ export default function Sobre() {
           </span>
         </p>
 
-        {/* Botão — mantido */}
-        <div className="mt-6 min-[820px]:mt-8 fade-up-delay2">
+        {/* Botão */}
+        <div className="mt-6 md:mt-8 fade-up-delay2">
           <button
             type="button"
             aria-disabled
-            className="cta inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 min-[820px]:min-w-[260px] min-[820px]:h-[52px] min-[820px]:px-8 min-[820px]:text-[16px] min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent min-[820px]:text-white min-[820px]:hover:brightness-110"
+            className="cta inline-flex items-center justify-center gap-2 rounded-md font-semibold min-h-[3rem] px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 md:min-w-[260px] md:min-h-[3.25rem] md:px-8 md:text-[16px] md:border md:border-gray-400 md:bg-transparent md:text-white md:hover:brightness-110"
           >
             <svg
               width="26"
               height="22"
               viewBox="0 0 26 22"
               aria-hidden="true"
-              className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
+              className="-ml-1 text-[#FF624D] md:text-gray-400"
             >
               <path
                 d="M2 11h6"
@@ -279,26 +218,47 @@ export default function Sobre() {
             Join AI EiR!
           </button>
         </div>
+        </div>
+        <div className="hidden md:block"></div> {/* Spacer for image */}
       </div>
 
-      {/* imagens decorativas */}
-      <img
-        src="ai-eir/hero/montanha-5.svg"
-        alt=""
-        className="mountain-mobile pointer-events-none select-none absolute right-0 bottom-0 w-[110%] h-auto block min-[820px]:hidden object-contain object-right-bottom img-reveal"
-        draggable={false}
-      />
-
-      <div className="mountain-desktop hidden min-[820px]:block absolute top-1/2 -translate-y-1/2 min-[820px]:right-0 lg:right-[-24px] xl:right-[-48px] 2xl:right-[22px]">
-        <div className="min-[720px]:w-[52vw] lg:w-[55vw] xl:w-[58vw] 2xl:w-[60vw] max-w-[770px] max-h-[70vh] xl:max-h-[62vh] 2xl:max-h-[86vh]">
-          <img
-            src="ai-eir/hero/montanha-5.svg"
-            alt=""
-            className="pointer-events-none select-none w-full h-full object-contain object-right img-reveal"
+      {/* 
+        IMAGENS RESPONSIVAS
+        - Mobile: < 768px (Aspect Ratio controlado)
+        - Tablet: 768px - 1024px (Posicionamento lateral)
+        - Desktop: > 1024px (Layout amplo)
+      */}
+      
+      {/* MOBILE IMAGE (< 768px) */}
+      <div className="md:hidden absolute inset-x-0 bottom-0 z-0 flex justify-center items-end pointer-events-none select-none">
+        <div className="relative w-full max-w-[500px] aspect-[4/3]">
+           <Image
+            src="/ai-eir/hero/montanha-5.svg"
+            alt="Paisagem montanhosa"
+            fill
+            className="object-contain object-bottom img-reveal"
             draggable={false}
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw"
+            style={{ objectFit: 'contain', objectPosition: 'bottom' }}
           />
         </div>
       </div>
+
+      {/* TABLET/DESKTOP IMAGE (>= 768px) */}
+      <div className="hidden md:block absolute top-1/2 -translate-y-1/2 right-0 z-0 h-[80vh] w-[50vw] pointer-events-none select-none">
+         <Image
+            src="/ai-eir/hero/montanha-5.svg"
+            alt="Paisagem montanhosa"
+            fill
+            className="object-contain object-right img-reveal"
+            draggable={false}
+            loading="lazy"
+            sizes="(min-width: 768px) 50vw, (min-width: 1280px) 60vw"
+            style={{ objectFit: 'contain', objectPosition: 'right center' }}
+          />
+      </div>
+
     </section>
   );
 }

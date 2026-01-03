@@ -1,6 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+interface Startup {
+  name: string;
+  logo: string;
+  scale?: number;
+}
 
 /**
  * Data for the startups logos.
@@ -8,13 +15,13 @@ import { motion } from "framer-motion";
  * 1. Add the logo image to public/ai-eir/startups/
  * 2. Add a new object to this array with the name and image path
  */
-const STARTUPS = [
+const STARTUPS: Startup[] = [
   { name: "Evig", logo: "/ai-eir/startups/evig.png" },
   { name: "Quorum", logo: "/ai-eir/startups/quorum.png" },
   { name: "Zonic", logo: "/ai-eir/startups/zonic.png" },
   { name: "Allia", logo: "/ai-eir/startups/allia.png" },
   { name: "Anapfy AI", logo: "/ai-eir/startups/anapfy-ai.png" },
-  { name: "Guardia", logo: "/ai-eir/startups/guardia.png", scale: 2.2 },
+  { name: "Guardia", logo: "/ai-eir/startups/guardia.png" },
   { name: "Lagoa", logo: "/ai-eir/startups/lagoa.png" },
 ];
 
@@ -60,8 +67,8 @@ export default function StartupsMarquee({
     <div className="relative w-full overflow-hidden">
       <motion.div
         className="flex items-center w-max"
-        initial={{ x: direction === "left" ? 0 : "-50%" }}
-        animate={{ x: direction === "left" ? "-50%" : 0 }}
+        initial={{ x: direction === "left" ? "-25%" : "-75%" }}
+        animate={{ x: direction === "left" ? "-75%" : "-25%" }}
         transition={{
           duration: speed,
           ease: "linear",
@@ -75,17 +82,20 @@ export default function StartupsMarquee({
             {[...STARTUPS, ...STARTUPS].map((startup, innerIndex) => (
               <div
                 key={`${outerIndex}-${innerIndex}-${startup.name}`}
-                className="w-[200px] sm:w-[240px] md:w-[280px] h-[120px] sm:h-[140px] border-r border-white/10 flex items-center justify-center px-6 sm:px-10 shrink-0 hover:bg-white/[0.02] transition-colors duration-300"
+                className="relative w-[200px] sm:w-[240px] md:w-[280px] h-[120px] sm:h-[140px] border-r border-white/10 flex items-center justify-center px-6 sm:px-10 shrink-0 hover:bg-white/[0.02] transition-colors duration-300"
               >
-                <div className="opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 w-full h-full flex items-center justify-center">
-                  <img
+                <div className="opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 w-full h-full flex items-center justify-center relative">
+                  <Image
                     src={startup.logo}
                     alt={`${startup.name} logo`}
-                    className="max-h-[50px] sm:max-h-[60px] w-auto max-w-full object-contain transition-transform duration-300"
+                    fill
+                    /*Ajuste tamanho do logo*/
+                    className="object-contain transition-transform duration-300 px-10 py-6"
                     draggable={false}
+                    sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, 280px"
                     style={{
-                      transform: (startup as any).scale
-                        ? `scale(${(startup as any).scale})`
+                      transform: startup.scale
+                        ? `scale(${startup.scale})`
                         : undefined,
                     }}
                   />

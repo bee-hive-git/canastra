@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { VENTURE_PARTNERS_DATA, TEAM_DATA, FELLOW_PARTNERS_DATA, MemberData } from "./data";
+import { VENTURE_PARTNERS_DATA, TEAM_DATA, FELLOW_PARTNERS_DATA, ADVISORS_DATA, MemberData } from "./data";
 import TeamMemberModal from "./TeamMemberModal";
 
 type TabKey = "team" | "venture-partners" | "fellow-partners" | "advisors" | "mentors";
@@ -28,7 +28,7 @@ const TABS: { key: TabKey; label: string; count: number }[] = [
   { key: "venture-partners", label: "Venture Partners", count: 3 },
   { key: "fellow-partners", label: "Fellow Partners", count: 3 },
   { key: "advisors", label: "Advisors", count: 1 },
-  { key: "mentors", label: "Mentors", count: 17 },
+  { key: "mentors", label: "Mentors", count: 16 },
 ];
 
 // tabs
@@ -64,6 +64,8 @@ export default function TeamTabs() {
       member = TEAM_DATA[index];
     } else if (active === "fellow-partners") {
       member = FELLOW_PARTNERS_DATA[index];
+    } else if (active === "advisors") {
+      member = ADVISORS_DATA[index];
     }
 
     if (member) {
@@ -200,7 +202,7 @@ export default function TeamTabs() {
   return (
     <section
       id="team-tabs"
-      className="relative text-white pt-0 pb-24 min-[1181px]:pt-0 min-[1181px]:pb-28 overflow-x-hidden"
+      className="relative text-white pt-4 pb-24 min-[1181px]:pt-0 min-[1181px]:pb-28 overflow-hidden"
       style={{ backgroundColor: PAGE_BG }}
     >
       {/* faixa de abas */}
@@ -267,7 +269,7 @@ export default function TeamTabs() {
               key={src}
               onClick={() => handleCardClick(i)}
               className={`snap-start flex-none relative rounded-2xl overflow-hidden ${
-                (active === "venture-partners" || active === "team" || active === "fellow-partners") ? "cursor-pointer active:scale-95 transition-transform" : ""
+                (active === "venture-partners" || active === "team" || active === "fellow-partners" || active === "advisors") ? "cursor-pointer active:scale-95 transition-transform" : ""
               }`}
               style={{
                 width: `${CARD.w}px`,
@@ -322,7 +324,7 @@ export default function TeamTabs() {
                   key={`desk-${src}`}
                   onClick={() => handleCardClick(i)}
                   className={`relative rounded-2xl overflow-hidden ${
-                    (active === "venture-partners" || active === "team" || active === "fellow-partners")
+                    (active === "venture-partners" || active === "team" || active === "fellow-partners" || active === "advisors")
                       ? "cursor-pointer hover:scale-[1.02] transition-transform duration-300"
                       : ""
                   }`}

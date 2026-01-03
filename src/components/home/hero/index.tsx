@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import StartupsMarquee from "@/components/global/StartupsMarquee";
+import Image from "next/image";
 
 export default function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -151,31 +151,61 @@ export default function Hero() {
         }
       `}</style>
 
-      <img
-        aria-hidden
-        src="/hero/monatnha-1-mobile.svg"
-        alt=""
-        className="min-[800px]:hidden mountain-mobile-img mobile-light-reveal select-none pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-0 z-0 w-[110%] max-w-none h-auto"
-        draggable={false}
-      />
+      {/* 
+        MOBILE IMAGE (<820px)
+        - Uses aspect-ratio container to prevent layout shift
+        - object-fit: contain ensures full image visibility without cropping
+        - Centered horizontally, anchored to bottom
+      */}
+      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end">
+        <div className="relative w-full max-w-[600px] aspect-[440/346]">
+          <Image
+            src="/hero/monatnha-1-mobile.svg"
+            alt="Paisagem montanhosa"
+            fill
+            className="mobile-light-reveal object-contain object-bottom"
+            draggable={false}
+            priority
+            sizes="(max-width: 820px) 100vw"
+            unoptimized
+          />
+        </div>
+      </div>
 
-      <img
-        aria-hidden
-        src="/hero/montanha-1.svg"
-        alt=""
-        className="hidden min-[820px]:block mountain mountain-img select-none pointer-events-none absolute right-0 bottom-0 z-0 w-[91vw] max-w-[686px] min-[820px]:w-[64.4vw] min-[820px]:max-w-[896px] min-[1181px]:right-[40px] lg:right-[80px] xl:right-[120px] 2xl:right-[10px] h-auto"
-        draggable={false}
-      />
+      {/* 
+        DESKTOP IMAGE (>=820px)
+        - Positioned absolute right-bottom to match design
+        - Uses standard CSS positioning (no transforms that might cause clipping)
+        - Width scales with viewport (vw) to maintain proportions
+        - object-fit: contain ensures the mountain is never cut off
+        - max-width constraints prevent it from becoming overwhelming on ultra-wide screens
+      */}
+      <div className="hidden min-[820px]:block absolute right-0 bottom-0 z-0 w-[60vw] lg:w-[55vw] xl:w-[50vw] max-w-[1400px] h-[85vh] pointer-events-none select-none">
+        <Image
+          src="/hero/montanha-1.svg"
+          alt="Paisagem montanhosa detalhada"
+          fill
+          className="mountain mountain-img object-contain object-right-bottom"
+          draggable={false}
+          priority
+          sizes="(min-width: 820px) 60vw, (min-width: 1024px) 55vw, (min-width: 1280px) 50vw"
+          unoptimized
+          style={{ imageRendering: 'auto' }}
+        />
+      </div>
 
       <div
         ref={wrapRef}
-        className="wrap relative z-10 mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1080px]"
+        className="wrap relative z-10 mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:pl-[5%] lg:pl-[8%] xl:pl-[10%] min-[820px]:max-w-none"
       >
-        <img
-          src="/hero/logo.png"
-          alt="Logo Canastra"
-          className="h-9 w-auto mb-6 min-[820px]:hidden mobile-fade-up"
-        />
+        <Image
+        src="/header/logo.png"
+        alt="Logo Canastra"
+        width={150}
+        height={36}
+        className="h-14 sm:h-22 w-auto mb-14 sm:mb-12 min-[820px]:hidden mobile-fade-up object-contain"
+        priority
+      />
         {/* H1 – Crimson Text, peso 700 (bold) */}
         <h1
           className="hidden min-[820px]:block font-bold text-[49.3px] min-[820px]:text-[71.7px] leading-tight mb-3 min-[820px]:ml-[0.8px]"
@@ -203,13 +233,13 @@ export default function Hero() {
           </span>
 
           {/* MOBILE (<820px) — natural, com auto-fit maior agora */}
-          <span className="min-[840px]:hidden block">
+          <span className="min-[820px]:hidden block">
             Guiamos os{" "}
             <span className="text-[#FF624D] italic font-bold">ousados</span> na
-            trilha da construção de startups
+            trilha da
           </span>
-          <span className="min-[840px]:hidden block">
-            {" "}
+          <span className="min-[820px]:hidden block">
+            construção de startups{" "}
             <span className="text-[#FF624D] italic font-bold">
               inesquecíveis
             </span>
@@ -227,7 +257,7 @@ export default function Hero() {
           Somos uma VC pre-seed especialista em IA
         </p>
 
-        <div className="mt-7 flex items-center justify-center gap-2 min-[820px]:justify-start mobile-fade-up delay-300">
+        <div className="mt-7 flex items-center justify-center gap-3 lg:gap-4 min-[820px]:justify-start mobile-fade-up delay-300">
           <a
             href="#ai-eir"
             className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[52px] px-5 min-w-[166px] text-[15.6px] border-2 border-[#FF624D] bg-white text-black min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent min-[820px]:text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
@@ -304,9 +334,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full z-20">
-        <StartupsMarquee variant="full" speed={80} />
-      </div>
+
     </section>
   );
 }

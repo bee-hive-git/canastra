@@ -242,7 +242,7 @@ export default function AIHero() {
         <div className="mt-6">
           <button
             type="button"
-            className="cta inline-flex items-center justify-center gap-3 rounded-md font-semibold h-12 px-5 min-w-[170px] text-[15px] border-2 border-[#ff624d] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff624d]/60 active:translate-y-0 min-[1280px]:border min-[1280px]:border-gray-400 min-[1280px]:bg-transparent min-[1280px]:text-white min-[1280px]:hover:brightness-110"
+            className="cta inline-flex items-center justify-center gap-3 rounded-md font-semibold min-h-[48px] h-auto py-2 px-5 min-w-[170px] text-[15px] border-2 border-[#ff624d] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff624d]/60 active:translate-y-0 min-[1280px]:border min-[1280px]:border-gray-400 min-[1280px]:bg-transparent min-[1280px]:text-white min-[1280px]:hover:brightness-110"
           >
             <svg
               width="26"

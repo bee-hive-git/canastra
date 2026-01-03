@@ -175,56 +175,9 @@ export default function Overview() {
           de inteligência artificial (AI-First).
         </h3>
         <p className="text-white/85 text-[14px] leading-relaxed max-w-[56ch] mx-auto mt-3 text-center">
-          Nossa{" "}
-          <span
-            className="italic font-semibold"
-            style={{ color: HILIGHT }}
-          >
-            missão
-          </span>{" "}
-          é guiar os ousados na trilha da construção de startups
+          Nossa missão é guiar os ousados na trilha da construção de startups
           inesquecíveis.
         </p>
-
-        {/* botão centralizado */}
-        <div className="mt-6 flex justify-center">
-          <a
-            href="#form-pitch"
-            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
-          >
-            <svg
-              width="26"
-              height="22"
-              viewBox="0 0 26 22"
-              aria-hidden="true"
-              className="-ml-1 text-[#FF624D]"
-            >
-              <path
-                d="M2 11h6"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M9 11h7"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M16 7l6 4-6 4"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
-            Pitch Us!
-          </a>
-        </div>
 
         <motion.div
           className="mt-10"
@@ -237,7 +190,7 @@ export default function Overview() {
             <motion.div
               key={it.num}
               variants={itemVariants}
-              className="relative flex flex-col items-center text-center py-8"
+              className="relative flex flex-col items-center text-center py-4"
             >
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center border text-white select-none"
@@ -247,18 +200,18 @@ export default function Overview() {
                   {it.num}
                 </span>
               </div>
-              <h4 className="font-serif text-[16px] leading-tight mt-3">
+              <h4 className="font-serif italic text-[18px] leading-tight mt-3">
                 {it.title}
               </h4>
-              <p className="text-white/80 text-[14px] leading-relaxed mt-2 max-w-[60ch] px-3">
+              <p className="text-white/80 text-[14px] leading-relaxed mt-2 max-w-[40ch] px-3">
                 {it.body}
               </p>
               {idx < items.length - 1 && (
                 <motion.div
                   aria-hidden
-                  className="w-px mt-8"
+                  className="w-px mt-6"
                   variants={verticalLineVariants}
-                  style={{ height: 84, backgroundColor: HILIGHT }}
+                  style={{ height: 60, backgroundColor: HILIGHT }}
                 />
               )}
             </motion.div>
@@ -339,7 +292,7 @@ export default function Overview() {
               "--stroke": "2px",
               "--gapL": "32px",
               "--gapR": "12px",
-              "--col-gap": "clamp(140px, 12vw, 360px)",
+              "--col-gap": "clamp(40px, 4vw, 80px)",
             } as React.CSSProperties
           }
         >

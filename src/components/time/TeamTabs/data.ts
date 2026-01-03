@@ -84,3 +84,12 @@ export const FELLOW_PARTNERS_DATA: MemberData[] = [
     linkedin: "https://www.linkedin.com/in/marcosarruda/"
   }
 ];
+
+export const ADVISORS_DATA: MemberData[] = [
+  {
+    name: "Carlos Foz",
+    role: "Former CEO & Chairman Andbank",
+    description: "Com uma carreira de mais de 30 anos no mercado financeiro e ampla experiência na liderança de times multidisciplinares, venho desenvolvendo ao longo das últimas décadas estratégias para diferentes instituições no segmento de private banking, investimentos e wealth management, sempre com um viés empreendedor. Hoje, atuo como chairman do Andbank, onde tenho a missão assegurar a implementação da estratégia e aprimorar as melhores práticas de governança corporativa visando assegurar um crescimento contínuo e sustentável.",
+    image: "/time/advisors/perfil-1.png"
+  }
+];

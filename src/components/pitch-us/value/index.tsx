@@ -110,7 +110,7 @@ export default function Value() {
           </h2>
 
           <div
-            className="text-white/90 text-[15px] leading-relaxed mx-auto max-w-none font-normal text-left fade-up-delay"
+            className="text-white/90 text-[18px] leading-snug mx-auto max-w-none font-normal text-left fade-up-delay"
             style={{
               fontFamily:
                 '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -118,25 +118,12 @@ export default function Value() {
           >
             Após o investimento, colaboramos com os founders na criação de um
             plano de 100 dias, com reuniões semanais para acompanhar o
-            progresso. Atuamos{" "}
-            <span
-              className="italic font-semibold"
-              style={{ color: HILIGHT }}
-            >
-              de forma próxima
-            </span>{" "}
-            em frentes como Biz Dev, Talent Acquisition, GTM, estruturação do
-            quadro de advisors e, principalmente, com nosso maior value add: um
-            time de Venture Partners formado por referências do setor, que apoia
-            na construção da estratégia do roadmap de produto de IA. Nosso foco
-            está no apoio{" "}
-            <span
-              className="italic font-semibold"
-              style={{ color: HILIGHT }}
-            >
-              prático e contínuo
-            </span>{" "}
-            às startups do portfólio.
+            progresso. Atuamos de forma próxima em frentes como Biz Dev, Talent
+            Acquisition, GTM, estruturação do quadro de advisors e,
+            principalmente, com nosso maior value add: um time de Venture
+            Partners formado por referências do setor, que apoia na construção
+            da estratégia do roadmap de produto de IA. Nosso foco está no apoio
+            prático e contínuo às startups do portfólio.
           </div>
         </header>
 
@@ -198,7 +185,7 @@ export default function Value() {
         <div className="wrap min-[820px]:mx-auto min-[820px]:px-0 max-w-none">
           <header className="head max-w-none">
             <h2
-              className="font-bold text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px] min-[820px]:leading-[1.08] fade-up mb-6"
+              className="font-bold text-[clamp(2.25rem,4vw,3.75rem)] min-[820px]:leading-[1.08] fade-up mb-6"
               style={{
                 fontFamily: '"Crimson Text", serif',
               }}
@@ -213,33 +200,22 @@ export default function Value() {
             </h2>
 
             <p
-              className="text-white/90 text-[20px] lg:text-[22px] xl:text-[24px] min-[1820px]:text-[clamp(24px,1.6vw,48px)] min-[820px]:leading-[1.6] font-normal fade-up-delay max-w-none"
+              className="text-white/90 font-normal fade-up-delay max-w-none"
               style={{
                 fontFamily:
                   '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                fontSize: "clamp(22px, 1.7vw, 28px)",
+                lineHeight: 1.7,
               }}
             >
               Após o investimento, colaboramos com os founders na criação de um
               plano de 100 dias, com reuniões semanais para acompanhar o
-              progresso. Atuamos{" "}
-              <span
-                className="italic font-semibold"
-                style={{ color: HILIGHT }}
-              >
-                de forma próxima
-              </span>{" "}
-              em frentes como Biz Dev, Talent Acquisition, GTM, estruturação do
-              quadro de advisors e, principalmente, com nosso maior value add:
-              um time de Venture Partners formado por referências do setor, que
-              apoia na construção da estratégia do roadmap de produto de IA.
-              Nosso foco está no apoio{" "}
-              <span
-                className="italic font-semibold"
-                style={{ color: HILIGHT }}
-              >
-                prático e contínuo
-              </span>{" "}
-              às startups do portfólio.
+              progresso. Atuamos de forma próxima em frentes como Biz Dev, Talent
+              Acquisition, GTM, estruturação do quadro de advisors e,
+              principalmente, com nosso maior value add: um time de Venture
+              Partners formado por referências do setor, que apoia na construção
+              da estratégia do roadmap de produto de IA. Nosso foco está no
+              apoio prático e contínuo às startups do portfólio.
             </p>
           </header>
         </div>

@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
 type NavItem = { label: string; href: string; exact?: boolean };
 
@@ -53,8 +55,7 @@ export default function Header() {
     <header
       id="site-header"
       data-edge-section
-      className="fixed inset-x-0 top-0 z-50"
-      style={{ backgroundColor: BG }}
+      className="fixed inset-x-0 top-0 z-50 pointer-events-none"
     >
       <style jsx global>{`
         /* Universal Padding */
@@ -88,7 +89,7 @@ export default function Header() {
         <button
           aria-label="Abrir menu"
           onClick={() => setOpen(true)}
-          className="absolute right-4 text-white"
+          className="absolute right-4 text-white pointer-events-auto"
           style={{ top: "1.9rem" }}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
@@ -104,17 +105,23 @@ export default function Header() {
       </div>
 
       {/* DESKTOP */}
-      <div className="deskbar hidden min-[820px]:flex h-16 items-center justify-between px-10">
+      <div
+        className="deskbar hidden min-[820px]:flex h-16 items-center justify-between px-10 pointer-events-auto"
+        style={{ backgroundColor: BG }}
+      >
         <Link
           href="/"
           prefetch
           aria-label="Ir para a Home"
           className="inline-flex items-center"
         >
-          <img
+          <Image
             src="/header/logo.png"
             alt="Canastra Ventures"
-            className="logo w-auto cursor-pointer"
+            width={150}
+            height={40}
+            className="logo w-auto h-[32px] sm:h-[40px] cursor-pointer object-contain"
+            priority
           />
         </Link>
 
@@ -130,149 +137,153 @@ export default function Header() {
       </div>
 
       {/* MOBILE: OVERLAY + LATERAL (mesma largura de antes) */}
-      {open && (
-        <div className="fixed inset-0 z-50 min-[820px]:hidden">
-          {/* backdrop escuro */}
-          <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={close}
-          />
-
-          {/* painel laranja à direita */}
-          <nav
-            aria-label="Menu"
-            className="absolute right-0 top-0 h-full w-[78%] max-w-[360px] border-l border-white/10 p-6 flex flex-col"
-            style={{ backgroundColor: ORANGE }}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="fixed inset-0 z-50 min-[820px]:hidden pointer-events-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            {/* topo: x */}
-            <div className="flex items-center justify-end mb-6">
-              <button
-                aria-label="Fechar menu"
-                onClick={close}
-                className="text-white"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <path
-                    d="M6 6l12 12M18 6L6 18"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    fill="none"
-                  />
-                </svg>
-              </button>
-            </div>
+            {/* backdrop escuro */}
+            <div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={close}
+            />
 
-            {/* links grandes */}
-            <ul className="space-y-3 flex-1">
-              {NAV.map((item) => {
-                const active = isActive(item.href, item.exact);
-                const isAnchor = item.href.startsWith("#");
-                return (
-                  <li key={`m-${item.label}`}>
-                    <Link
-                      href={item.href}
-                      prefetch={!isAnchor}
-                      onClick={close}
-                      aria-current={active ? "page" : undefined}
-                      className={`
-                        block 
-                        text-white 
-                        font-serif 
-                        text-[26px]
-                        leading-[1.8]
-                      `}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            {/* painel laranja à direita */}
+            <motion.nav
+              aria-label="Menu"
+              className="absolute right-0 top-0 h-full w-[78%] max-w-[360px] flex flex-col px-4"
+              style={{ backgroundColor: ORANGE }}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", ease: "easeInOut", duration: 0.4 }}
+            >
+              {/* Inner Bordered Grid Container */}
+              <div className="relative flex flex-col w-full h-full border-x border-white/40">
+                {/* Linha superior extendida */}
+                <div className="absolute top-0 left-[-16px] right-[-16px] h-px bg-white/40" />
 
-            {/* rodapé: redes + texto newsletter */}
-            <div className="mt-6 pt-4 border-t border-white/40 flex flex-col gap-3">
-              <div className="flex items-center gap-4">
-                {/* Instagram */}
-                <a
-                  href="https://www.instagram.com/canastra.ventures/?hl=br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram Canastra Ventures"
-                  className="text-white"
-                >
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
+                {/* topo: x */}
+                <div className="relative flex items-center justify-end p-6">
+                  <div className="absolute bottom-0 left-[-16px] right-[-16px] h-px bg-white/40" />
+                  <button
+                    aria-label="Fechar menu"
+                    onClick={close}
+                    className="text-white"
                   >
-                    <rect
-                      x="3"
-                      y="3"
-                      width="18"
-                      height="18"
-                      rx="5"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      fill="none"
-                    />
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="4"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      fill="none"
-                    />
-                    <circle cx="17.2" cy="6.8" r="1" fill="currentColor" />
-                  </svg>
-                </a>
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                      <path
+                        d="M6 6l12 12M18 6L6 18"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        fill="none"
+                      />
+                    </svg>
+                  </button>
+                </div>
 
-                {/* LinkedIn */}
-                <a
-                  href="https://www.linkedin.com/school/canastra-ventures/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn Canastra Ventures"
-                  className="text-white"
-                >
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <rect
-                      x="3"
-                      y="3"
-                      width="18"
-                      height="18"
-                      rx="2"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      fill="none"
-                    />
-                    <rect x="7" y="10" width="2" height="7" fill="currentColor" />
-                    <circle cx="8" cy="7" r="1.2" fill="currentColor" />
-                    <path
-                      d="M12 17v-4.1c0-1 0.7-1.9 1.9-1.9 1.3 0 2.1.9 2.1 2.3V17"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                      fill="none"
-                    />
-                  </svg>
-                </a>
+                {/* links grandes */}
+                <div className="flex-1 px-6 py-6 overflow-y-auto">
+                  <ul className="space-y-3">
+                    {NAV.map((item) => {
+                      const active = isActive(item.href, item.exact);
+                      const isAnchor = item.href.startsWith("#");
+                      return (
+                        <li key={`m-${item.label}`}>
+                          <Link
+                            href={item.href}
+                            prefetch={!isAnchor}
+                            onClick={close}
+                            aria-current={active ? "page" : undefined}
+                            className={`
+                            block 
+                            text-white 
+                            font-serif 
+                            text-xl sm:text-2xl
+                            leading-[1.8]
+                          `}
+                          >
+                            {item.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+
+                {/* rodapé: redes + texto newsletter */}
+                {/* Linha horizontal extendida para fora do container interno */}
+                <div className="relative">
+                  <div className="absolute top-0 left-[-16px] right-[-16px] h-px bg-white/40" />
+                  <div className="absolute bottom-0 left-[-16px] right-[-16px] h-px bg-white/40" />
+                  <div className="p-6 flex flex-col gap-3">
+                    <div className="flex items-center gap-4">
+                      {/* Instagram */}
+                      <a
+                        href="https://www.instagram.com/canastra.ventures/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Perfil oficial no Instagram"
+                        className="text-white opacity-100 hover:opacity-80 transition-opacity duration-300"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                      </a>
+
+                      {/* LinkedIn */}
+                      <a
+                        href="https://www.linkedin.com/company/canastra-ventures/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Perfil profissional no LinkedIn"
+                        className="text-white opacity-100 hover:opacity-80 transition-opacity duration-300"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                          <rect x="2" y="9" width="4" height="12" />
+                          <circle cx="4" cy="4" r="2" />
+                        </svg>
+                      </a>
+                    </div>
+
+                    <span className="text-[8px] tracking-[0.15em] uppercase text-white/90 whitespace-nowrap">
+                      // CANASTRA NEWSLETTER
+                    </span>
+                  </div>
+                </div>
               </div>
-
-              <span className="text-[11px] tracking-[0.18em] uppercase text-white/90">
-                CANASTRA NEWSLETTER
-              </span>
-            </div>
-          </nav>
-        </div>
-      )}
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

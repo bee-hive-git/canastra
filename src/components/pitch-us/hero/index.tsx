@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -130,52 +131,76 @@ export default function Hero() {
             min-height: 134dvh;
           }
         }
-        @media (min-width: 820px) {
+        @media (min-width: 1181px) and (max-width: 1439px) {
           #home .wrap {
             margin-left: 0;
             padding-left: var(--site-padding-left);
             padding-right: var(--site-padding-right);
-          }
-        }
-
-        @media (min-width: 1181px) and (max-width: 1439px) {
-          #home .wrap {
             max-width: 960px;
           }
           #home .wrap .hero-heading {
             max-width: 920px;
           }
         }
+        @media (min-width: 1440px) {
+          #home .wrap {
+            margin-left: 0;
+            padding-left: var(--site-padding-left);
+            padding-right: var(--site-padding-right);
+          }
+        }
       `}</style>
 
-      <img
-        aria-hidden
-        src="/hero/monatnha-1-mobile.svg"
-        alt=""
-        className="min-[800px]:hidden mountain-mobile-img mobile-light-reveal select-none pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-0 z-0 w-[100%] max-w-none h-auto"
-        draggable={false}
-      />
+      {/* 
+        MOBILE IMAGE (<820px)
+        - Uses aspect-ratio container to prevent layout shift
+        - object-fit: contain ensures full image visibility without cropping
+        - Centered horizontally, anchored to bottom
+      */}
+      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end">
+        <div className="relative w-full max-w-[600px] aspect-[440/346]">
+          <Image
+            src="/hero/montanha-3.svg"
+            alt="Paisagem montanhosa"
+            fill
+            className="mobile-light-reveal object-contain object-bottom"
+            draggable={false}
+            priority
+            sizes="(max-width: 820px) 100vw"
+            unoptimized
+          />
+        </div>
+      </div>
 
-      <img
-        aria-hidden
-        src="/hero/montanha-3.svg"
-        alt=""
-       className="hidden min-[820px]:block mountain mountain-img select-none pointer-events-none absolute right-0 bottom-30 z-0 w-[72.8vw] max-w-[548.8px] min-[820px]:w-[51.52vw] min-[820px]:max-w-[816.8px] min-[1181px]:right-[40px] lg:right-[80px] xl:right-[120px] 2xl:right-[30px] h-auto"
-        draggable={false}
-      />
+      {/* 
+        DESKTOP IMAGE (>=820px)
+        - Positioned absolute right-bottom to match design
+        - Uses standard CSS positioning (no transforms that might cause clipping)
+        - Width scales with viewport (vw) to maintain proportions
+        - object-fit: contain ensures the mountain is never cut off
+        - max-width constraints prevent it from becoming overwhelming on ultra-wide screens
+      */}
+      <div className="hidden min-[820px]:block absolute right-0 -top-[5%] lg:-top-[10%] z-0 w-[50vw] max-w-[1400px] h-[110%] pointer-events-none select-none">
+        <Image
+          src="/hero/montanha-3.svg"
+          alt="Paisagem montanhosa detalhada"
+          fill
+          className="mountain mountain-img object-contain object-right"
+          draggable={false}
+          priority
+          sizes="(min-width: 820px) 50vw, (min-width: 1024px) 55vw, (min-width: 1280px) 50vw"
+          unoptimized
+          style={{ imageRendering: 'auto' }}
+        />
+      </div>
 
       <div
         ref={wrapRef}
         className="wrap relative z-10 mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1080px]"
       >
-        <img
-          src="/hero/logo.png"
-          alt="Logo Canastra"
-          className="h-9 w-auto mb-6 min-[820px]:hidden mobile-fade-up"
-        />
         {/* H1 – Crimson Text, peso 700 (bold) */}
         <h1
-          className="hidden min-[820px]:block font-bold text-[49.3px] min-[820px]:text-[71.7px] leading-tight mb-3 min-[820px]:ml-[0.8px]"
+          className="block font-bold text-[40px] min-[820px]:text-[71.7px] leading-tight mb-3 min-[820px]:ml-[0.8px]"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           Pitch Us!
@@ -198,34 +223,31 @@ export default function Hero() {
             </span> e além&nbsp;
           </span>
 
-          {/* MOBILE (<820px) — natural, com auto-fit maior agora */}
-          <span className="min-[840px]:hidden block">
-            Apoiamos{" "}
-            <span className="text-[#FF624D] italic font-bold">Founders</span> com a ambição de&nbsp;
-          </span>
-          <span className="min-[840px]:hidden block">
-            escalar startups de IA no{" "}
-            <span className="text-[#FF624D] italic font-bold">
-              Brasil
-            </span> e além&nbsp;
+          {/* MOBILE (<820px) */}
+          <span className="min-[820px]:hidden block text-[22px]">
+            Somos um VC{" "}
+            <span className="text-[#FF624D] italic font-bold">Pre-seed</span> com foco em{" "}
+            <span className="text-[#FF624D] italic font-bold">IA</span>
           </span>
         </h2>
 
         {/* Parágrafo – Hanken Grotesk, peso 300 (light) */}
         <p
-          className="mt-2 text-white/85 font-light text-[clamp(12px,3.5vw,16px)] whitespace-nowrap min-[820px]:whitespace-normal min-[820px]:text-[clamp(15.6px,1.04vw,18.7px)] min-[820px]:max-w-[499px] mobile-fade-up delay-200"
+          className="mt-4 text-white/85 font-light text-[14px] leading-relaxed max-w-[320px] mx-auto min-[820px]:mx-0 min-[820px]:whitespace-normal min-[820px]:text-[clamp(15.6px,1.04vw,18.7px)] min-[820px]:max-w-[499px] mobile-fade-up delay-200"
           style={{
             fontFamily:
               '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
           }}
         >
-          VC pre-seed especialista em IA
+          Apoiamos fundadores com expertise em inteligência artificial desde o início, investindo nas primeiras rodadas de startups AI-First com ambição de escalar no Brasil e além.
         </p>
 
-        <div className="mt-7 flex items-center justify-center gap-2 min-[820px]:justify-start mobile-fade-up delay-300">
+        <div className="mt-7 flex items-center justify-center gap-3 lg:gap-4 min-[820px]:justify-start mobile-fade-up delay-300">
+         
+
           <a
-            href="#ai-eir"
-            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[52px] px-5 min-w-[166px] text-[15.6px] border-2 border-[#FF624D] bg-white text-black min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent min-[820px]:text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
+            href="#pitch"
+            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[52px] px-5 min-w-[166px] text-[15.6px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
           >
             <svg
               width="27"
@@ -262,17 +284,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* divisória inferior da seção (igual Time/Footer, só na base) */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
-        style={{
-          background:
-            "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0))",
-          opacity: 0.4,
-        }}
-      />
+
     </section>
   );
 }
- 
