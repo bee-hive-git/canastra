@@ -55,6 +55,19 @@ export default function TeamTabs() {
   const [active, setActive] = useState<TabKey>("team");
   const [selectedMember, setSelectedMember] = useState<MemberData | null>(null);
 
+  // Recupera a aba ativa do localStorage ao carregar
+  useEffect(() => {
+    const saved = localStorage.getItem("canastra_team_active_tab") as TabKey;
+    if (saved && TABS.some((t) => t.key === saved)) {
+      setActive(saved);
+    }
+  }, []);
+
+  // Salva a aba ativa no localStorage sempre que mudar
+  useEffect(() => {
+    localStorage.setItem("canastra_team_active_tab", active);
+  }, [active]);
+
   const handleCardClick = (index: number) => {
     let member: MemberData | undefined;
 

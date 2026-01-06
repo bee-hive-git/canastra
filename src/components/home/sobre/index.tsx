@@ -1,4 +1,3 @@
-// Sobre.tsx
 "use client";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
@@ -27,16 +26,25 @@ export default function Sobre() {
       ref={sectionRef}
       id="sobre"
       data-edge-section
-      className="relative overflow-hidden text-white pt-16 pb-36 md:pt-0 md:pb-0 md:h-screen md:min-h-screen md:flex md:items-center"
+      className="relative overflow-hidden text-white pt-16 min-h-[100dvh] md:pt-0 md:min-h-screen md:flex md:items-center"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       <style jsx global>{`
-        /* Mobile (< 768px) */
-        @media (max-width: 767px) {
-           #sobre {
-             min-height: auto;
-             padding-bottom: 40px;
-           }
+        /* Mobile Height Adjustments (Hero Pattern) */
+        @media (max-height: 700px) {
+          #sobre {
+            min-height: 118dvh;
+          }
+        }
+        @media (max-height: 620px) {
+          #sobre {
+            min-height: 126dvh;
+          }
+        }
+        @media (max-height: 560px) {
+          #sobre {
+            min-height: 134dvh;
+          }
         }
 
         /* Animação da imagem (Tablet/Desktop) */
@@ -161,20 +169,20 @@ export default function Sobre() {
         >
           {/* TABLET/DESKTOP */}
           <span className="hidden md:block">
-            Ao longo de 12 semanas, os residentes terão apoio hands-on com{" "}
-            <span className="text-[#FF624D] font-semibold">Fellow Partners</span>,
-            orientação de mentores e conexões estratégicas para validar a tese,
-            criar o MVP e alcançar os primeiros sinais de tração rumo ao{" "}
-            <span className="text-[#FF624D] font-semibold">primeiro cheque</span>.
+            Ao longo de 12 semanas, os founders selecionados para o{" "}
+            <span className="text-[#FF624D] font-semibold">AI Entrepreneur in Residence (AI EiR)</span>,
+            terão apoio hands-on dos nossos{" "}
+            <span className="text-[#FF624D] font-semibold">Fallow Partners</span>.
+            , mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar os primeiros sinais de tração rumo ao primeiro cheque.{" "}
           </span>
 
           {/* MOBILE */}
           <span className="md:hidden">
-            Ao longo de 12 semanas, os residentes terão apoio hands-on com{" "}
-            <span className="text-[#FF624D] font-semibold">Fellow Partners</span>,
-            orientação de mentores e conexões estratégicas para validar a tese,
-            criar o MVP e alcançar os primeiros sinais de tração rumo ao{" "}
-            <span className="text-[#FF624D] font-semibold">primeiro cheque</span>.
+            Ao longo de 12 semanas, os founders selecionados para o{" "}
+            <span className="text-[#FF624D] font-semibold">AI Entrepreneur in Residence (AI EiR)</span>,
+            terão apoio hands-on dos nossos{" "}
+            <span className="text-[#FF624D] font-semibold">Fallow Partners</span>.
+            , mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar os primeiros sinais de tração rumo ao primeiro cheque.{" "}
           </span>
         </p>
 
@@ -224,7 +232,7 @@ export default function Sobre() {
 
       {/* 
         IMAGENS RESPONSIVAS
-        - Mobile: < 768px (Aspect Ratio controlado)
+        - Mobile: < 768px (Hero pattern: absolute bottom)
         - Tablet: 768px - 1024px (Posicionamento lateral)
         - Desktop: > 1024px (Layout amplo)
       */}

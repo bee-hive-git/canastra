@@ -23,14 +23,6 @@ export default function Structure() {
     },
   };
 
-  const lineVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.6, ease: "easeInOut" },
-    },
-  };
-
   return (
     <section
       id="structure"
@@ -125,83 +117,40 @@ export default function Structure() {
 
       {/* ESTRUTURA ANIMADA */}
       <motion.div
-        className="relative mx-auto max-w-[1000px] px-5 flex flex-col gap-0 items-center min-[821px]:block"
+        className="relative mx-auto max-w-[1200px] px-5"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
       >
-        {/* === ETAPA 1 === */}
+        {/* MOBILE VIEW - Apenas uma imagem */}
         <motion.div 
-          className="relative z-10 w-full max-w-[420px] min-[821px]:ml-0" 
+          className="block min-[821px]:hidden w-full max-w-[500px] mx-auto"
           variants={cardVariants}
         >
           <Image 
-            src="/ai-eir/structure/BOX-1.svg" 
-            alt="1º Etapa: Validação da Tese" 
-            width={0}
-            height={0}
+            src="/ai-eir/structure/BOX-MOBILE.png" 
+            alt="Estrutura do Programa" 
+            width={500}
+            height={500}
             sizes="100vw"
             className="w-full h-auto drop-shadow-2xl"
           />
         </motion.div>
 
-        {/* Linha 1 (Desktop) */}
-        <motion.img
-          src="/ai-eir/structure/linha-1.svg"
-          alt=""
-          className="hidden min-[821px]:block absolute left-[360px] top-[210px] w-[265px] h-[93px] pointer-events-none z-0"
-          variants={lineVariants}
-        />
-
-        {/* Linha 1 (Mobile) - Vertical */}
-        <div className="min-[821px]:hidden h-12 border-l-[3px] border-dashed border-white/50 my-2"></div>
-
-
-        {/* === ETAPA 2 === */}
+        {/* DESKTOP VIEW - SVG Único (arquivo público com linhas pontilhadas) */}
         <motion.div 
-          className="relative z-10 w-full max-w-[420px] min-[821px]:ml-auto min-[821px]:mt-10" 
+          className="hidden min-[821px]:flex justify-center items-center relative w-full max-w-[1200px] mx-auto"
           variants={cardVariants}
         >
           <Image 
-            src="/ai-eir/structure/BOX-2.svg" 
-            alt="2º Etapa: Criação e Lançamento" 
-            width={0}
-            height={0}
+            src="/ai-eir/structure/BOX-WEB.svg"
+            alt="Estrutura do Programa (desktop)"
+            width={1200}
+            height={800}
             sizes="100vw"
             className="w-full h-auto drop-shadow-2xl"
-          />
-        </motion.div>
-
-        {/* Linha 2 (Desktop) */}
-        <motion.div
-          className="hidden min-[821px]:block absolute right-[280px] top-[560px] w-[127px] h-[206px] pointer-events-none z-0"
-          variants={lineVariants}
-        >
-          <Image
-            src="/ai-eir/structure/linha-2.svg"
-            alt=""
-            width={127}
-            height={206}
-            className="w-full h-full"
-          />
-        </motion.div>
-
-        {/* Linha 2 (Mobile) - Vertical */}
-        <div className="min-[821px]:hidden h-12 border-l-[3px] border-dashed border-white/50 my-2"></div>
-
-
-        {/* === ETAPA 3 === */}
-        <motion.div 
-          className="relative z-10 w-full max-w-[420px] min-[821px]:max-w-[650px] min-[821px]:mr-auto min-[821px]:mt-10 aspect-[420/280]" 
-          variants={cardVariants}
-        >
-          <Image 
-            src="/ai-eir/structure/BOX-3.svg" 
-            alt="Pós Programa: Fundraising" 
-            fill
-            className="object-contain drop-shadow-2xl"
-            sizes="(max-width: 820px) 90vw, 650px"
+            priority
           />
         </motion.div>
       </motion.div>

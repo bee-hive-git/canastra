@@ -255,7 +255,7 @@ export default function Hero() {
               '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
           }}
         >
-          Somos uma VC pre-seed especialista em IA
+          VC pre-seed especialista em IA
         </p>
 
         <div className="mt-7 flex items-center justify-center gap-3 lg:gap-4 min-[820px]:justify-start mobile-fade-up delay-300">

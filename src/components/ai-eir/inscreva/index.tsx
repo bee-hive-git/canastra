@@ -67,26 +67,30 @@ export default function Inscreva() {
             Venha construir sua startup de IA com a gente!
           </p>
 
-          {/* botão estilo desktop */}
-          <a
-            href="#apply-eir"
-            className={`
-              mt-6 inline-flex items-center justify-center gap-2
-              rounded-md font-semibold h-12 px-6 min-w-[220px] text-[15px]
-              border border-gray-400 text-white bg-transparent
-              transition-all duration-200
-              hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110
-              hover:shadow-md hover:shadow-black/20
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/40
-            `}
-          >
-            <svg width="26" height="22" viewBox="0 0 26 22" className="-ml-1 text-gray-400" aria-hidden>
-              <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-              <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-              <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
-            Apply for AI EIR
-          </a>
+          <div className="mt-6 flex items-center justify-center gap-5">
+            <span className="h-px w-20 bg-white/30" />
+            <a
+              href="#apply-eir"
+              className={`
+                inline-flex items-center justify-center gap-2
+                rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px]
+                border-2 border-[#FF624D] bg-black text-white
+                transition-all duration-200 ease-out
+                hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110
+                hover:shadow-md hover:shadow-black/40
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
+                active:translate-y-0
+              `}
+            >
+              <svg width="26" height="22" viewBox="0 0 26 22" className="-ml-1 text-[#FF624D]" aria-hidden>
+                <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
+                <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
+                <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+              Apply for AI EIR
+            </a>
+            <span className="h-px w-20 bg-white/30" />
+          </div>
         </div>
       </div>
 
@@ -105,17 +109,17 @@ export default function Inscreva() {
               Venha construir sua startup de IA com a gente!
             </p>
 
-            {/* botão estilo mobile */}
             <a
               href="#apply-eir"
               className={`
                 mt-6 inline-flex items-center justify-center gap-2
                 rounded-md font-semibold h-12 px-5 min-w-[200px] text-[15px]
                 border-2 border-[#FF624D] bg-black text-white
-                transition-all duration-200
+                transition-all duration-200 ease-out
                 hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110
                 hover:shadow-md hover:shadow-black/40
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
+                active:translate-y-0
               `}
             >
               <svg width="26" height="22" viewBox="0 0 26 22" className="-ml-1 text-[#FF624D]" aria-hidden>

@@ -23,8 +23,8 @@ export default function Startups() {
             className="font-serif font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-tight mb-4"
             style={{ fontFamily: '"Crimson Text", serif' }}
           >
-            <span className="text-[#FF624D]">Startups</span> que passaram pelo
-            nosso programa
+            <span className="text-[#FF624D]">Startups</span> que já passaram pela
+            nossa residência
           </h2>
           <p
             className="text-white/80 text-[16px] sm:text-[18px] leading-relaxed max-w-[600px] mx-auto"
@@ -44,13 +44,13 @@ export default function Startups() {
           speed={80} 
           className="max-w-[1800px]" 
           perLogoScale={{
-            Evig: { base: 1.0 },
-            Quorum: { base: 1.0 },
-            Zonic: { base: 0.98, md: 1.0 },
-            Allia: { base: 1.1, md: 1.2, lg: 1.25 },
-            "Anapfy AI": { base: 1.05, md: 1.1 },
-            Guardia: { base: 0.95, md: 1.0 },
-            Lagoa: { base: 1.05, md: 1.1 },
+            Evig: { base: 1.5, md: 1.0 },
+            Quorum: { base: 1.7, md: 1.05 },
+            Zonic: { base: 1.6, md: 1.0 },
+            Allia: { base: 1.3, md: 0.8, lg: 1.0 },
+            "Anapfy AI": { base: 1.95, md: 1.5 },
+            Guardia: { base: 1.95, md: 1.6 },
+            Lagoa: { base: 1.25, md: 0.80 },
           }}
         />
       </div>

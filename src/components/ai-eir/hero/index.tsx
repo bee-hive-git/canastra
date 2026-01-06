@@ -238,34 +238,19 @@ export default function AIHero() {
           >
             {[
               {
-                imageSrc: "/ai-eir/hero/BOX1_ICON.svg",
-                title: (
-                  <>
-                    Elite <span className="text-[#ff624d]">AI Community</span>
-                  </>
-                ),
-                description:
-                  "Junte-se a uma comunidade exclusiva de fundadores e especialistas em IA, trocando experiências e acelerando seu aprendizado.",
+                imageSrc: "/ai-eir/hero/BOX1.svg",
+                title: <></>,
+                description: "",
               },
               {
-                imageSrc: "/ai-eir/hero/BOX2_ICON.svg",
-                title: (
-                  <>
-                    Build with <span className="text-[#ff624d]">Best Founders</span>
-                  </>
-                ),
-                description:
-                  "Construa seu produto ao lado de quem já trilhou o caminho, recebendo mentoria prática e feedback direto de empreendedores de sucesso.",
+                imageSrc: "/ai-eir/hero/BOX2.svg",
+                title: <></>,
+                description: "",
               },
               {
-                imageSrc: "/ai-eir/hero/BOX3_ICON.svg",
-                title: (
-                  <>
-                    Go all in and <span className="text-[#ff624d]">Move Fast</span>
-                  </>
-                ),
-                description:
-                  "Mergulhe de cabeça e execute com velocidade. Em 12 semanas, saia do zero e tenha seu MVP pronto para o mercado.",
+                imageSrc: "/ai-eir/hero/BOX3.svg",
+                title: <></>,
+                description: "",
               },
             ].map((card, i) => (
               <div
@@ -297,35 +282,23 @@ export default function AIHero() {
       {/* desktop cards */}
       <div className="hidden lg:grid grid-cols-3 items-stretch justify-items-stretch gap-6 px-[4vw] lg:mt-28 mx-auto max-w-[1400px] relative z-20">
         <Card
-          imageSrc="/ai-eir/hero/BOX1_ICON.svg"
-          title={
-            <>
-              Elite <span className="text-[#ff624d]">AI Community</span>
-            </>
-          }
-          description="Junte-se a uma comunidade exclusiva de fundadores e especialistas em IA, trocando experiências e acelerando seu aprendizado."
+          imageSrc="/ai-eir/hero/BOX1.svg"
+          title={<></>}
+          description=""
           delay={0.1}
         />
 
         <Card
-          imageSrc="/ai-eir/hero/BOX2_ICON.svg"
-          title={
-            <>
-              Build with <span className="text-[#ff624d]">Best Founders</span>
-            </>
-          }
-          description="Construa seu produto ao lado de quem já trilhou o caminho, recebendo mentoria prática e feedback direto de empreendedores de sucesso."
+          imageSrc="/ai-eir/hero/BOX2.svg"
+          title={<></>}
+          description=""
           delay={0.3}
         />
 
         <Card
-          imageSrc="/ai-eir/hero/BOX3_ICON.svg"
-          title={
-            <>
-              Go all in and <span className="text-[#ff624d]">Move Fast</span>
-            </>
-          }
-          description="Mergulhe de cabeça e execute com velocidade. Em 12 semanas, saia do zero e tenha seu MVP pronto para o mercado."
+          imageSrc="/ai-eir/hero/BOX3.svg"
+          title={<></>}
+          description=""
           delay={0.5}
         />
       </div>

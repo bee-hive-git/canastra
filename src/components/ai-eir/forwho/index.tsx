@@ -27,10 +27,10 @@ export default function ForWho() {
   };
 
   const imageVariants: Variants = {
-    hidden: { opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 },
+    hidden: { opacity: 0, x: 50 },
     visible: {
       opacity: 1,
-      scale: 1,
+      x: 0,
       transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
     },
   };
@@ -82,23 +82,23 @@ export default function ForWho() {
             className="text-white/90 text-[16px] leading-relaxed text-center max-w-[600px] min-[1280px]:text-left min-[1280px]:text-[18px] min-[1280px]:leading-8 min-[1280px]:max-w-[520px]"
             variants={itemVariants}
           >
-            Estamos buscando fundadores ambiciosos e com profundidade em IA, em
+            Estamos buscando Founders ambiciosos e com profundidade em IA, em
             fase inicial, prontos para transformar ideias ousadas em startups de
             IA em grandes mercados.
           </motion.p>
 
-          {/* imagem mobile */}
+          {/* imagem mobile — ancorada à direita, ocupando ~80% da tela e mais alta */}
           <motion.div 
-            className="mt-8 min-[1280px]:hidden overflow-hidden flex justify-center relative w-[88vw] max-w-[420px] aspect-[420/400]"
+            className="mt-10 min-[1280px]:hidden relative ml-auto -mr-6 w-[80vw] aspect-[9/16]"
             variants={imageVariants}
           >
             <Image
               src="/ai-eir/forwho/mobile.png"
               alt=""
               fill
-              className="object-contain select-none"
+              className="object-contain object-right select-none"
               draggable={false}
-              sizes="(max-width: 1280px) 88vw, 420px"
+              sizes="80vw"
             />
           </motion.div>
         </motion.div>

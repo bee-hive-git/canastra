@@ -244,13 +244,13 @@ export default function Fellow() {
           {PHOTOS.map((src) => (
             <div
               key={src}
-              className="snap-start shrink-0 relative rounded-2xl w-[85vw] max-w-[440px] aspect-[100/120] select-none pointer-events-none"
+              className="snap-start shrink-0 relative rounded-2xl w-[85vw] max-w-[440px] aspect-[3/5] select-none pointer-events-none"
             >
               <Image
                 src={src}
                 alt=""
                 fill
-                className="rounded-2xl object-cover"
+                className="rounded-2xl object-cover object-top"
                 draggable={false}
                 sizes="(max-width: 440px) 85vw, 440px"
               />
@@ -289,7 +289,7 @@ export default function Fellow() {
             {PHOTOS.map((src) => (
               <motion.div
                 key={`desk-${src}`}
-                className="relative rounded-2xl w-full aspect-[100/115] select-none pointer-events-none"
+                className="relative rounded-2xl w-full aspect-[3/5] select-none pointer-events-none"
                 variants={itemVariants}
               >
                 <Image

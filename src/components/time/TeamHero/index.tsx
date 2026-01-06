@@ -208,13 +208,17 @@ export default function Hero() {
         >
           {/* MOBILE */}
           <span className="min-[820px]:hidden">
-             Somos <span className="text-[#FF624D]">investidores</span> e também <span className="text-[#FF624D]">empreendemos</span>: entendemos na prática o que é construir do zero e o valor de uma <span className="text-[#FF624D]">parceria</span> que não falha. Criando uma <span className="text-[#FF624D]">startup de IA</span> e buscando seu primeiro cheque? Conte com nosso <span className="text-[#FF624D]">time</span>.
+             Somos investidores, sim. Mas também somos empreendedores, operadores, cientistas e pesquisadores
+              — gente que vive na pele o que é construir algo do zero e sabe, na prática, o valor de uma parceria 
+              verdadeira e de um apoio que não falha.
           </span>
           {/* DESKTOP */}
           <span className="hidden min-[820px]:inline">
-            Somos investidores e também empreendemos: entendemos na prática
+            Somos investidores, sim. Mas também somos empreendedores, operadores, cientistas e 
             <br className="hidden min-[1181px]:block" />
-            o que é construir do zero e o valor de uma parceria que não falha.
+            pesquisadores — gente que vive na pele o que é construir algo do zero e sabe,
+             <br className="hidden min-[1181px]:block" />
+            na prática, o valor de uma parceria verdadeira e de um apoio que não falha.
           </span>
         </p>
         
