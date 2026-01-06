@@ -141,7 +141,7 @@ export default function StartupsMarquee({
 
   if (variant === "contained") {
     return (
-      <div className="w-full px-4 md:px-6 lg:px-8">
+      <div className="w-full px-0 md:px-6 lg:px-8">
         <div className={`mx-auto border border-white/10 bg-white/[0.02] ${className ?? "max-w-[1440px]"}`}>
           {MarqueeContent}
         </div>

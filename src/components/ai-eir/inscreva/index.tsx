@@ -73,7 +73,7 @@ export default function Inscreva() {
               href="#apply-eir"
               className={`
                 inline-flex items-center justify-center gap-2
-                rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px]
+                rounded-md font-semibold h-10 px-4 min-w-[140px] text-[14px]
                 border-2 border-[#FF624D] bg-black text-white
                 transition-all duration-200 ease-out
                 hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110
@@ -82,7 +82,7 @@ export default function Inscreva() {
                 active:translate-y-0
               `}
             >
-              <svg width="26" height="22" viewBox="0 0 26 22" className="-ml-1 text-[#FF624D]" aria-hidden>
+              <svg width="22" height="18" viewBox="0 0 26 22" className="-ml-1 text-[#FF624D]" aria-hidden>
                 <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
                 <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
                 <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
