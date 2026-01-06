@@ -1,9 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export const StructureSvg = () => {
   // Variants for connecting lines (drawing effect)
-  const lineVariants = {
+  const lineVariants: Variants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: { 
       pathLength: 1, 
@@ -16,7 +16,7 @@ export const StructureSvg = () => {
   };
 
   // Variants for boxes (fade in and scale up)
-  const boxVariants = {
+  const boxVariants: Variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { 
       opacity: 1, 
