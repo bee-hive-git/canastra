@@ -237,21 +237,46 @@ export default function AIHero() {
             style={{ scrollbarWidth: "none" }}
           >
             {[
-              { src: "/ai-eir/hero/BOX1.svg", alt: "Elite AI Community" },
-              { src: "/ai-eir/hero/BOX2.svg", alt: "Build with Best Founders" },
-              { src: "/ai-eir/hero/BOX3.svg", alt: "Go all in and Move Fast" },
-            ].map((box, i) => (
+              {
+                imageSrc: "/ai-eir/hero/BOX1_ICON.svg",
+                title: (
+                  <>
+                    Elite <span className="text-[#ff624d]">AI Community</span>
+                  </>
+                ),
+                description:
+                  "Junte-se a uma comunidade exclusiva de fundadores e especialistas em IA, trocando experiências e acelerando seu aprendizado.",
+              },
+              {
+                imageSrc: "/ai-eir/hero/BOX2_ICON.svg",
+                title: (
+                  <>
+                    Build with <span className="text-[#ff624d]">Best Founders</span>
+                  </>
+                ),
+                description:
+                  "Construa seu produto ao lado de quem já trilhou o caminho, recebendo mentoria prática e feedback direto de empreendedores de sucesso.",
+              },
+              {
+                imageSrc: "/ai-eir/hero/BOX3_ICON.svg",
+                title: (
+                  <>
+                    Go all in and <span className="text-[#ff624d]">Move Fast</span>
+                  </>
+                ),
+                description:
+                  "Mergulhe de cabeça e execute com velocidade. Em 12 semanas, saia do zero e tenha seu MVP pronto para o mercado.",
+              },
+            ].map((card, i) => (
               <div
                 key={i}
-                className="shrink-0 snap-start min-w-[85%] max-w-[85%] sm:min-w-[70%] sm:max-w-[70%] relative aspect-[300/200]"
+                className="shrink-0 snap-start min-w-[85%] max-w-[85%] sm:min-w-[70%] sm:max-w-[70%]"
               >
-                <Image
-                  src={box.src}
-                  alt={box.alt}
-                  fill
-                  className="object-contain"
-                  draggable={false}
-                  sizes="(max-width: 640px) 85vw, 70vw"
+                <Card
+                  imageSrc={card.imageSrc}
+                  title={card.title}
+                  description={card.description}
+                  className="w-full h-full"
                 />
               </div>
             ))}
@@ -271,52 +296,37 @@ export default function AIHero() {
 
       {/* desktop cards */}
       <div className="hidden lg:grid grid-cols-3 items-stretch justify-items-stretch gap-6 px-[4vw] lg:mt-28 mx-auto max-w-[1400px] relative z-20">
-        <motion.img
-          src="/ai-eir/hero/BOX1.svg"
-          alt="Elite AI Community"
-          className="w-full h-auto object-contain cursor-pointer"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          whileHover={{ 
-            scale: 1.05, 
-            y: -10,
-            filter: "brightness(1.1)",
-            transition: { type: "spring", stiffness: 300, damping: 20 }
-          }}
+        <Card
+          imageSrc="/ai-eir/hero/BOX1_ICON.svg"
+          title={
+            <>
+              Elite <span className="text-[#ff624d]">AI Community</span>
+            </>
+          }
+          description="Junte-se a uma comunidade exclusiva de fundadores e especialistas em IA, trocando experiências e acelerando seu aprendizado."
+          delay={0.1}
         />
 
-        <motion.img
-          src="/ai-eir/hero/BOX2.svg"
-          alt="Build with Best Founders"
-          className="w-full h-auto object-contain cursor-pointer"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          whileHover={{ 
-            scale: 1.05, 
-            y: -10,
-            filter: "brightness(1.1)",
-            transition: { type: "spring", stiffness: 300, damping: 20 }
-          }}
+        <Card
+          imageSrc="/ai-eir/hero/BOX2_ICON.svg"
+          title={
+            <>
+              Build with <span className="text-[#ff624d]">Best Founders</span>
+            </>
+          }
+          description="Construa seu produto ao lado de quem já trilhou o caminho, recebendo mentoria prática e feedback direto de empreendedores de sucesso."
+          delay={0.3}
         />
 
-        <motion.img
-          src="/ai-eir/hero/BOX3.svg"
-          alt="Go all in and Move Fast"
-          className="w-full h-auto object-contain cursor-pointer"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          whileHover={{ 
-            scale: 1.05, 
-            y: -10,
-            filter: "brightness(1.1)",
-            transition: { type: "spring", stiffness: 300, damping: 20 }
-          }}
+        <Card
+          imageSrc="/ai-eir/hero/BOX3_ICON.svg"
+          title={
+            <>
+              Go all in and <span className="text-[#ff624d]">Move Fast</span>
+            </>
+          }
+          description="Mergulhe de cabeça e execute com velocidade. Em 12 semanas, saia do zero e tenha seu MVP pronto para o mercado."
+          delay={0.5}
         />
       </div>
 
