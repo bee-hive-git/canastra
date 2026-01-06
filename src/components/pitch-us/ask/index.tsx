@@ -75,12 +75,22 @@ export default function Ask() {
               fontWeight: 700,
             }}
           >
-            Construindo uma{" "}
+            Em busca do seu{" "}
             <span className="italic font-semibold" style={{ color: HILIGHT }}>
-              startup de IA
-            </span>{" "}
-            e em busca do primeiro cheque? Queremos muito te conhecer.
+              primeiro cheque?
+            </span>
           </h2>
+
+          <p
+            className="mt-3 text-white/90 text-[16px]"
+            style={{
+              fontFamily: '"Hanken Grotesk", sans-serif',
+              fontWeight: 300,
+              lineHeight: "1.3",
+            }}
+          >
+            Envie seu pitch e fale com nosso time de investimento!
+          </p>
 
           <div className="mt-6 flex items-center justify-center gap-5">
             <span className="h-px w-20 bg-white/30" />

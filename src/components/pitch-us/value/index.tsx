@@ -204,7 +204,6 @@ export default function Value() {
               style={{
                 fontFamily:
                   '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-                fontSize: "clamp(22px, 1.7vw, 28px)",
                 lineHeight: 1.7,
               }}
             >
@@ -231,8 +230,8 @@ export default function Value() {
               // tipografia cards desktop
               "--cardPadX": "24px",
               "--cardPadY": "24px",
-              "--title": "clamp(18px, 2.2vw, 31.37px)",
-              "--body": "clamp(12.5px, 1.35vw, 18.3px)",
+              "--title": "20px",
+              "--body": "16px",
               "--minH": "178px",
               "--cardNarrow": "100%",
             } as CSSProperties

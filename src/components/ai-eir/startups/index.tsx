@@ -43,6 +43,15 @@ export default function Startups() {
           variant="contained" 
           speed={80} 
           className="max-w-[1800px]" 
+          perLogoScale={{
+            Evig: { base: 1.0 },
+            Quorum: { base: 1.0 },
+            Zonic: { base: 0.98, md: 1.0 },
+            Allia: { base: 1.1, md: 1.2, lg: 1.25 },
+            "Anapfy AI": { base: 1.05, md: 1.1 },
+            Guardia: { base: 0.95, md: 1.0 },
+            Lagoa: { base: 1.05, md: 1.1 },
+          }}
         />
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { VENTURE_PARTNERS_DATA, TEAM_DATA, FELLOW_PARTNERS_DATA, ADVISORS_DATA, MemberData } from "./data";
+import { VENTURE_PARTNERS_DATA, TEAM_DATA, FELLOW_PARTNERS_DATA, ADVISORS_DATA, MENTORS_DATA, MemberData } from "./data";
 import TeamMemberModal from "./TeamMemberModal";
 
 type TabKey = "team" | "venture-partners" | "fellow-partners" | "advisors" | "mentors";
@@ -66,6 +66,8 @@ export default function TeamTabs() {
       member = FELLOW_PARTNERS_DATA[index];
     } else if (active === "advisors") {
       member = ADVISORS_DATA[index];
+    } else if (active === "mentors") {
+      member = MENTORS_DATA[index];
     }
 
     if (member) {
@@ -73,14 +75,15 @@ export default function TeamTabs() {
     }
   };
 
-  const photos = useMemo(
-    () =>
-      Array.from(
-        { length: TABS.find((t) => t.key === active)!.count },
-        (_, i) => `/time/${active}/${i + 1}.png`
-      ),
-    [active]
-  );
+  const photos = useMemo(() => {
+    if (active === "mentors") {
+      return MENTORS_DATA.map((m) => m.gridImage || m.image);
+    }
+    return Array.from(
+      { length: TABS.find((t) => t.key === active)!.count },
+      (_, i) => `/time/${active}/${i + 1}.png`
+    );
+  }, [active]);
 
   // carrossel mobile
   const railRef = useRef<HTMLDivElement>(null);
@@ -269,7 +272,7 @@ export default function TeamTabs() {
               key={src}
               onClick={() => handleCardClick(i)}
               className={`snap-start flex-none relative rounded-2xl overflow-hidden ${
-                (active === "venture-partners" || active === "team" || active === "fellow-partners" || active === "advisors") ? "cursor-pointer active:scale-95 transition-transform" : ""
+                (active === "venture-partners" || active === "team" || active === "fellow-partners" || active === "advisors" || active === "mentors") ? "cursor-pointer active:scale-95 transition-transform" : ""
               }`}
               style={{
                 width: `${CARD.w}px`,
@@ -324,7 +327,7 @@ export default function TeamTabs() {
                   key={`desk-${src}`}
                   onClick={() => handleCardClick(i)}
                   className={`relative rounded-2xl overflow-hidden ${
-                    (active === "venture-partners" || active === "team" || active === "fellow-partners" || active === "advisors")
+                    (active === "venture-partners" || active === "team" || active === "fellow-partners" || active === "advisors" || active === "mentors")
                       ? "cursor-pointer hover:scale-[1.02] transition-transform duration-300"
                       : ""
                   }`}

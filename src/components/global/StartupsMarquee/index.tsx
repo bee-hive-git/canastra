@@ -1,12 +1,22 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
+interface ResponsiveScale {
+  base?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+}
 
 interface Startup {
   name: string;
   logo: string;
   scale?: number;
+  responsiveScale?: ResponsiveScale;
 }
 
 /**
@@ -48,6 +58,7 @@ export interface StartupsMarqueeProps {
    * Useful for adjusting max-width in "contained" variant.
    */
   className?: string;
+  perLogoScale?: Record<string, ResponsiveScale>;
 }
 
 /**
@@ -62,7 +73,26 @@ export default function StartupsMarquee({
   direction = "left",
   variant = "contained",
   className,
+  perLogoScale,
 }: StartupsMarqueeProps) {
+  const [viewportWidth, setViewportWidth] = React.useState<number>(1024);
+  React.useEffect(() => {
+    const update = () => setViewportWidth(window.innerWidth || 1024);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const getScaleFor = (name: string, startup: Startup) => {
+    const cfg = perLogoScale?.[name] ?? startup.responsiveScale;
+    if (!cfg) return startup.scale;
+    const w = viewportWidth;
+    if (w >= 1280) return cfg.xl ?? cfg.lg ?? cfg.md ?? cfg.sm ?? cfg.base ?? startup.scale;
+    if (w >= 1024) return cfg.lg ?? cfg.md ?? cfg.sm ?? cfg.base ?? startup.scale;
+    if (w >= 768) return cfg.md ?? cfg.sm ?? cfg.base ?? startup.scale;
+    if (w >= 640) return cfg.sm ?? cfg.base ?? startup.scale;
+    return cfg.base ?? startup.scale;
+  };
   const MarqueeContent = (
     <div className="relative w-full overflow-hidden">
       <motion.div
@@ -94,9 +124,10 @@ export default function StartupsMarquee({
                     draggable={false}
                     sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, 280px"
                     style={{
-                      transform: startup.scale
-                        ? `scale(${startup.scale})`
-                        : undefined,
+                      transform: (() => {
+                        const s = getScaleFor(startup.name, startup);
+                        return s ? `scale(${s})` : undefined;
+                      })(),
                     }}
                   />
                 </div>

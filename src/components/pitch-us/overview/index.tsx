@@ -103,7 +103,6 @@ export default function Overview() {
             line-height: 1.12;
           }
           #overview .head h3 {
-            font-size: clamp(22px, 1.7vw, 28px); /* parágrafo maior */
             line-height: 1.7;
           }
 
@@ -242,7 +241,7 @@ export default function Overview() {
 
             {/* PARÁGRAFO EM 3 LINHAS FIXAS + MAIOR */}
             <h3
-              className="text-[22px] leading-snug"
+              className=""
               style={{
                 fontFamily:
                   '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

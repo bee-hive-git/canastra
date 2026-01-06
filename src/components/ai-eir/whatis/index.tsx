@@ -114,7 +114,7 @@ export default function WhatIs() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
           >
-            Acompanhamento semanal de Fellow Partners que escalaram unicórnios, com momentos para decidir e revisar a rota.
+            As startups formadas contam com suporte contínuo para fundraising após o programa.
           </motion.p>
         </div>
       </div>

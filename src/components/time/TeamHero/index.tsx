@@ -36,7 +36,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative text-white pt-24 pb-94 min-h-[85dvh] min-[820px]:min-h-[60dvh] min-[820px]:pt-12 min-[820px]:pb-0 overflow-hidden"
+      className="relative text-white pt-24 pb-94 min-h-[85dvh] min-[820px]:min-h-[60dvh] min-[820px]:pt-0 min-[820px]:pb-0 overflow-hidden min-[820px]:flex min-[820px]:items-center"
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
@@ -121,19 +121,15 @@ export default function Hero() {
         @media (min-width: 1181px) and (max-width: 1439px) {
           #home .wrap {
             margin-left: 0;
-            padding-left: var(--site-padding-left);
-            padding-right: var(--site-padding-right);
-            max-width: 960px;
-          }
-          #home .wrap .hero-heading {
-            max-width: 920px;
+            padding-left: 5vw;
+            padding-right: 0;
           }
         }
         @media (min-width: 1440px) {
           #home .wrap {
             margin-left: 0;
-            padding-left: var(--site-padding-left);
-            padding-right: var(--site-padding-right);
+            padding-left: 5vw;
+            padding-right: 0;
           }
         }
       `}</style>
@@ -150,7 +146,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="hidden min-[820px]:block absolute right-0 top-20 z-0 w-[55vw] max-w-[700px] min-[1181px]:max-w-[800px] 2xl:max-w-[900px] pointer-events-none select-none">
+      <div className="hidden min-[820px]:block absolute right-0 top-20 z-0 w-[55vw] pointer-events-none select-none">
         <Image
           src="/time/hero/montanha-4.svg"
           alt=""
@@ -164,7 +160,7 @@ export default function Hero() {
 
       <div
         ref={wrapRef}
-        className="wrap relative z-10 w-full max-w-[560px] px-5 py-0 flex flex-col items-center text-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-[25%] min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1080px] min-[820px]:pr-6 min-[820px]:pl-10"
+        className="wrap relative z-10 w-full max-w-[560px] px-5 py-0 flex flex-col items-center text-center min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[45%] min-[820px]:pl-[5vw]"
       >
         {/* Mobile Title */}
         <h1
@@ -176,7 +172,7 @@ export default function Hero() {
 
         {/* H1 – Desktop */}
         <h1
-          className="hidden min-[820px]:block font-bold text-[49.3px] min-[820px]:text-[71.7px] leading-tight mb-3 min-[820px]:ml-[0.8px]"
+          className="hidden min-[820px]:block font-bold text-[clamp(36px,4.5vw,72px)] leading-tight mb-3"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           Nosso Time
@@ -184,15 +180,13 @@ export default function Hero() {
 
         {/* H2 – Crimson Text, peso 700, itálico */}
         <h2
-          className="hero-heading font-bold italic leading-tight text-[clamp(24px,6vw,32px)] min-[820px]:text-[clamp(35.8px,2.8vw,42.6px)] min-[820px]:max-w-[832px] mobile-fade-up delay-100"
+          className="hero-heading font-bold italic leading-tight text-[clamp(24px,6vw,32px)] min-[820px]:text-[clamp(22px,2.4vw,40px)] mobile-fade-up delay-100"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           {/* DESKTOP (≥820px) — 2 linhas fixas */}
-          <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
+          <span className="hidden min-[820px]:block">
             Um time que investe nos{" "}
             <span className="text-[#FF624D] italic font-bold">Founders</span> que estão&nbsp;
-          </span>
-          <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
             construindo o{" "}
             <span className="text-[#FF624D] italic font-bold">
               futuro da IA</span> no Brasil.&nbsp;
@@ -206,7 +200,7 @@ export default function Hero() {
 
         {/* Parágrafo – Hanken Grotesk, peso 300 (light) */}
         <p
-          className="mt-6 text-white/85 font-light text-[16px] leading-relaxed min-[820px]:mt-2 min-[820px]:whitespace-normal min-[820px]:text-[clamp(15.6px,1.04vw,18.7px)] min-[820px]:max-w-[599px] mobile-fade-up delay-200"
+          className="mt-6 text-white/85 font-light text-[16px] leading-relaxed min-[820px]:mt-4 min-[820px]:whitespace-normal min-[820px]:text-[clamp(14px,1.1vw,18px)] min-[820px]:max-w-none mobile-fade-up delay-200"
           style={{
             fontFamily:
               '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -219,7 +213,7 @@ export default function Hero() {
           {/* DESKTOP */}
           <span className="hidden min-[820px]:inline">
             Somos investidores e também empreendemos: entendemos na prática
-            <br />
+            <br className="hidden min-[1181px]:block" />
             o que é construir do zero e o valor de uma parceria que não falha.
           </span>
         </p>
