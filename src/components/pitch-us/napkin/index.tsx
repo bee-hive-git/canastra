@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import Image from "next/image";
 
 export default function Napkin() {
   const ACCENT = "#FF624D";
@@ -208,9 +209,12 @@ export default function Napkin() {
           aria-label="Expandir imagem do Napkin"
           tabIndex={0}
         >
-          <img 
+          <Image 
             src={MOBILE_IMG} 
             alt="Napkin Mobile" 
+            width={0}
+            height={0}
+            sizes="100vw"
             className="w-full h-auto rounded-2xl border border-white/10"
           />
         </div>
@@ -249,13 +253,17 @@ export default function Napkin() {
             aria-label="Napkin Expandido"
           >
             <div className="relative w-full max-w-[600px] flex flex-col items-center">
-              <motion.img 
-                src={MOBILE_IMG} 
-                alt="Napkin Full" 
-                className="w-full h-auto rounded-lg shadow-2xl"
-                variants={modalVariants}
-                onClick={(e) => e.stopPropagation()} 
-              />
+              <motion.div variants={modalVariants} className="w-full">
+                <Image
+                  src={MOBILE_IMG}
+                  alt="Napkin Full"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </motion.div>
               <motion.button
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}

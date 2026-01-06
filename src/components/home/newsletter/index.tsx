@@ -86,7 +86,7 @@ export default function Newsletter() {
           <button
             type="submit"
             className="mt-3 inline-flex items-center justify-center font-semibold h-12 px-6 rounded-md transition-colors duration-200 ease-out bg-[var(--cta-mobile)] text-white hover:brightness-110 min-[820px]:hidden"
-            style={{ ["--cta-mobile" as any]: HILIGHT_SOFT }}
+            style={{ "--cta-mobile": HILIGHT_SOFT } as React.CSSProperties}
           >
             INSCREVA-SE
           </button>
@@ -95,7 +95,7 @@ export default function Newsletter() {
           <button
             type="submit"
             className="hidden min-[820px]:inline-flex items-center justify-center font-semibold h-12 px-6 rounded-r-xl rounded-l-none border bg-gray-400 border-gray-400 text-white transition-colors duration-300 ease-out hover:bg-[var(--cta-hover)] hover:border-[var(--cta-hover)]"
-            style={{ ["--cta-hover" as any]: HILIGHT_SOFT }}
+            style={{ "--cta-hover": HILIGHT_SOFT } as React.CSSProperties}
             aria-label="Inscreva-se na newsletter"
           >
             INSCREVA-SE

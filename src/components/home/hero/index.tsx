@@ -8,6 +8,7 @@ export default function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (document as any).fonts?.ready?.then(() => {
       window.dispatchEvent(new Event("resize"));
     });

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const ACCENT = "#FF624D";
@@ -227,11 +228,12 @@ export default function Footer() {
 
         {/* Logo + copyright */}
         <div className="mt-10 min-[820px]:mt-14">
-          <img
+          <Image
             src="/footer/logo.png"
             alt="Canastra Ventures"
-            className="logo h-10 min-[820px]:h-11 w-auto select-none pointer-events-none"
-            draggable={false}
+            width={150}
+            height={44}
+            className="logo h-10 min-[820px]:h-11 w-auto select-none pointer-events-none object-contain"
           />
           <p className="legal mt-4 text-white/85 text-[14px]">
             © 2025 Canastra Ventures. Todos os direitos reservados.

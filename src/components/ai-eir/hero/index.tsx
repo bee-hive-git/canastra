@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { Card } from "./Card";
 
 export default function AIHero() {
   const trackRef = useRef<HTMLDivElement | null>(null);

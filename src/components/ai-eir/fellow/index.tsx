@@ -242,13 +242,19 @@ export default function Fellow() {
           aria-label="Fellow Partners (carrossel)"
         >
           {PHOTOS.map((src) => (
-            <img
+            <div
               key={src}
-              src={src}
-              alt=""
-              className="snap-start shrink-0 rounded-2xl w-[85vw] max-w-[440px] aspect-[100/120] object-cover select-none pointer-events-none"
-              draggable={false}
-            />
+              className="snap-start shrink-0 relative rounded-2xl w-[85vw] max-w-[440px] aspect-[100/120] select-none pointer-events-none"
+            >
+              <Image
+                src={src}
+                alt=""
+                fill
+                className="rounded-2xl object-cover"
+                draggable={false}
+                sizes="(max-width: 440px) 85vw, 440px"
+              />
+            </div>
           ))}
         </div>
 

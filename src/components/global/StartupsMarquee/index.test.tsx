@@ -4,7 +4,7 @@ import StartupsMarquee from "./index";
 // Mock framer-motion since it uses complex animations that might not run in JSDOM
 jest.mock("framer-motion", () => ({
   motion: {
-    div: ({ children, className, ...props }: any) => (
+    div: ({ children, className, ...props }: React.ComponentProps<"div">) => (
       <div className={className} data-testid="motion-div" {...props}>
         {children}
       </div>

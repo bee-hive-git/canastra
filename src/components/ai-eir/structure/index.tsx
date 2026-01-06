@@ -136,9 +136,12 @@ export default function Structure() {
           className="relative z-10 w-full max-w-[420px] min-[821px]:ml-0" 
           variants={cardVariants}
         >
-          <img 
+          <Image 
             src="/ai-eir/structure/BOX-1.svg" 
             alt="1º Etapa: Validação da Tese" 
+            width={0}
+            height={0}
+            sizes="100vw"
             className="w-full h-auto drop-shadow-2xl"
           />
         </motion.div>
@@ -160,20 +163,29 @@ export default function Structure() {
           className="relative z-10 w-full max-w-[420px] min-[821px]:ml-auto min-[821px]:mt-10" 
           variants={cardVariants}
         >
-          <img 
+          <Image 
             src="/ai-eir/structure/BOX-2.svg" 
             alt="2º Etapa: Criação e Lançamento" 
+            width={0}
+            height={0}
+            sizes="100vw"
             className="w-full h-auto drop-shadow-2xl"
           />
         </motion.div>
 
         {/* Linha 2 (Desktop) */}
-        <motion.img
-          src="/ai-eir/structure/linha-2.svg"
-          alt=""
+        <motion.div
           className="hidden min-[821px]:block absolute right-[280px] top-[560px] w-[127px] h-[206px] pointer-events-none z-0"
           variants={lineVariants}
-        />
+        >
+          <Image
+            src="/ai-eir/structure/linha-2.svg"
+            alt=""
+            width={127}
+            height={206}
+            className="w-full h-full"
+          />
+        </motion.div>
 
         {/* Linha 2 (Mobile) - Vertical */}
         <div className="min-[821px]:hidden h-12 border-l-[3px] border-dashed border-white/50 my-2"></div>
