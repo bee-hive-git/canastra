@@ -70,12 +70,7 @@ export default function AIHero() {
     >
       <style jsx global>{`
         #ai-eir-hero {
-          min-height: 105dvh;
-        }
-        @media (max-width: 330px), (max-height: 568px) {
-          #ai-eir-hero {
-            min-height: 135dvh;
-          }
+          min-height: 100svh;
         }
 
         #ai-eir-hero .carousel {

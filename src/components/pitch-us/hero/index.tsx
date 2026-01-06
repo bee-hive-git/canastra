@@ -36,7 +36,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative text-white pt-12 min-h-[100dvh] min-[820px]:pt-24 overflow-x-hidden"
+      className="relative text-white pt-12 min-h-[100svh] min-[820px]:pt-24 overflow-x-hidden"
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
@@ -115,21 +115,6 @@ export default function Hero() {
             mask-image: none !important;
             opacity: 1 !important;
             transform: none !important;
-          }
-        }
-        @media (max-height: 700px) {
-          #home {
-            min-height: 118dvh;
-          }
-        }
-        @media (max-height: 620px) {
-          #home {
-            min-height: 126dvh;
-          }
-        }
-        @media (max-height: 560px) {
-          #home {
-            min-height: 134dvh;
           }
         }
         @media (min-width: 1181px) and (max-width: 1439px) {
