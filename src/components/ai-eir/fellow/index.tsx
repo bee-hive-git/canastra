@@ -7,9 +7,9 @@ import Image from "next/image";
 
 export default function Fellow() {
   const PHOTOS = [
-    "/ai-eir/fellow/1.png",
-    "/ai-eir/fellow/2.png",
-    "/ai-eir/fellow/3.png",
+    "/ai-eir/fellow/1.svg",
+    "/ai-eir/fellow/2.svg",
+    "/ai-eir/fellow/3.svg",
   ];
 
   const HILIGHT = "#FF624D";
@@ -253,6 +253,8 @@ export default function Fellow() {
                 className="rounded-2xl object-cover object-top"
                 draggable={false}
                 sizes="(max-width: 440px) 85vw, 440px"
+                loading="eager"
+                quality={100}
               />
             </div>
           ))}
@@ -299,6 +301,8 @@ export default function Fellow() {
                   className="rounded-2xl object-cover"
                   draggable={false}
                   sizes="(min-width: 1025px) 33vw"
+                  loading="eager"
+                  quality={100}
                 />
               </motion.div>
             ))}

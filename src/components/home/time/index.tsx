@@ -1,5 +1,6 @@
 // Time.tsx
 "use client";
+import Link from "next/link";
 
 export default function Time() {
   const PHOTOS = [
@@ -110,8 +111,10 @@ export default function Time() {
 
               {/* CTA */}
               <div className="mt-6 min-[1181px]:mt-8">
-                <button
-                  type="button"
+                <Link
+                  href="/time"
+                  prefetch
+                  aria-label="Ir para a página do Time"
                   className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 min-[1181px]:min-w-[260px] min-[1181px]:h-[52px] min-[1181px]:px-8 min-[1181px]:text-[16px] min-[1181px]:border min-[1181px]:border-gray-400 min-[1181px]:bg-transparent min-[1181px]:text-white min-[1181px]:hover:brightness-110"
                 >
                   <svg
@@ -145,7 +148,7 @@ export default function Time() {
                     />
                   </svg>
                   Conheça o Time
-                </button>
+                </Link>
               </div>
             </div>
           </div>

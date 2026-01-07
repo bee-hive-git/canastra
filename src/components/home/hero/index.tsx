@@ -1,14 +1,13 @@
 // Hero.tsx
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export default function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (document as any).fonts?.ready?.then(() => {
       window.dispatchEvent(new Event("resize"));
     });
@@ -139,12 +138,9 @@ export default function Hero() {
 
       {/* 
         MOBILE IMAGE (<820px)
-        - Uses aspect-ratio container to prevent layout shift
-        - object-fit: contain ensures full image visibility without cropping
-        - Centered horizontally, anchored to bottom
       */}
-      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end">
-        <div className="relative w-full max-w-[600px] aspect-[440/346]">
+      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[50vh]">
+        <div className="relative w-full max-w-[600px] h-full">
           <Image
             src="/hero/monatnha-1-mobile.svg"
             alt="Paisagem montanhosa"
@@ -160,11 +156,6 @@ export default function Hero() {
 
       {/* 
         DESKTOP IMAGE (>=820px)
-        - Positioned absolute right-bottom to match design
-        - Uses standard CSS positioning (no transforms that might cause clipping)
-        - Width scales with viewport (vw) to maintain proportions
-        - object-fit: contain ensures the mountain is never cut off
-        - max-width constraints prevent it from becoming overwhelming on ultra-wide screens
       */}
       <div className="hidden min-[820px]:block absolute right-0 bottom-0 z-0 w-[60vw] lg:w-[55vw] xl:w-[50vw] max-w-[1400px] h-[85vh] pointer-events-none select-none">
         <Image
@@ -245,7 +236,9 @@ export default function Hero() {
 
         <div className="mt-7 flex items-center justify-center gap-3 lg:gap-4 min-[820px]:justify-start mobile-fade-up delay-300">
           <a
-            href="#ai-eir"
+            href="https://forms.gle/BjEZU9quVQq8LSXg7"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[52px] px-5 min-w-[166px] text-[15.6px] border-2 border-[#FF624D] bg-white text-black min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent min-[820px]:text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
           >
             <svg
@@ -282,7 +275,9 @@ export default function Hero() {
           </a>
 
           <a
-            href="#pitch"
+            href="https://forms.gle/FRAutKQbJt4wvCuR7"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[52px] px-5 min-w-[166px] text-[15.6px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
           >
             <svg
@@ -319,7 +314,6 @@ export default function Hero() {
           </a>
         </div>
       </div>
-
 
     </section>
   );

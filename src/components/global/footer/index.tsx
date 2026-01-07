@@ -112,7 +112,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="min-[820px]:mb-1">
-                <Link href="/pitch-us" prefetch className={linkBase}>
+                <Link
+                  href="https://forms.gle/FRAutKQbJt4wvCuR7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  prefetch={false}
+                  className={linkBase}
+                >
                   Pitch us!
                 </Link>
               </li>
@@ -139,7 +145,7 @@ export default function Footer() {
               <ul className="mt-2 space-y-1 text-[15px] min-[1120px]:space-y-[2px]">
                 <li>
                   <a
-                    href="https://www.instagram.com/canastra.ventures/?hl=br"
+                    href="https://www.instagram.com/canastra.ventures/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={linkBase}
@@ -186,7 +192,7 @@ export default function Footer() {
               <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[15px] max-[360px]:text-[14px]">
                 <li>
                   <a
-                    href="https://www.instagram.com/canastra.ventures/?hl=br"
+                    href="https://www.instagram.com/canastra.ventures/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={linkBase}

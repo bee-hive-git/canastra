@@ -225,7 +225,9 @@ export default function Hero() {
         {/* Mobile Button */}
         <div className="mt-8 min-[820px]:hidden mobile-fade-up delay-300">
              <a
-              href="/pitch-us"
+              href="https://forms.gle/FRAutKQbJt4wvCuR7"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 border border-[#FF624D] rounded-lg text-white font-bold text-lg hover:bg-[#FF624D]/10 transition-colors"
               style={{ fontFamily: '"Hanken Grotesk", sans-serif' }}
             >

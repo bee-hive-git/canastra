@@ -95,7 +95,9 @@ export default function Ask() {
           <div className="mt-6 flex items-center justify-center gap-5">
             <span className="h-px w-20 bg-white/30" />
             <a
-              href="#form-pitch"
+              href="https://forms.gle/FRAutKQbJt4wvCuR7"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
             >
               <svg
@@ -165,7 +167,9 @@ export default function Ask() {
             </p>
 
             <a
-              href="#form-pitch"
+              href="https://forms.gle/FRAutKQbJt4wvCuR7"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-5 inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-6 min-w-[200px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
             >
               <svg

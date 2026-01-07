@@ -116,8 +116,22 @@ export default function AIHero() {
         }}
       />
 
+      {/* IMAGEM desktop (substitui Lottie) */}
+      <div className="mountain-desktop pointer-events-none hidden lg:block absolute top-[15vh] right-0 z-0 h-[85vh] flex items-start justify-end">
+        <div className="w-[60vw] lg:w-[55vw] max-w-[1200px] h-full flex items-start relative">
+          <Image
+            src="/ai-eir/hero/montanha-5.svg"
+            alt=""
+            fill
+            className="object-contain object-right-top"
+            draggable={false}
+            sizes="60vw"
+          />
+        </div>
+      </div>
+
       {/* Hero Content Wrapper (Mobile: 100svh screen | Desktop: flow) */}
-      <div className="relative min-h-[100svh] lg:min-h-0 flex flex-col justify-start lg:block pt-32 lg:pt-0">
+      <div className="relative min-h-[100svh] lg:min-h-0 flex flex-col justify-start lg:block pt-32 lg:pt-[28vh]">
         {/* texto + CTA */}
         <div className="relative z-20 px-5 text-center mx-auto max-w-[640px] lg:text-left lg:px-0 lg:mx-0 lg:ml-[6vw] flex flex-col justify-start items-center lg:items-start lg:min-h-0">
 
@@ -190,8 +204,10 @@ export default function AIHero() {
 
           {/* CTA */}
           <div className="mt-6">
-            <button
-              type="button"
+            <a
+              href="https://forms.gle/BjEZU9quVQq8LSXg7"
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta inline-flex items-center justify-center gap-3 rounded-md font-semibold min-h-[48px] h-auto py-2 px-5 min-w-[170px] text-[15px] border-2 border-[#ff624d] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff624d]/60 active:translate-y-0 lg:border lg:border-gray-400 lg:bg-transparent lg:text-white lg:hover:brightness-110"
             >
               <svg
@@ -226,7 +242,7 @@ export default function AIHero() {
               </svg>
               <span className="lg:hidden">Apply for AI EIR</span>
               <span className="hidden lg:inline">Apply AI EIR</span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -293,7 +309,7 @@ export default function AIHero() {
       </div>
 
       {/* desktop cards */}
-      <div className="hidden lg:grid grid-cols-3 items-stretch justify-items-stretch gap-6 px-[4vw] lg:mt-56 mx-auto max-w-[1400px] relative z-20">
+      <div className="hidden lg:grid grid-cols-3 items-stretch justify-items-stretch gap-6 px-[4vw] lg:mt-96 mx-auto max-w-[1400px] relative z-20">
         <Card
           imageSrc="/ai-eir/hero/BOX1.svg"
           title={<></>}
@@ -314,20 +330,6 @@ export default function AIHero() {
           description=""
           delay={0.5}
         />
-      </div>
-
-      {/* IMAGEM desktop (substitui Lottie) */}
-      <div className="mountain-desktop pointer-events-none hidden lg:block absolute top-0 right-0 z-0 h-[100vh] flex items-center justify-end">
-        <div className="w-[45vw] max-w-[700px] h-full max-h-[85vh] flex items-center relative">
-          <Image
-            src="/ai-eir/hero/montanha-5.svg"
-            alt=""
-            fill
-            className="object-contain object-right"
-            draggable={false}
-            sizes="50vw"
-          />
-        </div>
       </div>
     </section>
   );

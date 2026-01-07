@@ -26,13 +26,13 @@ interface Startup {
  * 2. Add a new object to this array with the name and image path
  */
 const STARTUPS: Startup[] = [
-  { name: "Evig", logo: "/ai-eir/startups/evig.png" },
-  { name: "Quorum", logo: "/ai-eir/startups/quorum.png" },
-  { name: "Zonic", logo: "/ai-eir/startups/zonic.png" },
-  { name: "Allia", logo: "/ai-eir/startups/allia.png" },
-  { name: "Anapfy AI", logo: "/ai-eir/startups/anapfy-ai.png" },
-  { name: "Guardia", logo: "/ai-eir/startups/guardia.png" },
-  { name: "Lagoa", logo: "/ai-eir/startups/lagoa.png" },
+  { name: "Evig", logo: "/ai-eir/startups/evig.png", scale: 1.5 },
+  { name: "Quorum", logo: "/ai-eir/startups/quorum.png", scale: 1.5},
+  { name: "Zonic", logo: "/ai-eir/startups/zonic.png", scale: 1.5 },
+  { name: "Allia", logo: "/ai-eir/startups/allia.png", scale: 1.5 },
+  { name: "Anapfy AI", logo: "/ai-eir/startups/anapfy-ai.png", scale: 2 },
+  { name: "Guardia", logo: "/ai-eir/startups/guardia.png", scale: 2 },
+  { name: "Lagoa", logo: "/ai-eir/startups/lagoa.png", scale: 1.3 },
 ];
 
 export interface StartupsMarqueeProps {
@@ -123,6 +123,9 @@ export default function StartupsMarquee({
                     className="object-contain transition-transform duration-300 px-10 py-6"
                     draggable={false}
                     sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, 280px"
+                    priority={outerIndex === 0}
+                    loading={outerIndex === 0 ? undefined : "eager"}
+                    quality={100}
                     style={{
                       transform: (() => {
                         const s = getScaleFor(startup.name, startup);
@@ -141,7 +144,7 @@ export default function StartupsMarquee({
 
   if (variant === "contained") {
     return (
-      <div className="w-full px-0 md:px-6 lg:px-8">
+      <div className="w-full">
         <div className={`mx-auto border border-white/10 bg-white/[0.02] ${className ?? "max-w-[1440px]"}`}>
           {MarqueeContent}
         </div>

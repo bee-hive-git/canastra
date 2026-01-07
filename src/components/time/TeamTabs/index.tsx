@@ -88,15 +88,22 @@ export default function TeamTabs() {
     }
   };
 
-  const photos = useMemo(() => {
-    if (active === "mentors") {
+  const [shouldLoadHidden, setShouldLoadHidden] = useState(false);
+
+  useEffect(() => {
+    // Atrasa o carregamento das abas ocultas para não prejudicar o LCP inicial
+    const t = setTimeout(() => setShouldLoadHidden(true), 1500);
+    return () => clearTimeout(t);
+  }, []);
+
+  const getPhotos = (key: TabKey) => {
+    if (key === "mentors") {
       return MENTORS_DATA.map((m) => m.gridImage || m.image);
     }
-    return Array.from(
-      { length: TABS.find((t) => t.key === active)!.count },
-      (_, i) => `/time/${active}/${i + 1}.png`
-    );
-  }, [active]);
+    const tab = TABS.find((t) => t.key === key);
+    if (!tab) return [];
+    return Array.from({ length: tab.count }, (_, i) => `/time/${key}/${i + 1}.png`);
+  };
 
   // carrossel mobile
   const railRef = useRef<HTMLDivElement>(null);
@@ -280,7 +287,7 @@ export default function TeamTabs() {
           style={{ touchAction: "pan-x", gap: 0 }}
           aria-label={`${active} (carrossel)`}
         >
-          {photos.map((src, i) => (
+          {getPhotos(active).map((src, i) => (
             <div
               key={src}
               onClick={() => handleCardClick(i)}
@@ -335,7 +342,7 @@ export default function TeamTabs() {
                 width: `${GRID_W}px`,
               }}
             >
-              {photos.map((src, i) => (
+              {getPhotos(active).map((src, i) => (
                 <div
                   key={`desk-${src}`}
                   onClick={() => handleCardClick(i)}
@@ -357,6 +364,7 @@ export default function TeamTabs() {
                     sizes="(max-width: 1600px) 25vw, 360px"
                     draggable={false}
                     priority={i < 4}
+                    quality={100}
                   />
                 </div>
               ))}
@@ -364,6 +372,27 @@ export default function TeamTabs() {
           </div>
         </div>
       </div>
+
+      {/* Preloader Oculto: Carrega imagens das outras abas em background */}
+      {shouldLoadHidden && (
+        <div className="fixed left-0 top-0 w-0 h-0 overflow-hidden opacity-0 pointer-events-none" aria-hidden="true">
+          {TABS.map((tab) => {
+            if (tab.key === active) return null;
+            return getPhotos(tab.key).map((src) => (
+              <div key={`preload-${src}`} className="relative w-[360px] h-[520px]">
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  sizes="(max-width: 1600px) 25vw, 360px"
+                  quality={100}
+                  loading="eager"
+                />
+              </div>
+            ));
+          })}
+        </div>
+      )}
 
       <TeamMemberModal
         member={selectedMember}

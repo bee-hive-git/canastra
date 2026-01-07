@@ -17,20 +17,11 @@ export default function Page(){
         <Hero />
       </section>
 
-      {/* Marquee sobrepondo a parte inferior da Hero (-mt) */}
-      <section className="relative z-20 -mt-[60px] sm:-mt-[70px] bg-[#110417]">
+      {/* Marquee abaixo da Hero */}
+      <section className="bg-[#110417] py-8">
         <StartupsMarquee 
           variant="full" 
           speed={80}
-          perLogoScale={{
-            Evig: { base: 1.0, md: 1.0 },
-            Quorum: { base: 1.5, md: 1.05 },
-            Zonic: { base: 1.98, md: 1.0 },
-            Allia: { base: 1.1, md: 0.8, lg: 0.9 },
-            "Anapfy AI": { base: 1.05, md: 1.5 },
-            Guardia: { base: 0.95, md: 1.5 },
-            Lagoa: { base: 1.05, md: 0.80 },
-          }}
         />
       </section>
 

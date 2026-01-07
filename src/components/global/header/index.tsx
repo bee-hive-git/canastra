@@ -12,7 +12,7 @@ const NAV: NavItem[] = [
   { label: "Home", href: "/", exact: true },
   { label: "Time", href: "/time" },
   { label: "AI EiR", href: "/ai-eir" },
-  { label: "Pitch Us!", href: "/pitch-us" },      // penúltimo
+  { label: "Pitch Us!", href: "https://forms.gle/FRAutKQbJt4wvCuR7" },
   { label: "Recursos", href: "#nascers" },        // placeholder
 ];
 
@@ -38,11 +38,14 @@ export default function Header() {
     const base =
       "transition-colors text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-sm";
     const isAnchor = href.startsWith("#");
+    const isExternal = href.startsWith("http");
 
     return (
       <Link
         href={href}
-        prefetch={!isAnchor}
+        prefetch={!isAnchor && !isExternal}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
         aria-current={active ? "page" : undefined}
         className={base + (active ? " text-white" : "")}
       >
@@ -193,11 +196,14 @@ export default function Header() {
                     {NAV.map((item) => {
                       const active = isActive(item.href, item.exact);
                       const isAnchor = item.href.startsWith("#");
+                      const isExternal = item.href.startsWith("http");
                       return (
                         <li key={`m-${item.label}`}>
                           <Link
                             href={item.href}
-                            prefetch={!isAnchor}
+                            prefetch={!isAnchor && !isExternal}
+                            target={isExternal ? "_blank" : undefined}
+                            rel={isExternal ? "noopener noreferrer" : undefined}
                             onClick={close}
                             aria-current={active ? "page" : undefined}
                             className={`
@@ -250,7 +256,7 @@ export default function Header() {
 
                       {/* LinkedIn */}
                       <a
-                        href="https://www.linkedin.com/company/canastra-ventures/"
+                        href="https://www.linkedin.com/school/canastra-ventures/"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Perfil profissional no LinkedIn"

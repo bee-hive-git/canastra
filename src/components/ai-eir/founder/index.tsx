@@ -27,6 +27,29 @@ const CARDS = [
   },
 ];
 
+const MOBILE_CARDS = [
+  {
+    id: 1,
+    src: "/ai-eir/founder/1-mobile.png",
+    alt: "Founder 1",
+  },
+  {
+    id: 2,
+    src: "/ai-eir/founder/2-mobile.png",
+    alt: "Founder 2",
+  },
+  {
+    id: 3,
+    src: "/ai-eir/founder/3-mobile.png",
+    alt: "Founder 3",
+  },
+  {
+    id: 4,
+    src: "/ai-eir/founder/4-mobile.png",
+    alt: "Founder 4",
+  },
+];
+
 export default function FounderSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -55,8 +78,25 @@ export default function FounderSection() {
         </p>
       </div>
 
-      {/* Área do Carrossel */}
-      <div className="relative w-full max-w-[1400px] flex items-center justify-center px-0 md:px-12">
+      {/* Mobile Layout (Vertical List) */}
+      <div className="md:hidden w-full px-6 flex flex-col gap-6">
+        {MOBILE_CARDS.map((card) => (
+          <div key={card.id} className="w-full rounded-xl overflow-hidden shadow-2xl">
+            <Image
+              src={card.src}
+              alt={card.alt}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full h-auto object-contain"
+              draggable={false}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Área do Carrossel (Desktop Only) */}
+      <div className="hidden md:flex relative w-full max-w-[1400px] items-center justify-center px-0 md:px-12">
         {/* Botão Anterior (Mobile: ajustado posição) */}
         <button
           onClick={prevCard}
@@ -79,18 +119,18 @@ export default function FounderSection() {
         </button>
 
         {/* Display do Card */}
-        <div className="w-full md:max-w-[1000px] overflow-hidden">
+        <div className="w-full md:max-w-[1200px] overflow-hidden">
           <motion.div
             className="flex"
             animate={{ x: `-${activeIndex * 100}%` }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            {CARDS.map((card) => (
+            {CARDS.map((card, index) => (
               <div
                 key={card.id}
                 className="min-w-full flex justify-center px-8 md:px-4"
               >
-                <div className="relative w-full max-w-[800px] rounded-xl overflow-hidden shadow-2xl">
+                <div className="relative w-full max-w-[1000px] rounded-xl overflow-hidden shadow-2xl">
                    <Image
                       src={card.src}
                       alt={card.alt}
@@ -99,6 +139,9 @@ export default function FounderSection() {
                       sizes="100vw"
                       className="w-full h-auto object-contain"
                       draggable={false}
+                      priority={index === 0}
+                      loading={index === 0 ? undefined : "eager"}
+                      quality={100}
                     />
                 </div>
               </div>
@@ -128,8 +171,8 @@ export default function FounderSection() {
         </button>
       </div>
 
-      {/* Indicadores (Dots) */}
-      <div className="flex gap-2 mt-8">
+      {/* Indicadores (Dots) - Desktop Only */}
+      <div className="hidden md:flex gap-2 mt-8">
         {CARDS.map((_, index) => (
           <button
             key={index}

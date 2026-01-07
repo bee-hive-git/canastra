@@ -78,8 +78,10 @@ export default function WhatIs() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           >
-            <button
-              type="button"
+            <a
+              href="https://forms.gle/BjEZU9quVQq8LSXg7"
+              target="_blank"
+              rel="noopener noreferrer"
               className={[
                 "inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] transition-all duration-200 ease-out",
                 "border-2 border-[#FF624D] bg-white text-black hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/10",
@@ -100,7 +102,7 @@ export default function WhatIs() {
               </svg>
               <span className="min-[820px]:hidden">Apply for AI EIR</span>
               <span className="hidden min-[820px]:inline">Apply AI EIR</span>
-            </button>
+            </a>
           </motion.div>
 
           {/* Texto de apoio */}

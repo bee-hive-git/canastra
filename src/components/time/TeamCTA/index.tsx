@@ -106,7 +106,9 @@ export default function TeamCta() {
             </p>
 
             <a
-              href="/pitch-us#form-pitch"
+              href="https://forms.gle/FRAutKQbJt4wvCuR7"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-5 inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-6 min-w-[200px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
             >
               <svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true" className="-ml-1 text-[#FF624D]">

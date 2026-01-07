@@ -86,7 +86,7 @@ export default function Napkin() {
               Conheça o nosso
             </span>
             <span
-              className="block italic font-semibold text-[40px] xl:text-[52px]"
+              className="block italic font-semibold text-[48px] xl:text-[62px]"
               style={{
                 color: ACCENT,
                 fontWeight: 700,
@@ -129,10 +129,11 @@ export default function Napkin() {
       <div className="mx-auto max-w-[560px] px-5 min-[1181px]:hidden">
         <header className="text-center">
           <h2
-            className="text-[28px] leading-tight"
+            className="text-[34px] leading-tight"
             style={{
               fontFamily: '"Crimson Text", serif',
               fontWeight: 700,
+              color: ACCENT,
             }}
           >
             Napkin
@@ -181,18 +182,7 @@ export default function Napkin() {
               backgroundSize: "100% 100%",
             }}
           />
-          <p
-            className="mt-2 rounded-xl px-4 py-3 text-[13px] leading-relaxed text-white/85"
-            style={{
-              width: "100%",
-              border: `1px solid ${ACCENT}`,
-              backgroundColor: "rgba(255,255,255,0.04)",
-            }}
-          >
-            Disclaimer: O Napkin se encaixa perfeitamente na nossa tese, mas seguimos abertos a avaliar
-            oportunidades fora do nosso sweet spot, com base em uma análise criteriosa e individual de
-            cada caso.
-          </p>
+
         </div>
       </div>
 
@@ -219,23 +209,7 @@ export default function Napkin() {
           />
         </div>
 
-        <p
-          className="mt-6 rounded-xl px-4 py-3 text-[13px] leading-relaxed text-white/85"
-          style={{
-            border: `1px solid ${ACCENT}`,
-            backgroundColor: "rgba(255,255,255,0.04)",
-          }}
-        >
-          <span className="italic font-semibold" style={{ color: ACCENT }}>
-            Disclaimer:
-          </span>{" "}
-          O <span className="italic font-semibold" style={{ color: ACCENT }}>Napkin</span> se encaixa
-          perfeitamente na nossa tese, mas seguimos abertos a avaliar oportunidades fora do nosso{" "}
-          <span className="italic font-semibold" style={{ color: ACCENT }}>
-            sweet spot
-          </span>
-          , com base em uma análise criteriosa e individual de cada caso.
-        </p>
+
       </div>
 
       {/* MODAL */}

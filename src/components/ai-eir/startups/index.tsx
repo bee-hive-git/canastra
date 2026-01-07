@@ -39,20 +39,21 @@ export default function Startups() {
         </motion.div>
 
         {/* Marquee System */}
-        <StartupsMarquee 
-          variant="contained" 
-          speed={80} 
-          className="max-w-[1800px]" 
-          perLogoScale={{
-            Evig: { base: 1.5, md: 1.0 },
-            Quorum: { base: 1.7, md: 1.05 },
-            Zonic: { base: 1.6, md: 1.0 },
-            Allia: { base: 1.3, md: 0.8, lg: 1.0 },
-            "Anapfy AI": { base: 1.95, md: 1.5 },
-            Guardia: { base: 1.95, md: 1.6 },
-            Lagoa: { base: 1.25, md: 0.80 },
-          }}
-        />
+        <div className="px-6">
+          <StartupsMarquee 
+            variant="full" 
+            speed={80} 
+            perLogoScale={{
+              Evig: { base: 1.5, md: 1.0 },
+              Quorum: { base: 1.7, md: 1.05 },
+              Zonic: { base: 1.6, md: 1.0 },
+              Allia: { base: 1.3, md: 0.8, lg: 1.0 },
+              "Anapfy AI": { base: 1.95, md: 1.5 },
+              Guardia: { base: 1.95, md: 1.6 },
+              Lagoa: { base: 1.25, md: 0.80 },
+            }}
+          />
+        </div>
       </div>
     </section>
   );

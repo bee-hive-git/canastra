@@ -8,7 +8,6 @@ export default function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (document as any).fonts?.ready?.then(() => {
       window.dispatchEvent(new Event("resize"));
     });
@@ -225,14 +224,16 @@ export default function Hero() {
               '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
           }}
         >
-          Apoiamos fundadores com expertise em inteligência artificial desde o início, investindo nas primeiras rodadas de startups AI-First com ambição de escalar no Brasil e além.
+          Apoiamos founders com profunda expertise em inteligência artificial desde os estágios iniciais, investindo nas primeiras rodadas de startups AI-First que tenham o Brasil como um de seus mercados-alvo, mas que já nascem com ambição global, visão de longo prazo e potencial para disruptar grandes mercados.
         </p>
 
         <div className="mt-7 flex items-center justify-center gap-3 lg:gap-4 min-[820px]:justify-start mobile-fade-up delay-300">
          
 
           <a
-            href="#pitch"
+            href="https://forms.gle/FRAutKQbJt4wvCuR7"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[52px] px-5 min-w-[166px] text-[15.6px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
           >
             <svg

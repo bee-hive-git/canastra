@@ -114,6 +114,7 @@ export default function Value() {
             style={{
               fontFamily:
                 '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+              width: "86%",
             }}
           >
             Após o investimento, colaboramos com os founders na criação de um
