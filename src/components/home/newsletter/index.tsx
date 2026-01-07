@@ -85,8 +85,8 @@ export default function Newsletter() {
           {/* CTA mobile */}
           <button
             type="submit"
-            className="mt-3 inline-flex items-center justify-center font-semibold h-12 px-6 rounded-md transition-colors duration-200 ease-out bg-[var(--cta-mobile)] text-white hover:brightness-110 min-[820px]:hidden"
-            style={{ "--cta-mobile": HILIGHT_SOFT } as React.CSSProperties}
+            className="mt-6 inline-flex items-center justify-center font-semibold h-12 px-6 rounded-md transition-colors duration-200 ease-out bg-[var(--cta-mobile)] text-white hover:brightness-110 min-[820px]:hidden"
+            style={{ "--cta-mobile": HILIGHT } as React.CSSProperties}
           >
             INSCREVA-SE
           </button>

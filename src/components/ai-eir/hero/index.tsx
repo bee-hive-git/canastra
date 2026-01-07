@@ -65,12 +65,12 @@ export default function AIHero() {
     <section
       ref={sectionRef}
       id="ai-eir-hero"
-      className="relative overflow-hidden text-white pt-24 pb-16 lg:pt-28 lg:pb-32"
+      className="relative overflow-hidden text-white lg:pt-28 lg:pb-32"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       <style jsx global>{`
         #ai-eir-hero {
-          min-height: 100svh;
+          /* min-height handled by inner wrapper on mobile */
         }
 
         #ai-eir-hero .carousel {
@@ -86,6 +86,9 @@ export default function AIHero() {
 
         /* ===== DESKTOP: aumentar textos ===== */
         @media (min-width: 1024px) {
+          #ai-eir-hero {
+             min-height: 100svh;
+          }
           #ai-eir-hero .desk-h1 {
             font-size: clamp(52px, 4.4vw, 65px);
             line-height: 1.08;
@@ -113,169 +116,184 @@ export default function AIHero() {
         }}
       />
 
-      {/* texto + CTA */}
-      <div className="relative z-20 px-5 text-center mx-auto max-w-[640px] lg:text-left lg:px-0 lg:mx-0 lg:ml-[6vw] flex flex-col justify-center min-h-[60vh]">
+      {/* Hero Content Wrapper (Mobile: 100svh screen | Desktop: flow) */}
+      <div className="relative min-h-[100svh] lg:min-h-0 flex flex-col justify-start lg:block pt-32 lg:pt-0">
+        {/* texto + CTA */}
+        <div className="relative z-20 px-5 text-center mx-auto max-w-[640px] lg:text-left lg:px-0 lg:mx-0 lg:ml-[6vw] flex flex-col justify-start items-center lg:items-start lg:min-h-0">
 
-        {/* H1 desktop — corrigido (Residence branco) */}
-        <h1
-          className="desk-h1 hidden lg:block font-bold mb-3 text-[48px] lg:text-[56px] leading-[1.15]"
-          style={{ fontFamily: '"Crimson Text", serif' }}
-        >
-          AI <span className="italic">Entrepreneur</span><br />
-          in <span className="italic">Residence</span>
-        </h1>
-
-        {/* H1 mobile — não tinha cor antes, mantido certo */}
-        <h1
-          className="lg:hidden font-bold mb-3 text-[30px] leading-[1.15]"
-          style={{ fontFamily: '"Crimson Text", serif' }}
-        >
-          AI <span className="italic">EiR</span>
-        </h1>
-
-        {/* H2 desktop */}
-        <h2
-          className="desk-h2 hidden lg:block font-bold italic text-[32px] lg:text-[40px] leading-tight mb-4 max-w-[550px]"
-          style={{ fontFamily: '"Crimson Text", serif' }}
-        >
-          Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
-          <span className="text-[#ff624d]"> <br />fundraising em 12 semanas</span>
-        </h2>
-
-        {/* H2 mobile */}
-        <h2
-          className="lg:hidden font-bold italic text-[26px] leading-tight mb-4"
-          style={{ fontFamily: '"Crimson Text", serif' }}
-        >
-          Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
-          fundraising em <span className="text-[#ff624d]">12 semanas</span>
-        </h2>
-
-        {/* p desktop */}
-        <p
-          className="desk-body hidden lg:block text-white/90 max-w-[60ch] font-normal"
-          style={{
-            fontFamily:
-              '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-          }}
-        >
-          Transforme sua ideia em uma startup de IA com apoio direto<br />de quem já criou e investiu em startups de sucesso.
-        </p>
-
-        {/* p mobile */}
-        <p
-          className="lg:hidden text-white/90 text-[16px] leading-relaxed mx-auto max-w-[46ch] font-normal"
-          style={{
-            fontFamily:
-              '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-          }}
-        >
-          Transforme sua ideia em uma{" "}
-          <span className="text-[#ff624d] font-semibold italic">
-            startup de IA
-          </span>{" "}
-          com apoio{" "}
-          <span className="text-[#ff624d] font-semibold italic">direto</span> de
-          quem já criou e investiu em{" "}
-          <span className="text-[#ff624d] font-semibold italic">
-            startups de sucesso
-          </span>
-          .
-        </p>
-
-        {/* CTA */}
-        <div className="mt-6">
-          <button
-            type="button"
-            className="cta inline-flex items-center justify-center gap-3 rounded-md font-semibold min-h-[48px] h-auto py-2 px-5 min-w-[170px] text-[15px] border-2 border-[#ff624d] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff624d]/60 active:translate-y-0 lg:border lg:border-gray-400 lg:bg-transparent lg:text-white lg:hover:brightness-110"
+          {/* H1 desktop — corrigido (Residence branco) */}
+          <h1
+            className="desk-h1 hidden lg:block font-bold mb-3 text-[48px] lg:text-[56px] leading-[1.15]"
+            style={{ fontFamily: '"Crimson Text", serif' }}
           >
-            <svg
-              width="26"
-              height="22"
-              viewBox="0 0 26 22"
-              aria-hidden="true"
-              className="-ml-1 text-[#ff624d] lg:text-gray-400"
+            AI <span className="italic">Entrepreneur</span><br />
+            in <span className="italic">Residence</span>
+          </h1>
+
+          {/* H1 mobile — não tinha cor antes, mantido certo */}
+          <h1
+            className="lg:hidden font-bold mb-3 text-[30px] leading-[1.15]"
+            style={{ fontFamily: '"Crimson Text", serif' }}
+          >
+            AI <span className="italic">EiR</span>
+          </h1>
+
+          {/* H2 desktop */}
+          <h2
+            className="desk-h2 hidden lg:block font-bold italic text-[32px] lg:text-[40px] leading-tight mb-4 max-w-[550px]"
+            style={{ fontFamily: '"Crimson Text", serif' }}
+          >
+            Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
+            <span className="text-[#ff624d]"> <br />fundraising em 12 semanas</span>
+          </h2>
+
+          {/* H2 mobile */}
+          <h2
+            className="lg:hidden font-bold italic text-[26px] leading-tight mb-4"
+            style={{ fontFamily: '"Crimson Text", serif' }}
+          >
+            Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
+            fundraising em <span className="text-[#ff624d]">12 semanas</span>
+          </h2>
+
+          {/* p desktop */}
+          <p
+            className="desk-body hidden lg:block text-white/90 max-w-[60ch] font-normal"
+            style={{
+              fontFamily:
+                '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+            }}
+          >
+            Transforme sua ideia em uma startup de IA com apoio direto<br />de quem já criou e investiu em startups de sucesso.
+          </p>
+
+          {/* p mobile */}
+          <p
+            className="lg:hidden text-white/90 text-[16px] leading-relaxed mx-auto max-w-[46ch] font-normal"
+            style={{
+              fontFamily:
+                '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+            }}
+          >
+            Transforme sua ideia em uma{" "}
+            <span className="text-[#ff624d] font-semibold italic">
+              startup de IA
+            </span>{" "}
+            com apoio{" "}
+            <span className="text-[#ff624d] font-semibold italic">direto</span> de
+            quem já criou e investiu em{" "}
+            <span className="text-[#ff624d] font-semibold italic">
+              startups de sucesso
+            </span>
+            .
+          </p>
+
+          {/* CTA */}
+          <div className="mt-6">
+            <button
+              type="button"
+              className="cta inline-flex items-center justify-center gap-3 rounded-md font-semibold min-h-[48px] h-auto py-2 px-5 min-w-[170px] text-[15px] border-2 border-[#ff624d] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff624d]/60 active:translate-y-0 lg:border lg:border-gray-400 lg:bg-transparent lg:text-white lg:hover:brightness-110"
             >
-              <path
-                d="M2 11h6"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M9 11h7"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M16 7l6 4-6 4"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
-            <span className="lg:hidden">Apply for AI EIR</span>
-            <span className="hidden lg:inline">Apply AI EIR</span>
-          </button>
+              <svg
+                width="26"
+                height="22"
+                viewBox="0 0 26 22"
+                aria-hidden="true"
+                className="-ml-1 text-[#ff624d] lg:text-gray-400"
+              >
+                <path
+                  d="M2 11h6"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M9 11h7"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M16 7l6 4-6 4"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+              <span className="lg:hidden">Apply for AI EIR</span>
+              <span className="hidden lg:inline">Apply AI EIR</span>
+            </button>
+          </div>
         </div>
 
-        {/* mobile cards */}
-        <div className="mt-8 lg:hidden">
-          <div
-            ref={trackRef}
-            className="carousel flex gap-4 overflow-x-auto snap-x snap-mandatory px-5 pb-12 scroll-smooth"
-            style={{ scrollbarWidth: "none" }}
-          >
-            {[
-              {
-                imageSrc: "/ai-eir/hero/BOX1.svg",
-                title: <></>,
-                description: "",
-              },
-              {
-                imageSrc: "/ai-eir/hero/BOX2.svg",
-                title: <></>,
-                description: "",
-              },
-              {
-                imageSrc: "/ai-eir/hero/BOX3.svg",
-                title: <></>,
-                description: "",
-              },
-            ].map((card, i) => (
-              <div
-                key={i}
-                className="shrink-0 snap-start min-w-[85%] max-w-[85%] sm:min-w-[70%] sm:max-w-[70%]"
-              >
-                <Card
-                  imageSrc={card.imageSrc}
-                  title={card.title}
-                  description={card.description}
-                  className="w-full h-full"
-                />
-              </div>
-            ))}
-          </div>
-          <div className="mt-[-20px] mx-auto max-w-[360px] px-5">
-            <div className="h-1 rounded-full bg-white/15">
-              <div
-                className="h-1 rounded-full bg-white transition-[width] duration-150"
-                style={{
-                  width: `${Math.max(8, progress * 100)}%`,
-                }}
+        {/* IMAGEM mobile (moved inside wrapper to be absolute bottom of first screen) */}
+        <div className="mountain-mobile pointer-events-none select-none absolute right-0 bottom-0 w-[110%] h-[40vh] block lg:hidden">
+          <Image
+            src="/hero/montanha-3.svg"
+            alt=""
+            fill
+            className="object-contain object-right-bottom"
+            draggable={false}
+            sizes="100vw"
+          />
+        </div>
+      </div>
+
+      {/* mobile cards (moved outside text container) */}
+      <div className="lg:hidden relative z-20 pb-16 bg-[#110417]">
+        <div
+          ref={trackRef}
+          className="carousel flex gap-4 overflow-x-auto snap-x snap-mandatory px-5 pb-12 scroll-smooth"
+          style={{ scrollbarWidth: "none" }}
+        >
+          {[
+            {
+              imageSrc: "/ai-eir/hero/BOX1.svg",
+              title: <></>,
+              description: "",
+            },
+            {
+              imageSrc: "/ai-eir/hero/BOX2.svg",
+              title: <></>,
+              description: "",
+            },
+            {
+              imageSrc: "/ai-eir/hero/BOX3.svg",
+              title: <></>,
+              description: "",
+            },
+          ].map((card, i) => (
+            <div
+              key={i}
+              className="shrink-0 snap-start min-w-[85%] max-w-[85%] sm:min-w-[70%] sm:max-w-[70%]"
+            >
+              <Card
+                imageSrc={card.imageSrc}
+                title={card.title}
+                description={card.description}
+                className="w-full h-full"
               />
             </div>
+          ))}
+        </div>
+        <div className="mt-[-20px] mx-auto max-w-[360px] px-5">
+          <div className="h-1 rounded-full bg-white/15">
+            <div
+              className="h-1 rounded-full bg-white transition-[width] duration-150"
+              style={{
+                width: `${Math.max(8, progress * 100)}%`,
+              }}
+            />
           </div>
         </div>
       </div>
 
       {/* desktop cards */}
-      <div className="hidden lg:grid grid-cols-3 items-stretch justify-items-stretch gap-6 px-[4vw] lg:mt-28 mx-auto max-w-[1400px] relative z-20">
+      <div className="hidden lg:grid grid-cols-3 items-stretch justify-items-stretch gap-6 px-[4vw] lg:mt-56 mx-auto max-w-[1400px] relative z-20">
         <Card
           imageSrc="/ai-eir/hero/BOX1.svg"
           title={<></>}
@@ -298,20 +316,8 @@ export default function AIHero() {
         />
       </div>
 
-      {/* IMAGEM mobile (substitui Lottie) */}
-      <div className="mountain-mobile pointer-events-none select-none absolute right-0 bottom-0 w-[110%] h-[40vh] block lg:hidden">
-        <Image
-          src="/hero/montanha-3.svg"
-          alt=""
-          fill
-          className="object-contain object-right-bottom"
-          draggable={false}
-          sizes="100vw"
-        />
-      </div>
-
       {/* IMAGEM desktop (substitui Lottie) */}
-      <div className="mountain-desktop pointer-events-none hidden lg:block absolute top-10 right-0 z-0 h-full flex items-center justify-end">
+      <div className="mountain-desktop pointer-events-none hidden lg:block absolute top-0 right-0 z-0 h-[100vh] flex items-center justify-end">
         <div className="w-[45vw] max-w-[700px] h-full max-h-[85vh] flex items-center relative">
           <Image
             src="/ai-eir/hero/montanha-5.svg"
