@@ -23,7 +23,6 @@ export default function AIHero() {
 
       {/* Main Hero Area Wrapper - Full Width */}
       <div className="relative w-full min-h-[100svh] mb-24 min-[820px]:min-h-0 min-[820px]:h-[85dvh] min-[820px]:mb-40">
-        {/* IMAGEM desktop (substitui Lottie) */}
         <div className="mountain-desktop pointer-events-none hidden min-[820px]:block absolute top-[10vh] min-[820px]:right-[var(--site-padding-right)] z-0 h-[85vh] w-[60vw] lg:w-[55vw] xl:w-[50vw] flex items-start justify-end">
           <div className="w-full h-full relative">
             <Image
@@ -159,7 +158,7 @@ export default function AIHero() {
         <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[50svh]">
           <div className="relative w-full max-w-[600px] h-full">
             <Image
-              src="/hero/montanha-3.svg"
+              src="/ai-eir/hero/montanha-5.svg"
               alt=""
               fill
               className="object-contain object-bottom"

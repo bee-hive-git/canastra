@@ -26,24 +26,24 @@ export default function Sobre() {
       ref={sectionRef}
       id="sobre"
       data-edge-section
-      className="relative overflow-hidden text-white pt-16 min-h-[100dvh] md:pt-0 md:min-h-screen md:flex md:items-center"
+      className="relative overflow-hidden text-white pt-12 min-h-[100svh] md:pt-0 md:min-h-screen md:flex md:items-center"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       <style jsx global>{`
         /* Mobile Height Adjustments (Hero Pattern) */
         @media (max-height: 700px) {
           #sobre {
-            min-height: 118dvh;
+            min-height: 118svh;
           }
         }
         @media (max-height: 620px) {
           #sobre {
-            min-height: 126dvh;
+            min-height: 126svh;
           }
         }
         @media (max-height: 560px) {
           #sobre {
-            min-height: 134dvh;
+            min-height: 134svh;
           }
         }
 
