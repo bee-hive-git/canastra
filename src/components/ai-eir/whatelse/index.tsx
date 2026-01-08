@@ -91,7 +91,7 @@ export default function WhatElse() {
           />
           <Card
             title="Office Hours"
-            text="Sessões individuais (1:1) e em grupo semanais com os Fellow Partners."
+            text="Sessões individuais (1:1) e em grupo semanais com os Fellow Partners para tomada de decisão e revisão da rota com quem viveu e superou os mesmos desafios."
             variants={cardVariants}
           />
           <Card

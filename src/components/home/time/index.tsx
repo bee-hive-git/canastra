@@ -81,17 +81,17 @@ export default function Time() {
       <div className="wrap w-full px-5">
         <div className="w-full">
           {/* Header (Texto + CTA) */}
-          {/* A partir de 820px (min-[820px]), alinhamos à esquerda para bater com o menu */}
           <div className="flex flex-col items-center min-[820px]:items-start text-center min-[820px]:text-left mb-12 min-[1181px]:mb-16">
             <div className="max-w-[46ch] min-[1181px]:max-w-[680px]">
               <h2
-                className="font-bold leading-tight mb-3 min-[1181px]:mb-4 text-[28px] min-[1181px]:text-[clamp(44px,3.6vw,62px)]"
+                className="font-bold text-[28px] leading-snug mb-8 md:mb-12 md:text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px] md:leading-[1.08]"
                 style={{ fontFamily: '"Crimson Text", serif' }}
               >
-                Nosso <span className="text-[#FF624D] font-bold">Time</span>
+                Nosso <span className="text-[#FF624D]">Time</span>
               </h2>
+
               <p
-                className="text-white/85 leading-relaxed font-normal text-[15px] min-[1181px]:text-[clamp(21px,1.6vw,28px)] min-[1181px]:leading-[1.9]"
+                className="text-white/90 text-[clamp(15px,3vw,16px)] leading-relaxed mx-auto max-w-[46ch] md:mx-0 md:max-w-[50ch] lg:max-w-[55ch] md:text-[clamp(18px,1.5vw,24px)] md:leading-[1.6] font-normal"
                 style={{
                   fontFamily:
                     '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -101,28 +101,26 @@ export default function Time() {
                 <span className="text-[#FF624D] italic font-semibold">
                   world-class founders
                 </span>{" "}
-                e especialistas em nossa equipe para apoiar fundadores em
-                todos os seus desafios de construção de uma{" "}
+                e especialistas em nossa equipe para apoiar fundadores em todos os seus desafios de construção de uma{" "}
                 <span className="text-[#FF624D] italic font-semibold">
                   startup de IA
-                </span>
-                .
+                </span>.
               </p>
 
               {/* CTA */}
-              <div className="mt-6 min-[1181px]:mt-8">
+              <div className="mt-8 md:mt-12">
                 <Link
                   href="/time"
                   prefetch
                   aria-label="Ir para a página do Time"
-                  className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 min-[1181px]:min-w-[260px] min-[1181px]:h-[52px] min-[1181px]:px-8 min-[1181px]:text-[16px] min-[1181px]:border min-[1181px]:border-gray-400 min-[1181px]:bg-transparent min-[1181px]:text-white min-[1181px]:hover:brightness-110"
+                  className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 md:min-w-[260px] md:h-[52px] md:px-8 md:text-[16px] md:border md:border-gray-400 md:bg-transparent md:text-white md:hover:brightness-110"
                 >
                   <svg
                     width="26"
                     height="22"
                     viewBox="0 0 26 22"
                     aria-hidden="true"
-                    className="-ml-1 text-[#FF624D] min-[1181px]:text-gray-400"
+                    className="-ml-1 text-[#FF624D] md:text-gray-400"
                   >
                     <path
                       d="M2 11h6"
@@ -151,7 +149,7 @@ export default function Time() {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> 
 
           {/* Grid de Fotos - Híbrido: Scroll (Mobile) / Grid (Desktop) */}
           <div className="flex flex-nowrap overflow-x-auto lg:grid lg:grid-cols-5 lg:overflow-visible pb-4 -mx-5 px-5 lg:mx-0 lg:px-0 gap-4 lg:gap-6 xl:gap-8 hide-scroll snap-x snap-mandatory">

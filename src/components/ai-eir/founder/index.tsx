@@ -100,7 +100,7 @@ export default function FounderSection() {
         {/* Botão Anterior (Mobile: ajustado posição) */}
         <button
           onClick={prevCard}
-          className="absolute left-2 md:left-4 z-30 p-2 md:p-3 bg-white/10 rounded-full text-white hover:bg-white/20 transition-all focus:outline-none backdrop-blur-sm"
+          className="absolute left-4 md:left-10 z-30 p-2 md:p-3 bg-white/10 rounded-full text-white hover:bg-white/20 transition-all focus:outline-none backdrop-blur-sm"
           aria-label="Anterior"
         >
           <svg
@@ -152,7 +152,7 @@ export default function FounderSection() {
         {/* Botão Próximo */}
         <button
           onClick={nextCard}
-          className="absolute right-2 md:right-4 z-30 p-2 md:p-3 bg-white/10 rounded-full text-white hover:bg-white/20 transition-all focus:outline-none backdrop-blur-sm"
+          className="absolute right-4 md:right-10 z-30 p-2 md:p-3 bg-white/10 rounded-full text-white hover:bg-white/20 transition-all focus:outline-none backdrop-blur-sm"
           aria-label="Próximo"
         >
           <svg

@@ -210,8 +210,8 @@ export default function Fellow() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h2 className="font-serif title mb-2">Conheça os</h2>
-        <div className="font-serif subtitle italic text-[#FF624D] mb-4">
+        <h2 className="font-serif title mb-0">Conheça os</h2>
+        <div className="font-serif subtitle italic font-bold text-[#FF624D] mb-4 -mt-1">
           Fellow Partners
         </div>
         <p className="lead text-white/85 max-w-[70ch] mx-auto">

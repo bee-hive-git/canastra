@@ -169,12 +169,14 @@ export default function Sobre() {
         >
           {/* TABLET/DESKTOP */}
           <span className="hidden md:block">
-            Ao longo de 12 semanas, os founders selecionados para o{" "}
+            Ao longo de 12 semanas, os founders selecionados para o{" "} <br />
             <span className="text-[#FF624D] font-semibold">AI Entrepreneur in Residence (AI EiR)</span>,
             terão apoio hands-on dos nossos{" "}
-            <span className="text-[#FF624D] font-semibold">Fallow Partners</span>.
-            , mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar os primeiros sinais de tração rumo ao primeiro cheque.{" "}
-          </span>
+            Fellow Partners, mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar
+             os primeiros sinais de tração rumo ao {" "}
+              <span className="text-[#FF624D] font-semibold">primeiro cheque</span>.
+          </span> 
+          
 
           {/* MOBILE */}
           <span className="md:hidden">
@@ -187,7 +189,7 @@ export default function Sobre() {
         </p>
 
         {/* Botão */}
-        <div className="mt-6 md:mt-8 fade-up-delay2">
+        <div className="mt-8 md:mt-12 fade-up-delay2">
           <a
             href="https://forms.gle/BjEZU9quVQq8LSXg7"
             target="_blank"

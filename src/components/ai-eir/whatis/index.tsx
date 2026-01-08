@@ -100,8 +100,8 @@ export default function WhatIs() {
                 <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
                 <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span className="min-[820px]:hidden">Apply for AI EIR</span>
-              <span className="hidden min-[820px]:inline">Apply AI EIR</span>
+              <span className="min-[820px]:hidden">Apply AI EiR</span>
+              <span className="hidden min-[820px]:inline">Apply AI EiR</span>
             </a>
           </motion.div>
 

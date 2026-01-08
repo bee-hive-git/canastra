@@ -144,7 +144,7 @@ export default function Structure() {
           variants={cardVariants}
         >
           <Image 
-            src="/ai-eir/structure/BOX-WEB.svg"
+            src="/ai-eir/structure/BOX-WEB.png"
             alt="Estrutura do Programa (desktop)"
             width={1200}
             height={800}

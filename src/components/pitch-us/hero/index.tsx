@@ -218,7 +218,7 @@ export default function Hero() {
 
         {/* Parágrafo – Hanken Grotesk, peso 300 (light) */}
         <p
-          className="mt-4 text-white/85 font-light text-[14px] leading-relaxed max-w-[320px] mx-auto min-[820px]:mx-0 min-[820px]:max-w-[499px] mobile-fade-up delay-200"
+          className="mt-4 text-white/85 font-light text-[16px] leading-relaxed max-w-[320px] mx-auto min-[820px]:mx-0 min-[820px]:text-[clamp(14px,1.1vw,18px)] min-[820px]:max-w-[499px] mobile-fade-up delay-200"
           style={{
             fontFamily:
               '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

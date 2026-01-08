@@ -89,7 +89,7 @@ export default function Inscreva() {
                 <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
                 <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
               </svg>
-              Apply for AI EIR
+              Apply AI EiR
             </a>
             <span className="h-px w-20 bg-white/30" />
           </div>
@@ -131,7 +131,7 @@ export default function Inscreva() {
                 <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
                 <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
               </svg>
-              Apply for AI EIR
+              Apply AI EiR
             </a>
           </div>
         </div>

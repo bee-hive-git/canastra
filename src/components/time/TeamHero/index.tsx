@@ -36,7 +36,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative text-white pt-24 pb-94 min-h-[85dvh] min-[820px]:min-h-[60dvh] min-[820px]:pt-0 min-[820px]:pb-0 overflow-hidden min-[820px]:flex min-[820px]:items-center"
+      className="relative text-white pt-32 pb-24 min-h-[85dvh] min-[820px]:min-h-[90dvh] min-[820px]:pt-24 min-[820px]:pb-0 overflow-hidden min-[820px]:flex min-[820px]:items-center"
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
@@ -117,21 +117,6 @@ export default function Hero() {
             transform: none !important;
           }
         }
-        
-        @media (min-width: 1181px) and (max-width: 1439px) {
-          #home .wrap {
-            margin-left: 0;
-            padding-left: 5vw;
-            padding-right: 0;
-          }
-        }
-        @media (min-width: 1440px) {
-          #home .wrap {
-            margin-left: 0;
-            padding-left: 5vw;
-            padding-right: 0;
-          }
-        }
       `}</style>
 
       <div className="min-[800px]:hidden absolute left-0 bottom-0 z-0 w-[110%] max-w-none pointer-events-none select-none">
@@ -160,11 +145,11 @@ export default function Hero() {
 
       <div
         ref={wrapRef}
-        className="wrap relative z-10 w-full max-w-[560px] px-5 py-0 flex flex-col items-center text-center min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[45%] min-[820px]:pl-[5vw]"
+        className="wrap relative z-10 w-full max-w-[560px] px-5 py-0 flex flex-col items-center text-center min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[50%] min-[820px]:pl-[5vw]"
       >
         {/* Mobile Title */}
         <h1
-          className="block min-[820px]:hidden font-bold text-[42px] leading-tight mb-4 mobile-fade-up"
+          className="block min-[820px]:hidden font-bold text-[42px] leading-[1.15] mb-4 mobile-fade-up"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           Nosso <span className="text-[#FF624D]">Time</span>

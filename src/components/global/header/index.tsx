@@ -12,8 +12,8 @@ const NAV: NavItem[] = [
   { label: "Home", href: "/", exact: true },
   { label: "Time", href: "/time" },
   { label: "AI EiR", href: "/ai-eir" },
-  { label: "Pitch Us!", href: "https://forms.gle/FRAutKQbJt4wvCuR7" },
-  { label: "Recursos", href: "#nascers" },        // placeholder
+  { label: "Pitch Us!", href: "/pitch-us" },
+  { label: "Recursos", href: "/#newsletter" },
 ];
 
 export default function Header() {

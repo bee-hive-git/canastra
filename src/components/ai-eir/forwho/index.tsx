@@ -41,7 +41,7 @@ export default function ForWho() {
   return (
     <section
       id="for-who"
-      className="relative overflow-hidden text-white pb-24"
+      className="relative overflow-hidden text-white pb-32 lg:pb-48"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       <div className="relative mx-auto w-full max-w-[1600px] px-6 py-10 min-[1280px]:py-0 min-[1280px]:min-h-[86dvh]">
@@ -109,8 +109,8 @@ export default function ForWho() {
         className="
           hidden min-[1280px]:block
           absolute top-0 right-0
-          w-[50vw]
-          h-[86vh]
+          w-[60vw]
+          h-[90vh]
           pointer-events-none
         "
         aria-hidden
@@ -126,10 +126,10 @@ export default function ForWho() {
           className="
             object-contain object-right
             select-none
-            origin-right scale-x-[1.14]
+            origin-right scale-[1.25]
           "
           draggable={false}
-          sizes="50vw"
+          sizes="60vw"
         />
       </motion.div>
     </section>
