@@ -8,6 +8,9 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 export const metadata: Metadata = {
   title: "Canastra Ventures",
   description: "VC pre-seed especialista em IA",
+  icons: {
+    icon: "/elements/icon-window.png",
+  },
 };
 
 export const viewport: Viewport = {
