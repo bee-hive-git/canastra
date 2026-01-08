@@ -129,6 +129,22 @@ export const MENTORS_DATA: MemberData[] = [
     linkedin: "#"
   },
   {
+    name: "Rafael Lima",
+    role: "Grant Expert Fadex",
+    description: "Experiência comprovada no desenvolvimento de soluções técnicas, do conceito à execução, incluindo projeto de processos, criação de P&IDs e simulação avançada (AFT Fathom/Arrow, Aspen). Atualmente, valido minha profunda experiência técnica como professor universitário de Termodinâmica e Fenômenos de Transporte. Busco aplicar minhas sólidas habilidades em projeto de engenharia para impulsionar projetos de energia sustentável, utilizando meu mestrado em Química Verde e MBA em ESG. O que me diferencia? Uma sólida formação técnica, uma curiosidade incansável para aprender e uma mentalidade voltada para a resolução de desafios. Estou em busca de novas oportunidades onde eu possa não apenas crescer, mas também gerar valor — trazendo inovação, sustentabilidade e pensamento estratégico.",
+    image: "/time/mentors/Rafael-Lima-perfil.png",
+    gridImage: "/time/mentors/Rafael Lima.png",
+    linkedin: "#"
+  },
+  {
+    name: "Antonio Barczinski",
+    role: "Ex-Product manager Meta",
+    description: "Executivo sênior com vasta experiência na liderança de equipes nas áreas de marketing, análise de dados e estratégia, tanto em mercados desenvolvidos quanto emergentes. Possui excelentes habilidades de resolução estratégica de problemas e um histórico comprovado de criação e implementação de soluções eficazes para gerar resultados tangíveis para os negócios. É especialista na estruturação e desenvolvimento de funções de marketing e análise de dados.",
+    image: "/time/mentors/Antonio-Barczincski-perfil.png",
+    gridImage: "/time/mentors/Antonio-Barczincski.png",
+    linkedin: "#"
+  },
+  {
     name: "Guilherme Tsuchida",
     role: "Partnerships Microsoft",
     description: "Executivo com mais de 12 anos de experiência em vendas e parcerias estratégicas no setor de tecnologia. Atualmente na Microsoft, lidero o desenvolvimento de integradores de sistemas na região das Américas.\n\nAo longo da carreira, construí e escalei ecossistemas de parceiros em empresas como Microsoft, SoftwareONE e Comparex, conectando capacidades de parceiros a oportunidades de mercado de alto impacto.\n\nTambém atuo como investidor-anjo, mentor em programas de inovação e colunista em mídia especializada. Embaixador da Sweet Secrets, promovo redes de líderes por meio de experiências autênticas e colaborativas.\n\nFormado em Relações Internacionais e com MBA em Gestão de Negócios, combino visão estratégica, escala corporativa e agilidade de startups.",

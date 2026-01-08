@@ -44,15 +44,15 @@ export default function ForWho() {
       className="relative overflow-hidden text-white pb-32 lg:pb-48"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
-      <div className="relative mx-auto w-full max-w-[1600px] px-6 py-10 min-[1280px]:py-0 min-[1280px]:min-h-[86dvh]">
+      <div className="relative mx-auto w-full px-6 py-10 min-[1280px]:px-0 min-[1280px]:py-0 min-[1280px]:min-h-[86dvh]">
         
         {/* texto */}
         <motion.div
           className="
             relative z-10 w-full flex flex-col items-center justify-center text-center
             min-[1280px]:block min-[1280px]:text-left min-[1280px]:items-start
-            min-[1280px]:max-w-[640px] min-[1280px]:mx-5
-            min-[980px]:ml-[6vw]
+            min-[1280px]:max-w-[640px]
+            min-[1280px]:ml-0 min-[1280px]:pl-[var(--site-padding-left)]
             min-[1280px]:pt-20
           "
           variants={containerVariants}
@@ -108,8 +108,8 @@ export default function ForWho() {
       <motion.div
         className="
           hidden min-[1280px]:block
-          absolute top-0 right-0
-          w-[60vw]
+          absolute top-0 right-[calc(var(--site-padding-right)-15vw)]
+          w-[50vw]
           h-[90vh]
           pointer-events-none
         "

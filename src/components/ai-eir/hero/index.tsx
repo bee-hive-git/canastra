@@ -7,7 +7,7 @@ export default function AIHero() {
   return (
     <section
       id="ai-eir-hero"
-      className="relative text-white pt-32 pb-16 min-[820px]:pt-4 min-[820px]:pb-20 overflow-hidden"
+      className="relative text-white pt-12 pb-0 min-[820px]:pt-4 min-[820px]:pb-20 overflow-hidden"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       {/* gradiente */}
@@ -15,16 +15,16 @@ export default function AIHero() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10"
         style={{
-          height: "45vh",
+          height: "45svh",
           background:
             "linear-gradient(to bottom, rgba(17,7,23,0) 0%, rgba(17,4,23,0.35) 35%, rgba(17,4,23,0.65) 65%, #110417 100%)",
         }}
       />
 
       {/* Main Hero Area Wrapper - Full Width */}
-      <div className="relative w-full min-[820px]:h-[85dvh] mb-20 min-[820px]:mb-40">
+      <div className="relative w-full min-h-[100svh] mb-24 min-[820px]:min-h-0 min-[820px]:h-[85dvh] min-[820px]:mb-40">
         {/* IMAGEM desktop (substitui Lottie) */}
-        <div className="mountain-desktop pointer-events-none hidden min-[820px]:block absolute top-[10vh] right-0 z-0 h-[85vh] w-[60vw] lg:w-[55vw] xl:w-[50vw] flex items-start justify-end">
+        <div className="mountain-desktop pointer-events-none hidden min-[820px]:block absolute top-[10vh] min-[820px]:right-[var(--site-padding-right)] z-0 h-[85vh] w-[60vw] lg:w-[55vw] xl:w-[50vw] flex items-start justify-end">
           <div className="w-full h-full relative">
             <Image
               src="/ai-eir/hero/montanha-5.svg"
@@ -38,7 +38,7 @@ export default function AIHero() {
         </div>
 
         {/* Hero Content Wrapper */}
-        <div className="relative z-20 w-full max-w-[560px] flex flex-col items-center text-center mx-auto px-5 min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:pl-[5%] lg:pl-[8%] xl:pl-[10%] min-[820px]:max-w-none">
+        <div className="relative z-20 w-full max-w-[560px] flex flex-col items-center text-center mx-auto px-5 py-8 min-[820px]:py-0 min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:pl-[var(--site-padding-left)] min-[820px]:max-w-none">
           {/* H1 desktop */}
           <h1
             className="desk-h1 hidden min-[820px]:block font-bold mb-3 text-[48px] lg:text-[56px] leading-[1.15]"
@@ -64,7 +64,7 @@ export default function AIHero() {
             style={{ fontFamily: '"Crimson Text", serif' }}
           >
             Do <span className="text-[#ff624d]">zero ao MVP</span> validado,
-            pronto para fundraising em
+            pronto para fundraising em apenas
             <span className="text-[#ff624d]"> 12 semanas</span>
           </h2>
 
@@ -111,7 +111,7 @@ export default function AIHero() {
           </p>
 
           {/* CTA */}
-          <div className="mt-6">
+          <div className="mt-7">
             <a
               href="https://forms.gle/BjEZU9quVQq8LSXg7"
               target="_blank"
@@ -153,15 +153,18 @@ export default function AIHero() {
             </a>
           </div>
 
-          {/* IMAGEM mobile */}
-          <div className="mountain-mobile pointer-events-none select-none absolute right-[-20px] bottom-[-20vh] w-[120%] h-[50vh] block min-[820px]:hidden -z-10 opacity-60">
+          </div>
+
+        {/* IMAGEM mobile - New Location */}
+        <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[50svh]">
+          <div className="relative w-full max-w-[600px] h-full">
             <Image
               src="/hero/montanha-3.svg"
               alt=""
               fill
-              className="object-contain object-right-bottom"
+              className="object-contain object-bottom"
               draggable={false}
-              sizes="100vw"
+              sizes="(max-width: 820px) 100vw"
             />
           </div>
         </div>

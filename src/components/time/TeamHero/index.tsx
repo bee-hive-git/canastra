@@ -19,7 +19,7 @@ export default function Hero() {
     const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) return;
     const paths = Array.from(
-      document.querySelectorAll<SVGPathElement>("#home .draw-path")
+      document.querySelectorAll<SVGPathElement>("#team-hero .draw-path")
     );
     paths.forEach((p, i) => {
       try {
@@ -35,12 +35,12 @@ export default function Hero() {
 
   return (
     <section
-      id="home"
-      className="relative text-white pt-32 pb-24 min-h-[85dvh] min-[820px]:min-h-[90dvh] min-[820px]:pt-24 min-[820px]:pb-0 overflow-hidden min-[820px]:flex min-[820px]:items-center"
+      id="team-hero"
+      className="relative text-white pt-12 pb-0 min-h-[100svh] min-[820px]:min-h-[90dvh] min-[820px]:pt-24 min-[820px]:pb-0 overflow-hidden min-[820px]:flex min-[820px]:items-center"
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
-        #home .mountain-img {
+        #team-hero .mountain-img {
           -webkit-mask-image: linear-gradient(to bottom, black 0%, black 100%);
           mask-image: linear-gradient(to bottom, black 0%, black 100%);
           -webkit-mask-size: 100% 0%;
@@ -107,7 +107,7 @@ export default function Hero() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          #home .mountain-img,
+          #team-hero .mountain-img,
           .mobile-light-reveal,
           .mobile-fade-up {
             animation: none !important;
@@ -119,16 +119,18 @@ export default function Hero() {
         }
       `}</style>
 
-      <div className="min-[800px]:hidden absolute left-0 bottom-0 z-0 w-[110%] max-w-none pointer-events-none select-none">
-        <Image
-          src="/time/hero/montanha-4.svg"
-          alt=""
-          width={800}
-          height={400}
-          className="mountain-mobile-img mobile-light-reveal w-full h-auto"
-          draggable={false}
-          priority
-        />
+      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[50vh]">
+        <div className="relative w-full max-w-[600px] h-full">
+          <Image
+            src="/time/hero/montanha-4.svg"
+            alt=""
+            fill
+            className="mountain-mobile-img mobile-light-reveal object-contain object-bottom"
+            draggable={false}
+            priority
+            sizes="(max-width: 820px) 100vw"
+          />
+        </div>
       </div>
 
       <div className="hidden min-[820px]:block absolute right-0 top-20 z-0 w-[55vw] pointer-events-none select-none">
@@ -145,7 +147,7 @@ export default function Hero() {
 
       <div
         ref={wrapRef}
-        className="wrap relative z-10 w-full max-w-[560px] px-5 py-0 flex flex-col items-center text-center min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[50%] min-[820px]:pl-[5vw]"
+        className="wrap relative z-10 mx-auto w-full max-w-[560px] px-5 py-8 flex flex-col items-center text-center min-[820px]:mx-0 min-[820px]:py-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[50%] min-[820px]:pl-[var(--site-padding-left)]"
       >
         {/* Mobile Title */}
         <h1
@@ -208,7 +210,7 @@ export default function Hero() {
         </p>
         
         {/* Mobile Button */}
-        <div className="mt-8 min-[820px]:hidden mobile-fade-up delay-300">
+        <div className="mt-7 min-[820px]:hidden mobile-fade-up delay-300">
              <a
               href="https://forms.gle/FRAutKQbJt4wvCuR7"
               target="_blank"

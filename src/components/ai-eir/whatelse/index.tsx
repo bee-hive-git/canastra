@@ -45,7 +45,7 @@ export default function WhatElse() {
       className="relative text-white"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
-      <div className="mx-auto w-full max-w-[1200px] px-5 py-14 sm:py-16 lg:py-20">
+      <div className="w-full px-5 py-14 sm:py-16 lg:py-20 min-[820px]:px-0 min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]">
         {/* Título */}
         <motion.header
           className="text-center mb-10 sm:mb-12 lg:mb-14"

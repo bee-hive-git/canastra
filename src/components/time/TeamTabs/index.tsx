@@ -209,12 +209,17 @@ export default function TeamTabs() {
   const translatePx = progress * Math.max(0, trackW - trackW * thumbRatio);
 
   // Desktop menor: cards que nunca cortam e sempre centralizados
-  const SAFE_PAD = 48; // margem lateral
+  const SAFE_PAD = useMemo(() => {
+    if (vw >= 1440) return 124;
+    if (vw >= 1181) return 84;
+    return 48;
+  }, [vw]);
+
   const DESK_COL_W = useMemo(() => {
     if (vw < 1181) return FIGMA_W;
     const usable = Math.max(320, vw - SAFE_PAD * 2);
     return Math.min(FIGMA_W, Math.floor(usable / 4));
-  }, [vw]);
+  }, [vw, SAFE_PAD]);
 
   const DESK_COL_H = useMemo(() => DESK_COL_W * AR, [DESK_COL_W]);
   const USE_FIGMA_SIZE = vw >= 1600;
@@ -231,7 +236,7 @@ export default function TeamTabs() {
       {/* faixa de abas */}
       <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen px-0">
         <div
-          className="relative w-full overflow-hidden rounded-md flex justify-center"
+          className="relative w-full overflow-hidden rounded-md flex justify-center min-[1181px]:justify-start min-[1181px]:pl-[var(--site-padding-left)]"
           style={{
             background: COLOR_BG,
             height: STRIP_H,
@@ -240,7 +245,7 @@ export default function TeamTabs() {
         >
           {/* trilho das abas */}
           <div
-            className="flex w-full max-w-[1440px] items-stretch justify-between px-2 sm:px-4"
+            className="flex w-full max-w-[1440px] items-stretch justify-between px-2 sm:px-4 min-[1181px]:px-0"
             style={{
               marginTop: STRIP_EXTRA_TOP,
               height: BTN_H,
@@ -332,8 +337,8 @@ export default function TeamTabs() {
 
       {/* desktop – grid 4 colunas */}
       <div className="hidden min-[1181px]:block">
-        <div className="w-full mx-auto mt-10 px-4">
-          <div className="flex justify-center w-full py-4">
+        <div className="w-full mt-10 pl-[var(--site-padding-left)]">
+          <div className="flex w-full py-4">
             <div
               style={{
                 display: "grid",

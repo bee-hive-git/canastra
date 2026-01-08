@@ -118,20 +118,10 @@ export default function Hero() {
         }
         @media (min-width: 1181px) and (max-width: 1439px) {
           #home .wrap {
-            margin-left: 0;
-            padding-left: var(--site-padding-left);
-            padding-right: var(--site-padding-right);
             max-width: 960px;
           }
           #home .wrap .hero-heading {
             max-width: 920px;
-          }
-        }
-        @media (min-width: 1440px) {
-          #home .wrap {
-            margin-left: 0;
-            padding-left: var(--site-padding-left);
-            padding-right: var(--site-padding-right);
           }
         }
       `}</style>
@@ -181,7 +171,7 @@ export default function Hero() {
 
       <div
         ref={wrapRef}
-        className="wrap relative z-10 mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1080px]"
+        className="wrap relative z-10 mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1080px] min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]"
       >
         {/* H1 – Crimson Text, peso 700 (bold) */}
         <h1
@@ -218,7 +208,7 @@ export default function Hero() {
 
         {/* Parágrafo – Hanken Grotesk, peso 300 (light) */}
         <p
-          className="mt-4 text-white/85 font-light text-[16px] leading-relaxed max-w-[320px] mx-auto min-[820px]:mx-0 min-[820px]:text-[clamp(14px,1.1vw,18px)] min-[820px]:max-w-[499px] mobile-fade-up delay-200"
+          className="mt-4 text-white/85 font-light text-[16px] leading-relaxed max-w-[320px] mx-auto min-[820px]:mx-0 min-[820px]:text-[clamp(14px,1.1vw,18px)] min-[820px]:max-w-[580px] lg:max-w-[640px] mobile-fade-up delay-200"
           style={{
             fontFamily:
               '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

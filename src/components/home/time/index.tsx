@@ -110,7 +110,7 @@ export default function Time() {
               {/* CTA */}
               <div className="mt-8 md:mt-12">
                 <Link
-                  href="/time"
+                  href="/time#team-hero"
                   prefetch
                   aria-label="Ir para a página do Time"
                   className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 md:min-w-[260px] md:h-[52px] md:px-8 md:text-[16px] md:border md:border-gray-400 md:bg-transparent md:text-white md:hover:brightness-110"

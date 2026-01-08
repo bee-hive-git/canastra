@@ -39,7 +39,7 @@ export default function Startups() {
         </motion.div>
 
         {/* Marquee System */}
-        <div className="px-6">
+        <div className="w-full">
           <StartupsMarquee 
             variant="full" 
             speed={80} 

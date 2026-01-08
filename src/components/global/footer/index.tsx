@@ -11,8 +11,8 @@ export default function Footer() {
 
   return (
     <footer id="footer" className="text-white" style={{ backgroundColor: BG }}>
-      {/* wrap centralizado */}
-      <div className="wrap mx-auto max-w-[1400px] px-5 min-[820px]:px-10 lg:px-16 py-12 min-[820px]:py-16 text-left">
+      {/* wrap full width com padding site */}
+      <div className="wrap w-full px-5 py-12 min-[820px]:py-16 text-left min-[820px]:px-0 min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]">
         {/* Grid base em ≥820px */}
         <div className="grid grid-cols-2 gap-x-5 gap-y-10 min-[820px]:grid-cols-12 min-[820px]:gap-10">
           {/* Escritório */}
@@ -53,7 +53,7 @@ export default function Footer() {
             </h3>
             <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[15px] max-[360px]:text-[14px] min-[820px]:block">
               <li className="min-[820px]:mb-1">
-                <Link href="/time" prefetch className={linkBase}>
+                <Link href="/time#team-hero" prefetch className={linkBase}>
                   Time
                 </Link>
               </li>
