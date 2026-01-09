@@ -287,7 +287,18 @@ export default function TeamTabs() {
                     paddingInline: 4,
                   }}
                 >
-                  {t.label}
+                  {(t.key === "venture-partners" || t.key === "fellow-partners") ? (
+                    <>
+                      <span className="md:hidden leading-none">
+                        {t.label.split(" ")[0]}
+                        <br />
+                        {t.label.split(" ")[1]}
+                      </span>
+                      <span className="hidden md:inline">{t.label}</span>
+                    </>
+                  ) : (
+                    t.label
+                  )}
                 </button>
               );
             })}

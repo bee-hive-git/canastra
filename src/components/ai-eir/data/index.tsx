@@ -34,11 +34,11 @@ export default function DataSection() {
         {/* Mobile */}
         <source
           media="(max-width: 767px)"
-          srcSet="/ai-eir/data/fundo-mobile.png"
+          srcSet="/ai-eir/data/fundo-mobile.svg"
         />
         {/* Desktop */}
         <img
-          src="/ai-eir/data/fundo.png"
+          src="/ai-eir/data/fundo.svg"
           alt=""
           aria-hidden
           className="w-full h-auto object-contain md:object-cover"

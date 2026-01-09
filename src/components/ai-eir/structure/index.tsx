@@ -57,62 +57,6 @@ export default function Structure() {
           <span className="block text-[#FF624D]">Conheça a estrutura</span>
           <span className="block italic text-white">do programa</span>
         </h2>
-
-        {/* BOTÃO */}
-        <div className="mt-6 hidden min-[821px]:flex justify-center">
-          <button
-            type="button"
-            className="
-              inline-flex items-center justify-center gap-2 rounded-md font-semibold
-              h-12 px-5 min-w-[170px] text-[15px] border-2 transition-all duration-200 ease-out
-              bg-white text-black border-[#FF624D]
-              hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20
-              active:translate-y-0
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
-
-              /* DESKTOP — igual ao Hero */
-              min-[821px]:min-w-[220px]
-              min-[821px]:h-[50px]
-              min-[821px]:px-7
-              min-[821px]:text-[15px]
-              min-[821px]:border min-[821px]:border-gray-400
-              min-[821px]:bg-transparent min-[821px]:text-white
-              min-[821px]:hover:brightness-110
-            "
-          >
-            <svg
-              width="26"
-              height="22"
-              viewBox="0 0 26 22"
-              aria-hidden="true"
-              className="-ml-1 text-[#FF624D] min-[821px]:text-gray-300"
-            >
-              <path
-                d="M2 11h6"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M9 11h7"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M16 7l6 4-6 4"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
-            <span>Cronograma Completo</span>
-          </button>
-        </div>
       </div>
 
       {/* ESTRUTURA ANIMADA */}
@@ -140,7 +84,7 @@ export default function Structure() {
 
         {/* DESKTOP VIEW - SVG Único (arquivo público com linhas pontilhadas) */}
         <motion.div 
-          className="hidden min-[821px]:flex justify-center items-center relative w-full max-w-[1200px] mx-auto"
+          className="hidden min-[821px]:flex flex-col items-center relative w-full max-w-[1200px] mx-auto"
           variants={cardVariants}
         >
           <Image 
@@ -152,6 +96,62 @@ export default function Structure() {
             className="w-full h-auto drop-shadow-2xl"
             priority
           />
+
+          {/* BOTÃO DESKTOP (Reposicionado abaixo da imagem) */}
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              className="
+                inline-flex items-center justify-center gap-2 rounded-md font-semibold
+                h-12 px-5 min-w-[170px] text-[15px] border-2 transition-all duration-200 ease-out
+                bg-white text-black border-[#FF624D]
+                hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20
+                active:translate-y-0
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
+
+                /* DESKTOP — igual ao Hero */
+                min-[821px]:min-w-[220px]
+                min-[821px]:h-[50px]
+                min-[821px]:px-7
+                min-[821px]:text-[15px]
+                min-[821px]:border min-[821px]:border-gray-400
+                min-[821px]:bg-transparent min-[821px]:text-white
+                min-[821px]:hover:brightness-110
+              "
+            >
+              <svg
+                width="26"
+                height="22"
+                viewBox="0 0 26 22"
+                aria-hidden="true"
+                className="-ml-1 text-[#FF624D] min-[821px]:text-gray-300"
+              >
+                <path
+                  d="M2 11h6"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M9 11h7"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M16 7l6 4-6 4"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+              <span>Cronograma Completo</span>
+            </button>
+          </div>
         </motion.div>
       </motion.div>
 

@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import StartupsMarquee from "@/components/global/StartupsMarquee";
 
 export default function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -124,7 +125,7 @@ export default function Hero() {
       */}
       <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none h-[50vh]">
         <Image
-          src="/hero/monatnha-1-mobile.svg"
+          src="/hero/montanha-1.svg"
           alt="Paisagem montanhosa"
           fill
           className="mobile-light-reveal object-contain object-bottom translate-y-8"
