@@ -43,6 +43,7 @@ export default function Startups() {
           <StartupsMarquee 
             variant="full" 
             speed={80} 
+            className="lg:w-auto lg:mx-[30px]"
             perLogoScale={{
               Evig: { base: 1.5, md: 1.0 },
               Quorum: { base: 1.7, md: 1.05 },
