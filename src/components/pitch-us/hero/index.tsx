@@ -120,23 +120,21 @@ export default function Hero() {
 
       {/* 
         MOBILE IMAGE (<820px)
-        - Uses aspect-ratio container to prevent layout shift
+        - Uses fixed height relative to viewport (vh) to ensure content space
         - object-fit: contain ensures full image visibility without cropping
-        - Centered horizontally, anchored to bottom
+        - Centered horizontally, anchored to bottom with offset
       */}
-      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end">
-        <div className="relative w-full max-w-[600px] aspect-[440/346]">
-          <Image
-            src="/hero/montanha-3.svg"
-            alt="Paisagem montanhosa"
-            fill
-            className="mobile-light-reveal object-contain object-bottom"
-            draggable={false}
-            priority
-            sizes="(max-width: 820px) 100vw"
-            unoptimized
-          />
-        </div>
+      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none h-[42vh]">
+        <Image
+          src="/hero/montanha-3.svg"
+          alt="Paisagem montanhosa"
+          fill
+          className="mobile-light-reveal object-contain object-bottom translate-y-16"
+          draggable={false}
+          priority
+          sizes="(max-width: 820px) 100vw"
+          unoptimized
+        />
       </div>
 
       {/* 
@@ -208,7 +206,7 @@ export default function Hero() {
               '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
           }}
         >
-          Apoiamos founders com profunda expertise em inteligência artificial desde os estágios iniciais, investindo nas primeiras rodadas de startups AI-First que tenham o Brasil como um de seus mercados-alvo, mas que já nascem com ambição global, visão de longo prazo e potencial para disruptar grandes mercados.
+          Apoiamos founders com profunda expertise em inteligência artificial desde os estágios iniciais, investindo nas primeiras rodadas de startups <span className="whitespace-nowrap">AI-First</span> que tenham o Brasil como um de seus mercados-alvo, mas que já nascem com ambição global, visão de longo prazo e potencial para disruptar grandes mercados.
         </p>
 
         <div className="mt-7 flex items-center justify-center gap-3 lg:gap-4 min-[820px]:justify-start mobile-fade-up delay-300">

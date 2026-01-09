@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Canastra Ventures",
   description: "VC pre-seed especialista em IA",
   icons: {
-    icon: "/elements/icon-window.png",
+    icon: "/elements/icon-window.png?v=2",
   },
 };
 

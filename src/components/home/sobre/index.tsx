@@ -185,8 +185,7 @@ export default function Sobre() {
             terão apoio hands-on dos nossos Fallow Partners{" "}
            
             , mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar 
-            os primeiros sinais de tração rumo ao {" "}
-           <span className="text-[#FF624D] font-semibold">primeiro cheque</span>.
+            os primeiros sinais de tração rumo ao <span className="text-[#FF624D] font-semibold whitespace-nowrap">primeiro cheque</span>.
           
           </span>
         </p>

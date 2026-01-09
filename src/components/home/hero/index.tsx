@@ -123,12 +123,12 @@ export default function Hero() {
       {/* 
         MOBILE IMAGE (<820px)
       */}
-      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none h-[50vh]">
+      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none h-[42vh]">
         <Image
           src="/hero/montanha-1.svg"
           alt="Paisagem montanhosa"
           fill
-          className="mobile-light-reveal object-contain object-bottom translate-y-8"
+          className="mobile-light-reveal object-contain object-bottom translate-y-16"
           draggable={false}
           priority
           sizes="100vw"

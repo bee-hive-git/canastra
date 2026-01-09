@@ -3,7 +3,7 @@
 
 import { motion, Variants } from "framer-motion";
 
-type Item = { num: number; title: string; body: string };
+type Item = { num: number; title: string; body: React.ReactNode };
 
 export default function Overview() {
   const HILIGHT = "#FF624D";
@@ -13,7 +13,12 @@ export default function Overview() {
     {
       num: 1,
       title: "AI Founders",
-      body: "Investimos em Founders, preferencialmente brasileiros, que estão criando startups AI-First.",
+      body: (
+        <>
+          Investimos em Founders, preferencialmente brasileiros, que estão criando
+          startups <span className="whitespace-nowrap">AI-First</span>.
+        </>
+      ),
     },
     {
       num: 2,
@@ -171,7 +176,7 @@ export default function Overview() {
           >
             startups
           </span>{" "}
-          de inteligência artificial (AI-First).
+          de inteligência artificial <span className="whitespace-nowrap">(AI-First)</span>.
         </h3>
         <p className="text-white/85 text-[14px] leading-relaxed max-w-[56ch] mx-auto mt-3 text-center">
           Nossa missão é guiar os ousados na trilha da construção de startups
@@ -258,7 +263,7 @@ export default function Overview() {
                 >
                   startups
                 </span>{" "}
-                de inteligência artificial (AI-First).
+                de inteligência artificial <span className="whitespace-nowrap">(AI-First)</span>.
               </span>
               <span className="block mt-1">
                 Nossa{" "}

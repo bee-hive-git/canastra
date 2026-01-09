@@ -53,7 +53,7 @@ export default function WhatIs() {
             >
               {/* MOBILE — fluxo natural */}
               <span className="min-[820px]:hidden">
-                epreneur in Residence (AI EiR) é nosso programa de
+                O AI Entrepreneur in Residence (AI EiR) é nosso programa de
                 residência criado para transformar ideias promissoras em startups
                 de sucesso. Em 12 semanas de residência, apoiamos equipes a
                 validarem hipóteses, construírem seus MVPs e iniciarem vendas para

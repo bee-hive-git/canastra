@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Structure() {
   const containerVariants: Variants = {
@@ -99,8 +100,8 @@ export default function Structure() {
 
           {/* BOTÃO DESKTOP (Reposicionado abaixo da imagem) */}
           <div className="mt-10 flex justify-center">
-            <button
-              type="button"
+            <Link
+              href="/cronograma"
               className="
                 inline-flex items-center justify-center gap-2 rounded-md font-semibold
                 h-12 px-5 min-w-[170px] text-[15px] border-2 transition-all duration-200 ease-out
@@ -150,15 +151,15 @@ export default function Structure() {
                 />
               </svg>
               <span>Cronograma Completo</span>
-            </button>
+            </Link>
           </div>
         </motion.div>
       </motion.div>
 
       {/* BOTÃO MOBILE (Abaixo da imagem) */}
       <div className="mt-10 flex justify-center min-[821px]:hidden">
-        <button
-          type="button"
+        <Link
+          href="/cronograma"
           className="
             inline-flex items-center justify-center gap-2 rounded-md font-semibold
             h-12 px-5 min-w-[170px] text-[15px] border-2 transition-all duration-200 ease-out
@@ -176,7 +177,7 @@ export default function Structure() {
             className="-ml-1"
           />
           <span>Cronograma Completo</span>
-        </button>
+        </Link>
       </div>
     </section>
   );

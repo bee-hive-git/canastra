@@ -37,7 +37,7 @@ export default function AIHero() {
         </div>
 
         {/* Hero Content Wrapper */}
-        <div className="relative z-20 w-full min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-0 min-[820px]:pt-[22vh] pointer-events-none">
+        <div className="relative z-10 w-full min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-0 min-[820px]:pt-[22vh] pointer-events-none">
           <div className="w-full px-5 min-[820px]:px-0 min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]">
             <div className="pointer-events-auto w-full max-w-[560px] flex flex-col items-center text-center mx-auto py-8 min-[820px]:py-0 min-[820px]:mx-0 min-[820px]:items-start min-[820px]:text-left">
               {/* H1 desktop */}
@@ -56,8 +56,7 @@ export default function AIHero() {
           className="block min-[820px]:hidden font-bold text-[36px] leading-[1.15] mb-4 mobile-fade-up"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
-          AI Entrepreneur
-in Residence (AI EiR)
+          AI Entrepreneur in Residence (AI EiR)
         </h1>
 
               {/* H2 desktop */}
@@ -95,18 +94,11 @@ in Residence (AI EiR)
                 {/* Mobile Content */}
                 <span className="min-[820px]:hidden">
                   Transforme sua ideia em uma{" "}
-                  <span className="text-[#ff624d] font-semibold italic">
-                    startup de IA
-                  </span>{" "}
+                  startup de IA{" "}
                   com apoio{" "}
-                  <span className="text-[#ff624d] font-semibold italic">
-                    direto
-                  </span>{" "}
+                  direto{" "}
                   de quem já criou e investiu em{" "}
-                  <span className="text-[#ff624d] font-semibold italic">
-                    startups de sucesso
-                  </span>
-                  .
+                  startups de sucesso.
                 </span>
               </p>
 
