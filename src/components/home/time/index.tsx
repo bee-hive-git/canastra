@@ -67,15 +67,7 @@ export default function Time() {
           opacity: 0.4,
         }}
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
-        style={{
-          background:
-            "linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.28), rgba(255,255,255,0))",
-          opacity: 0.4,
-        }}
-      />
+
 
       {/* Container Principal Unificado */}
       <div className="wrap w-full px-5">

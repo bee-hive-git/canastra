@@ -35,7 +35,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative text-white pt-12 min-h-[100svh] min-[820px]:pt-24 overflow-x-hidden"
+      className="relative text-white pt-12 min-h-[100svh] min-[820px]:min-h-[90dvh] min-[820px]:pt-24 overflow-hidden"
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
@@ -116,14 +116,6 @@ export default function Hero() {
             transform: none !important;
           }
         }
-        @media (min-width: 1181px) and (max-width: 1439px) {
-          #home .wrap {
-            max-width: 960px;
-          }
-          #home .wrap .hero-heading {
-            max-width: 920px;
-          }
-        }
       `}</style>
 
       {/* 
@@ -169,13 +161,15 @@ export default function Hero() {
         />
       </div>
 
-      <div
-        ref={wrapRef}
-        className="wrap relative z-10 mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1080px] min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]"
-      >
+      <div className="relative z-10 w-full min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-0 min-[820px]:pt-[22vh] pointer-events-none">
+        <div className="w-full px-5 min-[820px]:px-0 min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]">
+          <div
+            ref={wrapRef}
+            className="wrap pointer-events-auto mx-auto max-w-[560px] py-8 text-center flex flex-col items-center min-[820px]:mx-0 min-[820px]:py-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[1080px]"
+          >
         {/* H1 – Crimson Text, peso 700 (bold) */}
         <h1
-          className="block font-bold text-[40px] min-[820px]:text-[71.7px] leading-tight mb-3 min-[820px]:ml-[0.8px]"
+          className="block font-bold text-[32px] min-[820px]:text-[clamp(36px,4.5vw,72px)] leading-tight mb-3 min-[820px]:ml-[0.8px]"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           Pitch Us!
@@ -183,7 +177,7 @@ export default function Hero() {
 
         {/* H2 – Crimson Text, peso 700, itálico */}
         <h2
-          className="hero-heading font-bold italic leading-tight text-[clamp(18px,5.5vw,26px)] min-[820px]:text-[32px] min-[820px]:max-w-[832px] mobile-fade-up delay-100"
+          className="hero-heading font-bold italic leading-tight text-[22px] sm:text-[24px] min-[820px]:text-[22px] lg:text-[32px] min-[1280px]:text-[40px] min-[820px]:max-w-[832px] mobile-fade-up delay-100"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           {/* DESKTOP (≥820px) — 2 linhas fixas */}
@@ -199,7 +193,7 @@ export default function Hero() {
           </span>
 
           {/* MOBILE (<820px) */}
-          <span className="min-[820px]:hidden block text-[22px]">
+          <span className="min-[820px]:hidden block text-[20px]">
             Somos um VC{" "}
             <span className="text-[#FF624D] italic font-bold">Pre-seed</span> com foco em{" "}
             <span className="text-[#FF624D] italic font-bold">IA</span>
@@ -224,7 +218,7 @@ export default function Hero() {
             href="https://forms.gle/FRAutKQbJt4wvCuR7"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[52px] px-5 min-w-[166px] text-[15.6px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
+            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[38px] px-4 min-w-[120px] text-[13.5px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
           >
             <svg
               width="27"
@@ -258,6 +252,8 @@ export default function Hero() {
             </svg>
             Pitch Us!
           </a>
+        </div>
+      </div>
         </div>
       </div>
 

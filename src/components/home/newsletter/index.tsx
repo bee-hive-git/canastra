@@ -68,7 +68,7 @@ export default function Newsletter() {
 
         <form
           onSubmit={onSubmit}
-          className="mx-auto max-w-[640px] min-[820px]:grid min-[820px]:grid-cols-[1fr_auto]"
+          className="mx-auto max-w-[480px] min-[820px]:grid min-[820px]:grid-cols-[1fr_auto]"
         >
           <input
             type="email"
@@ -79,13 +79,13 @@ export default function Newsletter() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Digite seu e-mail"
             aria-label="Digite seu e-mail"
-            className="w-full h-12 px-4 text-white placeholder:text-gray-400 bg-transparent border border-gray-400 outline-none rounded-xl focus:outline-none focus:border-gray-400 min-[820px]:rounded-r-none"
+            className="w-full h-11 px-4 text-[14px] text-white placeholder:text-gray-400 bg-transparent border border-gray-400 outline-none rounded-xl focus:outline-none focus:border-gray-400 min-[820px]:rounded-r-none"
           />
 
           {/* CTA mobile */}
           <button
             type="submit"
-            className="mt-6 inline-flex items-center justify-center font-semibold h-12 px-6 rounded-md transition-colors duration-200 ease-out bg-[var(--cta-mobile)] text-white hover:brightness-110 min-[820px]:hidden"
+            className="mt-6 inline-flex items-center justify-center font-semibold text-[13px] h-11 px-6 rounded-md transition-colors duration-200 ease-out bg-[var(--cta-mobile)] text-white hover:brightness-110 min-[820px]:hidden"
             style={{ "--cta-mobile": HILIGHT } as React.CSSProperties}
           >
             INSCREVA-SE
@@ -94,7 +94,7 @@ export default function Newsletter() {
           {/* CTA desktop */}
           <button
             type="submit"
-            className="hidden min-[820px]:inline-flex items-center justify-center font-semibold h-12 px-6 rounded-r-xl rounded-l-none border bg-gray-400 border-gray-400 text-white transition-colors duration-300 ease-out hover:bg-[var(--cta-hover)] hover:border-[var(--cta-hover)]"
+            className="hidden min-[820px]:inline-flex items-center justify-center font-semibold text-[13px] h-11 px-6 rounded-r-xl rounded-l-none border bg-gray-400 border-gray-400 text-white transition-colors duration-300 ease-out hover:bg-[var(--cta-hover)] hover:border-[var(--cta-hover)]"
             style={{ "--cta-hover": HILIGHT_SOFT } as React.CSSProperties}
             aria-label="Inscreva-se na newsletter"
           >

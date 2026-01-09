@@ -199,7 +199,7 @@ export default function Overview() {
                   {it.num}
                 </span>
               </div>
-              <h4 className="font-serif italic text-[18px] leading-tight mt-3">
+              <h4 className="font-serif italic font-bold text-[18px] leading-tight mt-3">
                 {it.title}
               </h4>
               <p className="text-white/80 text-[14px] leading-relaxed mt-2 max-w-[40ch] px-3">
@@ -339,7 +339,7 @@ export default function Overview() {
                 </div>
 
                 <h4
-                  className="font-serif leading-tight mt-3"
+                  className="font-serif font-bold leading-tight mt-3"
                   style={{ fontSize: "var(--h4)" }}
                 >
                   {it.title}

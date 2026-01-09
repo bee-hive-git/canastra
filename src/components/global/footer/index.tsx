@@ -7,14 +7,15 @@ export default function Footer() {
   const ACCENT = "#FF624D";
   const BG = "rgb(17, 4, 23)";
   const linkBase =
-    "text-white/85 underline decoration-white/40 underline-offset-[3px] transition-colors hover:text-white hover:decoration-white";
+    "text-white/85 transition-colors hover:text-white";
 
   return (
     <footer id="footer" className="text-white" style={{ backgroundColor: BG }}>
+      <div className="w-full h-[1px] bg-white/20" />
       {/* wrap full width com padding site */}
-      <div className="wrap w-full px-5 py-12 min-[820px]:py-16 text-left min-[820px]:px-0 min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]">
+      <div className="wrap w-full px-5 py-12 min-[820px]:py-12 text-left min-[820px]:px-0 min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]">
         {/* Grid base em ≥820px */}
-        <div className="grid grid-cols-2 gap-x-5 gap-y-10 min-[820px]:grid-cols-12 min-[820px]:gap-10">
+        <div className="grid grid-cols-1 gap-x-5 gap-y-10 min-[820px]:grid-cols-12 min-[820px]:gap-10">
           {/* Escritório */}
           <div className="col-span-1 min-[820px]:col-span-3">
             <h3
@@ -36,15 +37,14 @@ export default function Footer() {
             >
               Contato
             </h3>
-            <p className="mt-2 text-white/85 text-[15px] leading-relaxed max-[360px]:text-[14px]">
+            <div className="mt-2 text-white/85 text-[15px] leading-relaxed max-[360px]:text-[14px] flex flex-row flex-wrap gap-4 min-[820px]:flex-col min-[820px]:gap-0">
               <span className="text-white/85">contato@canastra.ventures</span>
-              <br />
-              +55 31 99457 4757
-            </p>
+              <span>+55 31 99457 4757</span>
+            </div>
           </div>
 
           {/* Links */}
-          <div className="col-span-2 min-[820px]:col-span-2">
+          <div className="col-span-1 min-[820px]:col-span-2">
             <h3
               className="text-[16px] font-semibold"
               style={{ color: ACCENT }}
@@ -81,7 +81,7 @@ export default function Footer() {
           </div>
 
           {/* Card redes / newsletter */}
-          <div className="col-span-2 min-[820px]:col-span-4">
+          <div className="col-span-1 min-[820px]:col-span-4">
             {/* Desktop */}
             <div className="hidden min-[820px]:block rounded-xl bg-white/6 border border-white/10 p-5 min-[1120px]:p-5">
               <h3
@@ -200,7 +200,7 @@ export default function Footer() {
         </div>
 
         {/* Logo + copyright */}
-        <div className="mt-10 min-[820px]:mt-14 text-left">
+        <div className="mt-8 min-[820px]:-mt-16 text-left">
           <Image
             src="/footer/logo.png"
             alt="Canastra Ventures"
@@ -213,9 +213,9 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Linha final */}
-        <div className="mt-8 h-px bg-gradient-to-r from-white/10 via-white/30 to-white/10" />
       </div>
+      {/* Linha final */}
+      <div className="w-full h-[1px] bg-white/20" />
     </footer>
   );
 }

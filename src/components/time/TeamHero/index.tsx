@@ -36,7 +36,7 @@ export default function Hero() {
   return (
     <section
       id="team-hero"
-      className="relative text-white pt-12 pb-0 min-h-[100svh] min-[820px]:min-h-[90dvh] min-[820px]:pt-24 min-[820px]:pb-0 overflow-hidden min-[820px]:flex min-[820px]:items-center"
+      className="relative text-white pt-12 pb-0 min-h-[100svh] min-[820px]:min-h-[90dvh] min-[820px]:pt-24 overflow-hidden"
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
@@ -145,13 +145,15 @@ export default function Hero() {
         />
       </div>
 
-      <div
-        ref={wrapRef}
-        className="wrap relative z-10 mx-auto w-full max-w-[560px] px-5 py-8 flex flex-col items-center text-center min-[820px]:mx-0 min-[820px]:py-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[50%] min-[820px]:pl-[var(--site-padding-left)]"
-      >
+      <div className="relative z-10 w-full min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-0 min-[820px]:pt-[22vh] pointer-events-none">
+        <div className="w-full px-5 min-[820px]:px-0 min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]">
+          <div
+            ref={wrapRef}
+            className="wrap pointer-events-auto mx-auto w-full max-w-[560px] py-8 flex flex-col items-center text-center min-[820px]:mx-0 min-[820px]:py-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-[50%]"
+          >
         {/* Mobile Title */}
         <h1
-          className="block min-[820px]:hidden font-bold text-[42px] leading-[1.15] mb-4 mobile-fade-up"
+          className="block min-[820px]:hidden font-bold text-[36px] leading-[1.15] mb-4 mobile-fade-up"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           Nosso <span className="text-[#FF624D]">Time</span>
@@ -159,7 +161,7 @@ export default function Hero() {
 
         {/* H1 – Desktop */}
         <h1
-          className="hidden min-[820px]:block font-bold text-[clamp(36px,4.5vw,72px)] leading-tight mb-3"
+          className="hidden min-[820px]:block font-bold text-[48px] lg:text-[72px] leading-tight mb-3"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           Nosso Time
@@ -167,7 +169,7 @@ export default function Hero() {
 
         {/* H2 – Crimson Text, peso 700, itálico */}
         <h2
-          className="hero-heading font-bold italic leading-tight text-[clamp(24px,6vw,32px)] min-[820px]:text-[clamp(22px,2.4vw,40px)] mobile-fade-up delay-100"
+          className="hero-heading font-bold italic leading-tight text-[22px] sm:text-[24px] min-[820px]:text-[24px] lg:text-[32px] min-[1280px]:text-[40px] mobile-fade-up delay-100"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           {/* DESKTOP (≥820px) — 2 linhas fixas */}
@@ -176,7 +178,7 @@ export default function Hero() {
             <span className="text-[#FF624D] italic font-bold">Founders</span> que estão&nbsp;
             construindo o{" "}
             <span className="text-[#FF624D] italic font-bold">
-              futuro da IA</span> no Brasil.&nbsp;
+              futuro da IA</span> no&nbsp;Brasil.
           </span>
 
           {/* MOBILE (<820px) */}
@@ -220,6 +222,8 @@ export default function Hero() {
             >
               <span className="mr-2 text-[#FF624D]">--&gt;</span> Pitch Us!
             </a>
+        </div>
+      </div>
         </div>
       </div>
 

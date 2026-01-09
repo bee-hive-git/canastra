@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -35,7 +36,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative text-white pt-12 min-h-[100svh] min-[820px]:pt-24 overflow-x-hidden"
+      className="relative text-white pt-12 min-h-[100svh] min-[820px]:min-h-[90dvh] min-[820px]:pt-24 overflow-hidden"
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
@@ -116,76 +117,58 @@ export default function Hero() {
             transform: none !important;
           }
         }
-        @media (min-width: 1181px) and (max-width: 1439px) {
-          #home .wrap {
-            margin-left: 0;
-            padding-left: var(--site-padding-left);
-            padding-right: var(--site-padding-right);
-            max-width: 960px;
-          }
-          #home .wrap .hero-heading {
-            max-width: 920px;
-          }
-        }
-        @media (min-width: 1440px) {
-          #home .wrap {
-            margin-left: 0;
-            padding-left: var(--site-padding-left);
-            padding-right: var(--site-padding-right);
-          }
-        }
       `}</style>
 
       {/* 
         MOBILE IMAGE (<820px)
       */}
-      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[50vh]">
-        <div className="relative w-full max-w-[600px] h-full">
-          <Image
-            src="/hero/monatnha-1-mobile.svg"
-            alt="Paisagem montanhosa"
-            fill
-            className="mobile-light-reveal object-contain object-bottom"
-            draggable={false}
-            priority
-            sizes="(max-width: 820px) 100vw"
-            unoptimized
-          />
-        </div>
+      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none h-[50vh]">
+        <Image
+          src="/hero/monatnha-1-mobile.svg"
+          alt="Paisagem montanhosa"
+          fill
+          className="mobile-light-reveal object-contain object-bottom translate-y-8"
+          draggable={false}
+          priority
+          sizes="100vw"
+          unoptimized
+        />
       </div>
 
       {/* 
         DESKTOP IMAGE (>=820px)
       */}
-      <div className="hidden min-[820px]:block absolute right-0 bottom-0 z-0 w-[60vw] lg:w-[55vw] xl:w-[50vw] max-w-[1400px] h-[85vh] pointer-events-none select-none">
+      <div className="hidden min-[820px]:block absolute inset-x-0 bottom-0 z-0 w-full h-[85vh] pointer-events-none select-none">
         <Image
           src="/hero/montanha-1.svg"
           alt="Paisagem montanhosa detalhada"
           fill
-          className="mountain mountain-img object-contain object-right-bottom"
+          className="mountain mountain-img object-contain object-right-bottom translate-y-12"
           draggable={false}
           priority
-          sizes="(min-width: 820px) 60vw, (min-width: 1024px) 55vw, (min-width: 1280px) 50vw"
+          sizes="100vw"
           unoptimized
           style={{ imageRendering: 'auto' }}
         />
       </div>
 
-      <div
-        ref={wrapRef}
-        className="wrap relative z-10 mx-auto max-w-[560px] px-5 py-8 text-center flex flex-col items-center min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-1/2 min-[820px]:-translate-y-1/2 min-[820px]:mx-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:pl-[5%] lg:pl-[8%] xl:pl-[10%] min-[820px]:max-w-none"
-      >
-        <Image
-        src="/header/logo.png"
-        alt="Logo Canastra"
-        width={150}
-        height={36}
-        className="h-14 sm:h-22 w-auto mb-14 sm:mb-12 min-[820px]:hidden mobile-fade-up object-contain"
-        priority
-      />
+      <div className="relative z-10 w-full min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-0 min-[820px]:pt-[22vh] pointer-events-none">
+        <div className="w-full px-5 min-[820px]:px-0 min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]">
+          <div
+            ref={wrapRef}
+            className="wrap pointer-events-auto mx-auto max-w-[560px] py-8 text-center flex flex-col items-center min-[820px]:mx-0 min-[820px]:py-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-none"
+          >
+            <Image
+              src="/header/logo.png"
+              alt="Logo Canastra"
+              width={150}
+              height={36}
+              className="h-14 sm:h-22 w-auto mb-14 sm:mb-12 min-[820px]:hidden mobile-fade-up object-contain"
+              priority
+            />
         {/* H1 – Crimson Text, peso 700 (bold) */}
         <h1
-          className="hidden min-[820px]:block font-bold text-[49.3px] min-[820px]:text-[71.7px] leading-tight mb-3 min-[820px]:ml-[0.8px]"
+          className="hidden min-[820px]:block font-bold text-[clamp(36px,4.5vw,72px)] leading-tight mb-3 min-[820px]:ml-[0.8px]"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           Canastra Ventures
@@ -193,7 +176,7 @@ export default function Hero() {
 
         {/* H2 – Crimson Text, peso 700, itálico */}
         <h2
-          className="hero-heading font-bold italic leading-tight text-[clamp(18px,5.5vw,26px)] min-[820px]:text-[clamp(35.8px,2.8vw,42.6px)] min-[820px]:max-w-[832px] mobile-fade-up delay-100"
+          className="hero-heading font-bold italic leading-tight text-[clamp(24px,6vw,32px)] min-[820px]:text-[clamp(22px,2.4vw,40px)] min-[820px]:max-w-[832px] mobile-fade-up delay-100"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
           {/* DESKTOP (≥820px) — 2 linhas fixas */}
@@ -235,15 +218,13 @@ export default function Hero() {
         </p>
 
         <div className="mt-7 flex items-center justify-center gap-3 lg:gap-4 min-[820px]:justify-start mobile-fade-up delay-300">
-          <a
-            href="https://forms.gle/BjEZU9quVQq8LSXg7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[52px] px-5 min-w-[166px] text-[15.6px] border-2 border-[#FF624D] bg-white text-black min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent min-[820px]:text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
+          <Link
+            href="/ai-eir"
+            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[38px] px-4 min-w-[120px] text-[13.5px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[100px] max-[330px]:px-3"
           >
             <svg
-              width="27"
-              height="23"
+              width="18"
+              height="15"
               viewBox="0 0 26 22"
               aria-hidden="true"
               className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
@@ -272,17 +253,15 @@ export default function Hero() {
               />
             </svg>
             Join AI EiR!
-          </a>
+          </Link>
 
-          <a
-            href="https://forms.gle/FRAutKQbJt4wvCuR7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[52px] px-5 min-w-[166px] text-[15.6px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
+          <Link
+            href="/pitch-us"
+            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[38px] px-4 min-w-[120px] text-[13.5px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[100px] max-[330px]:px-3"
           >
             <svg
-              width="27"
-              height="23"
+              width="18"
+              height="15"
               viewBox="0 0 26 22"
               aria-hidden="true"
               className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
@@ -311,9 +290,11 @@ export default function Hero() {
               />
             </svg>
             Pitch Us!
-          </a>
+          </Link>
+          </div>
         </div>
       </div>
+    </div>
 
     </section>
   );
