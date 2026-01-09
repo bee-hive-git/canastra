@@ -63,11 +63,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="min-[820px]:mb-1">
-                <Link href="/portfolio" prefetch className={linkBase}>
-                  Portfólio
-                </Link>
-              </li>
-              <li className="min-[820px]:mb-1">
                 <Link href="/pitch-us" prefetch className={linkBase}>
                   Pitch us!
                 </Link>

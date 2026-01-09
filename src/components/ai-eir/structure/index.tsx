@@ -59,7 +59,7 @@ export default function Structure() {
         </h2>
 
         {/* BOTÃO */}
-        <div className="mt-6 flex justify-center">
+        <div className="mt-6 hidden min-[821px]:flex justify-center">
           <button
             type="button"
             className="
@@ -154,6 +154,30 @@ export default function Structure() {
           />
         </motion.div>
       </motion.div>
+
+      {/* BOTÃO MOBILE (Abaixo da imagem) */}
+      <div className="mt-10 flex justify-center min-[821px]:hidden">
+        <button
+          type="button"
+          className="
+            inline-flex items-center justify-center gap-2 rounded-md font-semibold
+            h-12 px-5 min-w-[170px] text-[15px] border-2 transition-all duration-200 ease-out
+            bg-white text-black border-[#FF624D]
+            hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20
+            active:translate-y-0
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
+          "
+        >
+          <Image
+            src="/elements/arrow-icon.png"
+            width={26}
+            height={22}
+            alt=""
+            className="-ml-1"
+          />
+          <span>Cronograma Completo</span>
+        </button>
+      </div>
     </section>
   );
 }

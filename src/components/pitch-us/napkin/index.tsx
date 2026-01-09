@@ -117,7 +117,12 @@ export default function Napkin() {
             </span>{" "}
             que consideramos para investimentos pre-seed, comparados aos que buscamos nas startups que
             se inscrevem no nosso programa de residência (
-            <a href="/ai-eir" className="underline decoration-white/30 hover:text-white">
+            <a
+              href="https://forms.gle/BjEZU9quVQq8LSXg7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/30 hover:text-white"
+            >
               AI EiR
             </a>
             ).
@@ -129,18 +134,36 @@ export default function Napkin() {
       <div className="mx-auto max-w-[560px] px-5 min-[1181px]:hidden">
         <header className="text-center">
           <h2
-            className="text-[34px] leading-tight"
+            className="leading-tight"
             style={{
               fontFamily: '"Crimson Text", serif',
               fontWeight: 700,
-              color: ACCENT,
             }}
           >
-            Napkin
+            <span
+              className="block text-[32px] text-white"
+              style={{
+                fontStyle: "normal",
+                lineHeight: "0.75",
+              }}
+            >
+              Conheça o nosso
+            </span>
+            <span
+              className="block italic font-semibold text-[48px]"
+              style={{
+                color: ACCENT,
+                fontWeight: 700,
+                fontStyle: "italic",
+                lineHeight: "1.3",
+              }}
+            >
+              Napkin
+            </span>
           </h2>
         </header>
 
-        <h3
+        <div
           className="text-[18px] leading-snug mt-2 text-center"
           style={{
             fontFamily:
@@ -148,24 +171,31 @@ export default function Napkin() {
             fontWeight: 400,
           }}
         >
-          Dê uma olhada no nosso{" "}
-          <span className="italic font-semibold" style={{ color: ACCENT }}>
-            Napkin
-          </span>
-          , onde descrevemos o que buscamos em{" "}
-          <span className="italic font-semibold" style={{ color: ACCENT }}>
-            startups AI-First.
-          </span>
-        </h3>
+          <p className="mb-3">
+            Dê uma olhada no nosso{" "}
+            <span className="italic font-semibold" style={{ color: ACCENT }}>
+              Napkin
+            </span>
+            , onde descrevemos o que buscamos em{" "}
+            <span className="italic font-semibold" style={{ color: ACCENT }}>
+              startups AI-First.
+            </span>
+          </p>
 
-        <p className="text-white/85 text-[14px] leading-relaxed max-w-[56ch] mx-auto mt-3 text-center">
-          Nele, você encontrará os critérios que consideramos para investimentos pre-seed, comparados
-          aos que buscamos nas startups que se inscrevem no nosso programa de residência (
-          <a href="/ai-eir" className="underline decoration-white/30 hover:text-white">
-            AI EiR
-          </a>
-          ).
-        </p>
+          <p className="text-white/85 max-w-[56ch] mx-auto">
+            Nele, você encontrará os critérios que consideramos para investimentos pre-seed, comparados
+            aos que buscamos nas startups que se inscrevem no nosso programa de residência (
+            <a
+              href="https://forms.gle/BjEZU9quVQq8LSXg7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/30 hover:text-white"
+            >
+              AI EiR
+            </a>
+            ).
+          </p>
+        </div>
       </div>
 
       {/* DESKTOP IMG + DISCLAIMER */}

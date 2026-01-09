@@ -166,137 +166,103 @@ export default function Hero() {
               className="h-14 sm:h-22 w-auto mb-14 sm:mb-12 min-[820px]:hidden mobile-fade-up object-contain"
               priority
             />
-        {/* H1 – Crimson Text, peso 700 (bold) */}
-        <h1
-          className="hidden min-[820px]:block font-bold text-[clamp(36px,4.5vw,72px)] leading-tight mb-3 min-[820px]:ml-[0.8px]"
-          style={{ fontFamily: '"Crimson Text", serif' }}
-        >
-          Canastra Ventures
-        </h1>
-
-        {/* H2 – Crimson Text, peso 700, itálico */}
-        <h2
-          className="hero-heading font-bold italic leading-tight text-[clamp(24px,6vw,32px)] min-[820px]:text-[clamp(22px,2.4vw,40px)] min-[820px]:max-w-[832px] mobile-fade-up delay-100"
-          style={{ fontFamily: '"Crimson Text", serif' }}
-        >
-          {/* DESKTOP (≥820px) — 2 linhas fixas */}
-          <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
-            Guiamos os{" "}
-            <span className="text-[#FF624D] italic font-bold">ousados</span> na
-            trilha&nbsp;da
-          </span>
-          <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
-            construção de{" "}
-            <span className="text-[#FF624D] italic font-bold">
-              startups&nbsp;inesquecíveis
-            </span>
-          </span>
-
-          {/* MOBILE (<820px) — natural, com auto-fit maior agora */}
-          <span className="min-[820px]:hidden block">
-            Guiamos os{" "}
-            <span className="text-[#FF624D] italic font-bold">ousados</span> na
-            trilha da
-          </span>
-          <span className="min-[820px]:hidden block">
-            construção de startups{" "}
-            <span className="text-[#FF624D] italic font-bold">
-              inesquecíveis
-            </span>
-          </span>
-        </h2>
-
-        {/* Parágrafo – Hanken Grotesk, peso 300 (light) */}
-        <p
-          className="mt-2 text-white/85 font-light text-[16px] leading-relaxed whitespace-nowrap min-[820px]:whitespace-normal min-[820px]:text-[clamp(14px,1.1vw,18px)] min-[820px]:max-w-[499px] mobile-fade-up delay-200"
-          style={{
-            fontFamily:
-              '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-          }}
-        >
-          VC pre-seed especialista em IA
-        </p>
-
-        <div className="mt-7 flex items-center justify-center gap-3 lg:gap-4 min-[820px]:justify-start mobile-fade-up delay-300">
-          <Link
-            href="/ai-eir"
-            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[38px] px-4 min-w-[120px] text-[13.5px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[100px] max-[330px]:px-3"
-          >
-            <svg
-              width="18"
-              height="15"
-              viewBox="0 0 26 22"
-              aria-hidden="true"
-              className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
+            {/* H1 – Crimson Text, peso 700 (bold) */}
+            <h1
+              className="hidden min-[820px]:block font-bold text-[clamp(36px,4.5vw,72px)] leading-tight mb-3 min-[820px]:ml-[0.8px]"
+              style={{ fontFamily: '"Crimson Text", serif' }}
             >
-              <path
-                d="M2 11h6"
-                stroke="currentColor"
-                strokeWidth="2.08"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M9 11h7"
-                stroke="currentColor"
-                strokeWidth="2.08"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M16 7l6 4-6 4"
-                stroke="currentColor"
-                strokeWidth="2.08"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
-            Join AI EiR!
-          </Link>
+              Canastra Ventures
+            </h1>
 
-          <Link
-            href="/pitch-us"
-            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[38px] px-4 min-w-[120px] text-[13.5px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[100px] max-[330px]:px-3"
-          >
-            <svg
-              width="18"
-              height="15"
-              viewBox="0 0 26 22"
-              aria-hidden="true"
-              className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
+            {/* H2 – Crimson Text, peso 700, itálico */}
+            <h2
+              className="hero-heading font-bold italic leading-tight text-[clamp(24px,6vw,32px)] min-[820px]:text-[clamp(22px,2.4vw,40px)] min-[820px]:max-w-[832px] mobile-fade-up delay-100"
+              style={{ fontFamily: '"Crimson Text", serif' }}
             >
-              <path
-                d="M2 11h6"
-                stroke="currentColor"
-                strokeWidth="2.08"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M9 11h7"
-                stroke="currentColor"
-                strokeWidth="2.08"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M16 7l6 4-6 4"
-                stroke="currentColor"
-                strokeWidth="2.08"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
-            Pitch Us!
-          </Link>
+              {/* DESKTOP (≥820px) — 2 linhas fixas */}
+              <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
+                Guiamos os{" "}
+                <span className="text-[#FF624D] italic font-bold">ousados</span> na
+                trilha&nbsp;da
+              </span>
+              <span className="hidden min-[820px]:block min-[820px]:whitespace-nowrap">
+                construção de{" "}
+                <span className="text-[#FF624D] italic font-bold">
+                  startups&nbsp;inesquecíveis
+                </span>
+              </span>
+
+              {/* MOBILE (<820px) — natural, com auto-fit maior agora */}
+              <span className="min-[820px]:hidden block">
+                Guiamos os{" "}
+                <span className="text-[#FF624D] italic font-bold">ousados</span> na
+                trilha da
+              </span>
+              <span className="min-[820px]:hidden block">
+                construção de startups{" "}
+                <span className="text-[#FF624D] italic font-bold">
+                  inesquecíveis
+                </span>
+              </span>
+            </h2>
+
+            {/* Parágrafo – Hanken Grotesk, peso 300 (light) */}
+            <p
+              className="mt-2 text-white/85 font-light text-[16px] leading-relaxed whitespace-nowrap min-[820px]:whitespace-normal min-[820px]:text-[clamp(14px,1.1vw,18px)] min-[820px]:max-w-[499px] mobile-fade-up delay-200"
+              style={{
+                fontFamily:
+                  '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+              }}
+            >
+              VC pre-seed especialista em IA
+            </p>
+
+            <div className="mt-7 flex items-center justify-center gap-3 lg:gap-4 min-[820px]:justify-start mobile-fade-up delay-300">
+              <Link
+                href="/ai-eir"
+                className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[38px] px-4 min-w-[120px] text-[13.5px] border-2 border-black !bg-white text-black min-[820px]:border min-[820px]:border-gray-400 min-[820px]:!bg-transparent min-[820px]:text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[100px] max-[330px]:px-3 whitespace-nowrap"
+              >
+                <Image
+                  src="/elements/arrow-icon.png"
+                  width={18}
+                  height={15}
+                  alt=""
+                  className="-ml-1 min-[820px]:hidden"
+                />
+                <Image
+                  src="/elements/arrow-white-icon.png"
+                  width={18}
+                  height={15}
+                  alt=""
+                  className="-ml-1 hidden min-[820px]:block"
+                />
+                Join AI EiR!
+              </Link>
+
+              <Link
+                href="/pitch-us"
+                className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[38px] px-4 min-w-[120px] text-[13.5px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[100px] max-[330px]:px-3 whitespace-nowrap"
+              >
+                <Image
+                  src="/elements/arrow-icon.png"
+                  width={18}
+                  height={15}
+                  alt=""
+                  className="-ml-1 min-[820px]:hidden"
+                />
+                <Image
+                  src="/elements/arrow-white-icon.png"
+                  width={18}
+                  height={15}
+                  alt=""
+                  className="-ml-1 hidden min-[820px]:block"
+                />
+                Pitch Us!
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
     </section>
   );
 }
- 

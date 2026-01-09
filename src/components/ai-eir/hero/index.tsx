@@ -7,7 +7,7 @@ export default function AIHero() {
   return (
     <section
       id="ai-eir-hero"
-      className="relative text-white pt-12 pb-0 min-[820px]:pt-4 min-[820px]:pb-20 overflow-hidden"
+      className="relative text-white pt-12 pb-24 min-[820px]:pt-4 min-[820px]:pb-32 overflow-hidden"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
       {/* gradiente */}
@@ -53,11 +53,12 @@ export default function AIHero() {
 
               {/* H1 mobile */}
               <h1
-                className="min-[820px]:hidden font-bold mb-3 text-[32px] leading-[1.15]"
-                style={{ fontFamily: '"Crimson Text", serif' }}
-              >
-                AI <span className="italic">EiR</span>
-              </h1>
+          className="block min-[820px]:hidden font-bold text-[36px] leading-[1.15] mb-4 mobile-fade-up"
+          style={{ fontFamily: '"Crimson Text", serif' }}
+        >
+          AI Entrepreneur
+in Residence (AI EiR)
+        </h1>
 
               {/* H2 desktop */}
               <h2
@@ -75,7 +76,7 @@ export default function AIHero() {
                 style={{ fontFamily: '"Crimson Text", serif' }}
               >
                 Do <span className="text-[#ff624d]">zero ao MVP</span> pronto para
-                fundraising em apenas<span className="text-[#ff624d]">12 semanas</span>
+                fundraising em apenas <span className="text-[#ff624d]">12 semanas</span>
               </h2>
 
               {/* p (Unified Desktop + Mobile) */}
@@ -117,36 +118,20 @@ export default function AIHero() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[38px] px-4 min-w-[120px] text-[13.5px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[100px] max-[330px]:px-3"
                 >
-                  <svg
-                    width="18"
-                    height="15"
-                    viewBox="0 0 26 22"
-                    aria-hidden="true"
-                    className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
-                  >
-                    <path
-                      d="M2 11h6"
-                      stroke="currentColor"
-                      strokeWidth="2.08"
-                      strokeLinecap="round"
-                      fill="none"
-                    />
-                    <path
-                      d="M9 11h7"
-                      stroke="currentColor"
-                      strokeWidth="2.08"
-                      strokeLinecap="round"
-                      fill="none"
-                    />
-                    <path
-                      d="M16 7l6 4-6 4"
-                      stroke="currentColor"
-                      strokeWidth="2.08"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </svg>
+                  <Image
+                    src="/elements/arrow-icon.png"
+                    width={18}
+                    height={15}
+                    alt=""
+                    className="-ml-1 min-[820px]:hidden"
+                  />
+                  <Image
+                    src="/elements/arrow-white-icon.png"
+                    width={18}
+                    height={15}
+                    alt=""
+                    className="-ml-1 hidden min-[820px]:block"
+                  />
                   Apply AI EiR
                 </a>
               </div>
@@ -155,7 +140,7 @@ export default function AIHero() {
         </div>
 
         {/* IMAGEM mobile - New Location */}
-        <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[45svh]">
+        <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[38svh]">
           <div className="relative w-full max-w-[600px] h-full">
             <Image
               src="/ai-eir/hero/montanha-5.svg"

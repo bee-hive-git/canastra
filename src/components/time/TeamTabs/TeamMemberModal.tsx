@@ -32,32 +32,33 @@ export default function TeamMemberModal({ member, isOpen, onClose }: TeamMemberM
   }, [isOpen, onClose]);
 
   return (
-    <AnimatePresence>
-      {isOpen && member && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
-          onClick={onClose}
-        >
-          <style jsx global>{`
-            .custom-scrollbar::-webkit-scrollbar {
-              width: 6px;
-            }
-            .custom-scrollbar::-webkit-scrollbar-track {
-              background: rgba(255, 255, 255, 0.05);
-            }
-            .custom-scrollbar::-webkit-scrollbar-thumb {
-              background: rgba(255, 255, 255, 0.2);
-              border-radius: 10px;
-            }
-            .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-              background: rgba(255, 255, 255, 0.4);
-            }
-          `}</style>
+    <>
+      <style jsx global>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.4);
+        }
+      `}</style>
+      <AnimatePresence>
+        {isOpen && member && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+            onClick={onClose}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             onClick={(e) => e.stopPropagation()}
@@ -66,7 +67,7 @@ export default function TeamMemberModal({ member, isOpen, onClose }: TeamMemberM
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 text-white/50 hover:text-[#F05941] transition-colors rounded-full hover:bg-white/5"
+              className="sticky top-0 right-0 ml-auto z-10 p-2 text-white/50 hover:text-[#F05941] transition-colors rounded-full hover:bg-white/5 md:absolute md:top-4 md:right-4"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -93,6 +94,7 @@ export default function TeamMemberModal({ member, isOpen, onClose }: TeamMemberM
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 320px"
+                  priority
                 />
               </div>
             </div>
@@ -115,7 +117,7 @@ export default function TeamMemberModal({ member, isOpen, onClose }: TeamMemberM
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block text-white hover:text-[#0077b5] transition-colors mb-6"
+                  className="inline-block w-fit text-white hover:text-[#0077b5] transition-colors mb-6"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -141,6 +143,7 @@ export default function TeamMemberModal({ member, isOpen, onClose }: TeamMemberM
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+      </AnimatePresence>
+    </>
   );
 }

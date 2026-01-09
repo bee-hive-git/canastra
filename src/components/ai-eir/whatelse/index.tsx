@@ -57,20 +57,17 @@ export default function WhatElse() {
           <h2
             className="
               font-bold font-serif leading-[0.94]
-              text-[clamp(34px,6vw,65px)]
+              text-[clamp(30px,5.5vw,65px)]
             "
             style={{
               fontFamily: '"Crimson Text", serif',
               letterSpacing: "-1.63px",
             }}
           >
-            <span className="block">
-              O que mais você terá{" "}
-              <span className="italic text-[#FF624D]">acesso</span>
-            </span>
+            <span className="block">O que mais você terá</span>
 
             <span className="block italic">
-              durante o{" "}
+              <span className="text-[#FF624D]">acesso</span> durante o{" "}
               <span className="text-[#FF624D] not-italic">programa</span>
             </span>
           </h2>

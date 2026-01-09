@@ -95,6 +95,7 @@ export default function TeamCta() {
             {/* TÍTULO */}
             <h1 className="title text-[22px] min-[820px]:text-[28px]">
               Em busca do seu{" "}
+              <br className="min-[820px]:hidden" />
               <span className="italic font-semibold" style={{ color: HILIGHT }}>
                 primeiro cheque?
               </span>

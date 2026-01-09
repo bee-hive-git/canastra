@@ -1,6 +1,8 @@
 // src/components/pitch-us/ask/index.tsx
 "use client";
 
+import Image from "next/image";
+
 export default function Ask() {
   const HILIGHT = "#FF624D";
   const BG = "rgb(17, 4, 23)";
@@ -75,7 +77,8 @@ export default function Ask() {
               fontWeight: 700,
             }}
           >
-            Em busca do seu{" "}
+            Em busca do seu
+            <br />
             <span className="italic font-semibold" style={{ color: HILIGHT }}>
               primeiro cheque?
             </span>
@@ -98,39 +101,16 @@ export default function Ask() {
               href="https://forms.gle/FRAutKQbJt4wvCuR7"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
+              className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-6 min-w-[160px] text-[15px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out whitespace-nowrap hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
             >
-              <svg
-                width="26"
-                height="22"
-                viewBox="0 0 26 22"
-                aria-hidden="true"
-                className="-ml-1 text-[#FF624D]"
-              >
-                <path
-                  d="M2 11h6"
-                  stroke="currentColor"
-                  strokeWidth="2.6"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                <path
-                  d="M9 11h7"
-                  stroke="currentColor"
-                  strokeWidth="2.6"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                <path
-                  d="M16 7l6 4-6 4"
-                  stroke="currentColor"
-                  strokeWidth="2.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-              Pitch Us!
+              <Image
+                src="/elements/arrow-icon.png"
+                width={26}
+                height={22}
+                alt=""
+                className="-ml-1"
+              />
+              Inscreva-se
             </a>
             <span className="h-px w-20 bg-white/30" />
           </div>
@@ -172,34 +152,14 @@ export default function Ask() {
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-6 min-w-[200px] text-[14px] border-2 border-[#FF624D] bg-black text-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0"
             >
-              <svg
-                width="26"
-                height="22"
-                viewBox="0 0 26 22"
-                aria-hidden="true"
-                className="-ml-1 text-[#FF624D]"
-              >
-                <path
-                  d="M2 11h6"
-                  stroke="currentColor"
-                  strokeWidth="2.6"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M9 11h7"
-                  stroke="currentColor"
-                  strokeWidth="2.6"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M16 7l6 4-6 4"
-                  stroke="currentColor"
-                  strokeWidth="2.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Pitch Us!
+              <Image
+                src="/elements/arrow-icon.png"
+                width={26}
+                height={22}
+                alt=""
+                className="-ml-1"
+              />
+              Inscreva-se
             </a>
           </div>
         </div>

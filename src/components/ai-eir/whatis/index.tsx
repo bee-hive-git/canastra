@@ -2,6 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function WhatIs() {
   return (
@@ -89,17 +90,13 @@ export default function WhatIs() {
                 "min-[820px]:border-black min-[820px]:text-black min-[820px]:bg-transparent min-[820px]:hover:brightness-100",
               ].join(" ")}
             >
-              <svg
-                width="26"
-                height="22"
-                viewBox="0 0 26 22"
-                aria-hidden="true"
-                className="-ml-1 text-[#FF624D] min-[820px]:text-black"
-              >
-                <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-                <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-                <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <Image
+                src="/elements/arrow-icon.png"
+                width={26}
+                height={22}
+                alt=""
+                className="-ml-1"
+              />
               <span className="min-[820px]:hidden">Apply AI EiR</span>
               <span className="hidden min-[820px]:inline">Apply AI EiR</span>
             </a>

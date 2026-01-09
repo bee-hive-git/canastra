@@ -194,9 +194,9 @@ export default function Hero() {
 
           {/* MOBILE (<820px) */}
           <span className="min-[820px]:hidden block text-[20px]">
-            Somos um VC{" "}
-            <span className="text-[#FF624D] italic font-bold">Pre-seed</span> com foco em{" "}
-            <span className="text-[#FF624D] italic font-bold">IA</span>
+            Apoiamos{" "}
+            <span className="text-[#FF624D] italic font-bold">Founders</span> com a ambição{" "}de escalar startups de IA no 
+            <span className="text-[#FF624D] italic font-bold"> Brasil</span> e alem
           </span>
         </h2>
 
@@ -218,39 +218,23 @@ export default function Hero() {
             href="https://forms.gle/FRAutKQbJt4wvCuR7"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[38px] px-4 min-w-[120px] text-[13.5px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[112px] max-[330px]:px-3"
+            className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-12 px-6 min-w-[160px] text-[15px] border-2 border-[#FF624D] bg-black text-white min-[820px]:h-[38px] min-[820px]:px-4 min-[820px]:min-w-[120px] min-[820px]:text-[13.5px] min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 whitespace-nowrap"
           >
-            <svg
-              width="27"
-              height="23"
-              viewBox="0 0 26 22"
-              aria-hidden="true"
-              className="-ml-1 text-[#FF624D] min-[820px]:text-gray-400"
-            >
-              <path
-                d="M2 11h6"
-                stroke="currentColor"
-                strokeWidth="2.08"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M9 11h7"
-                stroke="currentColor"
-                strokeWidth="2.08"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M16 7l6 4-6 4"
-                stroke="currentColor"
-                strokeWidth="2.08"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
-            Pitch Us!
+            <Image
+              src="/elements/arrow-icon.png"
+              width={27}
+              height={23}
+              alt=""
+              className="-ml-1 min-[820px]:hidden"
+            />
+            <Image
+              src="/elements/arrow-white-icon.png"
+              width={27}
+              height={23}
+              alt=""
+              className="-ml-1 hidden min-[820px]:block"
+            />
+            Inscreva-se
           </a>
         </div>
       </div>

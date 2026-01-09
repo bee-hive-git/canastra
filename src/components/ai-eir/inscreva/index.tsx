@@ -1,6 +1,8 @@
 // src/components/ai-eir/inscreva/index.tsx
 "use client";
 
+import Image from "next/image";
+
 export default function Inscreva() {
   const HILIGHT = "#FF624D";
   const BG = "rgb(17, 4, 23)";
@@ -56,7 +58,7 @@ export default function Inscreva() {
       {/* ------------ MOBILE ------------ */}
       <div className="px-5 py-10 text-center min-[820px]:hidden">
         <div className="mx-auto max-w-[540px]">
-          <h1 className="font-serif text-[30px] leading-tight">
+          <h1 className="font-serif text-[26px] leading-tight">
             Inscreva-se agora no{" "}
             <span className="italic font-semibold" style={{ color: HILIGHT }}>
               AI EiR
@@ -75,20 +77,22 @@ export default function Inscreva() {
               rel="noopener noreferrer"
               className={`
                 inline-flex items-center justify-center gap-2
-                rounded-md font-semibold h-10 px-4 min-w-[140px] text-[14px]
+                rounded-md font-semibold h-12 px-6 min-w-[160px] text-[15px]
                 border-2 border-[#FF624D] bg-black text-white
-                transition-all duration-200 ease-out
+                transition-all duration-200 ease-out whitespace-nowrap
                 hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110
                 hover:shadow-md hover:shadow-black/40
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
                 active:translate-y-0
               `}
             >
-              <svg width="22" height="18" viewBox="0 0 26 22" className="-ml-1 text-[#FF624D]" aria-hidden>
-                <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-                <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-                <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </svg>
+              <Image
+                src="/elements/arrow-icon.png"
+                width={22}
+                height={18}
+                alt=""
+                className="-ml-1"
+              />
               Apply AI EiR
             </a>
             <span className="h-px w-20 bg-white/30" />
@@ -119,18 +123,14 @@ export default function Inscreva() {
                 mt-6 inline-flex items-center justify-center gap-2
                 rounded-md font-semibold h-12 px-5 min-w-[200px] text-[15px]
                 border-2 border-[#FF624D] bg-black text-white
-                transition-all duration-200 ease-out
+                transition-all duration-200 ease-out whitespace-nowrap
                 hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110
                 hover:shadow-md hover:shadow-black/40
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
                 active:translate-y-0
               `}
             >
-              <svg width="26" height="22" viewBox="0 0 26 22" className="-ml-1 text-[#FF624D]" aria-hidden>
-                <path d="M2 11h6" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-                <path d="M9 11h7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-                <path d="M16 7l6 4-6 4" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </svg>
+              <Image src="/elements/arrow-icon.png" width={26} height={22} alt="" className="-ml-1" />
               Apply AI EiR
             </a>
           </div>

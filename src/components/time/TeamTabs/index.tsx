@@ -105,6 +105,17 @@ export default function TeamTabs() {
     return Array.from({ length: tab.count }, (_, i) => `/time/${key}/${i + 1}.png`);
   };
 
+  const getModalPhotos = (key: TabKey) => {
+    switch (key) {
+      case "venture-partners": return VENTURE_PARTNERS_DATA.map(m => m.image);
+      case "team": return TEAM_DATA.map(m => m.image);
+      case "fellow-partners": return FELLOW_PARTNERS_DATA.map(m => m.image);
+      case "advisors": return ADVISORS_DATA.map(m => m.image);
+      case "mentors": return MENTORS_DATA.map(m => m.image);
+      default: return [];
+    }
+  };
+
   // carrossel mobile
   const railRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -398,6 +409,23 @@ export default function TeamTabs() {
           })}
         </div>
       )}
+
+      {/* Preloader Oculto: Carrega imagens do modal da aba ATIVA imediatamente */}
+      <div className="fixed left-0 top-0 w-0 h-0 overflow-hidden opacity-0 pointer-events-none" aria-hidden="true">
+        {getModalPhotos(active).map((src) => (
+          <div key={`preload-modal-${src}`} className="relative w-[320px] h-[400px]">
+            <Image
+              src={src}
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 320px"
+              quality={75}
+              loading="eager"
+              priority
+            />
+          </div>
+        ))}
+      </div>
 
       <TeamMemberModal
         member={selectedMember}

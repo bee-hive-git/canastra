@@ -36,7 +36,7 @@ export default function Hero() {
   return (
     <section
       id="team-hero"
-      className="relative text-white pt-12 pb-0 min-h-[100svh] min-[820px]:min-h-[90dvh] min-[820px]:pt-24 overflow-hidden"
+      className="relative text-white pt-12 pb-[45vh] min-[820px]:pb-0 min-h-[100svh] min-[820px]:min-h-[90dvh] min-[820px]:pt-24 overflow-hidden"
       style={{ backgroundColor: BG }}
     >
       <style jsx global>{`
@@ -119,7 +119,7 @@ export default function Hero() {
         }
       `}</style>
 
-      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[50vh]">
+      <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[40vh]">
         <div className="relative w-full max-w-[600px] h-full">
           <Image
             src="/time/hero/montanha-4.svg"
@@ -156,7 +156,7 @@ export default function Hero() {
           className="block min-[820px]:hidden font-bold text-[36px] leading-[1.15] mb-4 mobile-fade-up"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
-          Nosso <span className="text-[#FF624D]">Time</span>
+          Nosso Time
         </h1>
 
         {/* H1 – Desktop */}
@@ -212,15 +212,31 @@ export default function Hero() {
         </p>
         
         {/* Mobile Button */}
-        <div className="mt-7 min-[820px]:hidden mobile-fade-up delay-300">
+        <div className="mt-7 min-[820px]:hidden mobile-fade-up delay-300 flex justify-center">
              <a
               href="https://forms.gle/FRAutKQbJt4wvCuR7"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-3 border border-[#FF624D] rounded-lg text-white font-bold text-lg hover:bg-[#FF624D]/10 transition-colors"
+              className={`
+                inline-flex items-center justify-center gap-2
+                rounded-md font-semibold h-12 px-6 min-w-[160px] text-[15px]
+                border-2 border-[#FF624D] bg-black text-white
+                transition-all duration-200 ease-out whitespace-nowrap
+                hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110
+                hover:shadow-md hover:shadow-black/40
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
+                active:translate-y-0
+              `}
               style={{ fontFamily: '"Hanken Grotesk", sans-serif' }}
             >
-              <span className="mr-2 text-[#FF624D]">--&gt;</span> Pitch Us!
+              <Image
+                src="/elements/arrow-icon.png"
+                width={24}
+                height={20}
+                alt=""
+                className="-ml-1"
+              />
+              Pitch Us!
             </a>
         </div>
       </div>

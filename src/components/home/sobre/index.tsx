@@ -182,9 +182,12 @@ export default function Sobre() {
           <span className="md:hidden">
             Ao longo de 12 semanas, os founders selecionados para o{" "}
             <span className="text-[#FF624D] font-semibold">AI Entrepreneur in Residence (AI EiR)</span>,
-            terão apoio hands-on dos nossos{" "}
-            <span className="text-[#FF624D] font-semibold">Fallow Partners</span>.
-            , mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar os primeiros sinais de tração rumo ao primeiro cheque.{" "}
+            terão apoio hands-on dos nossos Fallow Partners{" "}
+           
+            , mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar 
+            os primeiros sinais de tração rumo ao {" "}
+           <span className="text-[#FF624D] font-semibold">primeiro cheque</span>.
+          
           </span>
         </p>
 
@@ -196,36 +199,20 @@ export default function Sobre() {
             rel="noopener noreferrer"
             className="cta inline-flex items-center justify-center gap-2 rounded-md font-semibold min-h-[3rem] px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 md:min-w-[260px] md:min-h-[3.25rem] md:px-8 md:text-[16px] md:border md:border-gray-400 md:bg-transparent md:text-white md:hover:brightness-110"
           >
-            <svg
-              width="26"
-              height="22"
-              viewBox="0 0 26 22"
-              aria-hidden="true"
-              className="-ml-1 text-[#FF624D] md:text-gray-400"
-            >
-              <path
-                d="M2 11h6"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M9 11h7"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M16 7l6 4-6 4"
-                stroke="currentColor"
-                strokeWidth="2.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
+            <Image
+              src="/elements/arrow-icon.png"
+              width={26}
+              height={22}
+              alt=""
+              className="-ml-1 md:hidden"
+            />
+            <Image
+              src="/elements/arrow-white-icon.png"
+              width={26}
+              height={22}
+              alt=""
+              className="-ml-1 hidden md:block"
+            />
             Join AI EiR!
           </a>
         </div>
