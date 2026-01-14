@@ -68,9 +68,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="min-[820px]:mb-0">
-                <Link href="/#newsletter" prefetch className={linkBase}>
+                <a
+                  href="https://canastraventures.notion.site/diskette-by-canastra-ventures"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkBase}
+                >
                   Recursos
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -204,7 +209,7 @@ export default function Footer() {
             className="logo h-10 min-[820px]:h-11 w-auto select-none pointer-events-none object-contain"
           />
           <p className="legal mt-4 text-white/85 text-[14px]">
-            © 2025 Canastra Ventures. Todos os direitos reservados.
+            © 2026 Canastra Ventures. Todos os direitos reservados.
           </p>
         </div>
 

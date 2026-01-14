@@ -239,5 +239,21 @@ export const MENTORS_DATA: MemberData[] = [
     image: "/time/mentors/Tomas-Martins-perfil.png",
     gridImage: "/time/mentors/Tomas-Martins.png",
     linkedin: "#"
+  },
+  {
+    name: "Jonatas Grosman",
+    role: "AI Researcher Puc-Rio",
+    description: "Jonatas é PhD em Inteligência Artificial, pesquisador e professor na PUC-Rio, onde leciona disciplinas de IA e coordena projetos avançados de pesquisa aplicada em parceria com grandes empresas de diversos setores, incluindo oil & gas, saúde e outros segmentos intensivos em tecnologia. Ao longo de sua trajetória, Jonatas desenvolveu modelos de IA que ultrapassam a marca de 1 bilhão de downloads no Hugging Face. Seu perfil na plataforma é reconhecido como a pessoa física com o maior número de downloads de modelos de IA no mundo, figurando ao lado de grandes organizações globais como Google, OpenAI e universidades de referência como o MIT. Além de sua atuação acadêmica e técnica, Jonatas também foi Venture Partner, com foco em IA, da Lanx Capital, fundo de venture capital sediado no Rio de Janeiro, onde contribuiu ativamente para a avaliação tecnológica, construção de tese e apoio estratégico a startups intensivas em inteligência artificial.",
+    image: "/time/mentors/Jonatas-Grosman-perfil.png",
+    gridImage: "/time/mentors/Jonatas-Grosman.png",
+    linkedin: "#"
+  },
+  {
+    name: "Augusto Estefani",
+    role: "Sr.Sales Executive Netlex",
+    description: "Experiente, com cerca de uma década de atuação profissional, construindo sua carreira em empresas de tecnologia de alto crescimento, especialmente no ecossistema de Inteligência Artificial da América Latina. Ao longo de sua trajetória, destacou-se pela capacidade de estruturar e escalar operações comerciais complexas, sempre com forte foco em geração de valor e resultados consistentes. Durante mais de seis anos, atuou como executivo de vendas sênior na Blip, uma das principais startups de chatbots com IA do país. Nesse período, foi responsável pelo atendimento e desenvolvimento de grandes contas, especialmente no setor financeiro, liderando negociações estratégicas e contribuindo diretamente para a geração de mais de R$20 milhões em receita para a companhia. Atualmente, Augusto ocupa a posição de executivo de vendas sênior na Netlex, uma das maiores legaltechs de IA do Brasil, onde segue atuando na expansão de grandes contas corporativas e no fortalecimento do posicionamento comercial da empresa em um mercado altamente competitivo e regulado",
+    image: "/time/mentors/Augusto-Estefani-perfil.png",
+    gridImage: "/time/mentors/Augusto-Estefani.png",
+    linkedin: "#"
   }
 ];

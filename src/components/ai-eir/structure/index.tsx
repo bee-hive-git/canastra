@@ -1,10 +1,9 @@
-"use client";
-
-import { motion, Variants } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-
-export default function Structure() {
+ "use client";
+ 
+ import { motion, Variants } from "framer-motion";
+ import Image from "next/image";
+ 
+ export default function Structure() {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -98,68 +97,72 @@ export default function Structure() {
             priority
           />
 
-          {/* BOTÃO DESKTOP (Reposicionado abaixo da imagem) */}
-          <div className="mt-10 flex justify-center">
-            <Link
-              href="/cronograma"
-              className="
-                inline-flex items-center justify-center gap-2 rounded-md font-semibold
-                h-12 px-5 min-w-[170px] text-[15px] border-2 transition-all duration-200 ease-out
-                bg-white text-black border-[#FF624D]
-                hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20
-                active:translate-y-0
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
-
-                /* DESKTOP — igual ao Hero */
-                min-[821px]:min-w-[220px]
-                min-[821px]:h-[50px]
-                min-[821px]:px-7
-                min-[821px]:text-[15px]
-                min-[821px]:border min-[821px]:border-gray-400
-                min-[821px]:bg-transparent min-[821px]:text-white
-                min-[821px]:hover:brightness-110
-              "
-            >
-              <svg
-                width="26"
-                height="22"
-                viewBox="0 0 26 22"
-                aria-hidden="true"
-                className="-ml-1 text-[#FF624D] min-[821px]:text-gray-300"
-              >
-                <path
-                  d="M2 11h6"
-                  stroke="currentColor"
-                  strokeWidth="2.6"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                <path
-                  d="M9 11h7"
-                  stroke="currentColor"
-                  strokeWidth="2.6"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                <path
-                  d="M16 7l6 4-6 4"
-                  stroke="currentColor"
-                  strokeWidth="2.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-              <span>Cronograma Completo</span>
-            </Link>
-          </div>
+           {/* BOTÃO DESKTOP (Reposicionado abaixo da imagem) */}
+           <div className="mt-10 flex justify-center">
+             <a
+               href="https://www.notion.so/canastraventures/Sobre-o-AI-Entrepreneur-in-Residence-AI-EiR-2458b1fce47880779bcbe12a86b69355?source=copy_link"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="
+                 inline-flex items-center justify-center gap-2 rounded-md font-semibold
+                 h-12 px-5 min-w-[170px] text-[15px] border-2 transition-all duration-200 ease-out
+                 bg-white text-black border-[#FF624D]
+                 hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20
+                 active:translate-y-0
+                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60
+ 
+                 /* DESKTOP — igual ao Hero */
+                 min-[821px]:min-w-[220px]
+                 min-[821px]:h-[50px]
+                 min-[821px]:px-7
+                 min-[821px]:text-[15px]
+                 min-[821px]:border min-[821px]:border-gray-400
+                 min-[821px]:bg-transparent min-[821px]:text-white
+                 min-[821px]:hover:brightness-110
+               "
+             >
+               <svg
+                 width="26"
+                 height="22"
+                 viewBox="0 0 26 22"
+                 aria-hidden="true"
+                 className="-ml-1 text-[#FF624D] min-[821px]:text-gray-300"
+               >
+                 <path
+                   d="M2 11h6"
+                   stroke="currentColor"
+                   strokeWidth="2.6"
+                   strokeLinecap="round"
+                   fill="none"
+                 />
+                 <path
+                   d="M9 11h7"
+                   stroke="currentColor"
+                   strokeWidth="2.6"
+                   strokeLinecap="round"
+                   fill="none"
+                 />
+                 <path
+                   d="M16 7l6 4-6 4"
+                   stroke="currentColor"
+                   strokeWidth="2.6"
+                   strokeLinecap="round"
+                   strokeLinejoin="round"
+                   fill="none"
+                 />
+               </svg>
+               <span>Cronograma Completo</span>
+             </a>
+           </div>
         </motion.div>
       </motion.div>
 
       {/* BOTÃO MOBILE (Abaixo da imagem) */}
       <div className="mt-10 flex justify-center min-[821px]:hidden">
-        <Link
-          href="/cronograma"
+        <a
+          href="https://www.notion.so/canastraventures/Sobre-o-AI-Entrepreneur-in-Residence-AI-EiR-2458b1fce47880779bcbe12a86b69355?source=copy_link"
+          target="_blank"
+          rel="noopener noreferrer"
           className="
             inline-flex items-center justify-center gap-2 rounded-md font-semibold
             h-12 px-5 min-w-[170px] text-[15px] border-2 transition-all duration-200 ease-out
@@ -177,7 +180,7 @@ export default function Structure() {
             className="-ml-1"
           />
           <span>Cronograma Completo</span>
-        </Link>
+        </a>
       </div>
     </section>
   );

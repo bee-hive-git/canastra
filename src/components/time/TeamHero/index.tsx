@@ -133,7 +133,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hidden min-[820px]:block absolute right-0 top-20 z-0 w-[55vw] pointer-events-none select-none">
+      <div className="hidden min-[820px]:block absolute right-0 top-20 z-0 w-[50vw] min-[1280px]:w-[55vw] pointer-events-none select-none">
         <Image
           src="/time/hero/montanha-4.svg"
           alt=""

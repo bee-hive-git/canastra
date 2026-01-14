@@ -13,7 +13,7 @@ const NAV: NavItem[] = [
   { label: "Time", href: "/time#team-hero" },
   { label: "AI EiR", href: "/ai-eir" },
   { label: "Pitch Us!", href: "/pitch-us" },
-  { label: "Recursos", href: "/#newsletter" },
+  { label: "Recursos", href: "https://canastraventures.notion.site/diskette-by-canastra-ventures" },
 ];
 
 export default function Header() {

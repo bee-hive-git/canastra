@@ -24,11 +24,11 @@ const FIGMA_H = 520.4;
 const AR = FIGMA_H / FIGMA_W;
 
 const TABS: { key: TabKey; label: string; count: number }[] = [
-  { key: "team", label: "Team", count: 4 },
-  { key: "venture-partners", label: "Venture Partners", count: 3 },
-  { key: "fellow-partners", label: "Fellow Partners", count: 3 },
-  { key: "advisors", label: "Advisors", count: 1 },
-  { key: "mentors", label: "Mentors", count: 16 },
+  { key: "team", label: "Team", count: TEAM_DATA.length },
+  { key: "venture-partners", label: "Venture Partners", count: VENTURE_PARTNERS_DATA.length },
+  { key: "fellow-partners", label: "Fellow Partners", count: FELLOW_PARTNERS_DATA.length },
+  { key: "advisors", label: "Advisors", count: ADVISORS_DATA.length },
+  { key: "mentors", label: "Mentors", count: MENTORS_DATA.length },
 ];
 
 // tabs
