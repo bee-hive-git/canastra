@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 export default function Sobre() {
@@ -182,9 +183,8 @@ export default function Sobre() {
           <span className="md:hidden">
             Ao longo de 12 semanas, os founders selecionados para o{" "}
             <span className="text-[#FF624D] font-semibold">AI Entrepreneur in Residence (AI EiR) </span>
-            terão apoio hands-on dos nossos Fallow Partners{" "}
-           
-            , mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar 
+            terão apoio hands-on dos nossos Fellow Partners,{" "}      
+             mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar 
             os primeiros sinais de tração rumo ao <span className="text-[#FF624D] font-semibold whitespace-nowrap">primeiro cheque</span>.
           
           </span>
@@ -192,10 +192,9 @@ export default function Sobre() {
 
         {/* Botão */}
         <div className="mt-8 md:mt-12 fade-up-delay2">
-          <a
-            href="https://forms.gle/BjEZU9quVQq8LSXg7"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/ai-eir"
+            prefetch
             className="cta inline-flex items-center justify-center gap-2 rounded-md font-semibold min-h-[3rem] px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 md:min-w-[260px] md:min-h-[3.25rem] md:px-8 md:text-[16px] md:border md:border-gray-400 md:bg-transparent md:text-white md:hover:brightness-110"
           >
             <Image
@@ -213,7 +212,7 @@ export default function Sobre() {
               className="-ml-1 hidden md:block"
             />
             Join AI EiR!
-          </a>
+          </Link>
         </div>
         </div>
         <div className="hidden md:block"></div> {/* Spacer for image */}
