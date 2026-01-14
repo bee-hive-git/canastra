@@ -48,7 +48,6 @@ export default function AIHero() {
                 AI <span className="italic">Entrepreneur</span>
                 <br />
                 in <span className="italic">Residence </span>
-                (AI EiR)
               </h1>
 
               {/* H1 mobile */}
@@ -56,7 +55,7 @@ export default function AIHero() {
           className="block min-[820px]:hidden font-bold text-[36px] leading-[1.15] mb-4 mobile-fade-up"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
-          AI Entrepreneur in Residence (AI EiR)
+          AI Entrepreneur in Residence
         </h1>
 
               {/* H2 desktop */}

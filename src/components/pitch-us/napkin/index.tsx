@@ -8,7 +8,7 @@ export default function Napkin() {
   const ACCENT = "#FF624D";
   const BG = "rgb(17, 4, 23)";
   const DESK_IMG = "/pitch-us/napkin/div.png";
-  const MOBILE_IMG = "/pitch-us/napkin/div-mobile.png";
+  const MOBILE_IMG = "/pitch-us/napkin/napkin-mobile.svg";
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 

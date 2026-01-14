@@ -110,11 +110,10 @@ export default function Value() {
           </h2>
 
           <div
-            className="text-white/90 text-[18px] leading-snug mx-auto max-w-none font-normal text-left fade-up-delay"
+            className="text-white/90 text-[18px] leading-snug mx-auto max-w-[56ch] font-normal text-center fade-up-delay"
             style={{
               fontFamily:
                 '"Hanken Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-              width: "86%",
             }}
           >
             Após o investimento, colaboramos com os founders na criação de um

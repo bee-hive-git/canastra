@@ -53,6 +53,11 @@ export default function Footer() {
             </h3>
             <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[15px] max-[360px]:text-[14px] min-[820px]:block">
               <li className="min-[820px]:mb-1">
+                <Link href="/" prefetch className={linkBase}>
+                  Home
+                </Link>
+              </li>
+              <li className="min-[820px]:mb-1">
                 <Link href="/time#team-hero" prefetch className={linkBase}>
                   Time
                 </Link>

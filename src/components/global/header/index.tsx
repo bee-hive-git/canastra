@@ -278,12 +278,24 @@ export default function Header() {
                           <circle cx="4" cy="4" r="2" />
                         </svg>
                       </a>
-                    </div>
 
-                    <span className="text-[8px] tracking-[0.15em] uppercase text-white/90 whitespace-nowrap">
-                      {/* CANASTRA NEWSLETTER */}
-                      {'//'} CANASTRA NEWSLETTER
-                    </span>
+                      {/* Substack */}
+                      <a
+                        href="https://canastra.substack.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Substack"
+                        className="text-white opacity-100 hover:opacity-80 transition-opacity duration-300 flex items-center"
+                      >
+                        <Image
+                          src="/elements/substack_wordmark.png"
+                          alt="Substack"
+                          width={90}
+                          height={20}
+                          className="h-5 w-auto brightness-0 invert"
+                        />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
