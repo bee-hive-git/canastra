@@ -182,7 +182,7 @@ export default function Napkin() {
             </span>
           </p>
 
-          <p className="text-white/85 max-w-[56ch] mx-auto">
+          <p className="text-white/85 max-w-[56ch] mx-auto text-center">
             Nele, você encontrará os critérios que consideramos para investimentos pre-seed, comparados
             aos que buscamos nas startups que se inscrevem no nosso programa de residência (
             <a

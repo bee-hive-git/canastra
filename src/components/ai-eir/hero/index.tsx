@@ -10,6 +10,89 @@ export default function AIHero() {
       className="relative text-white pt-12 pb-24 min-[820px]:pt-4 min-[820px]:pb-32 overflow-hidden"
       style={{ backgroundColor: "rgb(17, 4, 23)" }}
     >
+      <style jsx global>{`
+        #ai-eir-hero .mountain-img {
+          -webkit-mask-image: linear-gradient(to bottom, black 0%, black 100%);
+          mask-image: linear-gradient(to bottom, black 0%, black 100%);
+          -webkit-mask-size: 100% 0%;
+          mask-size: 100% 0%;
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          animation: revealSmooth 1.8s ease-out 0.15s forwards;
+          will-change: mask-size, opacity;
+          opacity: 0;
+        }
+        @keyframes revealSmooth {
+          to {
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+            opacity: 1;
+          }
+        }
+
+        @keyframes mobileLightReveal {
+          from {
+            -webkit-mask-size: 0% 100%;
+            mask-size: 0% 100%;
+            opacity: 0;
+          }
+          to {
+            -webkit-mask-size: 120% 100%;
+            mask-size: 120% 100%;
+            opacity: 1;
+          }
+        }
+        .mobile-light-reveal {
+          -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+          mask-image: linear-gradient(to right, black 80%, transparent 100%);
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          -webkit-mask-position: left center;
+          mask-position: left center;
+          animation: mobileLightReveal 1.8s ease-out 0.2s forwards;
+          will-change: mask-size, opacity;
+          opacity: 0;
+        }
+
+        @media (max-width: 819px) {
+          @keyframes mobileFadeUp {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          .mobile-fade-up {
+            opacity: 0;
+            animation: mobileFadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            will-change: opacity, transform;
+          }
+          .delay-100 {
+            animation-delay: 100ms;
+          }
+          .delay-200 {
+            animation-delay: 200ms;
+          }
+          .delay-300 {
+            animation-delay: 300ms;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          #ai-eir-hero .mountain-img,
+          .mobile-light-reveal,
+          .mobile-fade-up {
+            animation: none !important;
+            -webkit-mask-image: none !important;
+            mask-image: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+          }
+        }
+      `}</style>
       {/* gradiente */}
       <div
         aria-hidden
@@ -29,7 +112,7 @@ export default function AIHero() {
               src="/ai-eir/hero/montanha-5.svg"
               alt=""
               fill
-              className="object-contain object-right-top"
+              className="mountain mountain-img object-contain object-right-top"
               draggable={false}
               sizes="60vw"
             />
@@ -137,7 +220,7 @@ export default function AIHero() {
               src="/ai-eir/hero/montanha-5.svg"
               alt=""
               fill
-              className="object-contain object-bottom"
+              className="mobile-light-reveal object-contain object-bottom"
               draggable={false}
               sizes="(max-width: 820px) 100vw"
             />

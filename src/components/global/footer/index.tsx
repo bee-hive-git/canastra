@@ -137,7 +137,9 @@ export default function Footer() {
                 Inscreva-se na nossa newsletter
               </h3>
               <a
-                href="#newsletter"
+                href="https://canastraventures.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`${linkBase} mt-2 inline-block`}
               >
                 Canastra Newsletter
@@ -193,7 +195,9 @@ export default function Footer() {
                 Inscreva-se na nossa newsletter
               </h3>
               <a
-                href="#newsletter"
+                href="https://canastraventures.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`${linkBase} mt-2 inline-block`}
               >
                 Canastra Newsletter

@@ -281,7 +281,7 @@ export default function Header() {
 
                       {/* Substack */}
                       <a
-                        href="https://canastra.substack.com"
+                        href="https://canastraventures.substack.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Substack"
