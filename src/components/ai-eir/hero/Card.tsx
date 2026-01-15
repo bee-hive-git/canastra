@@ -20,19 +20,28 @@ export const Card: React.FC<CardProps> = ({
   return (
     <motion.div
       className={`relative w-full h-auto cursor-pointer group ${className}`}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial="initial"
+      whileInView="whileInView"
+      whileHover="whileHover"
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      whileHover={{
-        scale: 1.05,
-        y: -10,
-        filter: "brightness(1.1)",
-        transition: { type: "spring", stiffness: 300, damping: 20 },
+      variants={{
+        initial: { opacity: 0, y: 30 },
+        whileInView: { opacity: 1, y: 0 },
+        whileHover: {
+          scale: 1.05,
+          y: -10,
+          transition: { type: "spring", stiffness: 300, damping: 20 },
+        },
       }}
     >
       {/* Background + Icon (SVG without text) */}
-      <div className="relative w-full aspect-[484/458]">
+      <motion.div
+        className="relative w-full aspect-[484/458]"
+        variants={{
+          whileHover: { filter: "brightness(1.1)" },
+        }}
+      >
         <Image
           src={imageSrc}
           alt=""
@@ -41,7 +50,7 @@ export const Card: React.FC<CardProps> = ({
           draggable={false}
           sizes="(max-width: 640px) 85vw, 33vw"
         />
-      </div>
+      </motion.div>
 
       {/* Text Overlay */}
       <div className="absolute inset-0 flex flex-col justify-end px-8 pb-10 text-left">

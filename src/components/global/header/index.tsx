@@ -287,13 +287,20 @@ export default function Header() {
                         aria-label="Substack"
                         className="text-white opacity-100 hover:opacity-80 transition-opacity duration-300 flex items-center"
                       >
-                        <Image
-                          src="/elements/substack_wordmark.png"
-                          alt="Substack"
-                          width={90}
-                          height={20}
-                          className="h-5 w-auto brightness-0 invert"
-                        />
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          fill="none"
+                        >
+                          <rect x="5" y="5" width="14" height="2" fill="currentColor" />
+                          <rect x="5" y="10" width="14" height="2" fill="currentColor" />
+                          <path
+                            d="M5 15h14v4l-7-2.5L5 19v-4z"
+                            fill="currentColor"
+                          />
+                        </svg>
                       </a>
                     </div>
                   </div>
