@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "../../../../public/footer/logo.svg";
 
 export default function Footer() {
   const ACCENT = "#FF624D";
@@ -12,11 +12,8 @@ export default function Footer() {
   return (
     <footer id="footer" className="text-white" style={{ backgroundColor: BG }}>
       <div className="w-full h-[1px] bg-white/20" />
-      {/* wrap full width com padding site */}
       <div className="wrap w-full px-5 py-12 min-[820px]:py-12 text-left min-[820px]:px-0 min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]">
-        {/* Grid base em ≥820px */}
         <div className="grid grid-cols-1 gap-x-5 gap-y-10 min-[820px]:grid-cols-12 min-[820px]:gap-10">
-          {/* Escritório */}
           <div className="col-span-1 min-[820px]:col-span-3">
             <h3
               className="text-[16px] font-semibold"
@@ -29,7 +26,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Contato */}
           <div className="col-span-1 min-[820px]:col-span-3">
             <h3
               className="text-[16px] font-semibold"
@@ -43,7 +39,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links */}
           <div className="col-span-1 min-[820px]:col-span-2">
             <h3
               className="text-[16px] font-semibold"
@@ -74,7 +69,7 @@ export default function Footer() {
               </li>
               <li className="min-[820px]:mb-0">
                 <a
-                  href="https://canastraventures.notion.site/diskette-by-canastra-ventures"
+                  href="https://canastraventures.notion.site/floppy-by-canastra-ventures"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={linkBase}
@@ -85,9 +80,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Card redes / newsletter */}
           <div className="col-span-1 min-[820px]:col-span-4">
-            {/* Desktop */}
             <div className="hidden min-[820px]:block rounded-xl bg-white/6 border border-white/10 p-5 min-[1120px]:p-5">
               <h3
                 className="text-[16px] font-semibold"
@@ -146,7 +139,6 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Mobile/Tablet */}
             <div className="min-[820px]:hidden">
               <h3
                 className="text-[16px] font-semibold"
@@ -208,22 +200,18 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Logo + copyright */}
-        <div className="mt-8 min-[820px]:-mt-16 text-left">
-          <Image
-            src="/footer/logo.png"
-            alt="Canastra Ventures"
-            width={150}
-            height={44}
-            className="logo h-10 min-[820px]:h-11 w-auto select-none pointer-events-none object-contain"
+        <div className="mt-8 min-[820px]:-mt-16 text-left block">
+          <Logo
+            className="logo h-9 min-[820px]:h-10 w-auto max-w-full select-none pointer-events-none"
+            role="img"
+            aria-label="Canastra Ventures"
           />
+
           <p className="legal mt-4 text-white/85 text-[14px]">
             © 2026 Canastra Ventures. Todos os direitos reservados.
           </p>
         </div>
-
       </div>
-      {/* Linha final */}
       <div className="w-full h-[1px] bg-white/20" />
     </footer>
   );

@@ -108,13 +108,11 @@ export default function AIHero() {
       <div className="relative w-full min-h-[100svh] mb-24 min-[820px]:min-h-0 min-[820px]:h-[85dvh] min-[820px]:mb-40">
         <div className="mountain-desktop pointer-events-none hidden min-[820px]:block absolute top-[10vh] min-[820px]:right-[var(--site-padding-right)] z-0 h-[76vh] w-[54vw] lg:w-[50vw] xl:w-[45vw] flex items-start justify-end">
           <div className="w-full h-full relative">
-            <Image
+            <img
               src="/ai-eir/hero/montanha-5.svg"
               alt=""
-              fill
-              className="mountain mountain-img object-contain object-right-top"
+              className="mountain mountain-img object-contain object-right-top w-full h-full"
               draggable={false}
-              sizes="60vw"
             />
           </div>
         </div>
@@ -216,13 +214,11 @@ export default function AIHero() {
         {/* IMAGEM mobile - New Location */}
         <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[38svh]">
           <div className="relative w-full max-w-[600px] h-full">
-            <Image
+            <img
               src="/ai-eir/hero/montanha-5.svg"
               alt=""
-              fill
-              className="mobile-light-reveal object-contain object-bottom"
+              className="mobile-light-reveal object-contain object-bottom w-full h-full"
               draggable={false}
-              sizes="(max-width: 820px) 100vw"
             />
           </div>
         </div>
@@ -244,7 +240,7 @@ export default function AIHero() {
             delay={0.3}
           />
           <Card
-            imageSrc="/ai-eir/hero/BOX3.svg"
+            imageSrc="/ai-eir/hero/BOX3.png"
             title={<></>}
             description=""
             delay={0.5}

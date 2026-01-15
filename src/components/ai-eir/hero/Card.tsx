@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface CardProps {
@@ -35,20 +34,17 @@ export const Card: React.FC<CardProps> = ({
         },
       }}
     >
-      {/* Background + Icon (SVG without text) */}
       <motion.div
         className="relative w-full aspect-[484/458]"
         variants={{
           whileHover: { filter: "brightness(1.1)" },
         }}
       >
-        <Image
+        <img
           src={imageSrc}
           alt=""
-          fill
-          className="object-contain"
+          className="object-contain w-full h-full"
           draggable={false}
-          sizes="(max-width: 640px) 85vw, 33vw"
         />
       </motion.div>
 

@@ -69,6 +69,7 @@ export default function Newsletter() {
         <form
           onSubmit={onSubmit}
           className="mx-auto max-w-[480px] min-[820px]:grid min-[820px]:grid-cols-[1fr_auto]"
+          suppressHydrationWarning
         >
           <input
             type="email"

@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "../../../../public/header/logo.svg";
 import StartupsMarquee from "@/components/global/StartupsMarquee";
 
 export default function Hero() {
@@ -124,15 +125,11 @@ export default function Hero() {
         MOBILE IMAGE (<820px)
       */}
       <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none h-[42vh]">
-        <Image
+        <img
           src="/hero/montanha-1.svg"
           alt="Paisagem montanhosa"
-          fill
-          className="mobile-light-reveal object-contain object-bottom translate-y-16"
+          className="mobile-light-reveal object-contain object-bottom translate-y-16 w-full h-full"
           draggable={false}
-          priority
-          sizes="100vw"
-          unoptimized
         />
       </div>
 
@@ -140,16 +137,11 @@ export default function Hero() {
         DESKTOP IMAGE (>=820px)
       */}
       <div className="hidden min-[820px]:block absolute inset-x-0 bottom-0 z-0 w-full h-[85vh] pointer-events-none select-none">
-        <Image
+        <img
           src="/hero/montanha-1.svg"
           alt="Paisagem montanhosa detalhada"
-          fill
-          className="mountain mountain-img object-contain object-right-bottom translate-y-12"
+          className="mountain mountain-img object-contain object-right-bottom translate-y-12 w-full h-full"
           draggable={false}
-          priority
-          sizes="100vw"
-          unoptimized
-          style={{ imageRendering: 'auto' }}
         />
       </div>
 
@@ -159,13 +151,10 @@ export default function Hero() {
             ref={wrapRef}
             className="wrap pointer-events-auto mx-auto max-w-[560px] py-8 text-center flex flex-col items-center min-[820px]:mx-0 min-[820px]:py-0 min-[820px]:text-left min-[820px]:items-start min-[820px]:max-w-none"
           >
-            <Image
-              src="/header/logo.png"
-              alt="Logo Canastra"
-              width={150}
-              height={36}
+            <Logo
               className="h-14 sm:h-22 w-auto mb-14 sm:mb-12 min-[820px]:hidden mobile-fade-up object-contain"
-              priority
+              role="img"
+              aria-label="Logo Canastra"
             />
             {/* H1 – Crimson Text, peso 700 (bold) */}
             <h1

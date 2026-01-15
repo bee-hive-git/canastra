@@ -1,6 +1,6 @@
 // Hero.tsx
 "use client";
-
+ 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 
@@ -121,27 +121,21 @@ export default function Hero() {
 
       <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none flex justify-center items-end h-[40vh]">
         <div className="relative w-full max-w-[600px] h-full">
-          <Image
+          <img
             src="/time/hero/montanha-4.svg"
             alt=""
-            fill
-            className="mountain-mobile-img mobile-light-reveal object-contain object-bottom"
+            className="mountain-mobile-img mobile-light-reveal object-contain object-bottom w-full h-full"
             draggable={false}
-            priority
-            sizes="(max-width: 820px) 100vw"
           />
         </div>
       </div>
 
       <div className="hidden min-[820px]:block absolute right-0 top-20 z-0 w-[50vw] min-[1280px]:w-[55vw] pointer-events-none select-none">
-        <Image
+        <img
           src="/time/hero/montanha-4.svg"
           alt=""
-          width={1200}
-          height={800}
           className="mountain mountain-img w-full h-auto object-contain translate-x-[10%]"
           draggable={false}
-          priority
         />
       </div>
 

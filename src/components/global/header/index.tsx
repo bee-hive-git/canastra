@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import Logo from "../../../../public/header/logo.svg";
 
 type NavItem = { label: string; href: string; exact?: boolean };
 
@@ -13,7 +13,10 @@ const NAV: NavItem[] = [
   { label: "Time", href: "/time#team-hero" },
   { label: "AI EiR", href: "/ai-eir" },
   { label: "Pitch Us!", href: "/pitch-us" },
-  { label: "Recursos", href: "https://canastraventures.notion.site/diskette-by-canastra-ventures" },
+  {
+    label: "Recursos",
+    href: "https://canastraventures.notion.site/floppy-by-canastra-ventures",
+  },
 ];
 
 export default function Header() {
@@ -118,13 +121,10 @@ export default function Header() {
           aria-label="Ir para a Home"
           className="inline-flex items-center"
         >
-          <Image
-            src="/header/logo.png"
-            alt="Canastra Ventures"
-            width={150}
-            height={40}
+          <Logo
             className="logo w-auto h-[32px] sm:h-[40px] cursor-pointer object-contain"
-            priority
+            role="img"
+            aria-label="Canastra Ventures"
           />
         </Link>
 

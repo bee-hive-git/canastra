@@ -1,9 +1,9 @@
- "use client";
+"use client";
  
- import { motion, Variants } from "framer-motion";
- import Image from "next/image";
- 
- export default function Structure() {
+import Image from "next/image";
+import { motion, Variants } from "framer-motion";
+
+export default function Structure() {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -72,13 +72,11 @@
           className="block min-[821px]:hidden w-full max-w-[500px] mx-auto"
           variants={cardVariants}
         >
-          <Image 
+          <img 
             src="/ai-eir/structure/BOX-MOBILE.png" 
             alt="Estrutura do Programa" 
-            width={500}
-            height={500}
-            sizes="100vw"
             className="w-full h-auto drop-shadow-2xl"
+            draggable={false}
           />
         </motion.div>
 
@@ -87,14 +85,11 @@
           className="hidden min-[821px]:flex flex-col items-center relative w-full max-w-[1200px] mx-auto"
           variants={cardVariants}
         >
-          <Image 
-            src="/ai-eir/structure/BOX-WEB.png"
+          <img 
+            src="/ai-eir/structure/BOX-WEB.svg"
             alt="Estrutura do Programa (desktop)"
-            width={1200}
-            height={800}
-            sizes="100vw"
             className="w-full h-auto drop-shadow-2xl"
-            priority
+            draggable={false}
           />
 
            {/* BOTÃO DESKTOP (Reposicionado abaixo da imagem) */}

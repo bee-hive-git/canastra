@@ -1,6 +1,6 @@
 // Hero.tsx
 "use client";
-
+ 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 
@@ -125,15 +125,11 @@ export default function Hero() {
         - Centered horizontally, anchored to bottom with offset
       */}
       <div className="min-[820px]:hidden absolute inset-x-0 bottom-0 z-0 pointer-events-none select-none h-[42vh]">
-        <Image
+        <img
           src="/hero/montanha-3.svg"
           alt="Paisagem montanhosa"
-          fill
-          className="mobile-light-reveal object-contain object-bottom translate-y-16"
+          className="mobile-light-reveal object-contain object-bottom translate-y-16 w-full h-full"
           draggable={false}
-          priority
-          sizes="(max-width: 820px) 100vw"
-          unoptimized
         />
       </div>
 
@@ -146,16 +142,11 @@ export default function Hero() {
         - max-width constraints prevent it from becoming overwhelming on ultra-wide screens
       */}
       <div className="hidden min-[820px]:block absolute right-0 -top-[5%] lg:-top-[10%] z-0 w-[50vw] max-w-[1400px] h-[110%] pointer-events-none select-none">
-        <Image
+        <img
           src="/hero/montanha-3.svg"
           alt="Paisagem montanhosa detalhada"
-          fill
-          className="mountain mountain-img object-contain object-right"
+          className="mountain mountain-img object-contain object-right w-full h-full"
           draggable={false}
-          priority
-          sizes="(min-width: 820px) 50vw, (min-width: 1024px) 55vw, (min-width: 1280px) 50vw"
-          unoptimized
-          style={{ imageRendering: 'auto' }}
         />
       </div>
 

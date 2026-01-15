@@ -7,22 +7,22 @@ import { motion } from "framer-motion";
 const CARDS = [
   {
     id: 1,
-    src: "/ai-eir/founder/1.png",
+    src: "/ai-eir/founder/1.svg",
     alt: "Founder 1",
   },
   {
     id: 2,
-    src: "/ai-eir/founder/2.png",
+    src: "/ai-eir/founder/2.svg",
     alt: "Founder 2",
   },
   {
     id: 3,
-    src: "/ai-eir/founder/3.png",
+    src: "/ai-eir/founder/3.svg",
     alt: "Founder 3",
   },
   {
     id: 4,
-    src: "/ai-eir/founder/4.png",
+    src: "/ai-eir/founder/4.svg",
     alt: "Founder 4",
   },
 ];
@@ -30,22 +30,22 @@ const CARDS = [
 const MOBILE_CARDS = [
   {
     id: 1,
-    src: "/ai-eir/founder/1-mobile.png",
+    src: "/ai-eir/founder/1-mobile.svg",
     alt: "Founder 1",
   },
   {
     id: 2,
-    src: "/ai-eir/founder/2-mobile.png",
+    src: "/ai-eir/founder/2-mobile.svg",
     alt: "Founder 2",
   },
   {
     id: 3,
-    src: "/ai-eir/founder/3-mobile.png",
+    src: "/ai-eir/founder/3-mobile.svg",
     alt: "Founder 3",
   },
   {
     id: 4,
-    src: "/ai-eir/founder/4-mobile.png",
+    src: "/ai-eir/founder/4-mobile.svg",
     alt: "Founder 4",
   },
 ];
