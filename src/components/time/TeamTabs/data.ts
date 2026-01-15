@@ -114,7 +114,7 @@ export const MENTORS_DATA: MemberData[] = [
   },
   {
     name: "Caio Pereira",
-    role: "Co-Founder & CTO Stealth",
+    role: "Co-Founder & CTO Allia",
     description: "Executivo e empreendedor em tecnologia com 25+ anos de experiência, atuando desde desenvolvimento até liderança executiva como VP de Tecnologia em uma grande HRTech da América Latina. Conduzi projetos de alto impacto em diversos setores, gerando eficiência, crescimento e times de alta performance com cultura de produto orientada a dados.\n\nAtualmente, sou fundador da Boldn, consultor e mentor de startups, aplicando IA, dados e estratégia de produto para criar, estruturar e escalar produtos digitais com impacto mensurável. Principais competências: estratégia de produto, engenharia de software, IA aplicada, analytics, escalabilidade, qualidade, segurança e liderança de equipes.",
     image: "/time/mentors/Caio-Pereira-perfil.png",
     gridImage: "/time/mentors/Caio-Pereira.png",
