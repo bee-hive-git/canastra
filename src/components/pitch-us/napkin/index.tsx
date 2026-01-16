@@ -1,54 +1,54 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
-import Image from "next/image";
-
 export default function Napkin() {
   const ACCENT = "#FF624D";
   const BG = "rgb(17, 4, 23)";
   const DESK_IMG = "/pitch-us/napkin/div.png";
-  const MOBILE_IMG = "/pitch-us/napkin/napkin-mobile.svg";
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isModalOpen]);
-
-  // Animation Variants
-  const backdropVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { duration: 0.3, ease: "easeOut" }
+  const rows = [
+    {
+      label: "Receita anual \n (ARR)",
+      aiEir: "R$0 - R$500k",
+      preSeed: ">\u2009R$0 (early revenue) - R$1M",
     },
-    exit: { 
-      opacity: 0,
-      transition: { duration: 0.25, ease: "easeIn" }
-    }
-  };
-
-  const modalVariants: Variants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: { 
-      scale: 1.0, 
-      opacity: 1,
-      transition: { duration: 0.3, ease: "easeOut" }
+    {
+      label: "Tração",
+      aiEir: "-",
+      preSeed: "Visibilidade para chegar no Seed Round em 24 meses",
     },
-    exit: { 
-      scale: 0.8, 
-      opacity: 0,
-      transition: { duration: 0.25, ease: "easeIn" }
-    }
-  };
+    {
+      label: "Tamanho \n da rodada",
+      aiEir: "-",
+      preSeed: "R$500k - R$2M",
+    },
+    {
+      label: "Valuation \n (Pre-Money)",
+      aiEir: "-",
+      preSeed: "R$5M - R$20M",
+    },
+    {
+      label: "Captable ideal",
+      aiEir: "Idealmente, 100% com os Founders",
+      preSeed: "+95% com os Founders (c/SOP)",
+    },
+    {
+      label: "Produto",
+      aiEir: "Tese com base em produto de AI-First",
+      preSeed:
+        "MVP de AI-First validado c/ visibilidade para atingir PMF em 18-24 meses",
+    },
+    {
+      label: "Pessoas",
+      aiEir: "2-4 Co-Founders, com ao menos 1 Tech-Founder (CTO)",
+      preSeed: "2-4 Co-Founders, com ao menos 1 Tech-Founder (CTO)",
+    },
+    {
+      label: "GTM",
+      aiEir: "-",
+      preSeed:
+        "Estratégia de GTM bem definida, com pilotos já executados e validados",
+    },
+  ];
 
   return (
     <section
@@ -216,78 +216,54 @@ export default function Napkin() {
         </div>
       </div>
 
-      {/* MOBILE IMG + POPUP + DISCLAIMER */}
-      <div className="min-[1181px]:hidden mt-8 px-5">
-        <p className="text-center text-[10px] text-white/60 mb-2 uppercase tracking-wide">
-          Clique para expandir
-        </p>
-        
-        <div 
-          className="cursor-pointer transition-opacity hover:opacity-90 active:scale-95 duration-200"
-          onClick={() => setIsModalOpen(true)}
-          role="button"
-          aria-label="Expandir imagem do Napkin"
-          tabIndex={0}
+      {/* MOBILE TABLE (Cards Layout) */}
+      <div className="min-[1181px]:hidden mt-10 px-2 pb-10">
+        <div
+          className="rounded-[24px] border border-[#F05941]/20 bg-[#15051C] px-2 py-4 shadow-[0_0_20px_-5px_rgba(240,89,65,0.15)] overflow-hidden"
+          style={{
+            fontFamily: 'var(--font-crimson-text), serif',
+          }}
         >
-          <Image 
-            src={MOBILE_IMG} 
-            alt="Napkin Mobile" 
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="w-full h-auto rounded-2xl border border-white/10"
-          />
-        </div>
+          <div className="relative">
+          <div className="pointer-events-none absolute -top-4 -bottom-4 left-[66.6%] w-px bg-white/60" />
 
-
-      </div>
-
-      {/* MODAL */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <motion.div 
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-5 backdrop-blur-sm"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={backdropVariants}
-            onClick={() => setIsModalOpen(false)}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Napkin Expandido"
-          >
-            <div className="relative w-full max-w-[600px] flex flex-col items-center">
-              <motion.div variants={modalVariants} className="w-full">
-                <Image
-                  src={MOBILE_IMG}
-                  alt="Napkin Full"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  className="w-full h-auto rounded-lg shadow-2xl"
-                  onClick={(e) => e.stopPropagation()}
-                />
-              </motion.div>
-              <motion.button
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
-                exit={{ opacity: 0 }}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsModalOpen(false);
-                }}
-                className="mt-4 bg-white/10 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors backdrop-blur-md border border-white/10"
-                aria-label="Fechar modal"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </motion.button>
+          {/* Header */}
+          <div className="grid grid-cols-3 gap-1 mb-1 relative z-10">
+            <div></div>
+            <div className="flex items-end justify-center pb-1 border-b border-[#F05941]/20 mx-1">
+              <h4 className="text-white text-[16px] leading-tight font-bold">AI EiR</h4>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <div className="flex items-end justify-center pb-1 border-b border-[#F05941]/20 mx-1">
+              <h4 className="text-white text-[16px] leading-tight font-bold">Pre-Seed</h4>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-1.5 relative z-10">
+            {rows.map((row) => (
+              <div key={row.label} className="grid grid-cols-3 gap-1.5">
+                  <div className="border-[0.5px] border-[#F05941] rounded-[8px] bg-[#150A1B] p-1 flex items-center justify-center text-center h-[72px]">
+                    <span className="text-white font-bold text-[16px] leading-[1.1] whitespace-pre-line">
+                      {row.label}
+                    </span>
+                  </div>
+
+                  <div className="border-[0.5px] border-[#F05941] rounded-[8px] bg-[#150A1B] p-1 flex items-center justify-center text-center h-[72px]">
+                    <span className="text-white/90 text-[11px] leading-[1.1] break-words w-full font-medium">
+                      {row.aiEir}
+                    </span>
+                  </div>
+
+                  <div className="border-[0.5px] border-[#F05941] rounded-[8px] bg-[#150A1B] p-1 flex items-center justify-center text-center h-[72px]">
+                    <span className="text-white/90 text-[11px] leading-[1.1] break-words w-full font-medium">
+                      {row.preSeed}
+                    </span>
+                  </div>
+                </div>
+              ))}
+          </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

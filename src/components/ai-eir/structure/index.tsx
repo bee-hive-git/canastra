@@ -86,7 +86,7 @@ export default function Structure() {
           variants={cardVariants}
         >
           <img 
-            src="/ai-eir/structure/BOX-WEB.svg"
+            src="/ai-eir/structure/BOX-WEB.png"
             alt="Estrutura do Programa (desktop)"
             className="w-full h-auto drop-shadow-2xl"
             draggable={false}

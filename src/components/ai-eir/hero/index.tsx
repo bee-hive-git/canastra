@@ -228,21 +228,63 @@ export default function AIHero() {
       <div className="max-w-[1400px] mx-auto px-5 min-[820px]:px-10 lg:px-16 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-20">
           <Card
-            imageSrc="/ai-eir/hero/BOX1.svg"
-            title={<></>}
-            description=""
+            iconSrc="/ai-eir/hero/icone-card-1.png"
+            title={
+              <>
+                <span className="text-white">Go </span>
+                <span className="text-[#FF624D]">all in</span>
+                <span className="text-white"> and</span>
+                <br />
+                <span className="text-[#FF624D]">move fast</span>
+              </>
+            }
+            description={
+              <>
+                São 160+ founders, 25+ mentores especialistas e acesso direto a
+                investidores que conhecem os desafios de construir uma startup
+                de IA. Aqui, troca real de conhecimento e apoio mútuo fazem
+                parte do dia a dia.
+              </>
+            }
             delay={0.1}
           />
           <Card
-            imageSrc="/ai-eir/hero/BOX2.svg"
-            title={<></>}
-            description=""
+            iconSrc="/ai-eir/hero/icone-card-2.png"
+            title={
+              <>
+                <span className="text-white">Elite</span>{" "}
+                <span className="text-[#FF624D]">AI</span>
+                <br />
+                <span className="text-[#FF624D]">Community</span>
+              </>
+            }
+            description={
+              <>
+                Você vai construir seu produto em ritmo acelerado, com apoio
+                prático na definição de tese, no desenho do MVP e nos primeiros
+                experimentos de go-to-market. Menos teoria, mais execução.
+              </>
+            }
             delay={0.3}
           />
           <Card
-            imageSrc="/ai-eir/hero/BOX3.png"
-            title={<></>}
-            description=""
+            iconSrc="/ai-eir/hero/icone-card-3.png"
+            title={
+              <>
+                <span className="text-white">Build with</span>{" "}
+                <span className="text-[#FF624D]">Best</span>
+                <br />
+                <span className="text-[#FF624D]">Founders</span>
+              </>
+            }
+            description={
+              <>
+                Você terá acompanhamento semanal de Fellow Partners que criaram
+                e escalaram unicórnios. Momentos estratégicos para tomada de
+                decisão e revisão de rota com quem já viveu e superou os mesmos
+                desafios de fundar e escalar.
+              </>
+            }
             delay={0.5}
           />
         </div>
