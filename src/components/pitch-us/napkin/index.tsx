@@ -225,7 +225,6 @@ export default function Napkin() {
           }}
         >
           <div className="relative">
-          <div className="pointer-events-none absolute -top-4 -bottom-4 left-[66.6%] w-px bg-white/60" />
 
           {/* Header */}
           <div className="grid grid-cols-3 gap-1 mb-1 relative z-10">

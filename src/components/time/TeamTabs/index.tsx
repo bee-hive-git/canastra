@@ -55,6 +55,15 @@ export default function TeamTabs() {
   const [active, setActive] = useState<TabKey>("team");
   const [selectedMember, setSelectedMember] = useState<MemberData | null>(null);
 
+  const handleTabClick = (key: TabKey) => {
+    setActive(key);
+    const rail = railRef.current;
+    if (rail) {
+      rail.scrollLeft = 0;
+    }
+    setProgress(0);
+  };
+
   // Recupera a aba ativa do localStorage ao carregar
   useEffect(() => {
     const saved = localStorage.getItem("canastra_team_active_tab") as TabKey;
@@ -91,7 +100,6 @@ export default function TeamTabs() {
   const [shouldLoadHidden, setShouldLoadHidden] = useState(false);
 
   useEffect(() => {
-    // Atrasa o carregamento das abas ocultas para não prejudicar o LCP inicial
     const t = setTimeout(() => setShouldLoadHidden(true), 1500);
     return () => clearTimeout(t);
   }, []);
@@ -268,7 +276,7 @@ export default function TeamTabs() {
               return (
                 <button
                   key={t.key}
-                  onClick={() => setActive(t.key)}
+                  onClick={() => handleTabClick(t.key)}
                   className={`flex-1 flex items-center justify-center select-none outline-none border rounded-md transition-all duration-150 ${
                     is
                       ? "border-[#F05941] text-white"
@@ -400,8 +408,7 @@ export default function TeamTabs() {
         </div>
       </div>
 
-      {/* Preloader Oculto: Carrega imagens das outras abas em background */}
-      {shouldLoadHidden && (
+      {shouldLoadHidden && vw >= 820 && (
         <div className="fixed left-0 top-0 w-0 h-0 overflow-hidden opacity-0 pointer-events-none" aria-hidden="true">
           {TABS.map((tab) => {
             if (tab.key === active) return null;
@@ -421,22 +428,23 @@ export default function TeamTabs() {
         </div>
       )}
 
-      {/* Preloader Oculto: Carrega imagens do modal da aba ATIVA imediatamente */}
-      <div className="fixed left-0 top-0 w-0 h-0 overflow-hidden opacity-0 pointer-events-none" aria-hidden="true">
-        {getModalPhotos(active).map((src) => (
-          <div key={`preload-modal-${src}`} className="relative w-[320px] h-[400px]">
-            <Image
-              src={src}
-              alt=""
-              fill
-              sizes="(max-width: 768px) 100vw, 320px"
-              quality={75}
-              loading="eager"
-              priority
-            />
-          </div>
-        ))}
-      </div>
+      {vw >= 1181 && (
+        <div className="fixed left-0 top-0 w-0 h-0 overflow-hidden opacity-0 pointer-events-none" aria-hidden="true">
+          {getModalPhotos(active).map((src) => (
+            <div key={`preload-modal-${src}`} className="relative w-[320px] h-[400px]">
+              <Image
+                src={src}
+                alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, 320px"
+                quality={75}
+                loading="eager"
+                priority
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       <TeamMemberModal
         member={selectedMember}
