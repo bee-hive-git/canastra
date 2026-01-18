@@ -30,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.variable} ${geistMono.variable} ${crimsonText.variable} antialiased`}>
         {/* começa na 2ª seção marcada (Hero é index 0, sem linhas) */}
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
