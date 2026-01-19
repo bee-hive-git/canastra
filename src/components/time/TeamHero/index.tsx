@@ -84,6 +84,12 @@ export default function Hero() {
           opacity: 0;
         }
 
+        #team-hero .hero-mobile-img {
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: crisp-edges;
+          image-rendering: high-quality;
+        }
+
         /* Mobile Fade Animations */
         @media (max-width: 819px) {
           @keyframes mobileFadeUp {
@@ -124,7 +130,7 @@ export default function Hero() {
           <img
             src="/time/hero/montanha-4.svg"
             alt=""
-            className="mountain-mobile-img mobile-light-reveal object-contain object-bottom w-full h-full"
+            className="hero-mobile-img mountain-mobile-img mobile-light-reveal object-contain object-bottom w-full h-full"
             draggable={false}
           />
         </div>

@@ -54,6 +54,12 @@ export default function AIHero() {
           opacity: 0;
         }
 
+        #ai-eir-hero .hero-mobile-img {
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: crisp-edges;
+          image-rendering: high-quality;
+        }
+
         @media (max-width: 819px) {
           @keyframes mobileFadeUp {
             from {
@@ -217,7 +223,7 @@ export default function AIHero() {
             <img
               src="/ai-eir/hero/montanha-5.svg"
               alt=""
-              className="mobile-light-reveal object-contain object-bottom w-full h-full"
+              className="hero-mobile-img mobile-light-reveal object-contain object-bottom w-full h-full"
               draggable={false}
             />
           </div>

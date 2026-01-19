@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Napkin() {
   const ACCENT = "#FF624D";
   const BG = "rgb(17, 4, 23)";
@@ -117,14 +119,12 @@ export default function Napkin() {
             </span>{" "}
             que consideramos para investimentos pre-seed, comparados aos que buscamos nas startups que
             se inscrevem no nosso programa de residência (
-            <a
-              href="https://forms.gle/BjEZU9quVQq8LSXg7"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/ai-eir"
               className="underline decoration-white/30 hover:text-white"
             >
               AI EiR
-            </a>
+            </Link>
             ).
           </h3>
         </div>
@@ -185,14 +185,12 @@ export default function Napkin() {
           <p className="text-white/85 max-w-[56ch] mx-auto text-center">
             Nele, você encontrará os critérios que consideramos para investimentos pre-seed, comparados
             aos que buscamos nas startups que se inscrevem no nosso programa de residência (
-            <a
-              href="https://forms.gle/BjEZU9quVQq8LSXg7"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/ai-eir"
               className="underline decoration-white/30 hover:text-white"
             >
               AI EiR
-            </a>
+            </Link>
             ).
           </p>
         </div>

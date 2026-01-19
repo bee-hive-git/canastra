@@ -83,6 +83,12 @@ export default function Hero() {
           opacity: 0;
         }
 
+        #home .hero-mobile-img {
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: crisp-edges;
+          image-rendering: high-quality;
+        }
+
         /* Mobile Fade Animations */
         @media (max-width: 819px) {
           @keyframes mobileFadeUp {
@@ -128,7 +134,7 @@ export default function Hero() {
         <img
           src="/hero/montanha-3.svg"
           alt="Paisagem montanhosa"
-          className="mobile-light-reveal object-contain object-bottom translate-y-16 w-full h-full"
+          className="hero-mobile-img mobile-light-reveal object-contain object-bottom translate-y-16 w-full h-full"
           draggable={false}
         />
       </div>
