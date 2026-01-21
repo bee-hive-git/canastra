@@ -10,7 +10,7 @@ const CARDS = [
     type: "html",
     name: "Sergio VerdeSelva",
     role: "Co-Founder & CEO @ LagoaSystems (R2’25)",
-    logo: "/ai-eir/founder/lagoa-logo.svg",
+    logo: "/ai-eir/founder/lagoa-logo.png",
     quote:
       "Encerro meu segundo ciclo na Canastra com equipe formada, protótipo funcional e arquitetura técnica definida, fruto de uma colaboração profunda com o time da casa. Tive papel ativo nas decisões de tecnologia para estruturar minha tese de IA voltada ao novo regulatório de sustentabilidade da CVM, que entra em vigor em 2026 e transformará o mercado financeiro. Os programas — do matchmaking à residência — foram o ponto alto do meu ano e o acelerador definitivo para transformar uma ideia inicial em uma tese madura e pronta para o mercado. Essa evolução técnica e estratégica foi fundamental para garantir que o projeto nascesse com o rigor exigido pelo setor.",
     profileSrc: "/ai-eir/founder/1-perfil.jpg",
@@ -21,7 +21,7 @@ const CARDS = [
     type: "html",
     name: "Alexandre Scortecci",
     role: "Co-Founder & CEO @ Allia (R2’25)",
-    logo: "/ai-eir/founder/allia-logo.svg",
+    logo: "/ai-eir/founder/allia-logo.png",
     quote:
       "A gente participou do evento de aceleração da Canastra. Foram 12 semanas super interessantes. A Canastra ajuda a gente a passar por cada um dos temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial.",
     profileSrc: "/ai-eir/founder/2-perfil.png",
@@ -33,7 +33,7 @@ const CARDS = [
     type: "html",
     name: "Matehus Rosa",
     role: "Co-Founder &CEO @ Quorum Saúde (R2’25)",
-    logo: "/ai-eir/founder/quorum-logo .svg",
+    logo: "/ai-eir/founder/quorum-logo.png",
     quote:
       "Participamos do Cohort R2’25 do AI EiR da Canastra e foi uma experiência incrível. Foram 12 semanas intensas, com muita mão na massa e apoio próximo de sócios, mentores e parceiros. A Canastra nos ajuda a passar por todos os temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial, desde a definição da tese até a captação da primeira rodada de investimento. Recomendo fortemente o programa para founders que estão na fase de validação e buscam uma iniciativa que realmente acelere os estágios iniciais do negócio.",
     profileSrc: "/ai-eir/founder/3-perfil.jpg",
@@ -44,7 +44,7 @@ const CARDS = [
     type: "html",
     name: "Thais Silva",
     role: "Co-Founder & CEO @ Zonic (R2’25)",
-    logo: "/ai-eir/founder/zonic-logo.svg",
+    logo: "/ai-eir/founder/zonic-logo.png",
     quote:
       "Se você é founder e busca clareza sobre a tese ou o direcionamento do negócio, recomendo o programa da Canastra. Em cerca de quatro meses, saímos de R$ 8 mil para mais de R$ 100 mil em faturamento mensal, com apoio direto do programa. A Canastra foi fundamental na abertura de portas, no fundraising e na estruturação da tese, do modelo financeiro e da primeira rodada com fundos alinhados. Além disso, oferece um processo de matchmaking para formação de equipes. Para founders em fase inicial, a residência da Canastra é altamente recomendada.",
     profileSrc: "/ai-eir/founder/4-perfil.jpg",
@@ -58,7 +58,7 @@ const MOBILE_CARDS = [
     type: "html",
     name: "Sergio VerdeSelva",
     role: "Co-Founder & CEO @ LagoaSystems (R2’25)",
-    logo: "/ai-eir/founder/lagoa-logo.svg",
+    logo: "/ai-eir/founder/lagoa-logo.png",
     quote:
       "Encerro meu segundo ciclo na Canastra com equipe formada, protótipo funcional e arquitetura técnica definida, fruto de uma colaboração profunda com o time da casa. Tive papel ativo nas decisões de tecnologia para estruturar minha tese de IA voltada ao novo regulatório de sustentabilidade da CVM, que entra em vigor em 2026 e transformará o mercado financeiro. Os programas — do matchmaking à residência — foram o ponto alto do meu ano e o acelerador definitivo para transformar uma ideia inicial em uma tese madura e pronta para o mercado. Essa evolução técnica e estratégica foi fundamental para garantir que o projeto nascesse com o rigor exigido pelo setor.",
     profileSrc: "/ai-eir/founder/1-perfil.jpg",
@@ -69,7 +69,7 @@ const MOBILE_CARDS = [
     type: "html",
     name: "Alexandre Scortecci",
     role: "Co-Founder & CEO @ Allia (R2’25)",
-    logo: "/ai-eir/founder/allia-logo.svg",
+    logo: "/ai-eir/founder/allia-logo.png",
     quote:
       "A gente participou do evento de aceleração da Canastra. Foram 12 semanas super interessantes. A Canastra ajuda a gente a passar por cada um dos temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial.",
     profileSrc: "/ai-eir/founder/2-perfil.png",
@@ -81,7 +81,7 @@ const MOBILE_CARDS = [
     type: "html",
     name: "Matehus Rosa",
     role: "Co-Founder &CEO @ Quorum Saúde (R2’25)",
-    logo: "/ai-eir/founder/quorum-logo .svg",
+    logo: "/ai-eir/founder/quorum-logo.png",
     quote:
       "Participamos do Cohort R2’25 do AI EiR da Canastra e foi uma experiência incrível. Foram 12 semanas intensas, com muita mão na massa e apoio próximo de sócios, mentores e parceiros. A Canastra nos ajuda a passar por todos os temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial, desde a definição da tese até a captação da primeira rodada de investimento. Recomendo fortemente o programa para founders que estão na fase de validação e buscam uma iniciativa que realmente acelere os estágios iniciais do negócio.",
     profileSrc: "/ai-eir/founder/3-perfil.jpg",
@@ -92,7 +92,7 @@ const MOBILE_CARDS = [
     type: "html",
     name: "Thais Silva",
     role: "Co-Founder & CEO @ Zonic (R2’25)",
-    logo: "/ai-eir/founder/zonic-logo.svg",
+    logo: "/ai-eir/founder/zonic-logo.png",
     quote:
       "Se você é founder e busca clareza sobre a tese ou o direcionamento do negócio, recomendo o programa da Canastra. Em cerca de quatro meses, saímos de R$ 8 mil para mais de R$ 100 mil em faturamento mensal, com apoio direto do programa. A Canastra foi fundamental na abertura de portas, no fundraising e na estruturação da tese, do modelo financeiro e da primeira rodada com fundos alinhados. Além disso, oferece um processo de matchmaking para formação de equipes. Para founders em fase inicial, a residência da Canastra é altamente recomendada.",
     profileSrc: "/ai-eir/founder/4-perfil.jpg",
@@ -123,6 +123,7 @@ const FounderCardHTML = ({ card, isMobile = false }: { card: any; isMobile?: boo
                alt="Company Logo"
                fill
                className="object-contain object-right-top"
+               unoptimized
              />
            </div>
         </div>
@@ -183,6 +184,7 @@ const FounderCardHTML = ({ card, isMobile = false }: { card: any; isMobile?: boo
               alt="Company Logo"
               fill
               className="object-contain object-right-top"
+              unoptimized
             />
          </div>
       </div>
