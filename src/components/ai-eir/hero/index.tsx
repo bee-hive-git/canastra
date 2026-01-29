@@ -246,10 +246,9 @@ export default function AIHero() {
             }
             description={
               <>
-                São 160+ founders, 25+ mentores especialistas e acesso direto a
-                investidores que conhecem os desafios de construir uma startup
-                de IA. Aqui, troca real de conhecimento e apoio mútuo fazem
-                parte do dia a dia.
+                Você vai construir seu produto em ritmo acelerado, com apoio
+                prático na definição de tese, no desenho do MVP e nos primeiros
+                experimentos de go-to-market. Menos teoria, mais execução.
               </>
             }
             delay={0.1}
@@ -266,9 +265,10 @@ export default function AIHero() {
             }
             description={
               <>
-                Você vai construir seu produto em ritmo acelerado, com apoio
-                prático na definição de tese, no desenho do MVP e nos primeiros
-                experimentos de go-to-market. Menos teoria, mais execução.
+                São 160+ founders, 25+ mentores especialistas e acesso direto a
+                investidores que conhecem os desafios de construir uma startup
+                de IA. Aqui, troca real de conhecimento e apoio mútuo fazem
+                parte do dia a dia.
               </>
             }
             delay={0.3}
