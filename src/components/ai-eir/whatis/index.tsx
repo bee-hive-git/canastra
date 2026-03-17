@@ -80,7 +80,7 @@ export default function WhatIs() {
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           >
             <a
-              href="https://forms.gle/BjEZU9quVQq8LSXg7"
+              href="https://forms.gle/jT3K7ozX3YBbX5pp9"
               target="_blank"
               rel="noopener noreferrer"
               className={[

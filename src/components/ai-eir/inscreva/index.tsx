@@ -72,7 +72,7 @@ export default function Inscreva() {
           <div className="mt-6 flex items-center justify-center gap-5">
             <span className="h-px w-20 bg-white/30" />
             <a
-              href="https://forms.gle/BjEZU9quVQq8LSXg7"
+              href="https://forms.gle/jT3K7ozX3YBbX5pp9"
               target="_blank"
               rel="noopener noreferrer"
               className={`
@@ -116,7 +116,7 @@ export default function Inscreva() {
             </p>
 
             <a
-              href="https://forms.gle/BjEZU9quVQq8LSXg7"
+              href="https://forms.gle/jT3K7ozX3YBbX5pp9"
               target="_blank"
               rel="noopener noreferrer"
               className={`

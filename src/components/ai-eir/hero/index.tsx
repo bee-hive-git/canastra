@@ -191,7 +191,7 @@ export default function AIHero() {
               {/* CTA */}
               <div className="mt-7">
                 <a
-                  href="https://forms.gle/BjEZU9quVQq8LSXg7"
+                  href="https://forms.gle/jT3K7ozX3YBbX5pp9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-md font-semibold h-[38px] px-4 min-w-[120px] text-[13.5px] border-2 border-[#FF624D] bg-black text-white min-[820px]:border min-[820px]:border-gray-400 min-[820px]:bg-transparent transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-110 hover:shadow-md hover:shadow-black/40 min-[820px]:hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 max-[330px]:min-w-[100px] max-[330px]:px-3"
