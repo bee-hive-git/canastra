@@ -59,7 +59,7 @@ export default function Footer() {
               </li>
               <li className="min-[820px]:mb-1">
                 <Link href="/ai-eir" prefetch className={linkBase}>
-                  AI EiR
+                  AIR
                 </Link>
               </li>
               <li className="min-[820px]:mb-1">

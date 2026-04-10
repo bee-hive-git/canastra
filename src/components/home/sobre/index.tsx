@@ -141,21 +141,20 @@ export default function Sobre() {
           {/* TABLET/DESKTOP (≥768px) */}
           <span className="hidden md:block">
             <span className="block font-bold">
-              AI Entrepreneur
+              AI 
             </span>
             <span className="block">
-              in{" "}
               <span className="text-[#FF624D] font-bold">
-                Residence
+                Residency
               </span>
             </span>
           </span>
 
           {/* MOBILE (<768px) */}
           <span className="md:hidden block">
-            <span className="font-bold">AI Entrepreneur</span> <br />
+            <span className="font-bold">AI </span> <br />
             <span className="font-bold">
-              in <span className="text-[#FF624D]">Residence</span>
+              <span className="text-[#FF624D]">Residency</span>
             </span>
           </span>
         </h2>
@@ -171,7 +170,7 @@ export default function Sobre() {
           {/* TABLET/DESKTOP */}
           <span className="hidden md:block">
             Ao longo de 12 semanas, os founders selecionados para o{" "} <br />
-            <span className="text-[#FF624D] font-semibold">AI Entrepreneur in Residence (AI EiR) </span>
+            <span className="text-[#FF624D] font-semibold">AI Residency (AIR) </span>
             terão apoio hands-on dos nossos{" "}
             Fellow Partners, mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar
              os primeiros sinais de tração rumo ao {" "}
@@ -182,7 +181,7 @@ export default function Sobre() {
           {/* MOBILE */}
           <span className="md:hidden">
             Ao longo de 12 semanas, os founders selecionados para o{" "}
-            <span className="text-[#FF624D] font-semibold">AI Entrepreneur in Residence (AI EiR) </span>
+            <span className="text-[#FF624D] font-semibold">AI Residency (AIR) </span>
             terão apoio hands-on dos nossos Fellow Partners,{" "}      
              mentoria de especialistas e conexões estratégicas para validar a tese, construir o MVP e alcançar 
             os primeiros sinais de tração rumo ao <span className="text-[#FF624D] font-semibold whitespace-nowrap">primeiro cheque</span>.
@@ -211,7 +210,7 @@ export default function Sobre() {
               alt=""
               className="-ml-1 hidden md:block"
             />
-            Apply AI Residency
+            Apply AIR
           </Link>
         </div>
         </div>

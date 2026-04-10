@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@type": "ItemList",
     itemListElement: [
       { "@type": "SiteNavigationElement", position: 1, name: "Home", url: "https://www.canastra.ventures/" },
-      { "@type": "SiteNavigationElement", position: 2, name: "AI EiR", url: "https://www.canastra.ventures/ai-eir" },
+      { "@type": "SiteNavigationElement", position: 2, name: "AIR", url: "https://www.canastra.ventures/ai-eir" },
       { "@type": "SiteNavigationElement", position: 3, name: "Time", url: "https://www.canastra.ventures/time" },
       { "@type": "SiteNavigationElement", position: 4, name: "Pitch Us!", url: "https://www.canastra.ventures/pitch-us" },
       {

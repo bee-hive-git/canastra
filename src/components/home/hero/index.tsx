@@ -232,7 +232,7 @@ export default function Hero() {
                   alt=""
                   className="-ml-1 hidden min-[820px]:block"
                 />
-                Apply AI Residency
+                Apply AIR
               </Link>
 
               <Link

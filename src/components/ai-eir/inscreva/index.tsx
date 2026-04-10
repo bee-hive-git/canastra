@@ -61,7 +61,7 @@ export default function Inscreva() {
           <h1 className="font-serif text-[26px] leading-tight">
             Inscreva-se agora no{" "}
             <span className="italic font-semibold" style={{ color: HILIGHT }}>
-              AI EiR
+              AIR
             </span>
           </h1>
 
@@ -93,7 +93,7 @@ export default function Inscreva() {
                 alt=""
                 className="-ml-1"
               />
-              Apply AI Residency
+              Apply AIR
             </a>
             <span className="h-px w-20 bg-white/30" />
           </div>
@@ -107,7 +107,7 @@ export default function Inscreva() {
             <h1 className="font-serif text-[40px] leading-tight">
               Inscreva-se agora no{" "}
               <span className="italic font-semibold" style={{ color: HILIGHT }}>
-                AI EiR
+                AIR
               </span>
             </h1>
 
@@ -131,7 +131,7 @@ export default function Inscreva() {
               `}
             >
               <Image src="/elements/arrow-icon.png" width={26} height={22} alt="" className="-ml-1" />
-              Apply AI Residency
+              Apply AIR
             </a>
           </div>
         </div>

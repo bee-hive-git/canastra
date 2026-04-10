@@ -132,9 +132,7 @@ export default function AIHero() {
                 className="desk-h1 hidden min-[820px]:block font-bold mb-3 text-[36px] lg:text-[56px] leading-[1.15]"
                 style={{ fontFamily: '"Crimson Text", serif' }}
               >
-                AI <span className="italic">Entrepreneur</span>
-                <br />
-                in <span className="italic">Residence </span>
+                AI <span className="italic">Residency</span>
               </h1>
 
               {/* H1 mobile */}
@@ -142,7 +140,7 @@ export default function AIHero() {
           className="block min-[820px]:hidden font-bold text-[36px] leading-[1.15] mb-4 mobile-fade-up"
           style={{ fontFamily: '"Crimson Text", serif' }}
         >
-          AI Entrepreneur in Residence
+          AI Residency
         </h1>
 
               {/* H2 desktop */}
@@ -210,7 +208,7 @@ export default function AIHero() {
                     alt=""
                     className="-ml-1 hidden min-[820px]:block"
                   />
-                  Apply AI Residency
+                  Apply AIR
                 </a>
               </div>
             </div>

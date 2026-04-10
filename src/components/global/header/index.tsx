@@ -11,7 +11,7 @@ type NavItem = { label: string; href: string; exact?: boolean };
 const NAV: NavItem[] = [
   { label: "Home", href: "/", exact: true },
   { label: "Time", href: "/time#team-hero" },
-  { label: "AI EiR", href: "/ai-eir" },
+  { label: "AIR", href: "/ai-eir" },
   { label: "Pitch Us!", href: "/pitch-us" },
   {
     label: "Recursos",

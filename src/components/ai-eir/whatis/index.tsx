@@ -29,7 +29,7 @@ export default function WhatIs() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             O que é o{" "}
-            <span className="italic text-[#FF624D]">AI EiR?</span>
+            <span className="italic text-[#FF624D]">AIR?</span>
           </motion.h2>
 
           {/* Parágrafo principal com quebras ajustadas */}
@@ -53,7 +53,7 @@ export default function WhatIs() {
             >
               {/* MOBILE — fluxo natural */}
               <span className="min-[820px]:hidden">
-                O AI Entrepreneur in Residence (AI EiR) é nosso programa de
+                O AI Residency (AIR) é nosso programa de
                 residência criado para transformar ideias promissoras em startups
                 de sucesso. Em 12 semanas de residência, apoiamos equipes a
                 validarem hipóteses, construírem seus MVPs e iniciarem vendas para
@@ -62,7 +62,7 @@ export default function WhatIs() {
 
               {/* DESKTOP — quebras perfeitas */}
               <span className="hidden min-[820px]:block">
-                O AI Entrepreneur in Residence (AI EiR) é nosso programa de residência,{" "}
+                O AI Residency (AIR) é nosso programa de residência,{" "}
                 criado para transformar ideias promissoras em <span className="whitespace-nowrap">startups de sucesso</span>.
                 
                 Em 12 semanas de residência, apoiamos equipes a validarem hipóteses,{" "}
@@ -97,8 +97,8 @@ export default function WhatIs() {
                 alt=""
                 className="-ml-1"
               />
-              <span className="min-[820px]:hidden">Apply AI Residency</span>
-              <span className="hidden min-[820px]:inline">Apply AI Residency</span>
+              <span className="min-[820px]:hidden">Apply AIR</span>
+              <span className="hidden min-[820px]:inline">Apply AIR</span>
             </a>
           </motion.div>
 

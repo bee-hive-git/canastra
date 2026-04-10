@@ -18,28 +18,15 @@ const CARDS = [
     videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Sergio%20VerdeSelva.mov/ik-video.mp4?updatedAt=1773777345601",
   },
   {
-    id: 2,
-    type: "html",
-    name: "Alexandre Scortecci",
-    role: "Co-Founder & CEO @ Allia (R2’25)",
-    logo: "/ai-eir/founder/allia-logo.png",
-    quote:
-      "A gente participou do evento de aceleração da Canastra. Foram 12 semanas super interessantes. A Canastra ajuda a gente a passar por cada um dos temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial.",
-    profileSrc: "/ai-eir/founder/2-perfil.png",
-    alt: "Alexandre Scortecci",
-    minHeight: "min-h-[400px]",
-    videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Alexandre%20Scortecci.mov/ik-video.mp4?updatedAt=1773777254214",
-  },
-  {
     id: 3,
     type: "html",
-    name: "Matehus Rosa",
+    name: "Matheus Rosa",
     role: "Co-Founder &CEO @ Quorum Saúde (R2’25)",
     logo: "/ai-eir/founder/quorum-logo.png",
     quote:
-      "Participamos do Cohort R2’25 do AI EiR da Canastra e foi uma experiência incrível. Foram 12 semanas intensas, com muita mão na massa e apoio próximo de sócios, mentores e parceiros. A Canastra nos ajuda a passar por todos os temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial, desde a definição da tese até a captação da primeira rodada de investimento. Recomendo fortemente o programa para founders que estão na fase de validação e buscam uma iniciativa que realmente acelere os estágios iniciais do negócio.",
+      "Participamos do Cohort R2’25 do AIR da Canastra e foi uma experiência incrível. Foram 12 semanas intensas, com muita mão na massa e apoio próximo de sócios, mentores e parceiros. A Canastra nos ajuda a passar por todos os temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial, desde a definição da tese até a captação da primeira rodada de investimento. Recomendo fortemente o programa para founders que estão na fase de validação e buscam uma iniciativa que realmente acelere os estágios iniciais do negócio.",
     profileSrc: "/ai-eir/founder/3-perfil.jpg",
-    alt: "Matehus Rosa",
+    alt: "Matheus Rosa",
     videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Depoimento%20-%20Matheus%20Rosa%20(CEO%20-%20Quorum).mp4?updatedAt=1773777240040",
   },
   {
@@ -70,28 +57,15 @@ const MOBILE_CARDS = [
     videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Sergio%20VerdeSelva.mov/ik-video.mp4?updatedAt=1773777345601",
   },
   {
-    id: 2,
-    type: "html",
-    name: "Alexandre Scortecci",
-    role: "Co-Founder & CEO @ Allia (R2’25)",
-    logo: "/ai-eir/founder/allia-logo.png",
-    quote:
-      "A gente participou do evento de aceleração da Canastra. Foram 12 semanas super interessantes. A Canastra ajuda a gente a passar por cada um dos temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial.",
-    profileSrc: "/ai-eir/founder/2-perfil.png",
-    alt: "Alexandre Scortecci",
-    minHeight: "min-h-[400px]",
-    videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Alexandre%20Scortecci.mov/ik-video.mp4?updatedAt=1773777254214",
-  },
-  {
     id: 3,
     type: "html",
-    name: "Matehus Rosa",
+    name: "Matheus Rosa",
     role: "Co-Founder &CEO @ Quorum Saúde (R2’25)",
     logo: "/ai-eir/founder/quorum-logo.png",
     quote:
       "Participamos do Cohort R2’25 do AI EiR da Canastra e foi uma experiência incrível. Foram 12 semanas intensas, com muita mão na massa e apoio próximo de sócios, mentores e parceiros. A Canastra nos ajuda a passar por todos os temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial, desde a definição da tese até a captação da primeira rodada de investimento. Recomendo fortemente o programa para founders que estão na fase de validação e buscam uma iniciativa que realmente acelere os estágios iniciais do negócio.",
     profileSrc: "/ai-eir/founder/3-perfil.jpg",
-    alt: "Matehus Rosa",
+    alt: "Matheus Rosa",
     videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Depoimento%20-%20Matheus%20Rosa%20(CEO%20-%20Quorum).mp4?updatedAt=1773777240040",
   },
   {

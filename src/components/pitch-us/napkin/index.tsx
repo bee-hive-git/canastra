@@ -123,7 +123,7 @@ export default function Napkin() {
               href="/ai-eir"
               className="underline decoration-white/30 hover:text-white"
             >
-              AI EiR
+              AIR
             </Link>
             ).
           </h3>
@@ -228,7 +228,7 @@ export default function Napkin() {
           <div className="grid grid-cols-3 gap-1 mb-1 relative z-10">
             <div></div>
             <div className="flex items-end justify-center pb-1 border-b border-[#F05941]/20 mx-1">
-              <h4 className="text-white text-[16px] leading-tight font-bold">AI EiR</h4>
+              <h4 className="text-white text-[16px] leading-tight font-bold">AIR</h4>
             </div>
             <div className="flex items-end justify-center pb-1 border-b border-[#F05941]/20 mx-1">
               <h4 className="text-white text-[16px] leading-tight font-bold">Pre-Seed</h4>

@@ -66,7 +66,7 @@ export default function ForWho() {
             variants={itemVariants}
           >
             <span className="block text-[#FF624D]">Para quem</span>
-            <span className="block italic">é a residência?</span>
+            <span className="block italic">é o AI Residency?</span>
           </motion.h2>
 
           {/* título mobile */}
@@ -74,7 +74,7 @@ export default function ForWho() {
             className="min-[1280px]:hidden font-serif font-semibold leading-snug mb-3 text-[30px] sm:text-[34px] text-center"
             variants={itemVariants}
           >
-            Para quem é a <span className="italic text-[#FF624D]">Residência?</span>
+            Para quem é <span className="italic text-[#FF624D]">AI Residency?</span>
           </motion.h2>
 
           {/* parágrafo */}

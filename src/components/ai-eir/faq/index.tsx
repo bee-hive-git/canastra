@@ -16,7 +16,7 @@ const GROUPS: FaqGroup[] = [
     heading: "Elegibilidade e Perfil dos Founders",
     items: [
       {
-        q: "Quem pode participar do AI EiR da Canastra Ventures?",
+        q: "Quem pode participar do AIR da Canastra Ventures?",
         a: "Equipes early-stage com 2 a 4 founders, sendo obrigatória a presença de pelo menos um fundador técnico.",
       },
       {
@@ -25,7 +25,7 @@ const GROUPS: FaqGroup[] = [
       },
       {
         q: "Preciso já ter um MVP ou produto desenvolvido?",
-        a: "Não. O AI EiR foi criado justamente para apoiar a validação inicial de tese e o desenvolvimento do MVP durante o programa.",
+        a: "Não. O AIR foi criado justamente para apoiar a validação inicial de tese e o desenvolvimento do MVP durante o programa.",
       },
       {
         q: "Meu projeto pode estar em stealth (não divulgado publicamente)?",
@@ -62,7 +62,7 @@ const GROUPS: FaqGroup[] = [
     heading: "Nosso modelo de Equity Share Agreement",
     items: [
       {
-        q: "Quanto custa participar do AI EiR?",
+        q: "Quanto custa participar do AIR?",
         a: "O programa não possui custo inicial. Após a primeira etapa, caso haja alinhamento, a Canastra recebe 1,5% de equity somente se você captar nos 24 meses seguintes.",
       },
       {
@@ -104,7 +104,7 @@ const GROUPS: FaqGroup[] = [
         a: "Sim. Conectamos startups com anjos, fundos nacionais e internacionais parceiros.",
       },
       {
-        q: "Posso divulgar que participei do AI EiR?",
+        q: "Posso divulgar que participei do AIR?",
         a: "Sim. Recomendamos fortemente que use a chancela Canastra como sinal de credibilidade.",
       },
     ],
