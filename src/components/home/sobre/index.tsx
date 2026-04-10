@@ -211,7 +211,7 @@ export default function Sobre() {
               alt=""
               className="-ml-1 hidden md:block"
             />
-            Join AI EiR!
+            Apply AI Residency
           </Link>
         </div>
         </div>

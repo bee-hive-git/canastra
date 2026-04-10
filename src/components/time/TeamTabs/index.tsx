@@ -412,8 +412,8 @@ export default function TeamTabs() {
         <div className="fixed left-0 top-0 w-0 h-0 overflow-hidden opacity-0 pointer-events-none" aria-hidden="true">
           {TABS.map((tab) => {
             if (tab.key === active) return null;
-            return getPhotos(tab.key).map((src) => (
-              <div key={`preload-${src}`} className="relative w-[360px] h-[520px]">
+            return getPhotos(tab.key).map((src, index) => (
+              <div key={`preload-${tab.key}-${src}-${index}`} className="relative w-[360px] h-[520px]">
                 <Image
                   src={src}
                   alt=""
@@ -430,8 +430,8 @@ export default function TeamTabs() {
 
       {vw >= 1181 && (
         <div className="fixed left-0 top-0 w-0 h-0 overflow-hidden opacity-0 pointer-events-none" aria-hidden="true">
-          {getModalPhotos(active).map((src) => (
-            <div key={`preload-modal-${src}`} className="relative w-[320px] h-[400px]">
+          {getModalPhotos(active).map((src, index) => (
+            <div key={`preload-modal-${active}-${src}-${index}`} className="relative w-[320px] h-[400px]">
               <Image
                 src={src}
                 alt=""

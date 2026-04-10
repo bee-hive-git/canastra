@@ -210,7 +210,7 @@ export default function AIHero() {
                     alt=""
                     className="-ml-1 hidden min-[820px]:block"
                   />
-                  Apply AI EiR
+                  Apply AI Residency
                 </a>
               </div>
             </div>

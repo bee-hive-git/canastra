@@ -93,7 +93,7 @@ export default function Inscreva() {
                 alt=""
                 className="-ml-1"
               />
-              Apply AI EiR
+              Apply AI Residency
             </a>
             <span className="h-px w-20 bg-white/30" />
           </div>
@@ -131,7 +131,7 @@ export default function Inscreva() {
               `}
             >
               <Image src="/elements/arrow-icon.png" width={26} height={22} alt="" className="-ml-1" />
-              Apply AI EiR
+              Apply AI Residency
             </a>
           </div>
         </div>

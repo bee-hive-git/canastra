@@ -97,8 +97,8 @@ export default function WhatIs() {
                 alt=""
                 className="-ml-1"
               />
-              <span className="min-[820px]:hidden">Apply AI EiR</span>
-              <span className="hidden min-[820px]:inline">Apply AI EiR</span>
+              <span className="min-[820px]:hidden">Apply AI Residency</span>
+              <span className="hidden min-[820px]:inline">Apply AI Residency</span>
             </a>
           </motion.div>
 
