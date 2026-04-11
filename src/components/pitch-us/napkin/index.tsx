@@ -120,7 +120,7 @@ export default function Napkin() {
             que consideramos para investimentos pre-seed, comparados aos que buscamos nas startups que
             se inscrevem no nosso programa de residência (
             <Link
-              href="/ai-eir"
+              href="/air"
               className="underline decoration-white/30 hover:text-white"
             >
               AIR
@@ -186,7 +186,7 @@ export default function Napkin() {
             Nele, você encontrará os critérios que consideramos para investimentos pre-seed, comparados
             aos que buscamos nas startups que se inscrevem no nosso programa de residência (
             <Link
-              href="/ai-eir"
+              href="/air"
               className="underline decoration-white/30 hover:text-white"
             >
               AI EiR

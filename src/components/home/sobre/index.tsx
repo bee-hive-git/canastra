@@ -192,7 +192,7 @@ export default function Sobre() {
         {/* Botão */}
         <div className="mt-8 md:mt-12 fade-up-delay2">
           <Link
-            href="/ai-eir"
+            href="/air"
             prefetch
             className="cta inline-flex items-center justify-center gap-2 rounded-md font-semibold min-h-[3rem] px-5 min-w-[160px] text-[14px] border-2 border-[#FF624D] bg-white text-black transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:brightness-105 hover:shadow-md hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF624D]/60 active:translate-y-0 md:min-w-[260px] md:min-h-[3.25rem] md:px-8 md:text-[16px] md:border md:border-gray-400 md:bg-transparent md:text-white md:hover:brightness-110"
           >
