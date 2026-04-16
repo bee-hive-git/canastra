@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Card } from "./Card";
+import Logo from "../../../../public/header/logo.svg";
 
 export default function AIHero() {
   return (
@@ -127,6 +128,11 @@ export default function AIHero() {
         <div className="relative z-10 w-full min-[820px]:absolute min-[820px]:inset-x-0 min-[820px]:top-0 min-[820px]:pt-[22vh] pointer-events-none">
           <div className="w-full px-5 min-[820px]:px-0 min-[820px]:pl-[var(--site-padding-left)] min-[820px]:pr-[var(--site-padding-right)]">
             <div className="pointer-events-auto w-full max-w-[560px] flex flex-col items-center text-center mx-auto py-8 min-[820px]:py-0 min-[820px]:mx-0 min-[820px]:items-start min-[820px]:text-left">
+              <Logo
+                className="h-14 sm:h-22 w-auto mb-14 sm:mb-12 min-[820px]:hidden mobile-fade-up object-contain"
+                role="img"
+                aria-label="Logo Canastra"
+              />
               {/* H1 desktop */}
               <h1
                 className="desk-h1 hidden min-[820px]:block font-bold mb-3 text-[36px] lg:text-[56px] leading-[1.15]"

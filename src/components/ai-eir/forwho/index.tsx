@@ -74,7 +74,7 @@ export default function ForWho() {
             className="min-[1280px]:hidden font-serif font-semibold leading-snug mb-3 text-[30px] sm:text-[34px] text-center"
             variants={itemVariants}
           >
-            Para quem é <span className="italic text-[#FF624D]">AI Residency?</span>
+            Para quem é o<span className="italic text-[#FF624D]">AI Residency?</span>
           </motion.h2>
 
           {/* parágrafo */}

@@ -141,18 +141,13 @@ export default function Sobre() {
           {/* TABLET/DESKTOP (≥768px) */}
           <span className="hidden md:block">
             <span className="block font-bold">
-              AI 
-            </span>
-            <span className="block">
-              <span className="text-[#FF624D] font-bold">
-                Residency
-              </span>
+              AI <span className="text-[#FF624D]">Residency</span>
             </span>
           </span>
 
           {/* MOBILE (<768px) */}
           <span className="md:hidden block">
-            <span className="font-bold">AI </span> <br />
+            <span className="font-bold">AI </span> 
             <span className="font-bold">
               <span className="text-[#FF624D]">Residency</span>
             </span>

@@ -27,7 +27,7 @@ const CARDS = [
       "Participamos do Cohort R2’25 do AIR da Canastra e foi uma experiência incrível. Foram 12 semanas intensas, com muita mão na massa e apoio próximo de sócios, mentores e parceiros. A Canastra nos ajuda a passar por todos os temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial, desde a definição da tese até a captação da primeira rodada de investimento. Recomendo fortemente o programa para founders que estão na fase de validação e buscam uma iniciativa que realmente acelere os estágios iniciais do negócio.",
     profileSrc: "/ai-eir/founder/3-perfil.jpg",
     alt: "Matheus Rosa",
-    videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Depoimento%20-%20Matheus%20Rosa%20(CEO%20-%20Quorum).mp4?updatedAt=1773777240040",
+    videoUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/v1776360222/Depoimento_-_Matheus_Rosa_CEO_-_Quorum_1_us4hh7.mp4",
   },
   {
     id: 4,
@@ -66,7 +66,7 @@ const MOBILE_CARDS = [
       "Participamos do Cohort R2’25 do AI EiR da Canastra e foi uma experiência incrível. Foram 12 semanas intensas, com muita mão na massa e apoio próximo de sócios, mentores e parceiros. A Canastra nos ajuda a passar por todos os temas críticos que precisam ser discutidos no lançamento de uma startup com foco em inteligência artificial, desde a definição da tese até a captação da primeira rodada de investimento. Recomendo fortemente o programa para founders que estão na fase de validação e buscam uma iniciativa que realmente acelere os estágios iniciais do negócio.",
     profileSrc: "/ai-eir/founder/3-perfil.jpg",
     alt: "Matheus Rosa",
-    videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Depoimento%20-%20Matheus%20Rosa%20(CEO%20-%20Quorum).mp4?updatedAt=1773777240040",
+    videoUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/v1776360222/Depoimento_-_Matheus_Rosa_CEO_-_Quorum_1_us4hh7.mp4",
   },
   {
     id: 4,
