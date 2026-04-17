@@ -80,7 +80,7 @@ export default function Time() {
                 className="font-bold text-[28px] leading-snug mb-8 md:mb-12 md:text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px] md:leading-[1.08]"
                 style={{ fontFamily: '"Crimson Text", serif' }}
               >
-                Nosso <span className="text-[#FF624D]">Time</span>
+                Nosso Time
               </h2>
 
               <p

@@ -190,7 +190,7 @@ export default function Hero() {
 
               {/* MOBILE (<820px) — natural, com auto-fit maior agora */}
               <span className="min-[820px]:hidden block">
-                Guiamos os{" "}
+                Guiamos{" "}
                 <span className="text-[#FF624D] italic font-bold">ousados</span> na
                 trilha da
               </span>
