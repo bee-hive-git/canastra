@@ -15,7 +15,8 @@ const CARDS = [
       "Encerro meu segundo ciclo na Canastra com equipe formada, protótipo funcional e arquitetura técnica definida, fruto de uma colaboração profunda com o time da casa. Tive papel ativo nas decisões de tecnologia para estruturar minha tese de IA voltada ao novo regulatório de sustentabilidade da CVM, que entra em vigor em 2026 e transformará o mercado financeiro. Os programas — do matchmaking à residência — foram o ponto alto do meu ano e o acelerador definitivo para transformar uma ideia inicial em uma tese madura e pronta para o mercado. Essa evolução técnica e estratégica foi fundamental para garantir que o projeto nascesse com o rigor exigido pelo setor.",
     profileSrc: "/ai-eir/founder/1-perfil.jpg",
     alt: "Sergio VerdeSelva",
-    videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Sergio%20VerdeSelva.mov/ik-video.mp4?updatedAt=1773777345601",
+    videoUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/q_auto/f_auto/v1776456526/Sergio_VerdeSelva-ios_zihnxo.mp4",
+    posterUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/so_0/v1776456526/Sergio_VerdeSelva-ios_zihnxo.jpg",
   },
   {
     id: 3,
@@ -28,6 +29,7 @@ const CARDS = [
     profileSrc: "/ai-eir/founder/3-perfil.jpg",
     alt: "Matheus Rosa",
     videoUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/v1776360222/Depoimento_-_Matheus_Rosa_CEO_-_Quorum_1_us4hh7.mp4",
+    posterUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/so_0/v1776360222/Depoimento_-_Matheus_Rosa_CEO_-_Quorum_1_us4hh7.jpg",
   },
   {
     id: 4,
@@ -39,7 +41,8 @@ const CARDS = [
       "Se você é founder e busca clareza sobre a tese ou o direcionamento do negócio, recomendo o programa da Canastra. Em cerca de quatro meses, saímos de R$ 8 mil para mais de R$ 100 mil em faturamento mensal, com apoio direto do programa. A Canastra foi fundamental na abertura de portas, no fundraising e na estruturação da tese, do modelo financeiro e da primeira rodada com fundos alinhados. Além disso, oferece um processo de matchmaking para formação de equipes. Para founders em fase inicial, a residência da Canastra é altamente recomendada.",
     profileSrc: "/ai-eir/founder/4-perfil.jpg",
     alt: "Thais Silva",
-    videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Thais%20Silva.mov/ik-video.mp4?updatedAt=1773777334791",
+    videoUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/q_auto/f_auto/v1776456505/Thais_Silva-ios_ibrpnq.mp4",
+    posterUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/so_0/v1776456505/Thais_Silva-ios_ibrpnq.jpg",
   },
 ];
 
@@ -54,7 +57,8 @@ const MOBILE_CARDS = [
       "Encerro meu segundo ciclo na Canastra com equipe formada, protótipo funcional e arquitetura técnica definida, fruto de uma colaboração profunda com o time da casa. Tive papel ativo nas decisões de tecnologia para estruturar minha tese de IA voltada ao novo regulatório de sustentabilidade da CVM, que entra em vigor em 2026 e transformará o mercado financeiro. Os programas — do matchmaking à residência — foram o ponto alto do meu ano e o acelerador definitivo para transformar uma ideia inicial em uma tese madura e pronta para o mercado. Essa evolução técnica e estratégica foi fundamental para garantir que o projeto nascesse com o rigor exigido pelo setor.",
     profileSrc: "/ai-eir/founder/1-perfil.jpg",
     alt: "Sergio VerdeSelva",
-    videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Sergio%20VerdeSelva.mov/ik-video.mp4?updatedAt=1773777345601",
+    videoUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/q_auto/f_auto/v1776456526/Sergio_VerdeSelva-ios_zihnxo.mp4",
+    posterUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/so_0/v1776456526/Sergio_VerdeSelva-ios_zihnxo.jpg",
   },
   {
     id: 3,
@@ -67,6 +71,7 @@ const MOBILE_CARDS = [
     profileSrc: "/ai-eir/founder/3-perfil.jpg",
     alt: "Matheus Rosa",
     videoUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/v1776360222/Depoimento_-_Matheus_Rosa_CEO_-_Quorum_1_us4hh7.mp4",
+    posterUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/so_0/v1776360222/Depoimento_-_Matheus_Rosa_CEO_-_Quorum_1_us4hh7.jpg",
   },
   {
     id: 4,
@@ -78,7 +83,8 @@ const MOBILE_CARDS = [
       "Se você é founder e busca clareza sobre a tese ou o direcionamento do negócio, recomendo o programa da Canastra. Em cerca de quatro meses, saímos de R$ 8 mil para mais de R$ 100 mil em faturamento mensal, com apoio direto do programa. A Canastra foi fundamental na abertura de portas, no fundraising e na estruturação da tese, do modelo financeiro e da primeira rodada com fundos alinhados. Além disso, oferece um processo de matchmaking para formação de equipes. Para founders em fase inicial, a residência da Canastra é altamente recomendada.",
     profileSrc: "/ai-eir/founder/4-perfil.jpg",
     alt: "Thais Silva",
-    videoUrl: "https://ik.imagekit.io/t5plcbs0qr/Thais%20Silva.mov/ik-video.mp4?updatedAt=1773777334791",
+    videoUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/q_auto/f_auto/v1776456505/Thais_Silva-ios_ibrpnq.mp4",
+    posterUrl: "https://res.cloudinary.com/dplmqnhbi/video/upload/so_0/v1776456505/Thais_Silva-ios_ibrpnq.jpg",
   },
 ];
 
@@ -174,8 +180,10 @@ const FounderCardHTML = ({ card, isMobile = false, isActive = false }: { card: a
               className="video-styled w-full aspect-video object-cover cursor-pointer"
               preload="metadata"
               playsInline
+              crossOrigin="anonymous"
               controls={isPlaying}
               controlsList="nodownload"
+              poster={card.posterUrl}
               onClick={handleVideoClick}
               onEnded={handleVideoEnded}
               onPlay={handlePlay}
@@ -186,7 +194,7 @@ const FounderCardHTML = ({ card, isMobile = false, isActive = false }: { card: a
                 }
               }}
             >
-              <source src={card.videoUrl} type="video/mp4" />
+              <source src={card.videoUrl} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
               Seu navegador não suporta o elemento de vídeo.
             </video>
             
@@ -258,8 +266,11 @@ const FounderCardHTML = ({ card, isMobile = false, isActive = false }: { card: a
                controlsList="nodownload" 
                className="w-full h-auto aspect-video object-cover"
                preload="metadata"
+               playsInline
+               crossOrigin="anonymous"
+               poster={card.posterUrl}
              >
-                 <source src={card.videoUrl} type="video/mp4" />
+                 <source src={card.videoUrl} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
                  Seu navegador não suporta o elemento de vídeo.
              </video>
          </div>
